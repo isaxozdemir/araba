@@ -129,6 +129,14 @@ a:hover{text-decoration:underline}
 .cls-cell{font-weight:700;font-size:11px;text-align:center;padding:3px 6px;border-radius:6px;white-space:nowrap}
 .a-market{font-weight:700;white-space:nowrap;color:#1a1a2e}
 .a-market small{display:block;font-size:10px;color:#666;font-weight:500;line-height:1.2}
+.a-chronic-cell{max-width:220px;font-size:11px;line-height:1.35}
+.a-chronic-pill{display:inline-block;padding:2px 6px;border-radius:6px;font-size:10px;font-weight:800;margin-bottom:3px;white-space:nowrap}
+.a-chronic-high{background:#f8d7da;color:#721c24}
+.a-chronic-med{background:#fff3cd;color:#856404}
+.a-chronic-low{background:#e8f4fd;color:#0b5394}
+.a-chronic-none{color:#aaa;font-size:11px}
+.a-chronic-cell small{display:block;color:#444}
+.a-chronic-note{display:block;color:#7a4d00;padding-left:28px}
 .note-cell{max-width:260px;font-size:11px;color:#444;line-height:1.4}
 .ilankod{font-size:10px;color:#888}
 a.ilan-link{color:#1565c0;text-decoration:none;font-size:10px}
@@ -499,18 +507,93 @@ const ARABAM_MARKET = {
   17: '650k-735k'
 };
 
+const ARABAM_CHRONIC = {
+  1: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
+  2: {level:'high', label:'KRONİK', issues:'Astra J 1.4T: PCV/kapak diyaframı, M32 şanzıman, turbo ve soğutma kaçakları.'},
+  3: {level:'high', label:'KRONİK', issues:'Corsa 1.3 CDTI: triger zinciri, EGR/DPF, turbo ve ECU su alma riski.'},
+  4: {level:'med', label:'Kronik kontrol', issues:'Corolla 1.4 D-4D: EGR/intake karbonu ve kısa kullanımda DPF tıkanması.'},
+  5: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
+  6: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
+  8: {level:'high', label:'KRONİK', issues:'Astra J 1.4T: PCV/kapak diyaframı, M32 şanzıman, turbo ve soğutma kaçakları.'},
+  9: {level:'high', label:'KRONİK', issues:'Fiesta 1.4 TDCi: enjektör keçesi, EGR, turbo ve arka plastik su borusu.'},
+  10: {level:'high', label:'KRONİK', issues:'Polo 1.2 TDI: EGR/DPF, turbo/enjektör ve Dieselgate yazılım sonrası emisyon sistemi riski.'},
+  11: {level:'high', label:'KRONİK', issues:'Polo 1.2 TDI: EGR/DPF, turbo/enjektör ve Dieselgate yazılım sonrası emisyon sistemi riski.'},
+  12: {level:'med', label:'Kronik kontrol', issues:'Egea 1.4 Fire: yağ eksiltme; LPG varsa supap/kompresyon kontrolü.'},
+  15: {level:'high', label:'KRONİK', issues:'Peugeot 301 1.6 HDi: enjektör keçesi, turbo yağ besleme, EGR/DPF riski.'},
+  16: {level:'high', label:'KRONİK', issues:'Peugeot 301 BlueHDi: AdBlue/SCR tankı, NOx sensörü, EGR/DPF riski.'},
+  17: {level:'high', label:'KRONİK', issues:'Peugeot 301 BlueHDi: AdBlue/SCR tankı, NOx sensörü, EGR/DPF riski.'}
+};
+
+const ARABAM_LISTING_TO_ROW = {
+  41348812: 1,
+  40964267: 2,
+  39773645: 3,
+  40945095: 4,
+  39254114: 5,
+  40106594: 6,
+  41318637: 7,
+  41289931: 8,
+  39714640: 9,
+  41163377: 10,
+  41276551: 11,
+  40602791: 12,
+  38862080: 13,
+  41179900: 14,
+  41106955: 15,
+  40895887: 16,
+  40574741: 17
+};
+
+const ARABAM_TABLE_FIXUPS = {
+  3: {seller:'Sahibinden<br><span class="ilankod">Eskişehir/Mahmudiye</span>'},
+  4: {seller:'Galeri ZİRVE OTOMOTİV'},
+  5: {seller:'Sahibinden 3.yıl'},
+  6: {boya:'Tamamı orijinal'},
+  7: {seller:'Sahibinden'},
+  8: {seller:'Sahibinden'},
+  9: {seller:'Sahibinden'},
+  11: {seller:'Sahibinden 11.yıl'},
+  12: {boya:'Tamamı orijinal'},
+  13: {seller:'Sahibinden<br><span class="ilankod">Kocaeli/Gebze</span>'},
+  14: {seller:'Sahibinden<br><span class="ilankod">Eskişehir</span>'},
+  15: {seller:'Sahibinden<br><span class="ilankod">Eskişehir</span>'},
+  16: {seller:'Sahibinden<br><span class="ilankod">Ankara/Keçiören</span>'},
+  17: {boya:'Tamamı orijinal'}
+};
+
+function chronicHtml(chronic){
+  if(!chronic) return '<span class="a-chronic-none">—</span>';
+  return `<span class="a-chronic-pill a-chronic-${chronic.level}">${chronic.label}</span><small>${chronic.issues}</small>`;
+}
+
+function ensureArabamColumns(row,num){
+  if(row.cells.length>=14) return;
+  const fix=ARABAM_TABLE_FIXUPS[num];
+  if(!fix) return;
+  if(fix.seller){
+    const cell=row.insertCell(8);
+    cell.innerHTML=fix.seller;
+  }
+  if(fix.boya){
+    const cell=row.insertCell(9);
+    cell.innerHTML=fix.boya;
+  }
+}
+
 function decorateArabamMarket(){
   const headerRow=document.querySelector('#a-table thead tr');
-  if(headerRow && headerRow.children.length===13){
+  const hasMarketHeader=headerRow && Array.from(headerRow.children).some(th=>th.textContent.trim()==='Piyasa');
+  if(headerRow && !hasMarketHeader){
     const th=document.createElement('th');
     th.textContent='Piyasa';
     headerRow.insertBefore(th, headerRow.children[5]);
   }
 
   document.querySelectorAll('#a-table tbody tr').forEach(row=>{
-    if(row.cells.length===14) return;
+    if(row.querySelector('td.a-market')) return;
     const num=parseInt(row.cells[0].textContent.trim(),10);
     const band=ARABAM_MARKET[num];
+    if(!band) return;
     const price=parseInt(row.cells[4].textContent.replace(/[^\d]/g,''),10);
     const [lo,hi]=band.split('-').map(v=>parseInt(v,10)*1000);
     const cell=row.insertCell(5);
@@ -548,7 +631,51 @@ function decorateArabamMarket(){
     body.insertBefore(row, note || body.firstChild);
   });
 }
+
+function decorateArabamChronic(){
+  const headerRow=document.querySelector('#a-table thead tr');
+  const hasChronicHeader=headerRow && Array.from(headerRow.children).some(th=>th.textContent.trim()==='Kronik');
+  if(headerRow && !hasChronicHeader){
+    const th=document.createElement('th');
+    th.textContent='Kronik';
+    headerRow.insertBefore(th, headerRow.children[8]);
+  }
+
+  document.querySelectorAll('#a-table tbody tr').forEach(row=>{
+    const num=parseInt(row.cells[0].textContent.trim(),10);
+    ensureArabamColumns(row,num);
+    if(row.querySelector('td.a-chronic-cell')) return;
+    const cell=row.insertCell(8);
+    cell.className='a-chronic-cell';
+    cell.innerHTML=chronicHtml(ARABAM_CHRONIC[num]);
+  });
+
+  document.querySelectorAll('.a-pitem').forEach(item=>{
+    const listing=item.textContent.match(/#(\d{8})/);
+    if(!listing || item.querySelector('.a-chronic-note')) return;
+    const rowNum=ARABAM_LISTING_TO_ROW[listing[1]];
+    const chronic=ARABAM_CHRONIC[rowNum];
+    if(!chronic) return;
+    item.insertAdjacentHTML('beforeend', `<span class="a-chronic-note"><b>Kronik:</b> ${chronic.issues}</span>`);
+  });
+
+  document.querySelectorAll('.a-card').forEach(card=>{
+    const title=card.querySelector('.a-card-title');
+    const body=card.querySelector('.a-card-body');
+    if(!title || !body || card.querySelector('.a-card-chronic')) return;
+    const rowMatch=title.textContent.match(/(\d+)\./);
+    if(!rowMatch) return;
+    const chronic=ARABAM_CHRONIC[parseInt(rowMatch[1],10)];
+    if(!chronic) return;
+    const row=document.createElement('div');
+    row.className='a-card-row a-card-chronic';
+    row.innerHTML=`<span class="a-card-label">Kronik</span><span class="a-card-val">${chronic.issues}</span>`;
+    const note=body.querySelector('.a-card-note');
+    body.insertBefore(row, note || body.firstChild);
+  });
+}
 decorateArabamMarket();
+decorateArabamChronic();
 </script>
 </body>
 </html>
