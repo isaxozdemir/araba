@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eskişehir Araba İlanları</title>
+<style>
+:root{--green:#27ae60;--red:#e74c3c;--orange:#f39c12;--blue:#1a6db5;--dark:#2c3e50}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:13px;background:#f0f2f5;padding:10px}
+h2{color:var(--dark);font-size:16px;margin-bottom:6px}
+
+/* CONTROLS */
+.controls{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;align-items:center}
+.controls input[type=text]{padding:7px 10px;border:1px solid #ccc;border-radius:8px;font-size:13px;flex:1;min-width:150px}
+.controls label{font-size:11px;color:#555;display:flex;align-items:center;gap:3px;white-space:nowrap}
+.cnt{font-size:11px;color:#888;margin-left:auto;white-space:nowrap}
+
+/* TOP PICKS + WARN */
+.top{background:#f0fff4;border:1px solid var(--green);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:12px;line-height:1.9}
+.top strong{color:var(--dark)}
+.warn{background:#fff8e1;border:1px solid var(--orange);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:11px;line-height:1.6}
+.info{background:#e8f4fd;border:1px solid #90caf9;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;line-height:1.6}
+
+/* DESKTOP TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+table{width:100%;border-collapse:collapse;background:#fff}
+th{background:var(--dark);color:#fff;padding:8px 6px;text-align:left;cursor:pointer;font-size:11px;white-space:nowrap;user-select:none}
+th:hover{background:#3d5166}
+td{padding:5px 6px;border-bottom:1px solid #eee;vertical-align:top;font-size:11px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#dce8ff!important}
+tr.km-low td{background:#d4edda}
+tr.km-mid td{background:#fff3cd}
+tr.chronic td{background:#fff0f0!important}
+tr.kacin td{background:#ffd0d0!important}
+tr.kacin:hover td{background:#ffb0b0!important}
+
+/* MOBILE CARDS */
+.cards{display:none}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:10px;overflow:hidden}
+.card.km-low{border-left:4px solid var(--green)}
+.card.km-mid{border-left:4px solid var(--orange)}
+.card.chronic{border-left:4px solid #e67e22}
+.card.kacin{border-left:4px solid var(--red);background:#fff5f5}
+.card-head{padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.card-model{font-weight:bold;font-size:12px;color:var(--dark);line-height:1.3}
+.card-price{font-weight:bold;color:var(--red);white-space:nowrap;font-size:13px}
+.card-body{padding:0 12px 10px}
+.card-row{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#555;margin-bottom:4px}
+.card-row span{background:#f0f0f0;padding:2px 6px;border-radius:4px}
+.card-yorum{font-size:11px;line-height:1.5;padding:6px 8px;border-radius:6px;margin:4px 0}
+.card-yorum.iyi{background:#eafaf1;border-left:3px solid var(--green)}
+.card-yorum.kotu{background:#fdf0f0;border-left:3px solid var(--red)}
+.card-yorum.orta{background:#fefaf0;border-left:3px solid var(--orange)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:#f9f9f9;font-size:11px}
+.card-piyasa{font-weight:bold}
+.card-link{color:var(--blue);text-decoration:none;font-size:11px}
+.card-link:hover{text-decoration:underline}
+.card-num{font-size:10px;color:#999;align-self:flex-start}
+
+/* BADGES */
+.fiyat{font-weight:bold;color:var(--red);white-space:nowrap}
+.p-good{color:var(--green);font-weight:bold;font-size:11px;white-space:nowrap}
+.p-bad{color:var(--red);font-size:11px;white-space:nowrap}
+.p-ok{color:#555;font-size:11px;white-space:nowrap}
+.yorum{max-width:230px;line-height:1.4}
+.yorum.iyi{border-left:3px solid var(--green);padding-left:5px}
+.yorum.kotu{border-left:3px solid var(--red);padding-left:5px}
+.yorum.orta{border-left:3px solid var(--orange);padding-left:5px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.sold{color:#aaa;font-size:10px}
+.read{color:var(--blue);font-size:9px;font-weight:bold}
+.kacin-badge{color:var(--red);font-size:9px;font-weight:bold}
+.ch{color:#e67e22;font-size:9px}
+.sat1{color:var(--green);font-weight:bold}
+.sat2{color:var(--orange)}
+.sat3{color:var(--red)}
+
+/* CHRONIC SECTION */
+.chronic-section{background:#fff8f0;border:1px solid var(--orange);border-radius:8px;padding:12px 14px;margin-top:14px}
+.chronic-section h3{color:var(--red);font-size:13px;margin-bottom:8px}
+.chronic-section ol{padding-left:16px}
+.chronic-section li{margin-bottom:5px;line-height:1.5;font-size:11px}
+.legend{font-size:10px;color:#888;margin-top:8px;line-height:2}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  body{padding:8px}
+  .tbl-wrap{display:none}
+  .cards{display:block}
+  h2{font-size:14px}
+  .top{font-size:11px}
+}
+</style>
+</head>
+<body>
+<h2>🚗 Eskişehir Araba İlanları</h2>
+<div class="info">
+Filtreler: 300k–500k TL · 2005–2020 · ≤200k km · Ağır hasar yok &nbsp;|&nbsp; 17 Haz 2026 &nbsp;|&nbsp; <strong>📖</strong> = ilan okundu · <strong>🚫</strong> = bot engeli
+</div>
+
+<div class="warn">
+⚠️ <strong>KRİTİK:</strong>
+Row 30 Ford Fiesta — <strong>KM MANİPÜLASYONU</strong> (gerçek ~300k) &nbsp;|&nbsp;
+Row 22 Seat İbiza — <strong>şase + airbag arızası</strong> + 5 mekanik sorun &nbsp;|&nbsp;
+Row 32 Hyundai Accent — <strong>13 parça boyalı</strong> (komple hasar şüphesi) &nbsp;|&nbsp;
+Row 61 Seat Cordoba — <strong>sistem/açıklama çelişkisi</strong>
+</div>
+
+<div class="top">
+<strong>🏆 Öncelik Sırası (kalite + satılabilirlik):</strong><br>
+<span style="font-size:10px;color:#555">●●●●● = kolay sat · ●●● = orta · ●● = zor sat</span><br>
+1. #15 Peugeot 206+ 126k / 395k ✅ <span style="color:var(--green)">●●●●● Çok kolay</span> — En uygun fiyat + en kolay satış + dürüst galeri + TRAMER 2k + triger yeni<br>
+2. #66 Peugeot 208 2013 97k / 485k ✅ <span style="color:var(--green)">●●●●● Çok kolay</span> — Listede en düşük km + popüler model + dürüst açıklama (kaput değişmiş)<br>
+3. #57 Peugeot 208 2015 177.5k / 470k ⚠️ <span style="color:var(--green)">●●●●● Çok kolay</span> — En yeni model + muayene 2028 + CarPlay (kaput değişimi cisim düşmesinden)<br>
+4. #39 Citroen C3 155k / 445k ✅ <span style="color:var(--orange)">●●● Orta</span> — Çok temiz, 11 yıllık hesap sahibi; C3 biraz niş ama fiyatı makul<br>
+5. #36 Ford Ka 152k / 435k ✅ <span style="color:var(--orange)">●●● Orta</span> — Temiz, bakımlar tamam, ihtiyaçtan satış (410-420k'ya indir)<br>
+6. #23 Hyundai Getz 1.5 CRDi 188k / 414k ✅ <span style="color:var(--green)">●●●● Kolay</span> — Değişen yok, dizel az bulunur + kolay satılır; 188k km yüksek, araç teyit et<br>
+7. #38 Daihatsu Sirion 56k / 440k ✅ <span style="color:var(--red)">●● Zor</span> — Listede en temiz araç (Toyota motor, 56k km) ama Daihatsu nadir → satmak zaman alır
+</div>
+
+<div class="controls">
+<input id="q" type="text" placeholder="🔍 Marka / yorum ara..." oninput="render()">
+<label><input type="checkbox" id="ck" checked onchange="render()"> Kronik</label>
+<label><input type="checkbox" id="cs" checked onchange="render()"> Kapanan</label>
+<label><input type="checkbox" id="cr" checked onchange="render()"> Kaçın</label>
+<span class="cnt" id="cnt">78 ilan</span>
+</div>
+
+<div class="tbl-wrap">
+<table>
+<thead><tr>
+<th onclick="sort(0)">#</th>
+<th onclick="sort(1)">Model</th>
+<th onclick="sort(2)">Başlık / Link</th>
+<th onclick="sort(3)">Yıl</th>
+<th onclick="sort(4)">KM</th>
+<th onclick="sort(5)">Fiyat</th>
+<th onclick="sort(6)">Piyasa</th>
+<th onclick="sort(7)">Yorum</th>
+<th onclick="sort(8)">Satılabilirlik</th>
+</tr></thead>
+<tbody id="tb"></tbody>
+</table>
+</div>
+<div class="cards" id="cards"></div>
+
+<div class="legend">
+🟢 Yeşil = KM &lt;130k &nbsp;|&nbsp; 🟡 Sarı = 130–165k &nbsp;|&nbsp; 🔴 Kırmızı = Kaçın &nbsp;|&nbsp; Pembe = Kronik &nbsp;|&nbsp;
+<span style="color:var(--green)">■</span> Piyasa içi/altı &nbsp;|&nbsp; <span style="color:var(--red)">■</span> Piyasa üstü
+</div>
+
+<div class="chronic-section">
+<h3>⚠️ Kronik Sorunlu Modeller</h3>
+<ol>
+<li><strong>Opel Corsa 1.2/1.3 (2005–2012):</strong> Elektrik/sigorta sorunları, klima kompresörü, merkezi kilit arızaları. Yüksek servis masrafı.</li>
+<li><strong>Fiat Albea (2008–2012):</strong> 1.4 Fire'da triger kayışı ve soğutma. 1.3 Multijet'te turbo ve enjektör arızaları. Pas eğilimi yüksek.</li>
+<li><strong>Peugeot 407 1.6 HDi:</strong> BSI elektronik beyin arızaları — pahalı ve zor bulunur. 190k+ km'de büyük masraf.</li>
+<li><strong>Opel Meriva 1.3 CDTI:</strong> Kayan kapı mekanizması (mil aşınması), dizel enjektör, EGR tıkanması.</li>
+<li><strong>Peugeot 307 1.6 HDi:</strong> Baş contası, BSI arızaları. 190k+ km'de büyük masraf.</li>
+<li><strong>Peugeot 308 1.6 VTi (2008–2010):</strong> 2Tronic şanzıman, 1.6 VTi zaman zinciri ve tırnak sorunu.</li>
+<li><strong>Fiat Marea 1.6:</strong> Elektrik sistemi sürekli arıza, yüksek pas riski.</li>
+<li><strong>Chery Kimo 1.3:</strong> Türkiye'de servis ağı ve orijinal yedek parça yok.</li>
+<li><strong>Skoda Octavia 1.6 FSI (2005):</strong> Emme supabı karbon birikimi (her 80–100k km). Yakıt pompası.</li>
+<li><strong>Ford Fiesta TDCi (2004–2011):</strong> Yüksek km'de diş zinciri. Yakıt enjeksiyon sistemi pahalı.</li>
+<li><strong>Seat Ibiza 1.2 (2008–2010):</strong> VW Group 1.2 yağ tüketimi, zaman zinciri. Türkiye'de VW servis fiyatları.</li>
+<li><strong>Ford Fusion 1.4 TDCi:</strong> Türkiye'de az satıldı, yedek parça bulunurluğu azalıyor.</li>
+</ol>
+</div>
+
+<script>
+const D=[
+[1,"","Chevrolet Kalos 1.2 SE","ENS OTOMOTİV 2005 KALOS LPG",2005,175000,315000,"315k","235k–340k","1321352102","175k km yüksek, 2005 model. Makul giriş ama km fazla.","orta",false,false,false,"sat3","●● Zor"],
+[2,"km-low","Fiat Palio 1.2 Go","CarwinX 2005 PALİO 133k",2005,133000,317500,"317.5k","145k–345k","1322491531","📖 Ön panel işlemli + ön tampon demiri değişmiş (hafif ön darbe). TRAMER yok ama hasar var. Ekspere şart.","orta",false,true,false,"sat2","●●● Orta"],
+[3,"","Renault Symbol 1.5 DCI","195k DCI DİZEL 2012",2012,195000,329950,"329.9k","229k–370k","1315649740","📖 Komple boyalı, 3 parça değişen. 195k km çok yüksek. Şemayı mutlaka gör.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
+[4,"","Peugeot 206 1.4 XT","164k km masrafsız",2005,164000,330000,"330k","178k–317k","1322110596","Piyasa üstünde ⚠️. 206 max 317k. Pazarlık yap.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[5,"","Chevrolet Spark 1.0 SX","Acil bayan arabası Spark",2007,165000,340000,"340k","210k–400k","1315378526","📖 ❌ SİLİNDİR KAPAK CONTA değişmiş + 65k TL bakım yapılmış. Şase/podya belirsiz. Motor yoğun bakım görmüş.","kotu",false,true,true,"sat3","●● Zor"],
+[6,"km-mid","Peugeot 206 1.4 Comfort","Düşük km 206 Sedan",2009,151000,340000,"340k","178k–317k","1303650991","Piyasa üstünde ⚠️. 206 max 317k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[7,"km-mid","Chevrolet Lacetti 1.6 SX","SAFKAN BENZİNLİ LACETTİ",2005,150000,342000,"342k","250k–425k","1310618131","📖 1000 TL TRAMER sembolik. Bakım düzenli. Ama satıcı hesabı Nisan 2026 açılmış — yeni hesap dikkat.","orta",false,true,false,"sat3","●● Zor"],
+[8,"","Peugeot 206 1.4 X-Line","160k değişensiz 206",2006,160000,360000,"360k","178k–317k","","Piyasa çok üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[9,"km-low","Fiat Marea 1.6 Liberty","Fiat Marea Temiz",2006,115000,360000,"360k","212k–385k","1317648106","Piyasa içinde. 115k km ✅. Ama Marea kronik arıza riski.","orta",true,false,false,"sat2","●●● Orta"],
+[10,"km-mid","Chery Kimo 1.3 Forza","DÜŞÜK KM OTOMATİK Kimo",2011,150000,365000,"365k","180k–477k","1316144821","Otomatik güzel ama Chery servis ağı yok ⚠️.","orta",true,false,false,"sat3","● Çok zor"],
+[11,"","Fiat Punto 1.3 Multijet","Punto 1.3 MJet",2012,192000,375000,"375k","254k–450k","1321244063","📖 Açıklama neredeyse yok — 'bilgi mesajla'. Ön tampon değişmiş. 192k km yüksek.","orta",false,true,false,"sat2","●●● Orta"],
+[12,"","Fiat Palio 1.4 Fire","TEMİZ BAKIMLI Palio 184k",2008,184000,383999,"384k","145k–345k","1319508800","Piyasa üstünde ⚠️⚠️. Palio max 345k.","kotu",false,false,false,"sat2","●●● Orta"],
+[13,"","Renault Clio 1.5 dCi","Clio dCi Alize 165k",2006,165000,390000,"390k","235k–355k","1319654745","Piyasa üstünde ⚠️. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[14,"","Renault Clio 1.4 Authentique","DESTİCİLER 2005 CLİO",2005,194000,395000,"395k","235k–355k","1319435787","Piyasa üstünde ⚠️. 194k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[15,"km-low","Peugeot 206+ 1.4 HDi Urban Move","FULL BAKIMLI 206+ 126k",2012,126000,395000,"395k","270k–385k","1318100607","📖 ✅ GALERİ DÜRÜST: değişen+boyalı parçalar açıkça listeli. TRAMER 2.000 TL. Triger yeni. 1.4 HDi 5-6L. Fiyat mantıklı.","iyi",false,true,false,"sat1","●●●●● Çok kolay"],
+[16,"km-mid","Fiat Panda 1.2 Dynamic","2012 PANDA",2012,143000,399500,"399.5k","325k–630k","1322574673","📖 ⚠️ 'Kazasız' yazıyor ama TRAMER 12.000 TL. Galeri çelişkili. İlk el, City Mod, bakımlar evraklı. Ekspere şart.","orta",false,true,false,"sat2","●●● Orta"],
+[17,"","Renault Clio 1.4","temiz clio 191k",2005,191450,400000,"400k","235k–355k","1320983300","Piyasa üstünde. 191k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[18,"","Opel Corsa 1.2 Twinport","Corsa 1.2 Essentia 187k",2012,187000,400000,"400k","229k–383k","1309742370","Piyasa üstünde. Elektrik sorunları bilinen model.","kotu",true,false,false,"sat2","●●● Orta"],
+[19,"","Peugeot 206+ 1.4 Envy","ENS OTOMOTİV 206+ 195k",2010,195000,405000,"405k","270k–385k","1319569300","Piyasa üstünde. 195k km + galeri fiyatı fazla.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[20,"","Fiat Palio 1.2 Active","sahibinden Palio 194k",2005,194100,405000,"405k","145k–345k","1320371580","Piyasa çok üstünde ⚠️⚠️. Aşırı pahalı.","kotu",false,false,false,"sat2","●●● Orta"],
+[21,"km-low","Renault Clio 1.4","15 YIL SAHİBİNDEN 85k CLİO",2005,85000,409500,"409.5k","235k–355k","","Piyasa üstünde. 85k km ✅✅. İLAN KAPANMIŞ.","orta",false,false,false,"sat1","●●●●● Çok kolay"],
+[22,"","Seat Ibiza 1.2 Reference","ACİL SEAT İBİZA 173k",2009,173000,410000,"410k","390k–630k","1321956183","📖 ❌ ŞASE İŞLEMLİ + AİRBAG ARIZALI + marşta ses + silecek akıtıyor + direksiyon korna arızası. 5 mekanik sorun.","kotu",true,true,true,"sat2","●●● Orta"],
+[23,"","Hyundai Getz 1.5 CRDi GLS","DEĞİŞENSİZ hasar kayıtsız",2005,188000,414000,"414k","265k–415k","1320815652","📖 ✅ Değişen yok, lokal boyalar kabul edilebilir. Satıcı: 'Şase/podya/airbag işlemsiz'. Hesap 2023 açılmış — araç doğrulanmalı.","iyi",false,true,false,"sat1","●●●● Kolay"],
+[24,"km-low","Fiat Palio 1.4 Fire Sole","126k Egea motorlu Palio",2008,126000,419000,"419k","145k–345k","1297996733","Piyasa üstünde ⚠️⚠️. Palio max 345k. 126k ✅ ama 419k çok.","kotu",false,false,false,"sat2","●●● Orta"],
+[25,"","Renault Clio 1.5 dCi","ORJİNAL HATASIZ CLİO 188k",2006,188000,420000,"420k","235k–355k","","Piyasa üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[26,"","Ford Fiesta 1.4 Comfort","Sorunsuz Fiesta 200k",2005,200000,420000,"420k","190k–420k","1318891792","Piyasa üst sınırı. 200k km tam sınırda.","kotu",false,false,false,"sat2","●●●● Kolay"],
+[27,"","Opel Corsa 1.2 Twinport","BOL EKSTRALI HAFTASONU Corsa",2006,185000,420000,"420k","229k–383k","1319055017","Piyasa üstünde. Opel Corsa kronik elektrik.","kotu",true,false,false,"sat2","●●● Orta"],
+[28,"km-mid","Chevrolet Aveo 1.2 LS","SORUNSUZ AVEO LS 152k",2011,152000,420000,"420k","245k–375k","1317847202","📖 ⚠️ TRAMER 3.000 TL + Motor Kaputu + Sağ Ön Kapı DEĞİŞMİŞ (sağ ön darbe). Hesap Mayıs 2026 yeni. Ekspere şart.","orta",false,true,false,"sat3","●● Zor"],
+[29,"km-low","Fiat Albea Sole 1.4","TEMİZ DÜŞÜK KM Albea",2011,128000,425000,"425k","150k–350k","1322431771","Piyasa çok üstünde ⚠️⚠️. Albea max 350k. Kronik sorunlu.","kotu",true,false,false,"sat2","●●● Orta"],
+[30,"","Ford Fiesta 1.4 TDCi Trend","2011 Fiesta TDCi",2011,180780,425000,"425k","309k–465k","1317070207","📖 ❌ KM MANİPÜLASYONU — Satıcı kendisi yazıyor: 'Km orijinal değil, gerçek ~300.000 km'. Bu araç 300k km'de.","kotu",false,true,true,"sat2","●●●● Kolay"],
+[31,"km-mid","Peugeot 206 1.4 X-Design","Orijinal 136k Triger Yeni",2006,136000,425000,"425k","178k–317k","1320450917","Piyasa çok üstünde ⚠️⚠️. 206 max 317k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[32,"km-low","Hyundai Accent 1.3 Admire","DÜŞÜK KM 11YILLIK Accent",2006,126500,429000,"429k","170k–385k","1319031738","📖 ❌ 13 PARÇA BOYALI (komple kaza boya şüphesi). 'Temizlik boyası' açıklaması yetersiz. Tramer kaydı mutlaka sorgulanmalı.","kotu",false,true,true,"sat1","●●●● Kolay"],
+[33,"","Renault Clio 1.5 dCi","Garajdan Clio 186k",2007,186000,430000,"430k","235k–355k","1322143398","Piyasa üstünde. 186k km.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[34,"","Fiat Punto Grande 1.4","DEĞİŞENSİZ 198k Punto",2006,198698,434500,"434.5k","290k–419k","1317664366","198.7k km çok yüksek. Değişensiz ama km+fiyat fazla.","kotu",false,false,false,"sat2","●●● Orta"],
+[35,"","Fiat Albea Sole 1.4","DEĞİRMEN GRUP Albea 168k",2009,168000,435000,"435k","150k–350k","1289426892","Piyasa çok üstünde. Albea kronik. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
+[36,"km-mid","Ford Ka 1.2 Titanium","Ford Ka Ekonomik Fırsat",2009,152000,435000,"435k","310k–460k","1320148642","📖 ✅ İhtiyaçtan satıyor. Bakımlar tamam (balata, yağ, klima). Hasar kaydı yok. 152k için 410-420k'ya pazarlık yap.","iyi",false,true,false,"sat2","●●● Orta"],
+[37,"","Citroen C4 1.4 SX","8 YIL SAHİBİNDEN C4 Full",2009,170000,437500,"437.5k","280k–465k","1322748947","📖 8 yıllık tek sahip, ekspere açık, LPG yok, muayene 2028. 1 parça değişmiş (H100 çarpması). Dürüst satıcı.","orta",false,true,false,"sat2","●●● Orta"],
+[38,"km-low","Daihatsu Sirion 1.3 Touring","56k KM DEĞİŞENSİZ SİRİON",2005,56000,440000,"440k","305k–600k","1319401032","📖 🏆 TOYOTA MOTORLU, 2. sahip. Komple boyalı ama değişen yok (dürüst). Bakımlar 3k km önce. Muayene 2027. LED far.","iyi",false,true,false,"sat3","●● Zor"],
+[39,"km-mid","Citroen C3 1.4 X Furio","Sahibinden Temiz C3 155k",2010,155000,445000,"445k","230k–465k","1270468269","📖 ✅ 3 parça lokal boya, değişen yok. 11 yıllık hesap sahibi. Bakımlar yapılmış, akü yeni. Dürüst açıklama.","iyi",false,true,false,"sat2","●●● Orta"],
+[40,"","Peugeot 407 1.6 HDi Comfort","KARABEYLER 407 DEĞİŞENSİZ",2007,190000,445000,"445k","340k–600k","1314871748","Piyasa içinde. 407 çok yüksek bakım masrafı ⚠️⚠️. 190k km.","kotu",true,false,false,"sat2","●●● Orta"],
+[41,"","Renault Clio 1.4 Dynamique","Değişensiz Clio 158k",2005,158000,445000,"445k","235k–355k","1310104752","Piyasa çok üstünde ⚠️⚠️. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[42,"","Opel Corsa 1.2 OTOMATİK","acil otomatik Corsa 172k",2005,172000,450000,"450k","229k–383k","1322888282","Otomatik dikkat çekici ama Corsa kronik. 450k çok.","kotu",true,false,false,"sat2","●●● Orta"],
+[43,"","Opel Corsa 1.2 Twinport","Satılık Corsa 172k",2005,172000,450000,"450k","229k–383k","1322886874","42 numaralı ile neredeyse aynı. Corsa kronik.","kotu",true,false,false,"sat2","●●● Orta"],
+[44,"","Ford Fiesta 1.4 TDCi Comfort","temiz Fiesta 190k",2006,190000,450000,"450k","190k–420k","1321425478","Piyasa üstünde. 190k km, 2006. 420k max piyasa.","kotu",false,false,false,"sat2","●●●● Kolay"],
+[45,"","Renault Symbol 1.5 DCI","Bakımlı dolu Symbol 192k",2010,192000,450000,"450k","229k–370k","1312890999","Piyasa üstünde. Symbol 370k, burada 450k. 192k km.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[46,"","Ford Fusion 1.4 TDCi","ford fusion 177k",2006,177000,450000,"450k","365k–600k","1317825603","📖 ⚠️ Sol ön çamurluk + bagaj kapağı değişmiş (sürtme). Hesap Mayıs 2026 yeni. Minimal açıklama. 177k km pahalı.","orta",true,true,false,"sat3","●● Zor"],
+[47,"","Fiat Albea 1.3 Multijet","PARÇA BOYALI Albea 181k",2010,181000,450000,"450k","150k–350k","1317730380","'Parça boyalı' = hasar. Albea dizel kronik. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
+[48,"","Fiat Albea 1.3 Multijet","2011 albea dizel 186k",2011,186000,450000,"450k","150k–350k","1317023392","Albea dizel kronik. 186k km. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
+[49,"km-low","Chevrolet Aveo 1.2 LS","Sağlık Personeli Aveo 117k",2011,117270,450000,"450k","245k–375k","","117.27k ✅✅ ama 450k çok. İLAN KAPANMIŞ.","orta",false,false,false,"sat3","●● Zor"],
+[50,"km-low","Skoda Octavia 1.6 FSI","122k OCTAVIA KLİMALI",2005,122000,459000,"459k","310k–650k","1322243079","📖 ⚠️ Motor kaputu değişmiş + sağ taraf + sol ön boyalı (6 parça). Galeri 'hasar yok' diyor — tramer belgesi iste. 122k km iyi.","orta",true,true,false,"sat2","●●● Orta"],
+[51,"","Peugeot 207 1.4 Millesim","207 BENZİN LPG MİLLESİM 199k",2011,198900,459750,"459.8k","360k–470k","1314279212","📖 ❌ 198.9k km + sağ taraf tümüyle boyalı + sol çamurluk değişmiş (iki taraflı hasar). Fiyat bu km için yüksek.","kotu",false,true,true,"sat1","●●●● Kolay"],
+[52,"","Renault Symbol 1.2","Renault Symbol 2012 Beylikova",2012,182500,460000,"460k","229k–370k","1320172353","Piyasa üstünde. 182.5k km, Symbol max 370k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[53,"","Hyundai Getz 1.5 CRDi VGT","2008 GETZ 1.5 VGT 192k",2008,192190,465000,"465k","265k–415k","1322813842","Piyasa üstünde. 192k km + 465k. Max 415k.","kotu",false,false,false,"sat1","●●●● Kolay"],
+[54,"","Peugeot 107 1.0 OTOMATİK","2008 107 VTİ OTOMATİK",2008,171000,465000,"465k","329k–635k","1316758941","📖 Galeri komple boya yapmış. 171k otomatik 107 için 465k pahalı. Boya gerekçesi belirsiz.","orta",false,true,false,"sat2","●●● Orta"],
+[55,"","Renault Symbol 1.4","Temiz Symbol 190k",2009,190000,465000,"465k","229k–370k","1321442751","Piyasa üstünde. 190k km. Max 370k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[56,"","Opel Corsa 1.2 Twinport","Orjinal 180k Corsa",2010,180000,465000,"465k","229k–383k","1320801315","Piyasa çok üstünde. Corsa 383k. Kronik.","kotu",true,false,false,"sat2","●●● Orta"],
+[57,"","Peugeot 208 1.2 PureTech","ACİL 208 2015 muayeneli",2015,177500,470000,"470k","365k–525k","1318982570","📖 Kaput değişimi: yüksekten cisim düşmüş (dürüstçe açıklanmış). Muayene 2028. CarPlay, geri kamera.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
+[58,"","Citroen C3 1.4 HDi","EKONOMİK DİZEL C3 200k",2011,200000,475000,"475k","230k–465k","1320386871","Piyasa sınırında. 200k km sınırda. C3 dizel yakıt cimrisi.","orta",false,false,false,"sat2","●●● Orta"],
+[59,"","Renault Symbol 1.4","2010 SYMBOL 160k",2010,160000,475000,"475k","229k–370k","","Piyasa üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[60,"","Fiat Linea 1.3 Multijet","Linea 194k aile aracı",2011,194000,475000,"475k","245k–399k","","194k km. Linea max 399k. İLAN KAPANMIŞ.","kotu",false,false,false,"sat2","●●● Orta"],
+[61,"","Seat Cordoba 1.4 Costa","KRAL OTOMOTİV CORDOBA",2005,195000,479750,"479.8k","305k–520k","1316049540","📖 ❌ Sistemde 'orijinal' yazıyor ama açıklamada 'TAVAN HARİÇ BOYALI'. Galeri kasıtlı eksik girmiş. 195k km, 2005 model.","kotu",false,true,true,"sat2","●●● Orta"],
+[62,"","Renault Clio 1.5 dCi Extreme","RENAULT CLIO 3 195k",2008,195500,480000,"480k","235k–355k","1321078581","Piyasa çok üstünde. 195k km. Max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[63,"","Opel Corsa 1.3 CDTI","YAKIT CİMRİSİ Corsa 180k",2006,180000,480000,"480k","229k–383k","1320643454","Piyasa üstünde. Corsa 383k. Dizel Opel.","kotu",true,false,false,"sat2","●●● Orta"],
+[64,"km-mid","Opel Meriva 1.3 CDTI","DEĞİŞENSİZ 145k MERİVA",2008,145000,485000,"485k","358k–595k","1314745257","📖 ✅ Değişen/boyalı yok. 4 yıllık galeri, ekspertiz fotoğrafı var. 'Güneş yanığı' boya masrafı çıkarabilir. Mekanik sağlam.","iyi",true,true,false,"sat3","●● Zor"],
+[65,"km-low","Chevrolet Spark 1.2 LS","BAYANDAN SPARK 125k",2011,125750,485000,"485k","210k–400k","1308708841","Piyasa çok üstünde. Spark max 400k, burada 485k.","kotu",false,false,false,"sat3","●● Zor"],
+[66,"km-low","Peugeot 208 1.0 VTi","SAHİBİNDEN 208 2013 97k",2013,97274,485000,"485k","365k–525k","1319770234","📖 Kaput+çamurluk değişmiş, kapı+çamurluk boyalı — dürüstçe gösterilmiş. 4 Michelin kış lastiği. 460-470k'ya pazarlık.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
+[67,"","Chevrolet Aveo 1.3 D LT","DOLU PAKET AVEO TAKSİT",2012,180000,485000,"485k","245k–375k","1237503721","Piyasa çok üstünde. Aveo max 375k.","kotu",false,false,false,"sat3","●● Zor"],
+[68,"km-mid","Peugeot 206+ 1.4 HDi","2010 206+ HDİ 136k",2010,136000,490000,"490k","270k–385k","1322585432","Piyasa çok üstünde. 206+ max 385k, burada 490k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[69,"km-low","Fiat Linea 1.4 Fire","düşük km Linea 2013 95k",2013,95500,490000,"490k","245k–399k","1294209189","🚫 Bot engeli — ilan açıklaması okunamadı. 95.5k km çok düşük ✅✅✅. 2013 model. 490k fazla (max 399k). Güçlü pazarlık.","orta",false,false,false,"sat2","●●● Orta"],
+[70,"","Ford Fiesta 1.4 TDCi Titanium","189k Fiesta Titanium",2010,189000,490000,"490k","309k–465k","1319947484","Piyasa üstünde. 189k km. Titanium en üst donanım.","kotu",false,false,false,"sat2","●●●● Kolay"],
+[71,"","Renault Clio 1.5 dCi Dynamique","satilik Clio 182k",2007,182490,490000,"490k","235k–355k","1317456157","Piyasa çok üstünde. 182.5k km + 490k. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[72,"km-mid","Peugeot 301 1.2 VTi","ARD AUTO HATASIZ 301 157k",2013,157000,499000,"499k","320k–545k","1322723956","🚫 Bot engeli — ilan okunamadı. Piyasa içinde ✅. 2013 model, 157k km. 301 1.2 VTi titreşim sorunu bilinmeli.","orta",false,false,false,"sat2","●●● Orta"],
+[73,"","Ford Focus 1.6 TDCi Trend X","FOCUS 184k BAKIMLI SEDAN",2009,184000,499900,"499.9k","330k–575k","1322520864","🚫 Bot engeli — ilan okunamadı. Piyasa içinde ✅. Focus büyük konforlu. 184k km. Bakımlı.","orta",false,false,false,"sat2","●●●● Kolay"],
+[74,"km-mid","Dacia Sandero 1.5 dCi","GÜVENÇ 2010 İLK EL 157k",2010,157000,500000,"500k","264k–485k","1311693597","🚫 Bot engeli — ilan okunamadı. Piyasa üstünde ⚠️. Sandero max 485k. 1. el, servis bakımlı.","orta",false,false,false,"sat2","●●●● Kolay"],
+[75,"","Peugeot 307 1.6 HDi","Temiz 307 197k",2007,197000,500000,"500k","325k–465k","1321184678","Piyasa üstünde. 307 max 465k. 197k km. 307 HDi baş contası ve elektronik sorunlu ⚠️.","kotu",true,false,false,"sat2","●●● Orta"],
+[76,"","Toyota Yaris 1.3 Terra","temiz Yaris 198k",2007,198000,500000,"500k","265k–385k","1320600241","Piyasa çok üstünde. 198k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
+[77,"","Peugeot 308 1.6 VTi","SAHİBİNDEN 2009 MANUEL 308",2009,180000,500000,"500k","340k–530k","1272887977","🚫 Bot engeli — ilan okunamadı. Piyasa içinde. 180k km. 308 VTi şanzıman ve elektronik sorunları bilinen model ⚠️.","orta",true,false,false,"sat2","●●●● Kolay"],
+[78,"","Opel Corsa 1.2 Twinport","SAHİBİNDEN Corsa 197k",2012,197000,500000,"500k","229k–383k","1279218790","Piyasa çok üstünde. 197k km çok yüksek. Corsa kronik.","kotu",true,false,false,"sat2","●●● Orta"]
+];
+let sc=-1,sa=true;
+function pc(p,m){const x=m.match(/(\d+)k–(\d+)k/);if(!x)return'p-ok';return p<=parseInt(x[2])*1000?'p-good':'p-bad';}
+function render(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const ck=document.getElementById('ck').checked;
+  const cs=document.getElementById('cs').checked;
+  const cr=document.getElementById('cr').checked;
+  let data=[...D];
+  if(sc>=0){data.sort((a,b)=>{let av=a[sc],bv=b[sc];if(typeof av==='number'&&typeof bv==='number')return sa?av-bv:bv-av;return sa?String(av).localeCompare(String(bv),'tr'):String(bv).localeCompare(String(av),'tr');});}
+  const tb=document.getElementById('tb');
+  const cards=document.getElementById('cards');
+  let count=0,html='',chtml='';
+  data.forEach(r=>{
+    const [num,cls,model,title,year,km,price,priceStr,market,rid,comment,yc,chronic,read,kacin,satilCls,satilTxt]=r;
+    if(!ck&&chronic)return;
+    if(!cs&&!rid)return;
+    if(!cr&&kacin)return;
+    const txt=(model+title+comment+satilTxt).toLowerCase();
+    if(q&&!txt.includes(q))return;
+    count++;
+    let rowCls=kacin?'kacin':(chronic?'chronic':(cls||''));
+    const piyasaCls=pc(price,market);
+    const readBadge=read?'&nbsp;<span class="read">📖</span>':'';
+    const kacinBadge=kacin?'<br><span class="kacin-badge">❌ KAÇIN</span>':'';
+    const chBadge=chronic&&!kacin?'<br><span class="ch">⚠️ kronik</span>':'';
+    const linkHtml=rid?`<a href="https://www.sahibinden.com/ilan/${rid}/detay" target="_blank">${title}</a>${readBadge}`:`${title} <span class="sold">[kapandı]</span>`;
+    // Table row
+    html+=`<tr class="${rowCls}">
+<td>${num}</td>
+<td><b>${model}</b>${chBadge}${kacinBadge}</td>
+<td style="max-width:180px;font-size:11px">${linkHtml}</td>
+<td>${year}</td>
+<td>${km.toLocaleString('tr')}</td>
+<td class="fiyat">${priceStr}</td>
+<td class="${piyasaCls}">${market}</td>
+<td class="yorum ${yc}">${comment}</td>
+<td class="${satilCls}" style="white-space:nowrap">${satilTxt}</td>
+</tr>`;
+    // Mobile card
+    const pLabel=pc(price,market)==='p-good'?`<span style="color:var(--green);font-weight:bold">${market} ✓</span>`:`<span style="color:var(--red)">${market} ↑</span>`;
+    chtml+=`<div class="card ${rowCls}">
+<div class="card-head">
+<div>
+<div class="card-model">#${num} ${model}${kacinBadge}${chBadge}</div>
+${rid?`<a class="card-link" href="https://www.sahibinden.com/ilan/${rid}/detay" target="_blank">${title}${read?' 📖':''}</a>`:`<span style="color:#aaa;font-size:11px">${title} [kapandı]</span>`}
+</div>
+<div style="text-align:right">
+<div class="card-price">${priceStr}</div>
+<div class="${satilCls}" style="font-size:10px">${satilTxt}</div>
+</div>
+</div>
+<div class="card-body">
+<div class="card-row">
+<span>${year}</span>
+<span>${km.toLocaleString('tr')} km</span>
+<span>${pLabel}</span>
+</div>
+<div class="card-yorum ${yc}">${comment}</div>
+</div>
+</div>`;
+  });
+  tb.innerHTML=html;
+  cards.innerHTML=chtml;
+  document.getElementById('cnt').textContent=count+' ilan';
+}
+function sort(col){if(sc===col)sa=!sa;else{sc=col;sa=true;}render();}
+render();
+</script>
+</body>
+</html>
