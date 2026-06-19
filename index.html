@@ -164,6 +164,7 @@ a.ilan-link:hover{text-decoration:underline}
 <div class="tab-nav">
   <button class="tab-btn active" onclick="showTab('sahibinden',this)">🚗 Eskişehir İlanları</button>
   <button class="tab-btn" onclick="showTab('arabam',this)">🏆 Adem'in Listesi</button>
+  <button class="tab-btn" onclick="showTab('eskisehir',this)">🔍 Arabam.com Eskişehir</button>
 </div>
 
 <div id="tab-sahibinden" class="tab-pane active">
@@ -315,6 +316,441 @@ Row 61 Seat Cordoba — <strong>sistem/açıklama çelişkisi</strong>
 
 <p style="font-size:10px;color:#aaa;margin-top:10px;text-align:center">arabam.com favori listesi · Adem Bey · Haziran 2026 · Claude Cowork tarafından analiz edildi</p>
 </div><!-- /tab-arabam -->
+
+<div id="tab-eskisehir" class="tab-pane">
+<style>
+.esk-banner{background:#fff3cd;border:2px solid #ffc107;border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.esk-banner h3{margin:0 0 6px;color:#856404;font-size:15px}
+.esk-warn-banner{background:#f8d7da;border:2px solid #f5c6cb;border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.esk-warn-banner h3{margin:0 0 6px;color:#721c24;font-size:15px}
+.esk-priority{background:#d4edda;border:2px solid #28a745;border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.esk-priority h3{margin:0 0 8px;color:#155724;font-size:15px}
+.esk-priority ol{margin:0;padding-left:20px}
+.esk-priority li{margin-bottom:4px;font-size:13px}
+.esk-tag-ok{background:#d4edda;color:#155724;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
+.esk-tag-warn{background:#fff3cd;color:#856404;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
+.esk-tag-bad{background:#f8d7da;color:#721c24;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
+.esk-tag-info{background:#d1ecf1;color:#0c5460;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
+.esk-sat1{color:#28a745;font-weight:700}
+.esk-sat2{color:#28a745;font-weight:600}
+.esk-sat3{color:#ffc107;font-weight:600}
+.esk-sat4{color:#dc3545;font-weight:600}
+.esk-tbl-wrap{overflow-x:auto;margin-bottom:20px}
+.esk-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:900px}
+.esk-tbl th{background:#1a1a2e;color:#fff;padding:8px 10px;text-align:left;font-size:11px}
+.esk-tbl td{padding:7px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.esk-tbl tr:hover td{background:#f8f9fa}
+.esk-tbl tr.kaçın td{background:#fff5f5!important}
+.esk-tbl .puan{font-weight:700;font-size:14px}
+.esk-cards{display:none}
+@media(max-width:700px){
+  .esk-tbl-wrap{display:none}
+  .esk-cards{display:block}
+}
+.esk-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px;margin-bottom:14px;position:relative}
+.esk-card.kaçın{border-color:#f5c6cb;background:#fff5f5}
+.esk-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.esk-card-model{font-weight:700;font-size:15px;color:#1a1a2e}
+.esk-card-price{font-weight:700;font-size:16px;color:#dc3545}
+.esk-card-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;font-size:12px;color:#666}
+.esk-card-label{font-weight:600;color:#444}
+.esk-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.esk-card-yorum{font-size:12px;color:#555;margin-top:6px;line-height:1.5}
+.esk-card-link{font-size:11px;color:#6c757d;margin-top:4px}
+.esk-card-link a{color:#007bff}
+</style>
+
+<h2 style="font-size:18px;font-weight:700;margin-bottom:4px;color:#1a1a2e">🔍 Arabam.com Eskişehir İlanları</h2>
+<p style="font-size:12px;color:#666;margin-bottom:12px">Filtre: 300–600k TL · Max 200km · 2005+ · arabam.com · Haziran 2026 · Claude Cowork</p>
+
+<div class="esk-warn-banner">
+  <h3>⚠️ KAÇIN — Bu İlanlardan Uzak Durun</h3>
+  <ul style="margin:0;padding-left:18px;font-size:13px">
+    <li><strong>#41060335</strong> — Renault Symbol 0.9 TCe 2013 · 117.5km · 499k TL · "KAZALI FOTOĞRAFI RESİMLERDE MEVCUTTUR" — İlana eklenen fotoğraflarda kaza hasarı gösterilmiş. Tamamı orijinal yazmasına rağmen bu ifade çelişki yaratıyor.</li>
+    <li><strong>#41031240</strong> — Opel Corsa 1.4 Otomatik 2013 · 156km · 538.5k TL · <strong>"ARACIN ŞASE UCUNDA İŞLEM VARDIR"</strong> — Şase müdahalesi tespit edilmiş. Kesinlikle kaçın.</li>
+    <li><strong>#41178045</strong> — Renault Clio 1.2 Grandtour 2011 · 156km · 560k TL · 3 değişen parça: her iki ön çamurluk + ön tampon — ciddi kafa kazası göstergesi.</li>
+  </ul>
+</div>
+
+<div class="esk-priority">
+  <h3>✅ Öneri Sırası (Temizlik + Fiyat/Değer)</h3>
+  <ol>
+    <li><strong>Renault Symbol 1.2 Joy 2013 · 117km · 550k</strong> (#41063522) — 1 lokal boya, temiz araç</li>
+    <li><strong>Opel Corsa 1.2 Enjoy 111 2011 · 133km · 585k</strong> (#40968304) — Minimal boya, sahibinden özenli açıklama</li>
+    <li><strong>Opel Corsa 1.2 Twinport 2010 · 93km · 577.5k</strong> (#40635316) — Tramer yok, galeri garantisi, tek parça güneş yanığından boyatılmış</li>
+    <li><strong>Fiat Linea 1.3 Multijet 2014 · 138km · 589k</strong> (#40725792) — Sadece 2 lokal boya, değişen yok</li>
+    <li><strong>Chevrolet Aveo 1.4 LTZ 2012 · 119km · 549k</strong> (#40986943) — 3 lokal boya (aynı taraf), sahibinden detaylı açıklama</li>
+  </ol>
+</div>
+
+<div class="esk-tbl-wrap">
+<table class="esk-tbl" id="esk-table">
+<thead>
+<tr>
+  <th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th>
+  <th>Boya/Değişen</th><th>Tramer</th>
+  <th>Piyasa Fiyatı</th><th>Satılabilirlik</th><th>Yorum</th><th>Kronik</th>
+  <th>İlan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class="puan">1</td>
+  <td><strong>Renault Symbol 1.2 Joy</strong></td>
+  <td>2013</td><td>117.000</td><td style="color:#dc3545;font-weight:700">550.000 TL</td>
+  <td><span class="esk-tag-ok">1 lokal boyalı</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>480–600k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>"Sol arka çamurluk lokal harıcı orjinaldir, temiz araç, alan üzülmez" — Çok kısa ama net açıklama. Sahibinden.</td>
+  <td>Gaz kelebeği, termostat, cam krikoları</td>
+  <td><a href="https://www.arabam.com/ilan/41063522" target="_blank">41063522 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">2</td>
+  <td><strong>Opel Corsa 1.2 Enjoy 111</strong></td>
+  <td>2011</td><td>133.000</td><td style="color:#dc3545;font-weight:700">585.000 TL</td>
+  <td><span class="esk-tag-ok">1 boyalı · 2 lokal</span></td>
+  <td><span class="esk-tag-ok">Belirtilmemiş</span></td>
+  <td>480–640k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>"Araç değişikliği sebebiyle satılık, emsalsiz temizlikte, muayene yeni (2027), ağır bakımlar yapılı" — 111. yıla özel seri, özenerek kullanılmış, sahibinden güvenilir.</td>
+  <td>Supap ayarı, ABS modülü (eski modellerle benzer)</td>
+  <td><a href="https://www.arabam.com/ilan/40968304" target="_blank">40968304 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">3</td>
+  <td><strong>Opel Corsa 1.2 Twinport</strong></td>
+  <td>2010</td><td>93.000</td><td style="color:#dc3545;font-weight:700">577.500 TL</td>
+  <td><span class="esk-tag-warn">Güneş yanığı+bagaj boyası (galeri boyatmış)</span></td>
+  <td><span class="esk-tag-ok">Tramer YOK</span></td>
+  <td>450–600k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>MFT Motors galerisi: Araç kapı kolu hizasından güneş yanığı nedeniyle galeri tarafından boyatılmış, öncesi orijinaldir. Expertiz ve önceki fotoğraflar mevcut. Tramer kaydı yok. Taksit imkânı var.</td>
+  <td>Supap ayarı, egzoz manifoldu çatlakları (eski 1.2 motorlarda)</td>
+  <td><a href="https://www.arabam.com/ilan/40635316" target="_blank">40635316 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">4</td>
+  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
+  <td>2014</td><td>138.000</td><td style="color:#dc3545;font-weight:700">589.000 TL</td>
+  <td><span class="esk-tag-ok">2 lokal boyalı · değişen yok</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>500–650k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>Galeri ilanı, 2 lokal boya mevcut ama değişen parça yok. Açıklama çoğunlukla ödeme seçenekleri. Uzaktan inceleme imkânı sorgulanmalı.</td>
+  <td>DPF/EGR, turbo yağlama, egzoz manifoldu, direksiyon pompası sızıntısı</td>
+  <td><a href="https://www.arabam.com/ilan/40725792" target="_blank">40725792 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">5</td>
+  <td><strong>Chevrolet Aveo 1.4 LTZ</strong></td>
+  <td>2012</td><td>119.000</td><td style="color:#dc3545;font-weight:700">549.000 TL</td>
+  <td><span class="esk-tag-warn">3 lokal boyalı (sağ taraf)</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>430–580k TL</td>
+  <td class="esk-sat4">●● Zor</td>
+  <td>"119km orijinaldir, sağ ön kapı, sağ arka kapı ve sağ ön çamurlukta lokal boya mevcut. Lastikler yeni, bakımları tam." — Dürüst açıklama. Ancak GM Türkiye'den çekildiğinden yedek parça bulunabilirliği ve satılabilirlik düşük.</td>
+  <td>Yedek parça sıkıntısı (GM çekildi!), kaloriferde sorunlar, yakıt pompası</td>
+  <td><a href="https://www.arabam.com/ilan/40986943" target="_blank">40986943 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">6</td>
+  <td><strong>Opel Corsa 1.2 Active</strong></td>
+  <td>2014</td><td>80.000</td><td style="color:#dc3545;font-weight:700">600.000 TL</td>
+  <td><span class="esk-tag-warn">1 değişen (sol ön kapı) · 3 boyalı</span></td>
+  <td><span class="esk-tag-ok">Tramer YOK</span></td>
+  <td>520–680k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>"Memurdan temiz satılık araç" — Çok kısa açıklama. 80km olması çok düşük, sahibinden memurdan güvenilir olabilir. Tramer yok ama sol kapı değişmiş. Fiyat bu segmentte yüksek sayılır.</td>
+  <td>Supap ayarı, ABS modülü</td>
+  <td><a href="https://www.arabam.com/ilan/41329547" target="_blank">41329547 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">7</td>
+  <td><strong>Renault Symbol 1.4 Expression</strong></td>
+  <td>2011</td><td>106.000</td><td style="color:#dc3545;font-weight:700">570.000 TL</td>
+  <td><span class="esk-tag-warn">1 değişen (kaput) · 2 boyalı</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>450–600k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>Sahibinden, çok kısa açıklama. Değişen kaput + sağ arka çamurluk/arka tampon boyası ön-arka iki farklı darbe işaretçisi. Fiyat/değer açısından yüksek, iyi pazarlık noktası.</td>
+  <td>Gaz kelebeği, termostat, cam krikoları</td>
+  <td><a href="https://www.arabam.com/ilan/39033900" target="_blank">39033900 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">8</td>
+  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
+  <td>2014</td><td>108.000</td><td style="color:#dc3545;font-weight:700">589.750 TL</td>
+  <td><span class="esk-tag-bad">1 değişen · 3 boyalı · 2 lokal</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>500–650k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>"2015 çıkışlı, tek elden, 108km, sorunsuz 95hp motor, vize geçerli (2027)" — İyi açıklama ama 1 parça değişen (sol ön çamurluk) + çok sayıda boyalı parça tedirgin edici. Galeri ilanı.</td>
+  <td>DPF/EGR, turbo yağlama, egzoz manifoldu, direksiyon pompası</td>
+  <td><a href="https://www.arabam.com/ilan/40725776" target="_blank">40725776 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">9</td>
+  <td><strong>Opel Corsa 1.3 CDTI Essentia</strong></td>
+  <td>2012</td><td>132.000</td><td style="color:#dc3545;font-weight:700">600.000 TL</td>
+  <td><span class="esk-tag-warn">1 değişen (sağ arka kapı) · 3 boyalı</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>480–640k TL</td>
+  <td class="esk-sat2">●●●● Kolay</td>
+  <td>"Uzun yıllar tek kişi tarafından kullanılmış, motor/şanzıman çok güzel, lastik ve akü yeni." — Açıklama çok güven veriyor. Sağ arka kaza var ama ön taraf temiz. 600k biraz yüksek.</td>
+  <td>DPF/EGR tıkanması (1.3 CDTI), injektör arızaları</td>
+  <td><a href="https://www.arabam.com/ilan/40562935" target="_blank">40562935 ↗</a></td>
+</tr>
+<tr>
+  <td class="puan">10</td>
+  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
+  <td>2011</td><td>135.000</td><td style="color:#dc3545;font-weight:700">549.000 TL</td>
+  <td><span class="esk-tag-warn">2 boyalı · 1 lokal</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>480–600k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>Galeri, ödeme bilgisi ağırlıklı açıklama. "Kaputu ucunun..." şeklinde başlayan kısım kesilmiş — muhtemelen kaput ucunda sorun var. Hız sabitleyici ve kamera ekranı özellik olarak belirtilmiş.</td>
+  <td>DPF/EGR tıkanması, turbo yağlama, egzoz manifoldu</td>
+  <td><a href="https://www.arabam.com/ilan/40725749" target="_blank">40725749 ↗</a></td>
+</tr>
+<tr class="kaçın">
+  <td class="puan">⛔</td>
+  <td><strong>Renault Clio 1.2 Grandtour</strong></td>
+  <td>2011</td><td>156.000</td><td style="color:#dc3545;font-weight:700">560.000 TL</td>
+  <td><span class="esk-tag-bad">3 değişen (her iki ön çamurluk + ön tampon) · 3 boyalı</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>400–550k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>KAÇIN: Her iki ön çamurluk + ön tampon değişmiş = ciddi kafa kazası geçirmiş. Satıcı açıklamada dürüst davranmış ama hasar çok fazla.</td>
+  <td>Gaz kelebeği, turbo (TCe variantlarda)</td>
+  <td><a href="https://www.arabam.com/ilan/41178045" target="_blank">41178045 ↗</a></td>
+</tr>
+<tr class="kaçın">
+  <td class="puan">⛔</td>
+  <td><strong>Renault Symbol 0.9 TCe</strong></td>
+  <td>2013</td><td>117.500</td><td style="color:#dc3545;font-weight:700">499.000 TL</td>
+  <td><span class="esk-tag-ok">Tamamı orijinal (iddia)</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>420–560k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>KAÇIN: İlanda "KAZALI FOTOĞRAFI RESİMLERDE MEVCUTTUR" yazıyor — açıkça kaza fotoğrafı var. Orijinal görünse de güvenilmez.</td>
+  <td>Turbo plaka sorunları, yağ tüketimi (0.9 TCe)</td>
+  <td><a href="https://www.arabam.com/ilan/41060335" target="_blank">41060335 ↗</a></td>
+</tr>
+<tr class="kaçın">
+  <td class="puan">⛔</td>
+  <td><strong>Opel Corsa 1.4 Otomatik</strong></td>
+  <td>2013</td><td>156.000</td><td style="color:#dc3545;font-weight:700">538.500 TL</td>
+  <td><span class="esk-tag-bad">1 değişen (kaput) · 3 boyalı</span></td>
+  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
+  <td>480–620k TL</td>
+  <td class="esk-sat3">●●● Orta</td>
+  <td>KAÇIN: "ARACIN ŞASE UCUNDA İŞLEM VARDIR" — şase müdahalesi kesinlikle kaçınılması gereken durum. Hiçbir şart altında satın alınmaz.</td>
+  <td>Şase onarımı kritik sorun, otomatik vites bakımı pahalı</td>
+  <td><a href="https://www.arabam.com/ilan/41031240" target="_blank">41031240 ↗</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- MOBILE CARDS -->
+<div class="esk-cards">
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">1. Renault Symbol 1.2 Joy 2013</div>
+    <div class="esk-card-price">550.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 117.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-ok">1 lokal boyalı</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">"Sol arka çamurluk lokal harıcı orjinaldir, temiz araç, alan üzülmez." Çok temiz, 2013 model, düşük km.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–600k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41063522" target="_blank">arabam.com/ilan/41063522 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">2. Opel Corsa 1.2 Enjoy 111 2011</div>
+    <div class="esk-card-price">585.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 133.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-ok">1 boyalı · 2 lokal</span>
+    <span class="esk-tag-ok">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">"Araç değişikliği sebebiyle satılık, emsalsiz temizlikte, muayene 2027'ye kadar." Sahibinden, özenli açıklama.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–640k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40968304" target="_blank">arabam.com/ilan/40968304 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">3. Opel Corsa 1.2 Twinport 2010</div>
+    <div class="esk-card-price">577.500 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 93.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir/Tepebaşı</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">Güneş yanığı boyası (galeri tarafından)</span>
+    <span class="esk-tag-ok">Tramer YOK</span>
+  </div>
+  <div class="esk-card-yorum">MFT Motors galerisinden, galeri güneş yanığı sebebiyle boyatmış. Tramer yok, expertiz mevcut. 93km çok düşük.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 450–600k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40635316" target="_blank">arabam.com/ilan/40635316 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">4. Fiat Linea 1.3 Multijet 2014</div>
+    <div class="esk-card-price">589.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 138.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-ok">2 lokal boyalı · değişen yok</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">Galeri ilanı. Değişen parça yok, sadece 2 lokal boya. Açıklama çoğunlukla ödeme bilgisi. Dizel Linea ekonomik ama yedek parça pahalı olabilir.</div>
+  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 500–650k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725792" target="_blank">arabam.com/ilan/40725792 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">5. Chevrolet Aveo 1.4 LTZ 2012</div>
+    <div class="esk-card-price">549.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 119.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">3 lokal boyalı (sağ taraf)</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">"Bakımları tam, lastikler yeni, 119km orijinal." Dürüst açıklama. Ancak GM Türkiye'den çekildi — satılabilirlik ve yedek parça sıkıntılı.</div>
+  <div><span class="esk-sat4">●● Zor satılır</span> · Piyasa: 430–580k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40986943" target="_blank">arabam.com/ilan/40986943 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">6. Opel Corsa 1.2 Active 2014</div>
+    <div class="esk-card-price">600.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 80.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">1 değişen (sol ön kapı) · 3 boyalı</span>
+    <span class="esk-tag-ok">Tramer YOK</span>
+  </div>
+  <div class="esk-card-yorum">"Memurdan temiz satılık araç." Çok kısa. Tramer yok ama sol kapı değişmiş. Fiyat bu km/model için biraz yüksek.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 520–680k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41329547" target="_blank">arabam.com/ilan/41329547 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">7. Renault Symbol 1.4 Expression 2011</div>
+    <div class="esk-card-price">570.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 106.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">1 değişen (kaput) · 2 boyalı</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">Sahibinden, kısa açıklama. Değişen kaput + arka boyalar ön-arka iki darbe işaretçisi. Fiyat yüksek, pazarlık yapılabilir.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 450–600k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/39033900" target="_blank">arabam.com/ilan/39033900 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">8. Fiat Linea 1.3 Multijet 2014</div>
+    <div class="esk-card-price">589.750 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 108.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-bad">1 değişen · 3 boyalı · 2 lokal</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">"2015 çıkışlı, tek elden, sorunsuz motor." Ancak 1 değişen + 5 boyalı parça çok fazla. Galeri ilanı.</div>
+  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 500–650k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725776" target="_blank">arabam.com/ilan/40725776 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">9. Opel Corsa 1.3 CDTI 2012</div>
+    <div class="esk-card-price">600.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 132.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">1 değişen (sağ arka kapı) · 3 boyalı</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">"Uzun yıllar tek kişi, motor/şanzıman çok güzel, lastik+akü yeni." Güvenilir açıklama, arka kaza var ama ön temiz. 600k biraz yüksek pazarlık yapılabilir.</div>
+  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–640k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40562935" target="_blank">arabam.com/ilan/40562935 ↗</a></div>
+</div>
+
+<div class="esk-card">
+  <div class="esk-card-head">
+    <div class="esk-card-model">10. Fiat Linea 1.3 Multijet 2011</div>
+    <div class="esk-card-price">549.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 135.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-warn">2 boyalı · 1 lokal</span>
+    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
+  </div>
+  <div class="esk-card-yorum">Galeri, ödeme ağırlıklı açıklama. Hız sabitleyici ve kamera ekranı var. Kaput ucunda sorun olduğu ima edilmiş. Ekspertiz yaptırılmalı.</div>
+  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 480–600k TL</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725749" target="_blank">arabam.com/ilan/40725749 ↗</a></div>
+</div>
+
+<div class="esk-card kaçın">
+  <div class="esk-card-head">
+    <div class="esk-card-model">⛔ KAÇIN — Renault Clio 1.2 Grandtour 2011</div>
+    <div class="esk-card-price">560.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 156.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-bad">3 DEĞİŞEN: her iki ön çamurluk + ön tampon</span>
+  </div>
+  <div class="esk-card-yorum">3 değişen parça ile ciddi kafa kazası geçirmiş. Station wagon kasa, bakımlı deniyor ama hasar çok ağır.</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41178045" target="_blank">arabam.com/ilan/41178045 ↗</a></div>
+</div>
+
+<div class="esk-card kaçın">
+  <div class="esk-card-head">
+    <div class="esk-card-model">⛔ KAÇIN — Renault Symbol 0.9 TCe 2013</div>
+    <div class="esk-card-price">499.000 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 117.500 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-bad">İLANDA "KAZALI FOTOĞRAFI MEVCUTTUR"</span>
+  </div>
+  <div class="esk-card-yorum">Kaza fotoğrafı ilanda belirtilmiş. "Tamamı orijinal" yazmasına rağmen güvenilmez.</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41060335" target="_blank">arabam.com/ilan/41060335 ↗</a></div>
+</div>
+
+<div class="esk-card kaçın">
+  <div class="esk-card-head">
+    <div class="esk-card-model">⛔ KAÇIN — Opel Corsa 1.4 Otomatik 2013</div>
+    <div class="esk-card-price">538.500 TL</div>
+  </div>
+  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 156.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
+  <div class="esk-card-tags">
+    <span class="esk-tag-bad">ŞASE UCUNDA İŞLEM VARDIR</span>
+  </div>
+  <div class="esk-card-yorum">Şase müdahalesi tespit edilmiş — hiçbir koşulda satın alınmaz.</div>
+  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41031240" target="_blank">arabam.com/ilan/41031240 ↗</a></div>
+</div>
+
+</div><!-- /esk-cards -->
+
+<p style="font-size:10px;color:#aaa;margin-top:10px;text-align:center">arabam.com Eskişehir · Haziran 2026 · Filtre: 300–600k TL, max 200km, 2005+ · Claude Cowork tarafından analiz edildi</p>
+</div><!-- /tab-eskisehir -->
+
 
 <script>
 const D=[
