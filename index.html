@@ -5,1240 +5,226 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskişehir Araba İlanları</title>
 <style>
-:root{--green:#27ae60;--red:#e74c3c;--orange:#f39c12;--blue:#1a6db5;--dark:#2c3e50}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:13px;background:#f0f2f5;padding:10px}
-h2{color:var(--dark);font-size:16px;margin-bottom:6px}
-
-/* CONTROLS */
-.controls{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;align-items:center}
-.controls input[type=text]{padding:7px 10px;border:1px solid #ccc;border-radius:8px;font-size:13px;flex:1;min-width:150px}
-.controls label{font-size:11px;color:#555;display:flex;align-items:center;gap:3px;white-space:nowrap}
-.cnt{font-size:11px;color:#888;margin-left:auto;white-space:nowrap}
-
-/* TOP PICKS + WARN */
-.top{background:#f0fff4;border:1px solid var(--green);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:12px;line-height:1.9}
-.top strong{color:var(--dark)}
-.warn{background:#fff8e1;border:1px solid var(--orange);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:11px;line-height:1.6}
-.info{background:#e8f4fd;border:1px solid #90caf9;border-radius:6px;padding:6px 10px;margin-bottom:8px;font-size:11px;line-height:1.6}
-
-/* DESKTOP TABLE */
-.tbl-wrap{overflow-x:auto;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-table{width:100%;border-collapse:collapse;background:#fff}
-th{background:var(--dark);color:#fff;padding:8px 6px;text-align:left;cursor:pointer;font-size:11px;white-space:nowrap;user-select:none}
-th:hover{background:#3d5166}
-td{padding:5px 6px;border-bottom:1px solid #eee;vertical-align:top;font-size:11px}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#dce8ff!important}
-tr.km-low td{background:#d4edda}
-tr.km-mid td{background:#fff3cd}
-tr.chronic td{background:#fff0f0!important}
-tr.kacin td{background:#ffd0d0!important}
-tr.kacin:hover td{background:#ffb0b0!important}
-
-/* MOBILE CARDS */
-.cards{display:none}
-.card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:10px;overflow:hidden}
-.card.km-low{border-left:4px solid var(--green)}
-.card.km-mid{border-left:4px solid var(--orange)}
-.card.chronic{border-left:4px solid #e67e22}
-.card.kacin{border-left:4px solid var(--red);background:#fff5f5}
-.card-head{padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
-.card-model{font-weight:bold;font-size:12px;color:var(--dark);line-height:1.3}
-.card-price{font-weight:bold;color:var(--red);white-space:nowrap;font-size:13px}
-.card-body{padding:0 12px 10px}
-.card-row{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#555;margin-bottom:4px}
-.card-row span{background:#f0f0f0;padding:2px 6px;border-radius:4px}
-.card-yorum{font-size:11px;line-height:1.5;padding:6px 8px;border-radius:6px;margin:4px 0}
-.card-yorum.iyi{background:#eafaf1;border-left:3px solid var(--green)}
-.card-yorum.kotu{background:#fdf0f0;border-left:3px solid var(--red)}
-.card-yorum.orta{background:#fefaf0;border-left:3px solid var(--orange)}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:#f9f9f9;font-size:11px}
-.card-piyasa{font-weight:bold}
-.card-link{color:var(--blue);text-decoration:none;font-size:11px}
-.card-link:hover{text-decoration:underline}
-.card-num{font-size:10px;color:#999;align-self:flex-start}
-
-/* BADGES */
-.fiyat{font-weight:bold;color:var(--red);white-space:nowrap}
-.p-good{color:var(--green);font-weight:bold;font-size:11px;white-space:nowrap}
-.p-bad{color:var(--red);font-size:11px;white-space:nowrap}
-.p-ok{color:#555;font-size:11px;white-space:nowrap}
-.yorum{max-width:230px;line-height:1.4}
-.yorum.iyi{border-left:3px solid var(--green);padding-left:5px}
-.yorum.kotu{border-left:3px solid var(--red);padding-left:5px}
-.yorum.orta{border-left:3px solid var(--orange);padding-left:5px}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-.sold{color:#aaa;font-size:10px}
-.read{color:var(--blue);font-size:9px;font-weight:bold}
-.kacin-badge{color:var(--red);font-size:9px;font-weight:bold}
-.ch{color:#e67e22;font-size:9px}
-.sat1{color:var(--green);font-weight:bold}
-.sat2{color:var(--orange)}
-.sat3{color:var(--red)}
-
-/* CHRONIC SECTION */
-.chronic-section{background:#fff8f0;border:1px solid var(--orange);border-radius:8px;padding:12px 14px;margin-top:14px}
-.chronic-section h3{color:var(--red);font-size:13px;margin-bottom:8px}
-.chronic-section ol{padding-left:16px}
-.chronic-section li{margin-bottom:5px;line-height:1.5;font-size:11px}
-.legend{font-size:10px;color:#888;margin-top:8px;line-height:2}
-
-/* RESPONSIVE */
-@media(max-width:700px){
-  body{padding:8px}
-  .tbl-wrap{display:none}
-  .cards{display:block}
-  h2{font-size:14px}
-  .top{font-size:11px}
-}
-
-/* TABS */
-.tab-nav{display:flex;gap:0;margin-bottom:12px;border-bottom:2px solid #d0d4dc}
-.tab-btn{padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;color:#666;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .15s}
-.tab-btn.active{color:#1a1a2e;border-bottom-color:#1a1a2e}
-.tab-btn:hover{color:#333}
-.tab-pane{display:none}
-.tab-pane.active{display:block}
-
-/* ARABAM STYLES */
-.a-banner{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px;margin-bottom:14px;font-size:12px;line-height:1.6}
-.a-banner b{color:#856404}
-.a-priority{background:#fff;border-radius:10px;padding:14px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.a-priority h2{font-size:14px;font-weight:700;margin-bottom:10px;color:#1a1a2e;border-bottom:2px solid #eee;padding-bottom:6px}
-.a-pitem{padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:12px;line-height:1.5}
-.a-pitem:last-child{border-bottom:none}
-.a-rank{display:inline-block;font-weight:700;font-size:14px;margin-right:6px;color:#1a1a2e;min-width:22px}
-.a-tag{display:inline-block;padding:1px 6px;border-radius:8px;font-size:10px;font-weight:700;margin-left:4px}
-.a-ok{background:#d4edda;color:#155724}
-.a-warn{background:#fff3cd;color:#856404}
-.a-bad{background:#f8d7da;color:#721c24}
-.a-sat1{color:#1b5e20;font-weight:700}
-.a-sat2{color:#e65100;font-weight:700}
-.a-sat3{color:#880e4f;font-weight:700}
-.a-tbl-wrap{overflow-x:auto;background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.a-tbl-wrap table{width:100%;border-collapse:collapse;font-size:12px}
-.a-tbl-wrap th{background:#1a1a2e;color:#fff;padding:8px 10px;text-align:left;white-space:nowrap;cursor:pointer;user-select:none}
-.a-tbl-wrap th:hover{background:#2d2d4a}
-.a-tbl-wrap td{padding:7px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top}
-.a-tbl-wrap tr:hover td{background:#f7f8fc}
-.a-tbl-wrap tr.row-bad td{background:#fff5f5}
-.a-tbl-wrap tr.row-warn td{background:#fffdf0}
-.a-tbl-wrap tr.row-ok td{background:#f7fff9}
-.cls-cell{font-weight:700;font-size:11px;text-align:center;padding:3px 6px;border-radius:6px;white-space:nowrap}
-.a-market{font-weight:700;white-space:nowrap;color:#1a1a2e}
-.a-market small{display:block;font-size:10px;color:#666;font-weight:500;line-height:1.2}
-.a-chronic-cell{max-width:220px;font-size:11px;line-height:1.35}
-.a-chronic-pill{display:inline-block;padding:2px 6px;border-radius:6px;font-size:10px;font-weight:800;margin-bottom:3px;white-space:nowrap}
-.a-chronic-high{background:#f8d7da;color:#721c24}
-.a-chronic-med{background:#fff3cd;color:#856404}
-.a-chronic-low{background:#e8f4fd;color:#0b5394}
-.a-chronic-none{color:#aaa;font-size:11px}
-.a-chronic-cell small{display:block;color:#444}
-.a-chronic-note{display:block;color:#7a4d00;padding-left:28px}
-.note-cell{max-width:260px;font-size:11px;color:#444;line-height:1.4}
-.ilankod{font-size:10px;color:#888}
-a.ilan-link{color:#1565c0;text-decoration:none;font-size:10px}
-a.ilan-link:hover{text-decoration:underline}
-.a-cards{display:none}
-.a-card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:12px;overflow:hidden}
-.a-card-header{padding:10px 12px 6px;border-bottom:2px solid #eee}
-.a-card-title{font-size:13px;font-weight:700}
-.a-card-sub{font-size:11px;color:#666;margin-top:2px}
-.a-card-body{padding:10px 12px}
-.a-card-row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:12px}
-.a-card-label{color:#888;font-size:11px}
-.a-card-val{font-weight:600;text-align:right}
-.a-card-note{font-size:11px;color:#444;line-height:1.5;margin-top:6px;padding-top:6px;border-top:1px solid #f0f0f0}
-@media(max-width:700px){
-  .a-tbl-wrap{display:none}
-  .a-cards{display:block}
-  .a-priority h2{font-size:13px}
-  .a-pitem{font-size:11px}
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Tahoma, sans-serif; font-size: 14px; }
+  .site-header { background: #161b22; border-bottom: 1px solid #30363d; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .site-title { color: #58a6ff; font-size: 1.2rem; font-weight: bold; }
+  .site-meta { font-size: 0.75rem; color: #6e7681; }
+  .tabs-nav { background: #161b22; border-bottom: 1px solid #30363d; display: flex; padding: 0 16px; }
+  .tab-btn { padding: 12px 18px; cursor: pointer; border: none; background: transparent; color: #8b949e; font-size: 0.95rem; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .tab-btn:hover { color: #c9d1d9; }
+  .tab-btn.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+  .tab-content { display: none; padding: 16px 20px; }
+  .tab-content.active { display: block; }
+  .alert-red { background: #2d1a1a; border-left: 4px solid #f85149; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 0.85rem; }
+  .alert-green { background: #0d2318; border-left: 4px solid #3fb950; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 0.85rem; }
+  .alert-yellow { background: #2a1e00; border-left: 4px solid #d29922; padding: 10px 14px; margin-bottom: 12px; border-radius: 4px; font-size: 0.85rem; }
+  .priority-box { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
+  .priority-box h3 { color: #58a6ff; margin-bottom: 8px; font-size: 0.95rem; }
+  .priority-list { list-style: none; }
+  .priority-list li { padding: 4px 0; font-size: 0.85rem; border-bottom: 1px solid #21262d; }
+  .priority-list li:last-child { border-bottom: none; }
+  .scroll-table { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th { background: #1c2128; color: #58a6ff; padding: 8px 10px; text-align: left; white-space: nowrap; border-bottom: 2px solid #30363d; }
+  td { padding: 6px 10px; border-bottom: 1px solid #21262d; vertical-align: top; }
+  tr.row-al { background: #0a1f0a; }
+  tr.row-bak { background: #1a1800; }
+  tr.row-pas { background: #1a0f00; }
+  tr.row-kacin { background: #1f0808; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; white-space: nowrap; }
+  .badge-al { background: #0d2b0d; color: #3fb950; border: 1px solid #3fb950; }
+  .badge-bak { background: #2a1e00; color: #d29922; border: 1px solid #d29922; }
+  .badge-pas { background: #2a1500; color: #ff7b54; border: 1px solid #ff7b54; }
+  .badge-kacin { background: #2d0808; color: #f85149; border: 1px solid #f85149; }
+  .score { font-weight: bold; }
+  .s-high { color: #3fb950; } .s-mid { color: #d29922; } .s-low { color: #ff7b54; }
+  .km-ok { color: #3fb950; } .km-mid { color: #d29922; } .km-high { color: #ff7b54; }
+  .price-ok { color: #3fb950; } .price-mid { color: #c9d1d9; } .price-high { color: #ff7b54; }
+  .sat-stars { color: #d29922; font-size: 0.85rem; }
+  a { color: #58a6ff; text-decoration: none; } a:hover { text-decoration: underline; }
+  .kronik-box { background: #1a0d2a; border: 1px solid #5a2d82; border-radius: 6px; padding: 14px; margin-top: 20px; }
+  .kronik-box h3 { color: #bc8cff; margin-bottom: 10px; }
+  .kronik-item { margin-bottom: 6px; font-size: 0.82rem; padding: 4px 0; border-bottom: 1px solid #2d1f40; }
+  .kronik-item:last-child { border-bottom: none; }
+  .kronik-name { color: #bc8cff; font-weight: bold; }
+  .tag-galeri { font-size: 0.7rem; background: #1c2128; color: #8b949e; padding: 1px 5px; border-radius: 3px; border: 1px solid #30363d; }
+  .tag-sah { font-size: 0.7rem; background: #0d2318; color: #3fb950; padding: 1px 5px; border-radius: 3px; border: 1px solid #3fb950; }
+  .stat-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+  .stat-item { background: #1c2128; border-radius: 4px; padding: 6px 12px; font-size: 0.8rem; }
+  .stat-num { font-size: 1.1rem; font-weight: bold; color: #58a6ff; }
+  .section-title { color: #8b949e; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin: 16px 0 8px; border-bottom: 1px solid #21262d; padding-bottom: 4px; }
+  .firsat-tag { background: #0d2318; color: #3fb950; border: 1px solid #3fb950; font-size: 0.7rem; padding: 1px 5px; border-radius: 3px; font-weight: bold; }
+  .km-manip { background: #2d0808; color: #f85149; border: 1px solid #f85149; font-size: 0.7rem; padding: 1px 5px; border-radius: 3px; font-weight: bold; }
 </style>
 </head>
 <body>
-
-<div class="tab-nav">
-  <button class="tab-btn active" onclick="showTab('sahibinden',this)">🚗 Eskişehir İlanları</button>
-  <button class="tab-btn" onclick="showTab('arabam',this)">🏆 Adem'in Listesi</button>
-  <button class="tab-btn" onclick="showTab('eskisehir',this)">🔍 Arabam.com Eskişehir</button>
+<div class="site-header">
+  <div class="site-title">🚗 Eskişehir Araba İlanları</div>
+  <div class="site-meta">Filtreler: 300k–600k TL · ≥2005 · ≤200k km · Ağır hasar yok | <strong style="color:#58a6ff">20 Haziran 2026</strong></div>
+</div>
+<div class="tabs-nav">
+  <button class="tab-btn active" onclick="showTab('tab1',this)">🚗 Eskişehir İlanları</button>
+  <button class="tab-btn" onclick="showTab('tab2',this)">🏆 Adem'in Listesi</button>
+  <button class="tab-btn" onclick="showTab('tab3',this)">🔍 Arabam.com Eskişehir</button>
 </div>
 
-<div id="tab-sahibinden" class="tab-pane active">
-<h2>🚗 Eskişehir Araba İlanları</h2>
-<div class="info">
-Filtreler: 300k–500k TL · 2005–2020 · ≤200k km · Ağır hasar yok &nbsp;|&nbsp; 17 Haz 2026 &nbsp;|&nbsp; <strong>📖</strong> = ilan okundu · <strong>🚫</strong> = bot engeli
-</div>
-
-<div class="warn">
-⚠️ <strong>KRİTİK:</strong>
-Row 30 Ford Fiesta — <strong>KM MANİPÜLASYONU</strong> (gerçek ~300k) &nbsp;|&nbsp;
-Row 22 Seat İbiza — <strong>şase + airbag arızası</strong> + 5 mekanik sorun &nbsp;|&nbsp;
-Row 32 Hyundai Accent — <strong>13 parça boyalı</strong> (komple hasar şüphesi) &nbsp;|&nbsp;
-Row 61 Seat Cordoba — <strong>sistem/açıklama çelişkisi</strong>
-</div>
-
-<div class="top">
-<strong>🏆 Öncelik Sırası (kalite + satılabilirlik):</strong><br>
-<span style="font-size:10px;color:#555">●●●●● = kolay sat · ●●● = orta · ●● = zor sat</span><br>
-1. #15 Peugeot 206+ 126k / 395k ✅ <span style="color:var(--green)">●●●●● Çok kolay</span> — En uygun fiyat + en kolay satış + dürüst galeri + TRAMER 2k + triger yeni<br>
-2. #66 Peugeot 208 2013 97k / 485k ✅ <span style="color:var(--green)">●●●●● Çok kolay</span> — Listede en düşük km + popüler model + dürüst açıklama (kaput değişmiş)<br>
-3. #57 Peugeot 208 2015 177.5k / 470k ⚠️ <span style="color:var(--green)">●●●●● Çok kolay</span> — En yeni model + muayene 2028 + CarPlay (kaput değişimi cisim düşmesinden)<br>
-4. #39 Citroen C3 155k / 445k ✅ <span style="color:var(--orange)">●●● Orta</span> — Çok temiz, 11 yıllık hesap sahibi; C3 biraz niş ama fiyatı makul<br>
-5. #36 Ford Ka 152k / 435k ✅ <span style="color:var(--orange)">●●● Orta</span> — Temiz, bakımlar tamam, ihtiyaçtan satış (410-420k'ya indir)<br>
-6. #23 Hyundai Getz 1.5 CRDi 188k / 414k ✅ <span style="color:var(--green)">●●●● Kolay</span> — Değişen yok, dizel az bulunur + kolay satılır; 188k km yüksek, araç teyit et<br>
-7. #38 Daihatsu Sirion 56k / 440k ✅ <span style="color:var(--red)">●● Zor</span> — Listede en temiz araç (Toyota motor, 56k km) ama Daihatsu nadir → satmak zaman alır
-</div>
-
-<div class="controls">
-<input id="q" type="text" placeholder="🔍 Marka / yorum ara..." oninput="render()">
-<label><input type="checkbox" id="ck" checked onchange="render()"> Kronik</label>
-<label><input type="checkbox" id="cs" checked onchange="render()"> Kapanan</label>
-<label><input type="checkbox" id="cr" checked onchange="render()"> Kaçın</label>
-<span class="cnt" id="cnt">78 ilan</span>
-</div>
-
-<div class="tbl-wrap">
-<table>
-<thead><tr>
-<th onclick="sort(0)">#</th>
-<th onclick="sort(1)">Model</th>
-<th onclick="sort(2)">Başlık / Link</th>
-<th onclick="sort(3)">Yıl</th>
-<th onclick="sort(4)">KM</th>
-<th onclick="sort(5)">Fiyat</th>
-<th onclick="sort(6)">Piyasa</th>
-<th onclick="sort(7)">Yorum</th>
-<th onclick="sort(8)">Satılabilirlik</th>
-</tr></thead>
-<tbody id="tb"></tbody>
-</table>
-</div>
-<div class="cards" id="cards"></div>
-
-<div class="legend">
-🟢 Yeşil = KM &lt;130k &nbsp;|&nbsp; 🟡 Sarı = 130–165k &nbsp;|&nbsp; 🔴 Kırmızı = Kaçın &nbsp;|&nbsp; Pembe = Kronik &nbsp;|&nbsp;
-<span style="color:var(--green)">■</span> Piyasa içi/altı &nbsp;|&nbsp; <span style="color:var(--red)">■</span> Piyasa üstü
-</div>
-
-<div class="chronic-section">
-<h3>⚠️ Kronik Sorunlu Modeller</h3>
-<ol>
-<li><strong>Opel Corsa 1.2/1.3 (2005–2012):</strong> Elektrik/sigorta sorunları, klima kompresörü, merkezi kilit arızaları. Yüksek servis masrafı.</li>
-<li><strong>Fiat Albea (2008–2012):</strong> 1.4 Fire'da triger kayışı ve soğutma. 1.3 Multijet'te turbo ve enjektör arızaları. Pas eğilimi yüksek.</li>
-<li><strong>Peugeot 407 1.6 HDi:</strong> BSI elektronik beyin arızaları — pahalı ve zor bulunur. 190k+ km'de büyük masraf.</li>
-<li><strong>Opel Meriva 1.3 CDTI:</strong> Kayan kapı mekanizması (mil aşınması), dizel enjektör, EGR tıkanması.</li>
-<li><strong>Peugeot 307 1.6 HDi:</strong> Baş contası, BSI arızaları. 190k+ km'de büyük masraf.</li>
-<li><strong>Peugeot 308 1.6 VTi (2008–2010):</strong> 2Tronic şanzıman, 1.6 VTi zaman zinciri ve tırnak sorunu.</li>
-<li><strong>Fiat Marea 1.6:</strong> Elektrik sistemi sürekli arıza, yüksek pas riski.</li>
-<li><strong>Chery Kimo 1.3:</strong> Türkiye'de servis ağı ve orijinal yedek parça yok.</li>
-<li><strong>Skoda Octavia 1.6 FSI (2005):</strong> Emme supabı karbon birikimi (her 80–100k km). Yakıt pompası.</li>
-<li><strong>Ford Fiesta TDCi (2004–2011):</strong> Yüksek km'de diş zinciri. Yakıt enjeksiyon sistemi pahalı.</li>
-<li><strong>Seat Ibiza 1.2 (2008–2010):</strong> VW Group 1.2 yağ tüketimi, zaman zinciri. Türkiye'de VW servis fiyatları.</li>
-<li><strong>Ford Fusion 1.4 TDCi:</strong> Türkiye'de az satıldı, yedek parça bulunurluğu azalıyor.</li>
-</ol>
-</div>
-</div><!-- /tab-sahibinden -->
-
-<div id="tab-arabam" class="tab-pane">
-<h2 style="font-size:18px;font-weight:700;margin-bottom:4px;color:#1a1a2e">🏆 Adem'in Favori Listesi — arabam.com Analizi</h2>
-<p style="font-size:12px;color:#666;margin-bottom:14px">17 ilan · 565.000–849.900 TL · 19 Haziran 2026 · <span style="color:#155724;font-weight:600">✅ 2 kritere uygun ilan</span></p>
-
-<div style="background:#d4edda;border:1px solid #28a745;border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:12px;line-height:1.8">
-  <b style="color:#155724">✅ KRİTERE UYGUN İLANLAR (300–600k TL, ≤200k km, 2005+)</b><br>
-  <b>✅ #41179900</b> Renault Symbol 1.0 SCe Touch 2017 · 165k km · 590.000 TL · Eskişehir · <span style="color:#1b5e20">●●●●● Çok kolay satılır</span><br>
-  <b>✅ #41163377</b> VW Polo 1.2 TDi Trendline 2014 · 157k km · 599.000 TL · İstanbul · <span style="color:#e65100">⚠️ TRAMER 29.8k TL — kesinlikle ekspertiz</span><br>
-  <b>⚠️ #39773645</b> Opel Corsa 1.3 CDTI 2013 · 190k km · 600.000 TL · fiyat tam sınırda<br>
-  <small style="color:#555">Tablo aşağıda kriter uyum sırasına göre dizilmiştir (✅ → ⚠️ → ❌)</small>
-</div>
-<div class="a-banner">
-  <b>⚠️ Dikkat Edilmesi Gereken İlanlar</b><br>
-  <b>❌ İlan #40964267 — Opel Astra 1.4T 2013:</b> Şase bağlantısında işlem mevcut + TRAMER 30.000 TL. Ağır kaza geçmişi şüphesi. KAÇIN!<br>
-  <b>❌ İlan #41163377 — VW Polo 2014:</b> TRAMER 29.800 TL + sağ ön çamurluk değişmiş. Listede en riskli ilan. KAÇIN!<br>
-  <b>⚠️ İlan #40895887 — Peugeot 301 2018/Ankara:</b> Açıklama ile sistem arasında çelişki (lokal boya var ama sistemde orijinal yazıyor).
-</div>
-
-<div class="a-priority">
-  <h2>🏆 Öncelik Sırası (satılabilirlik + durum + fiyat/değer)</h2>
-  <div class="a-pitem"><span class="a-rank">1.</span><span class="a-tag a-ok">✅</span> <b>#41179900</b> Renault Symbol 1.0 SCe Touch 2017 · 165k km · 590.000 TL <span class="a-tag" style="background:#e8f5e9;color:#1b5e20">●●●●● Çok kolay</span><br><span style="color:#555;padding-left:28px;">Sol ön çamurluk boyalı (tek kusur) · tramer yok · Eskişehir · 4 mevsim lastik yeni · ucuz + satılabilir</span></div>
-  <div class="a-pitem"><span class="a-rank">2.</span><span class="a-tag a-ok">✅</span> <b>#41106955</b> Peugeot 301 1.6 HDi Allure 2013 · 145k km · 775.000 TL <span class="a-tag" style="background:#e8f5e9;color:#1b5e20">●●●● Kolay</span><br><span style="color:#555;padding-left:28px;">Tamamı orijinal · tramer yok · Eskişehir sahibinden · triger 100k'da yapılmış · ekspertiz raporu mevcut</span></div>
-  <div class="a-pitem"><span class="a-rank">3.</span><span class="a-tag a-ok">✅</span> <b>#40574741</b> Peugeot 301 1.6 BlueHDI Active 2018 · 188k km · 725.000 TL <span class="a-tag" style="background:#e8f5e9;color:#1b5e20">●●●● Kolay</span><br><span style="color:#555;padding-left:28px;">Tamamı orijinal · galeri · Eskişehir · 4 lastik yeni · 2018 en yeni model</span></div>
-  <div class="a-pitem"><span class="a-rank">4.</span><span class="a-tag a-ok">✅</span> <b>#40602791</b> Fiat Egea 1.4 Fire Urban 2017 · 89k km · 825.000 TL <span class="a-tag" style="background:#e8f5e9;color:#1b5e20">●●●●● Çok kolay</span><br><span style="color:#555;padding-left:28px;">Tamamı orijinal · galeri (Platinum) · en düşük km · LPG sonradan · pahalı ama değer</span></div>
-  <div class="a-pitem"><span class="a-rank">5.</span><span class="a-tag a-ok">✅</span> <b>#41289931</b> Opel Astra 1.4T Sport Still 2012 · 167k km · 830.000 TL <span class="a-tag" style="background:#fff8e1;color:#f57f17">●●● Orta</span><br><span style="color:#555;padding-left:28px;">Tamamı orijinal · tramer yok · sahibinden · triger garantili (1 yıl) · sunroof · pahalı</span></div>
-  <div class="a-pitem"><span class="a-rank">6.</span><span class="a-tag a-warn">⚠️</span> <b>#41276551</b> VW Polo 1.2 TDi Trendline 2012 · 113k km · 675.000 TL <span class="a-tag" style="background:#e8f5e9;color:#1b5e20">●●●● Kolay</span><br><span style="color:#555;padding-left:28px;">3 lokal boyalı tampon bölgesi · 10 belirtilmemiş · 11. yıl emekli sahibi · fiyat inmiş · ekspertiz şart</span></div>
-  <div class="a-pitem"><span class="a-rank">7.</span><span class="a-tag a-warn">⚠️</span> <b>#40106594</b> Opel Astra 1.6 Edition 2015 · 77k km · 849.900 TL <span class="a-tag" style="background:#fff8e1;color:#f57f17">●●● Orta</span><br><span style="color:#555;padding-left:28px;">Tamamı orijinal · tramer belirtilmemiş · en düşük km ama en pahalı · Opel Astra kronik</span></div>
-</div>
-
-<div class="a-tbl-wrap">
-<table id="a-table">
-<thead><tr>
-  <th>#</th>
-  <th onclick="sortA(1)">Model ↕</th>
-  <th onclick="sortA(2)">Yıl ↕</th>
-  <th onclick="sortA(3)">KM ↕</th>
-  <th onclick="sortA(4)">Fiyat ↕</th>
-  <th>Piyasa</th>
-  <th>Yakıt</th>
-  <th>Durum</th>
-  <th>Satıcı</th>
-  <th>Boya/Değişen</th>
-  <th>Tramer</th>
-  <th>Satılabilirlik</th>
-  <th>Yorum</th>
-  <th>İlan</th>
-</tr></thead>
-<tbody>
-<tr class="row-ok"><td>1</td><td><b>Opel Astra 1.6 Ed.</b></td><td>2015</td><td>179.000</td><td style="font-weight:700">779.500 ₺</td><td class="a-market">800k-900k TL<br><small>Piyasa altı</small></td><td>Benzin</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Galeri NEXT CAR<br><span class="ilankod">Ankara</span></td><td>Tamamı orijinal</td><td>—</td><td class="a-sat2">●●● Orta</td><td class="note-cell">Hatasız boyasız, km garantili. Ankara'dan uzak.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41348812" target="_blank">41348812 ↗</a></td></tr>
-<tr class="row-bad"><td>2</td><td><b>Opel Astra 1.4T Sport</b></td><td>2013</td><td>178.000</td><td style="font-weight:700">745.000 ₺</td><td class="a-market">730k-820k TL<br><small>Piyasa içinde</small></td><td>LPG+Benzin</td><td><span class="cls-cell a-bad">❌ KAÇIN</span></td><td>Galeri EYMEN AUTO<br><span class="ilankod">Eskişehir</span></td><td>2 boyalı çamurluk<br>2 lokal boyalı kapı</td><td style="color:#dc3545;font-weight:700">30.000 TL</td><td class="a-sat3">●● Zor</td><td class="note-cell" style="color:#dc3545"><b>Şase bağlantısında işlem! TRAMER 30k TL.</b></td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40964267" target="_blank">40964267 ↗</a></td></tr>
-<tr class="row-warn"><td>3</td><td><b>Opel Corsa 1.3 CDTI</b></td><td>2013</td><td>190.000</td><td style="font-weight:700">600.000 ₺</td><td class="a-market">400k-500k TL<br><small>Piyasa üstü</small></td><td>Dizel</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>Ön+arka tampon boyalı<br>11 belirtilmemiş</td><td>—</td><td class="a-sat3">●● Zor</td><td class="note-cell">Triger+alt takım+fren yeni. Acil satış.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/39773645" target="_blank">39773645 ↗</a></td></tr>
-<tr class="row-warn"><td>4</td><td><b>Toyota Corolla 1.4 D-4D</b></td><td>2011</td><td>200.000</td><td style="font-weight:700">764.750 ₺</td><td class="a-market">700k-850k TL<br><small>Piyasa içinde</small></td><td>Dizel</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>4 boyalı parça<br>(sol arka çamur., kapılar)</td><td style="color:#e65100;font-weight:700">~2.900 TL</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell">200k km + 4 boyalı. Muayene 2028.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40945095" target="_blank">40945095 ↗</a></td></tr>
-<tr class="row-warn"><td>5</td><td><b>Opel Astra 1.6 Edition</b></td><td>2013</td><td>156.000</td><td style="font-weight:700">770.000 ₺</td><td class="a-market">760k-850k TL<br><small>Piyasa içinde</small></td><td>LPG+Benzin</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>2 lokal boyalı<br>11 belirtilmemiş</td><td style="color:#555">713 TL</td><td class="a-sat2">●●● Orta</td><td class="note-cell">11 belirtilmemiş — ekspertiz şart.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/39254114" target="_blank">39254114 ↗</a></td></tr>
-<tr class="row-ok"><td>6</td><td><b>Opel Astra 1.6 Edition</b></td><td>2015</td><td>77.000</td><td style="font-weight:700">849.900 ₺</td><td class="a-market">800k-900k TL<br><small>Piyasa içinde</small></td><td>LPG+Benzin</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Galeri ERDOST OTOMOTİV</td><td>—</td><td class="a-sat2">●●● Orta</td><td class="note-cell">En düşük km. Hatasız tramersiz. Pahalı.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40106594" target="_blank">40106594 ↗</a></td></tr>
-<tr class="row-warn"><td>7</td><td><b>Renault Symbol 0.9 TCe</b></td><td>2020</td><td>121.000</td><td style="font-weight:700">680.000 ₺</td><td class="a-market">700k-790k TL<br><small>Piyasa altı</small></td><td>Benzin</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>1 lokal boyalı<br>12 belirtilmemiş</td><td>—</td><td class="a-sat1">●●●●● Çok kolay</td><td class="note-cell">2020 model. Muayene 2027. 12 belirtilmemiş — ekspertiz şart.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41318637" target="_blank">41318637 ↗</a></td></tr>
-<tr class="row-ok"><td>8</td><td><b>Opel Astra 1.4T Sport Still</b></td><td>2012</td><td>167.000</td><td style="font-weight:700">830.000 ₺</td><td class="a-market">770k-860k TL<br><small>Piyasa içinde</small></td><td>Benzin</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Tamamı orijinal</td><td>—</td><td class="a-sat2">●●● Orta</td><td class="note-cell">Triger garantili (1 yıl). Sunroof. Pahalı.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41289931" target="_blank">41289931 ↗</a></td></tr>
-<tr class="row-warn"><td>9</td><td><b>Ford Fiesta 1.4 TDCi</b></td><td>2012</td><td>214.000</td><td style="font-weight:700">565.000 ₺</td><td class="a-market">460k-530k TL<br><small>Piyasa üstü</small></td><td>Dizel</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>3 lokal boyalı<br>3 boyalı (6 parça)</td><td style="color:#555">765 TL</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell">En ucuz. 214k km. 6 boyalı parça.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/39714640" target="_blank">39714640 ↗</a></td></tr>
-<tr class="row-bad"><td>10</td><td><b>VW Polo 1.2 TDi</b></td><td>2014</td><td>157.000</td><td style="font-weight:700">599.000 ₺</td><td class="a-market">560k-640k TL<br><small>Piyasa içinde</small></td><td>Dizel</td><td><span class="cls-cell a-bad">❌ KAÇIN</span></td><td>Sahibinden<br><span class="ilankod">İstanbul/Bakırköy</span></td><td>3 boyalı · 1 lokal<br><b>Sağ ön çamurluk DEĞİŞMİŞ</b></td><td style="color:#dc3545;font-weight:700">29.800 TL ❌</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell" style="color:#dc3545"><b>TRAMER 29.8k TL + değişen parça. İstanbul'dan uzak.</b></td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41163377" target="_blank">41163377 ↗</a></td></tr>
-<tr class="row-warn"><td>11</td><td><b>VW Polo 1.2 TDi</b></td><td>2012</td><td>113.000</td><td style="font-weight:700">675.000 ₺ <small style="color:#888">(720k'dan)</small></td><td class="a-market">610k-700k TL<br><small>Piyasa üstü</small></td><td>Dizel</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td>3 lokal boyalı<br>10 belirtilmemiş</td><td>—</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell">Emekli memur, garajda. Debriyaj yeni. Ekspertiz şart.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41276551" target="_blank">41276551 ↗</a></td></tr>
-<tr class="row-ok"><td>12</td><td><b>Fiat Egea 1.4 Fire Urban</b></td><td>2017</td><td>89.000</td><td style="font-weight:700">825.000 ₺</td><td class="a-market">790k-870k TL<br><small>Piyasa içinde</small></td><td>LPG+Benzin</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Galeri AKANDERE OTO<br>Platinum 1.yıl</td><td>—</td><td class="a-sat1">●●●●● Çok kolay</td><td class="note-cell">En temiz. LPG sonradan. Minimal kozmetik kusur. Pahalı.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40602791" target="_blank">40602791 ↗</a></td></tr>
-<tr class="row-warn"><td>13</td><td><b>Renault Symbol 1.0 SCe</b></td><td>2019</td><td>73.000</td><td style="font-weight:700">695.000 ₺</td><td class="a-market">700k-780k TL<br><small>Piyasa altı</small></td><td>Benzin</td><td><span class="cls-cell a-warn">⚠️ Dikkat</span></td><td><b>Arka kaput DEĞİŞMİŞ</b><br>Arka tampon boyalı</td><td>—</td><td class="a-sat1">●●●●● Çok kolay</td><td class="note-cell">73k km düşük ama kaput değişmiş. Kocaeli — uzak.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/38862080" target="_blank">38862080 ↗</a></td></tr>
-<tr class="row-ok"><td>14</td><td><b>Renault Symbol 1.0 SCe Touch</b></td><td>2017</td><td>165.000</td><td style="font-weight:700">590.000 ₺</td><td class="a-market">600k-660k TL<br><small>Piyasa altı</small></td><td>Benzin</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Sol ön çamurluk boyalı<br>12 parça orijinal</td><td>—</td><td class="a-sat1">●●●●● Çok kolay</td><td class="note-cell">Sadece 1 boyalı. Tramer yok. Lastik yeni. Fiyat/değer en iyi.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41179900" target="_blank">41179900 ↗</a></td></tr>
-<tr class="row-ok"><td>15</td><td><b>Peugeot 301 1.6 HDi Allure</b></td><td>2013</td><td>145.000</td><td style="font-weight:700">775.000 ₺</td><td class="a-market">700k-790k TL<br><small>Piyasa içinde</small></td><td>Dizel</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Tamamı orijinal</td><td>—</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell">Triger 100k'da yapılmış. Ekspertiz mevcut. Muayene Şubat 2027.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/41106955" target="_blank">41106955 ↗</a></td></tr>
-<tr class="row-warn"><td>16</td><td><b>Peugeot 301 1.6 BlueHDI</b></td><td>2018</td><td>158.700</td><td style="font-weight:700">730.000 ₺</td><td class="a-market">660k-750k TL<br><small>Piyasa içinde</small></td><td>Dizel</td><td><span class="cls-cell a-warn">⚠️ Çelişki</span></td><td>Sistemde orijinal<br><b>Açıklamada: 2 lokal boyalı</b></td><td style="color:#555">500 TL</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell" style="color:#e65100"><b>Sistem-açıklama çelişkisi!</b> 2018 model, lastikler yeni. Ankara — uzak.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40895887" target="_blank">40895887 ↗</a></td></tr>
-<tr class="row-ok"><td>17</td><td><b>Peugeot 301 1.6 BlueHDI</b></td><td>2018</td><td>188.000</td><td style="font-weight:700">725.000 ₺</td><td class="a-market">650k-735k TL<br><small>Piyasa içinde</small></td><td>Dizel</td><td><span class="cls-cell a-ok">✅ Temiz</span></td><td>Galeri<br><span class="ilankod">Eskişehir</span></td><td>—</td><td class="a-sat1">●●●● Kolay</td><td class="note-cell">2018 model. 4 lastik yeni. Ekspertiz mevcut. Galeri güvencesi.</td><td><a class="ilan-link" href="https://www.arabam.com/ilan/40574741" target="_blank">40574741 ↗</a></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="a-cards">
-<div class="a-card" style="border-top:3px solid #28a745"><div class="a-card-header"><div class="a-card-title">✅ 14. Renault Symbol 1.0 SCe Touch 2017</div><div class="a-card-sub">590.000 TL · 165k km · Eskişehir · <span class="a-sat1">●●●●● Çok kolay</span></div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">600k-660k TL</span></div><div class="a-card-row"><span class="a-card-label">Durum</span><span class="a-card-val">Sol ön çamurluk boyalı, tramer yok</span></div><div class="a-card-row"><span class="a-card-label">Satıcı</span><span class="a-card-val">Sahibinden / Eskişehir</span></div><div class="a-card-note">1 boyalı parça. 4 mevsim lastik yeni. Pazarlık payı var.</div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/41179900" target="_blank">41179900 ↗</a></span></div></div></div>
-<div class="a-card" style="border-top:3px solid #28a745"><div class="a-card-header"><div class="a-card-title">✅ 15. Peugeot 301 1.6 HDi Allure 2013</div><div class="a-card-sub">775.000 TL · 145k km · Eskişehir · <span class="a-sat1">●●●● Kolay</span></div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">700k-790k TL</span></div><div class="a-card-row"><span class="a-card-label">Durum</span><span class="a-card-val">Tamamı orijinal, tramer yok</span></div><div class="a-card-row"><span class="a-card-label">Satıcı</span><span class="a-card-val">Sahibinden / Eskişehir</span></div><div class="a-card-note">Triger 100k'da, sıvılar taze, ekspertiz mevcut.</div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/41106955" target="_blank">41106955 ↗</a></span></div></div></div>
-<div class="a-card" style="border-top:3px solid #28a745"><div class="a-card-header"><div class="a-card-title">✅ 17. Peugeot 301 1.6 BlueHDI 2018</div><div class="a-card-sub">725.000 TL · 188k km · Eskişehir Galeri · <span class="a-sat1">●●●● Kolay</span></div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">650k-735k TL</span></div><div class="a-card-row"><span class="a-card-label">Durum</span><span class="a-card-val">Tamamı orijinal, galeri güvencesi</span></div><div class="a-card-note">2018 en yeni. 4 lastik yeni. Hasar kaydı yok.</div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/40574741" target="_blank">40574741 ↗</a></span></div></div></div>
-<div class="a-card" style="border-top:3px solid #28a745"><div class="a-card-header"><div class="a-card-title">✅ 12. Fiat Egea 1.4 Urban 2017</div><div class="a-card-sub">825.000 TL · 89k km · Galeri Platinum · <span class="a-sat1">●●●●● Çok kolay</span></div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">790k-870k TL</span></div><div class="a-card-row"><span class="a-card-label">Durum</span><span class="a-card-val">Tamamı orijinal, LPG sonradan</span></div><div class="a-card-note">En düşük km araçlardan. Minimal kozmetik kusur.</div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/40602791" target="_blank">40602791 ↗</a></span></div></div></div>
-<div class="a-card" style="border-top:3px solid #dc3545"><div class="a-card-header" style="background:#fff5f5"><div class="a-card-title">❌ 2. Opel Astra 1.4T Sport 2013 — KAÇIN</div><div class="a-card-sub">745.000 TL · 178k km · Eskişehir</div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">730k-820k TL</span></div><div class="a-card-row"><span class="a-card-label">Tramer</span><span class="a-card-val" style="color:#dc3545">30.000 TL</span></div><div class="a-card-note" style="color:#dc3545"><b>Şase bağlantısında işlem var! Kesinlikle bakılmasın.</b></div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/40964267" target="_blank">40964267 ↗</a></span></div></div></div>
-<div class="a-card" style="border-top:3px solid #dc3545"><div class="a-card-header" style="background:#fff5f5"><div class="a-card-title">❌ 10. VW Polo 1.2 TDi 2014 — KAÇIN</div><div class="a-card-sub">599.000 TL · 157k km · İstanbul</div></div><div class="a-card-body"><div class="a-card-row"><span class="a-card-label">Piyasa</span><span class="a-card-val">560k-640k TL</span></div><div class="a-card-row"><span class="a-card-label">Tramer</span><span class="a-card-val" style="color:#dc3545">29.800 TL</span></div><div class="a-card-note" style="color:#dc3545"><b>TRAMER 29.8k + değişen parça. Hem uzak hem riskli.</b></div><div class="a-card-row" style="margin-top:8px"><span class="a-card-label">İlan</span><span class="a-card-val"><a class="ilan-link" href="https://www.arabam.com/ilan/41163377" target="_blank">41163377 ↗</a></span></div></div></div>
-</div>
-
-<p style="font-size:10px;color:#aaa;margin-top:10px;text-align:center">arabam.com favori listesi · Adem Bey · Haziran 2026 · Claude Cowork tarafından analiz edildi</p>
-</div><!-- /tab-arabam -->
-
-<div id="tab-eskisehir" class="tab-pane">
-<style>
-.esk-banner{background:#fff3cd;border:2px solid #ffc107;border-radius:8px;padding:12px 16px;margin-bottom:16px}
-.esk-banner h3{margin:0 0 6px;color:#856404;font-size:15px}
-.esk-warn-banner{background:#f8d7da;border:2px solid #f5c6cb;border-radius:8px;padding:12px 16px;margin-bottom:16px}
-.esk-warn-banner h3{margin:0 0 6px;color:#721c24;font-size:15px}
-.esk-priority{background:#d4edda;border:2px solid #28a745;border-radius:8px;padding:12px 16px;margin-bottom:16px}
-.esk-priority h3{margin:0 0 8px;color:#155724;font-size:15px}
-.esk-priority ol{margin:0;padding-left:20px}
-.esk-priority li{margin-bottom:4px;font-size:13px}
-.esk-tag-ok{background:#d4edda;color:#155724;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
-.esk-tag-warn{background:#fff3cd;color:#856404;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
-.esk-tag-bad{background:#f8d7da;color:#721c24;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
-.esk-tag-info{background:#d1ecf1;color:#0c5460;padding:1px 6px;border-radius:10px;font-size:11px;font-weight:600}
-.esk-sat1{color:#28a745;font-weight:700}
-.esk-sat2{color:#28a745;font-weight:600}
-.esk-sat3{color:#ffc107;font-weight:600}
-.esk-sat4{color:#dc3545;font-weight:600}
-.esk-tbl-wrap{overflow-x:auto;margin-bottom:20px}
-.esk-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:900px}
-.esk-tbl th{background:#1a1a2e;color:#fff;padding:8px 10px;text-align:left;font-size:11px}
-.esk-tbl td{padding:7px 10px;border-bottom:1px solid #eee;vertical-align:top}
-.esk-tbl tr:hover td{background:#f8f9fa}
-.esk-tbl tr.kaçın td{background:#fff5f5!important}
-.esk-tbl .puan{font-weight:700;font-size:14px}
-.esk-cards{display:none}
-@media(max-width:700px){
-  .esk-tbl-wrap{display:none}
-  .esk-cards{display:block}
-}
-.esk-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px;margin-bottom:14px;position:relative}
-.esk-card.kaçın{border-color:#f5c6cb;background:#fff5f5}
-.esk-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-.esk-card-model{font-weight:700;font-size:15px;color:#1a1a2e}
-.esk-card-price{font-weight:700;font-size:16px;color:#dc3545}
-.esk-card-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;font-size:12px;color:#666}
-.esk-card-label{font-weight:600;color:#444}
-.esk-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
-.esk-card-yorum{font-size:12px;color:#555;margin-top:6px;line-height:1.5}
-.esk-card-link{font-size:11px;color:#6c757d;margin-top:4px}
-.esk-card-link a{color:#007bff}
-</style>
-
-<h2 style="font-size:18px;font-weight:700;margin-bottom:4px;color:#1a1a2e">🔍 Arabam.com Eskişehir İlanları</h2>
-<p style="font-size:12px;color:#666;margin-bottom:12px">Filtre: 300–600k TL · Max 200km · 2005+ · arabam.com · 19 Haziran 2026 · Claude Cowork · 13 mevcut ilan aktif · <strong>3 yeni ilan eklendi</strong></p>
-
-<div class="esk-warn-banner">
-  <h3>⚠️ KAÇIN — Bu İlanlardan Uzak Durun</h3>
-  <ul style="margin:0;padding-left:18px;font-size:13px">
-    <li><strong>#41060335</strong> — Renault Symbol 0.9 TCe 2013 · 117.5km · 499k TL · "KAZALI FOTOĞRAFI RESİMLERDE MEVCUTTUR" — İlana eklenen fotoğraflarda kaza hasarı gösterilmiş. Tamamı orijinal yazmasına rağmen bu ifade çelişki yaratıyor.</li>
-    <li><strong>#41031240</strong> — Opel Corsa 1.4 Otomatik 2013 · 156km · 538.5k TL · <strong>"ARACIN ŞASE UCUNDA İŞLEM VARDIR"</strong> — Şase müdahalesi tespit edilmiş. Kesinlikle kaçın.</li>
-    <li><strong>#41178045</strong> — Renault Clio 1.2 Grandtour 2011 · 156km · 560k TL · 3 değişen parça: her iki ön çamurluk + ön tampon — ciddi kafa kazası göstergesi.</li>
+<div id="tab1" class="tab-content active">
+<div class="alert-red">⚠️ <strong>KRİTİK BAYRAKLAR:</strong> Renault Laguna 2008/31.400km → <strong>KM MANİPÜLASYONU ŞÜPHESİ</strong> (tramer+km belgesi al) | Opel Astra 1.4 Classic 2006/338k → <strong>ANORMAL UCUZ</strong> (gizli arıza?) | Chevrolet Cruze 1.6 LS → <strong>KRONİK MOTOR</strong> (gaz kelebeği+EGR+şanzıman)</div>
+<div class="priority-box">
+  <h3>🏆 Öncelik Sırası — 20 Haziran 2026</h3>
+  <ul class="priority-list">
+    <li><span class="badge badge-al">✅ AL</span> 1. <strong>Fiat Egea 1.4 Fire Easy 2018</strong> · 126k km · 429k TL · <span class="firsat-tag">FIRSAT</span> — Piyasa 480-560k, 2018 model bu fiyata nadir · Pazarlık: 400-410k</li>
+    <li><span class="badge badge-al">✅ AL</span> 2. <strong>Opel Corsa 1.2 Twinport Essentia 2014</strong> · 80k km · 585k TL — Listede en düşük km, 2014 model nadir · Pazarlık: 565-575k</li>
+    <li><span class="badge badge-al">✅ AL</span> 3. <strong>Peugeot 206+ 1.4 HDi Comfort 2011</strong> · 104k km · 519.5k TL — Düşük km, yakıt cimrisi, popüler · Pazarlık: 500-510k</li>
+    <li><span class="badge badge-al">✅ AL</span> 4. <strong>Renault Symbol 1.4 Expression 2011</strong> · 106k km · 570k TL — Düşük km, çok kolay satış · Pazarlık: 545-555k</li>
+    <li><span class="badge badge-al">✅ AL</span> 5. <strong>Fiat Linea 1.3 Multijet Active Plus 2011</strong> · 135k km · 539k TL — Sağlam dizel motor · Pazarlık: 520-525k</li>
+    <li><span class="badge badge-bak">⚠️ BAK</span> 6. <strong>Renault Laguna 1.5 dCi 2008</strong> · 31.4k km · 450k TL — <span class="km-manip">KM SORGULA!</span> Gerçekse listedeki en iyi alım</li>
+    <li><span class="badge badge-bak">⚠️ BAK</span> 7. <strong>Citroen C3 1.4 X Furio 2007</strong> · 119.8k km · 450k TL — Bireysel, makul km · Pazarlık: 425-435k</li>
+    <li><span class="badge badge-bak">⚠️ BAK</span> 8. <strong>Renault Megane 1.6 Privilege 2008</strong> · 79.3k km · 599k TL — Düşük km ama galeri fazla istiyor · Pazarlık: 575-585k</li>
+    <li><span class="badge badge-bak">⚠️ BAK</span> 9. <strong>Ford Ka 1.2 Titanium 2009</strong> · 152k km · 435k TL — Acil satış ihtiyaçtan · Pazarlık: 415-420k</li>
+    <li><span class="badge badge-bak">⚠️ BAK</span> 10. <strong>Fiat Linea 1.3 Multijet Easy 2014</strong> · 165k km · 569k TL — 2014 model iyi, km biraz fazla</li>
   </ul>
 </div>
-
-<div class="esk-priority">
-  <h3>✅ Öneri Sırası (Temizlik + Fiyat/Değer)</h3>
-  <ol>
-    <li><strong>Renault Symbol 1.2 Joy 2013 · 117km · 550k</strong> (#41063522) — 1 lokal boya, temiz araç</li>
-    <li><strong>Opel Corsa 1.2 Enjoy 111 2011 · 133km · 585k</strong> (#40968304) — Minimal boya, sahibinden özenli açıklama</li>
-    <li><strong>Opel Corsa 1.2 Twinport 2010 · 93km · 577.5k</strong> (#40635316) — Tramer yok, galeri garantisi, tek parça güneş yanığından boyatılmış</li>
-    <li><strong>Fiat Linea 1.3 Multijet 2014 · 138km · 589k</strong> (#40725792) — Sadece 2 lokal boya, değişen yok</li>
-    <li><strong>Chevrolet Aveo 1.4 LTZ 2012 · 119km · 549k</strong> (#40986943) — 3 lokal boya (aynı taraf), sahibinden detaylı açıklama</li>
-    <li><strong>🆕 Nissan Primera 1.6 Tekna 2005 · 127.5km · 565k</strong> (#40939602) — Değişen yok, 2 lokal boya, galeri güvencesi. Ancak Primera Türkiye'de nadir → satılabilirlik zayıf</li>
-    <li><strong>🆕 Citroen C3 1.4 HDi X Furio 2006 · 144km · 425k</strong> (#36830193) — Listede en ucuz araç! 2 değişen sol taraf var, sahibinden garaj arabası, dizel, eksper raporu mevcut</li>
-    <li><strong>🆕 Peugeot 206 1.4 Fever OTOMATİK 2006 · 80km · 548.5k</strong> (#39224338) — En düşük km! Ama ⚠️ 2-Tronic şanzıman kronik sorunu, galeri dürüst açıklama, safkan benzin</li>
-  </ol>
+<div class="stat-bar">
+  <div class="stat-item">Sahibinden <span class="stat-num">199</span> ilan<br><span style="font-size:0.7rem;color:#6e7681">İlk 20 analiz edildi</span></div>
+  <div class="stat-item">✅ Önerilen <span class="stat-num">5</span></div>
+  <div class="stat-item">⚠️ Bakılabilir <span class="stat-num">10</span></div>
+  <div class="stat-item">❌/🚫 Kaçın <span class="stat-num">5+</span></div>
 </div>
 
-<div class="esk-tbl-wrap">
-<table class="esk-tbl" id="esk-table">
-<thead>
-<tr>
-  <th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th>
-  <th>Boya/Değişen</th><th>Tramer</th>
-  <th>Piyasa Fiyatı</th><th>Satılabilirlik</th><th>Yorum</th><th>Kronik</th>
-  <th>İlan</th>
-</tr>
-</thead>
+<div class="section-title">✅ Önerilen İlanlar — Sahibinden.com Eskişehir</div>
+<div class="scroll-table"><table>
+<thead><tr><th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th><th>Piyasa</th><th>Kaynak</th><th>Satılabilirlik</th><th>Analiz</th><th>Skor</th><th>Karar</th><th>Pazarlık</th><th>Link</th></tr></thead>
 <tbody>
-<tr>
-  <td class="puan">1</td>
-  <td><strong>Renault Symbol 1.2 Joy</strong></td>
-  <td>2013</td><td>117.000</td><td style="color:#dc3545;font-weight:700">550.000 TL</td>
-  <td><span class="esk-tag-ok">1 lokal boyalı</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>480–600k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>"Sol arka çamurluk lokal harıcı orjinaldir, temiz araç, alan üzülmez" — Çok kısa ama net açıklama. Sahibinden.</td>
-  <td>Gaz kelebeği, termostat, cam krikoları</td>
-  <td><a href="https://www.arabam.com/ilan/41063522" target="_blank">41063522 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">2</td>
-  <td><strong>Opel Corsa 1.2 Enjoy 111</strong></td>
-  <td>2011</td><td>133.000</td><td style="color:#dc3545;font-weight:700">585.000 TL</td>
-  <td><span class="esk-tag-ok">1 boyalı · 2 lokal</span></td>
-  <td><span class="esk-tag-ok">Belirtilmemiş</span></td>
-  <td>480–640k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>"Araç değişikliği sebebiyle satılık, emsalsiz temizlikte, muayene yeni (2027), ağır bakımlar yapılı" — 111. yıla özel seri, özenerek kullanılmış, sahibinden güvenilir.</td>
-  <td>Supap ayarı, ABS modülü (eski modellerle benzer)</td>
-  <td><a href="https://www.arabam.com/ilan/40968304" target="_blank">40968304 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">3</td>
-  <td><strong>Opel Corsa 1.2 Twinport</strong></td>
-  <td>2010</td><td>93.000</td><td style="color:#dc3545;font-weight:700">577.500 TL</td>
-  <td><span class="esk-tag-warn">Güneş yanığı+bagaj boyası (galeri boyatmış)</span></td>
-  <td><span class="esk-tag-ok">Tramer YOK</span></td>
-  <td>450–600k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>MFT Motors galerisi: Araç kapı kolu hizasından güneş yanığı nedeniyle galeri tarafından boyatılmış, öncesi orijinaldir. Expertiz ve önceki fotoğraflar mevcut. Tramer kaydı yok. Taksit imkânı var.</td>
-  <td>Supap ayarı, egzoz manifoldu çatlakları (eski 1.2 motorlarda)</td>
-  <td><a href="https://www.arabam.com/ilan/40635316" target="_blank">40635316 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">4</td>
-  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
-  <td>2014</td><td>138.000</td><td style="color:#dc3545;font-weight:700">589.000 TL</td>
-  <td><span class="esk-tag-ok">2 lokal boyalı · değişen yok</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>500–650k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>Galeri ilanı, 2 lokal boya mevcut ama değişen parça yok. Açıklama çoğunlukla ödeme seçenekleri. Uzaktan inceleme imkânı sorgulanmalı.</td>
-  <td>DPF/EGR, turbo yağlama, egzoz manifoldu, direksiyon pompası sızıntısı</td>
-  <td><a href="https://www.arabam.com/ilan/40725792" target="_blank">40725792 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">5</td>
-  <td><strong>Chevrolet Aveo 1.4 LTZ</strong></td>
-  <td>2012</td><td>119.000</td><td style="color:#dc3545;font-weight:700">549.000 TL</td>
-  <td><span class="esk-tag-warn">3 lokal boyalı (sağ taraf)</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>430–580k TL</td>
-  <td class="esk-sat4">●● Zor</td>
-  <td>"119km orijinaldir, sağ ön kapı, sağ arka kapı ve sağ ön çamurlukta lokal boya mevcut. Lastikler yeni, bakımları tam." — Dürüst açıklama. Ancak GM Türkiye'den çekildiğinden yedek parça bulunabilirliği ve satılabilirlik düşük.</td>
-  <td>Yedek parça sıkıntısı (GM çekildi!), kaloriferde sorunlar, yakıt pompası</td>
-  <td><a href="https://www.arabam.com/ilan/40986943" target="_blank">40986943 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">6</td>
-  <td><strong>Opel Corsa 1.2 Active</strong></td>
-  <td>2014</td><td>80.000</td><td style="color:#dc3545;font-weight:700">600.000 TL</td>
-  <td><span class="esk-tag-warn">1 değişen (sol ön kapı) · 3 boyalı</span></td>
-  <td><span class="esk-tag-ok">Tramer YOK</span></td>
-  <td>520–680k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>"Memurdan temiz satılık araç" — Çok kısa açıklama. 80km olması çok düşük, sahibinden memurdan güvenilir olabilir. Tramer yok ama sol kapı değişmiş. Fiyat bu segmentte yüksek sayılır.</td>
-  <td>Supap ayarı, ABS modülü</td>
-  <td><a href="https://www.arabam.com/ilan/41329547" target="_blank">41329547 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">7</td>
-  <td><strong>Renault Symbol 1.4 Expression</strong></td>
-  <td>2011</td><td>106.000</td><td style="color:#dc3545;font-weight:700">570.000 TL</td>
-  <td><span class="esk-tag-warn">1 değişen (kaput) · 2 boyalı</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>450–600k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>Sahibinden, çok kısa açıklama. Değişen kaput + sağ arka çamurluk/arka tampon boyası ön-arka iki farklı darbe işaretçisi. Fiyat/değer açısından yüksek, iyi pazarlık noktası.</td>
-  <td>Gaz kelebeği, termostat, cam krikoları</td>
-  <td><a href="https://www.arabam.com/ilan/39033900" target="_blank">39033900 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">8</td>
-  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
-  <td>2014</td><td>108.000</td><td style="color:#dc3545;font-weight:700">589.750 TL</td>
-  <td><span class="esk-tag-bad">1 değişen · 3 boyalı · 2 lokal</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>500–650k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>"2015 çıkışlı, tek elden, 108km, sorunsuz 95hp motor, vize geçerli (2027)" — İyi açıklama ama 1 parça değişen (sol ön çamurluk) + çok sayıda boyalı parça tedirgin edici. Galeri ilanı.</td>
-  <td>DPF/EGR, turbo yağlama, egzoz manifoldu, direksiyon pompası</td>
-  <td><a href="https://www.arabam.com/ilan/40725776" target="_blank">40725776 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">9</td>
-  <td><strong>Opel Corsa 1.3 CDTI Essentia</strong></td>
-  <td>2012</td><td>132.000</td><td style="color:#dc3545;font-weight:700">600.000 TL</td>
-  <td><span class="esk-tag-warn">1 değişen (sağ arka kapı) · 3 boyalı</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>480–640k TL</td>
-  <td class="esk-sat2">●●●● Kolay</td>
-  <td>"Uzun yıllar tek kişi tarafından kullanılmış, motor/şanzıman çok güzel, lastik ve akü yeni." — Açıklama çok güven veriyor. Sağ arka kaza var ama ön taraf temiz. 600k biraz yüksek.</td>
-  <td>DPF/EGR tıkanması (1.3 CDTI), injektör arızaları</td>
-  <td><a href="https://www.arabam.com/ilan/40562935" target="_blank">40562935 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">10</td>
-  <td><strong>Fiat Linea 1.3 Multijet</strong></td>
-  <td>2011</td><td>135.000</td><td style="color:#dc3545;font-weight:700">549.000 TL</td>
-  <td><span class="esk-tag-warn">2 boyalı · 1 lokal</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>480–600k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>Galeri, ödeme bilgisi ağırlıklı açıklama. "Kaputu ucunun..." şeklinde başlayan kısım kesilmiş — muhtemelen kaput ucunda sorun var. Hız sabitleyici ve kamera ekranı özellik olarak belirtilmiş.</td>
-  <td>DPF/EGR tıkanması, turbo yağlama, egzoz manifoldu</td>
-  <td><a href="https://www.arabam.com/ilan/40725749" target="_blank">40725749 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">11</td>
-  <td><strong>Nissan Primera 1.6 Tekna</strong></td>
-  <td>2005</td><td>127.500</td><td style="color:#dc3545;font-weight:700">565.000 TL</td>
-  <td><span class="esk-tag-ok">2 lokal boyalı · değişen yok</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>350–550k TL</td>
-  <td class="esk-sat4">●● Zor</td>
-  <td>🆕 Galeri başlığı "DEĞİŞEN KAYIT YOK". Sağ ve sol arka çamurluk lokal boyalı. Tramer belirtilmemiş. Nissan Primera Türkiye'de nadir — yedek parça bulmak zorlaşıyor, satılabilirlik düşük. Fiyat piyasanın üstünde.</td>
-  <td>Triger zinciri, yağ sızıntıları, paslanma eğilimi, yedek parça bulunurluğu azalıyor</td>
-  <td><a href="https://www.arabam.com/ilan/40939602" target="_blank">40939602 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">12</td>
-  <td><strong>Citroen C3 1.4 HDi X Furio</strong></td>
-  <td>2006</td><td>144.000</td><td style="color:#dc3545;font-weight:700">425.000 TL</td>
-  <td><span class="esk-tag-bad">2 değişen · 2 boyalı (sol taraf)</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş (eksper raporu var)</span></td>
-  <td>300–450k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>🆕 Sahibinden "garaj arabası", otomatik almak için satıyor. Eksper raporu var. Sol tarafta 2 değişen + 2 boyalı — sol taraf darbesi şüphesi. Dizel, yakıt çok ekonomik. Bu filtrede en ucuz araç.</td>
-  <td>C3 1.4 HDi DW8: enjektör, EGR/DPF tıkanması, egzoz manifoldu</td>
-  <td><a href="https://www.arabam.com/ilan/36830193" target="_blank">36830193 ↗</a></td>
-</tr>
-<tr>
-  <td class="puan">13</td>
-  <td><strong>Peugeot 206 1.4 Fever OTOMATİK</strong></td>
-  <td>2006</td><td>80.000</td><td style="color:#dc3545;font-weight:700">548.500 TL</td>
-  <td><span class="esk-tag-warn">3 lokal boyalı · değişen yok</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>350–500k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>🆕 ⚠️ OTOMATİK 2-Tronic şanzıman kronik sorunu! Aksi takdirde 80k km çok düşük, galeri (Yasin Otomotiv) dürüst açıklama, safkan benzin (hiç LPG yok), iç dış tertemiz. 2007 çıkışlı. Fiyat piyasa üstü.</td>
-  <td>206 2-Tronic/AL4 şanzıman: kronik kayma, sert geçiş, pahalı onarım — bu modelin bilinen sorunu!</td>
-  <td><a href="https://www.arabam.com/ilan/39224338" target="_blank">39224338 ↗</a></td>
-</tr>
-<tr class="kaçın">
-  <td class="puan">⛔</td>
-  <td><strong>Renault Clio 1.2 Grandtour</strong></td>
-  <td>2011</td><td>156.000</td><td style="color:#dc3545;font-weight:700">560.000 TL</td>
-  <td><span class="esk-tag-bad">3 değişen (her iki ön çamurluk + ön tampon) · 3 boyalı</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>400–550k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>KAÇIN: Her iki ön çamurluk + ön tampon değişmiş = ciddi kafa kazası geçirmiş. Satıcı açıklamada dürüst davranmış ama hasar çok fazla.</td>
-  <td>Gaz kelebeği, turbo (TCe variantlarda)</td>
-  <td><a href="https://www.arabam.com/ilan/41178045" target="_blank">41178045 ↗</a></td>
-</tr>
-<tr class="kaçın">
-  <td class="puan">⛔</td>
-  <td><strong>Renault Symbol 0.9 TCe</strong></td>
-  <td>2013</td><td>117.500</td><td style="color:#dc3545;font-weight:700">499.000 TL</td>
-  <td><span class="esk-tag-ok">Tamamı orijinal (iddia)</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>420–560k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>KAÇIN: İlanda "KAZALI FOTOĞRAFI RESİMLERDE MEVCUTTUR" yazıyor — açıkça kaza fotoğrafı var. Orijinal görünse de güvenilmez.</td>
-  <td>Turbo plaka sorunları, yağ tüketimi (0.9 TCe)</td>
-  <td><a href="https://www.arabam.com/ilan/41060335" target="_blank">41060335 ↗</a></td>
-</tr>
-<tr class="kaçın">
-  <td class="puan">⛔</td>
-  <td><strong>Opel Corsa 1.4 Otomatik</strong></td>
-  <td>2013</td><td>156.000</td><td style="color:#dc3545;font-weight:700">538.500 TL</td>
-  <td><span class="esk-tag-bad">1 değişen (kaput) · 3 boyalı</span></td>
-  <td><span class="esk-tag-warn">Belirtilmemiş</span></td>
-  <td>480–620k TL</td>
-  <td class="esk-sat3">●●● Orta</td>
-  <td>KAÇIN: "ARACIN ŞASE UCUNDA İŞLEM VARDIR" — şase müdahalesi kesinlikle kaçınılması gereken durum. Hiçbir şart altında satın alınmaz.</td>
-  <td>Şase onarımı kritik sorun, otomatik vites bakımı pahalı</td>
-  <td><a href="https://www.arabam.com/ilan/41031240" target="_blank">41031240 ↗</a></td>
-</tr>
-</tbody>
-</table>
+<tr class="row-al"><td>1</td><td><strong>Fiat Egea 1.4 Fire Easy</strong></td><td>2018</td><td class="km-ok">126.000</td><td class="price-ok"><strong>429k</strong></td><td class="price-ok">480–560k</td><td><span class="tag-galeri">GALERİ</span> Dede Motors</td><td><span class="sat-stars">●●●●●</span> Çok kolay</td><td>🏆 <span class="firsat-tag">FIRSAT</span> 2018 model Egea bu fiyata son derece nadir. Easy trim olmak fiyatı düşürüyor ama mekanik aynı. 1.4 Fire sağlam ve her yerde yedek parça. Türkiye'nin en çok satılan modellerinden. Bakım geçmişi ve tramer sorgula.</td><td class="score s-high">82</td><td><span class="badge badge-al">✅ AL</span></td><td class="price-ok">400–410k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-fiat-dede-motors-tr-uygun-aile-araci-1323343961/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-al"><td>2</td><td><strong>Opel Corsa 1.2 Twinport Essentia</strong></td><td>2014</td><td class="km-ok">80.000</td><td class="price-mid"><strong>585k</strong></td><td class="price-mid">550–620k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span> Kolay</td><td>2014 model Corsa sadece 80k km — bu kondisyon çok nadir. "Essentia modeldir, Active yanlışlıkla seçildi" dürüst açıklama. 1.2 Twinport güvenilir. Beyaz renk kolay satış. Piyasa 550-620k.</td><td class="score s-high">76</td><td><span class="badge badge-al">✅ AL</span></td><td class="price-ok">565–575k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-opel-corsa-1-2-twinport-active/sahibinden-opel-corsa-1-2-twinport-essentia-2014-model-aracim-essentia-modeldir-yanlislikla-active-i/41329547" target="_blank">→ İlan</a></td></tr>
+<tr class="row-al"><td>3</td><td><strong>Peugeot 206+ 1.4 HDi Comfort</strong></td><td>2011</td><td class="km-ok">104.000</td><td class="price-mid"><strong>519.5k</strong></td><td class="price-mid">480–560k</td><td><span class="tag-galeri">GALERİ</span> Acar Exper</td><td><span class="sat-stars">●●●●●</span> Çok kolay</td><td>206+ düşük km, yakıt cimrisi 1.4 HDi (5-6L). 2011 model iyi yaş. Peugeot 206/206+ Türkiye'de her zaman talep görür. Piyasa içi fiyat. EGR/DPF kontrolü yaptır.</td><td class="score s-high">73</td><td><span class="badge badge-al">✅ AL</span></td><td class="price-ok">500–510k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-peugeot-2011-peugeot-206-plus-1.4-hdi-104.000-km-comfort-1317696409/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-al"><td>4</td><td><strong>Renault Symbol 1.4 Expression</strong></td><td>2011</td><td class="km-ok">106.000</td><td class="price-mid"><strong>570k</strong></td><td class="price-mid">530–590k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span> Çok kolay</td><td>Symbol piyasada en hızlı satılan modellerden. 2011, 106k km düşük. 1.4 motor bakımlıysa çok uzun ömürlü. Sahibinden satıyor. Beyaz +. Piyasa içi.</td><td class="score s-high">72</td><td><span class="badge badge-al">✅ AL</span></td><td class="price-ok">545–555k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-4-expression/sahibinden-renault-symbol-1-4-expression-2011-model/39033900" target="_blank">→ İlan</a></td></tr>
+<tr class="row-al"><td>5</td><td><strong>Fiat Linea 1.3 Multijet Active Plus</strong></td><td>2011</td><td class="km-mid">135.000</td><td class="price-mid"><strong>539k</strong></td><td class="price-mid">510–570k</td><td><span class="tag-galeri">GALERİ</span> Araz Motorlu</td><td><span class="sat-stars">●●●●</span> Kolay</td><td>Linea 1.3 Multijet sağlam dizel motor. 135k km orta kondisyon. Active Plus tam donanım. EGR/DPF bakımını sorgula. Piyasa içi fiyat.</td><td class="score s-high">68</td><td><span class="badge badge-al">✅ AL</span></td><td class="price-ok">520–525k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-fiat-135binkm-euro4-hiz-sabitleyici-kamera-ekran-1.3mjet-1318181594/detay" target="_blank">→ İlan</a></td></tr>
+</tbody></table></div>
+
+<div class="section-title">⚠️ Bakılabilir İlanlar</div>
+<div class="scroll-table"><table>
+<thead><tr><th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th><th>Piyasa</th><th>Kaynak</th><th>Satılabilirlik</th><th>Analiz</th><th>Skor</th><th>Karar</th><th>Pazarlık</th><th>Link</th></tr></thead>
+<tbody>
+<tr class="row-bak"><td>6</td><td><strong>Renault Laguna 1.5 dCi Privilege</strong></td><td>2008</td><td class="km-ok"><strong>31.400</strong> <span class="km-manip">KM SORGULA</span></td><td class="price-ok">450k</td><td>430–520k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>⚠️⚠️ 2008 Laguna sadece 31.400 km! Ya manipülasyon ya inanılmaz korunmuş. Gerçekse EN İYİ ALIM. Tramer sorgula, km servis belgesi iste. Privilege donanım zengin. KM sahte = 🚫 KAÇIN.</td><td>??</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>430–440k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-renault-laguna-1.5-dci-privilege-1323248390/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>7</td><td><strong>Citroen C3 1.4 X Furio</strong></td><td>2007</td><td class="km-ok">119.800</td><td class="price-ok">450k</td><td>420–490k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>Bireysel satıcı, 119.8k km düşük. 1.4 benzinli X Furio. "Düşük km bakımlı dosta gider" açıklaması. Piyasa içi. Ekspere götür.</td><td class="score s-mid">65</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>425–435k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-citroen-2007-model-dusuk-km-bakimli-dosta-gider-1323472691/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>8</td><td><strong>Renault Megane 1.6 Privilege</strong></td><td>2008</td><td class="km-ok">79.300</td><td class="price-high">599k</td><td>520–580k</td><td><span class="tag-galeri">GALERİ</span> ES Trend Plaza</td><td><span class="sat-stars">●●●●</span></td><td>Düşük km + Privilege donanım. Ama galeri 599k istiyor, piyasa max 580k bu kondisyon için. Sağlam pazarlık yap. 2008 Megane 1.6 benzinli güvenilir.</td><td class="score s-mid">60</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>575–585k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-renault-es-trend-plaza-2008-renault-megane-1.6-privilege-79binkm-1323129192/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>9</td><td><strong>Ford Ka 1.2 Titanium</strong></td><td>2009</td><td class="km-mid">152.000</td><td class="price-ok">435k</td><td>410–470k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>Acil satış ihtiyaçtan. 2009, 152k km. Siyah renk minus. Titanium en üst trim. Ka şehir arabası. 415-420k hedefle.</td><td class="score s-mid">58</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>415–420k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-ford-ka-1-2-titanium/acil-satilik-temiz-ford-ka/40976617" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>10</td><td><strong>Fiat Linea 1.3 Multijet Easy</strong></td><td>2014</td><td class="km-mid">165.000</td><td class="price-mid">569k</td><td>530–590k</td><td><span class="tag-galeri">GALERİ</span> Özen Otomotiv</td><td><span class="sat-stars">●●●●</span></td><td>2014 Linea genç model. 165k km biraz fazla ama 1.3 Multijet yüksek km'e dayanıklı. Easy trim (az donanım). EGR/DPF kontrolü şart.</td><td class="score s-mid">62</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>548–555k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-fiat-ozen-otomotiv-den-temiz-163-binde-linea-1.3-multijet-1301044161/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>11</td><td><strong>Hyundai i20 1.2 D-CVVT Jump (DEĞİŞENSİZ)</strong></td><td>2013</td><td class="km-mid">185.000</td><td class="price-mid">559k</td><td>510–570k</td><td><span class="tag-galeri">GALERİ</span> Öz&Ser</td><td><span class="sat-stars">●●●●</span></td><td>Değişensiz büyük artı. i20 sağlam ve popüler. 185k km bu fiyat için biraz fazla. Hyundai servis ağı yaygın.</td><td class="score s-mid">58</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>530–540k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-hyundai-oz-ser-otomotiv-den-degisensiz-bakimli-i20-1323594208/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>12</td><td><strong>Renault Symbol 1.0 SCe Touch</strong></td><td>2017</td><td class="km-mid">165.000</td><td class="price-mid">590k</td><td>550–620k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>2017 model listede en genç. 165k km biraz fazla. 1.0 SCe motor küçük ama bakımlıysa sağlam. Symbol her zaman talep görür. Piyasa içi.</td><td class="score s-mid">60</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>570–580k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-0-sce-touch/sahibinden-renault-symbol-1-0-sce-touch-2017-model-165-000-km-beyaz/41179900" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>13</td><td><strong>Ford Fusion 1.4 TDCi (DEĞİŞENSİZ)</strong></td><td>2006</td><td class="km-mid">145.000</td><td class="price-mid">545k</td><td>500–570k</td><td><span class="tag-galeri">GALERİ</span> Brothers Cars</td><td><span class="sat-stars">●●</span></td><td>Değişensiz + galeri garantisi artı. 2006, 145k km. 1.4 TDCi dizel cimri. Fusion satmak biraz zor. Galeri fiyatı biraz fazla.</td><td class="score s-mid">58</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>520–530k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-ford-2006-otomatik-ford-fusion-orjinal-145bin-km-degisensiz-1262937152/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>14</td><td><strong>Renault Clio 1.2 Expression (Garaj Arabası)</strong></td><td>2007</td><td class="km-mid">137.000</td><td class="price-mid">510k</td><td>480–540k</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>"İçi bej, yakıt cimrisi, garaj arabası" — dürüst açıklama. 137k km makul. 2007 Clio 1.2 sağlam. Clio her zaman satılır. Piyasa içi.</td><td class="score s-mid">58</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>485–495k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-renault-orijinal-sahibinden-sorunsuz-ici-bej-yakit-cimrisi-garaj-arabasi-1323339707/detay" target="_blank">→ İlan</a></td></tr>
+<tr class="row-bak"><td>15</td><td><strong>Opel Astra 1.6 Enjoy OTOMATİK (DEĞİŞENSİZ)</strong></td><td>2005</td><td class="km-mid">169.000</td><td class="price-mid">559k</td><td>500–570k</td><td><span class="tag-galeri">GALERİ</span> Rota Auto</td><td><span class="sat-stars">●●●●</span></td><td>Otomatik + değişensiz kombinasyonu nadir. 2005 biraz yaşlı. 169k km fazla. Galeri garantisi var. Otomatik arayan için değerlendirilebilir.</td><td class="score s-mid">55</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>540–545k</td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-opel-opel-astra-otomatik-vites-169-binde-2-sahibi-degisensiz-firsat-1323126203/detay" target="_blank">→ İlan</a></td></tr>
+</tbody></table></div>
+
+<div class="section-title">❌ Pas Geç / 🚫 Kaçın</div>
+<div class="scroll-table"><table>
+<thead><tr><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th><th>Neden</th><th>Karar</th><th>Link</th></tr></thead>
+<tbody>
+<tr class="row-kacin"><td><strong>Chevrolet Cruze 1.6 LS</strong></td><td>2011</td><td class="km-ok">95.000</td><td>599k</td><td>🚫 KRONİK: gaz kelebeği + EGR + şanzıman sorunları. 95k km iyi ama bu model bu sorunlarla meşhur. 599k çok pahalı.</td><td><span class="badge badge-kacin">🚫 KAÇIN</span></td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-chevrolet-oz-ser-otomotiv-den-dusuk-km-kusursuz-nadir-bulunacak-cruze-1323565898/detay" target="_blank">→</a></td></tr>
+<tr class="row-kacin"><td><strong>Opel Astra 1.4 Classic</strong></td><td>2006</td><td class="km-high">180.000</td><td class="price-ok">338k</td><td>🚫 ANORMAL UCUZ — 180k km araç neden bu kadar ucuz? Büyük arıza veya gizli sorun şüphesi. Bu fiyat kırmızı bayrak.</td><td><span class="badge badge-kacin">🚫 KAÇIN</span></td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-opel-dmr-garage-astra-sedan-180.000-km-klimali-1323060972/detay" target="_blank">→</a></td></tr>
+<tr class="row-kacin"><td><strong>Fiat Albea 1.3 Multijet</strong></td><td>2009</td><td class="km-mid">133.000</td><td>419k</td><td>🚫 Albea üretimden kalktı. Yedek parça giderek zor. Satılabilirlik çok düşük. Para tuzağı.</td><td><span class="badge badge-kacin">🚫 KAÇIN</span></td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2009-model-133.000-km-1.3-multijet-klimali-albea-1323612238/detay" target="_blank">→</a></td></tr>
+<tr class="row-kacin"><td><strong>Chevrolet Lacetti 1.6 SX</strong></td><td>2005</td><td class="km-mid">150.000</td><td class="price-ok">340k</td><td>🚫 Lacetti satılabilirlik neredeyse sıfır. Ucuz alırsın ama satamazsın. Para tuzağı.</td><td><span class="badge badge-kacin">🚫 KAÇIN</span></td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-chevrolet-safkan-benzinli-2005-lacetti-1310618131/detay" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>Toyota Yaris 1.0 Terra</td><td>2006</td><td class="km-ok">115.000</td><td class="price-high">580k</td><td>❌ Toyota ama 2006 model 1.0 motor için 580k çok pahalı. Piyasa 350-400k.</td><td><span class="badge badge-pas">❌ PAS</span></td><td><a href="https://www.sahibinden.com/ilan/vasita-otomobil-toyota-dusuk-kilometre-tramersiz-temiz-yaris-1323291566/detay" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>BMW 3 Serisi 316i Standart</td><td>2005</td><td class="km-high">197.000</td><td>540k</td><td>❌ BMW bakım maliyeti çok yüksek. 197k km + 2005 model = servise bağımlı. Tutmaz.</td><td><span class="badge badge-pas">❌ PAS</span></td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-bmw-3-serisi-316i-standart/sahibinden-bmw-3-serisi-316i-standart-2005-model/41333011" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>VW Polo 1.4 Tour</td><td>2009</td><td class="km-high">193.000</td><td class="price-high">600k</td><td>❌ 193k km + 600k TL — yüksek km için haklı değil.</td><td><span class="badge badge-pas">❌ PAS</span></td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-volkswagen-polo-1-4-tour/sahibinden-volkswagen-polo-1-4-tour-2009-model-193-000-km-lacivert/41310321" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>Peugeot 307 1.6 HDi Comfort</td><td>2006</td><td class="km-high">181.000</td><td>439k</td><td>❌ 307 HDi kronik baş contası + BSI arızaları. 181k km yüksek dizel.</td><td><span class="badge badge-pas">❌ PAS</span></td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-peugeot-307-1-6-hdi-comfort/sahibinden-peugeot-307-1-6-hdi-comfort-2006-model-eskisehir-181000-km-siyah/41406654" target="_blank">→</a></td></tr>
+</tbody></table></div>
+
+<div class="kronik-box">
+  <h3>⚠️ Kronik Sorunlu Modeller</h3>
+  <div class="kronik-item"><span class="kronik-name">Chevrolet Cruze 1.6 (2010–2015):</span> Gaz kelebeği arızası, EGR tıkanması, şanzıman sorunları. Türkiye'de servis masrafları çok yüksek. KAÇIN.</div>
+  <div class="kronik-item"><span class="kronik-name">Fiat Albea (2002–2012):</span> Üretimden kalktı. Yedek parça giderek zorlaşıyor. Satmak çok zor.</div>
+  <div class="kronik-item"><span class="kronik-name">BMW E46/E90 (2005):</span> Yüksek km'de VANOS, diferansiyel, elektronik. Bakım maliyeti satış fiyatının üstünde.</div>
+  <div class="kronik-item"><span class="kronik-name">Peugeot 307 1.6 HDi:</span> Baş contası + BSI elektronik. 180k+ km'de büyük masraf.</div>
+  <div class="kronik-item"><span class="kronik-name">Fiat Linea 1.3 Multijet (NOT):</span> Kronik DEĞİL — sağlam motor, sadece EGR/DPF bakımını düzenli yap.</div>
+</div>
 </div>
 
-<!-- MOBILE CARDS -->
-<div class="esk-cards">
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">1. Renault Symbol 1.2 Joy 2013</div>
-    <div class="esk-card-price">550.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 117.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-ok">1 lokal boyalı</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">"Sol arka çamurluk lokal harıcı orjinaldir, temiz araç, alan üzülmez." Çok temiz, 2013 model, düşük km.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–600k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41063522" target="_blank">arabam.com/ilan/41063522 ↗</a></div>
+<div id="tab2" class="tab-content">
+<div class="alert-yellow">⚠️ <strong>GENEL DURUM:</strong> Adem'in listesindeki 6 ilanın <strong>5 tanesi bütçe dışında</strong> (600k+ TL). Sadece Opel Corsa 1.3 CDTI (600k, 190k km) sınırda — o da yüksek km ile değer sunmuyor. Liste güncellenmeli.</div>
+<div class="stat-bar">
+  <div class="stat-item">Toplam <span class="stat-num">6</span> ilan</div>
+  <div class="stat-item">Bütçe içi <span class="stat-num">1</span></div>
+  <div class="stat-item">Bütçe dışı <span class="stat-num">5</span></div>
+  <div class="stat-item">KM kriteri aşan <span class="stat-num">2</span></div>
+</div>
+<div class="scroll-table"><table>
+<thead><tr><th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th><th>Kriter</th><th>Motor</th><th>Renk</th><th>Analiz</th><th>Karar</th><th>Link</th></tr></thead>
+<tbody>
+<tr class="row-pas"><td>1</td><td><strong>Renault Clio 1.5 dCi Extreme</strong></td><td>2008</td><td class="km-high"><strong>242.000</strong> ❌</td><td class="price-mid">465k ✓</td><td>🚫 KM +42k aşıyor</td><td>Dizel 65Hp</td><td>Mavi metalik</td><td>KM sınırın %21 üstünde. Dizel bu km'de EGR/turbo/enjektör riski yüksek. Fiyat uygun ama km kabul edilemez.</td><td><span class="badge badge-kacin">🚫 KRİTER DIŞI</span></td><td><a href="http://www.arabam.com/ilan/41390514" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>2</td><td><strong>Renault Symbol 1.5 dCi Joy</strong></td><td>2014</td><td class="km-high"><strong>217.000</strong> ❌</td><td class="price-high">620k ❌</td><td>🚫 KM +17k + Fiyat +20k</td><td>Dizel 90Hp</td><td>Beyaz</td><td>İkili kriter ihlali. 217k km + 620k TL. Symbol için değer sunmuyor.</td><td><span class="badge badge-kacin">🚫 KRİTER DIŞI</span></td><td><a href="http://www.arabam.com/ilan/40805977" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>3</td><td><strong>Renault Symbol 1.0 SCe Joy</strong></td><td>2019</td><td class="km-ok">104.500 ✓</td><td class="price-high"><strong>710k</strong> ❌</td><td>❌ Fiyat +110k TL</td><td>Benzin 51-75Hp</td><td>Beyaz</td><td>2019 model Symbol iyi ama 710k bütçenin %18 üstünde. Düşük km artı. Bütçe izin verirse bakılabilir.</td><td><span class="badge badge-kacin">❌ BÜTÇE DIŞI</span></td><td><a href="http://www.arabam.com/ilan/38530271" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>4</td><td><strong>Opel Astra 1.6 Edition</strong></td><td>2015</td><td class="km-mid">179.000</td><td class="price-high"><strong>779.5k</strong> ❌</td><td>❌ Fiyat +179.5k TL</td><td>Benzin 115Hp</td><td>Gri</td><td>2015 Astra J iyi araba. Hatasız/boyasız. Özel plaka var. Ama 779k bütçenin çok üstünde.</td><td><span class="badge badge-kacin">❌ BÜTÇE DIŞI</span></td><td><a href="http://www.arabam.com/ilan/41348812" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>5</td><td><strong>Opel Astra 1.4T Sport (LPG)</strong></td><td>2013</td><td class="km-mid">178.000</td><td class="price-high"><strong>745k</strong> ❌</td><td>❌ Fiyat +145k TL</td><td>LPG 126-150Hp</td><td>Beyaz</td><td>Astra 1.4T iyi motor. LPG dönüşümlü. 745k bütçenin çok üstünde.</td><td><span class="badge badge-kacin">❌ BÜTÇE DIŞI</span></td><td><a href="http://www.arabam.com/ilan/40964267" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>6</td><td><strong>Opel Corsa 1.3 CDTI Essentia</strong></td><td>2013</td><td class="km-high">190.000</td><td class="price-high">600k</td><td>⚠️ Bütçe sınırında, km yüksek</td><td>Dizel 75Hp</td><td>Beyaz</td><td>Bütçenin tam üst sınırında. 190k km çok yüksek dizel için. Corsa 1.3 CDTI bu km'de EGR/turbo masrafı beklenebilir. Değmez.</td><td><span class="badge badge-pas">❌ PAS GEÇ</span></td><td><a href="http://www.arabam.com/ilan/39773645" target="_blank">→</a></td></tr>
+</tbody></table></div>
+<div class="alert-red" style="margin-top:16px">📌 <strong>Adem'e Not:</strong> Listedeki araçların tamamı ya bütçe dışı (600k+ TL) ya da km kriterini aşıyor. Liste güncellenmeli. <strong>🚗 Eskişehir İlanları</strong> sekmesinde bugün bütçeye uyan daha iyi fırsatlar var — özellikle #1 Fiat Egea 2018 (429k) ve #2 Corsa 2014 80k km (585k).</div>
 </div>
 
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">2. Opel Corsa 1.2 Enjoy 111 2011</div>
-    <div class="esk-card-price">585.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 133.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-ok">1 boyalı · 2 lokal</span>
-    <span class="esk-tag-ok">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">"Araç değişikliği sebebiyle satılık, emsalsiz temizlikte, muayene 2027'ye kadar." Sahibinden, özenli açıklama.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–640k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40968304" target="_blank">arabam.com/ilan/40968304 ↗</a></div>
+<div id="tab3" class="tab-content">
+<div class="alert-green">ℹ️ <strong>Arabam.com Eskişehir</strong> — Filtreler: 300k–600k TL · ≥2005 · ≤200k km · Ağır hasar yok &nbsp;|&nbsp; <a href="https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false" target="_blank">→ Canlı Filtreyi Aç</a></div>
+<div class="priority-box">
+  <h3>🏆 Arabam.com Öneri Sırası</h3>
+  <ul class="priority-list">
+    <li><span class="badge badge-al">✅</span> <strong>Corsa 1.2 Essentia 2014 / 80k km / 585k</strong> — Listede en düşük km, 2014 model</li>
+    <li><span class="badge badge-al">✅</span> <strong>Symbol 1.4 Expression 2011 / 106k km / 570k</strong> — Düşük km, popüler model</li>
+    <li><span class="badge badge-bak">⚠️</span> <strong>Ford Ka 1.2 Titanium 2009 / 152k km / 435k</strong> — Acil satış, ihtiyaçtan, pazarlık fırsatı</li>
+    <li><span class="badge badge-bak">⚠️</span> <strong>Symbol 1.0 SCe Touch 2017 / 165k km / 590k</strong> — Listede en genç model</li>
+    <li><span class="badge badge-bak">⚠️</span> <strong>Mitsubishi Colt 1.3 Invite 2008 / 135k km / 575k</strong> — Hatasız/değişensiz galeri iddiası</li>
+    <li><span class="badge badge-bak">⚠️</span> <strong>Corsa 1.2 Enjoy 111 2011 / 133k km / 585k</strong> — Makul km, siyah renk minus</li>
+    <li><span class="badge badge-bak">⚠️</span> <strong>Peugeot 206 1.4 X-Design 2006 / 136k km / 425k</strong> — Popüler model, sınır fiyat</li>
+  </ul>
 </div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">3. Opel Corsa 1.2 Twinport 2010</div>
-    <div class="esk-card-price">577.500 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 93.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir/Tepebaşı</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">Güneş yanığı boyası (galeri tarafından)</span>
-    <span class="esk-tag-ok">Tramer YOK</span>
-  </div>
-  <div class="esk-card-yorum">MFT Motors galerisinden, galeri güneş yanığı sebebiyle boyatmış. Tramer yok, expertiz mevcut. 93km çok düşük.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 450–600k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40635316" target="_blank">arabam.com/ilan/40635316 ↗</a></div>
+<div class="scroll-table"><table>
+<thead><tr><th>#</th><th>Model</th><th>Yıl</th><th>KM</th><th>Fiyat</th><th>Renk</th><th>Kaynak</th><th>Satılabilirlik</th><th>Analiz</th><th>Karar</th><th>Pazarlık</th><th>Link</th></tr></thead>
+<tbody>
+<tr class="row-al"><td>1</td><td><strong>Opel Corsa 1.2 Twinport Essentia</strong></td><td>2014</td><td class="km-ok">80.000</td><td class="price-mid">585k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>✅ Listede en düşük km. 2014 Corsa 80k nadir. Beyaz renk kolay satış. 1.2 Twinport güvenilir. Piyasa 550-620k.</td><td><span class="badge badge-al">✅ AL</span></td><td>565–575k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-opel-corsa-1-2-twinport-active/sahibinden-opel-corsa-1-2-twinport-essentia-2014-model-aracim-essentia-modeldir-yanlislikla-active-i/41329547" target="_blank">→</a></td></tr>
+<tr class="row-al"><td>2</td><td><strong>Renault Symbol 1.4 Expression</strong></td><td>2011</td><td class="km-ok">106.000</td><td class="price-mid">570k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>✅ 106k km düşük. Symbol Türkiye'nin en kolay satılan modellerinden. Sahibinden, 2011 iyi yaş. Beyaz renk +.</td><td><span class="badge badge-al">✅ AL</span></td><td>545–555k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-4-expression/sahibinden-renault-symbol-1-4-expression-2011-model/39033900" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>3</td><td><strong>Ford Ka 1.2 Titanium</strong></td><td>2009</td><td class="km-mid">152.000</td><td class="price-ok">435k</td><td>Siyah</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>⚠️ Acil satış, ihtiyaçtan. 152k km makul. Siyah minus. Titanium donanım iyi. 415k hedefle.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>415–420k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-ford-ka-1-2-titanium/acil-satilik-temiz-ford-ka/40976617" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>4</td><td><strong>Renault Symbol 1.0 SCe Touch</strong></td><td>2017</td><td class="km-mid">165.000</td><td class="price-mid">590k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>⚠️ 2017 model listede en genç. 165k km biraz fazla. Symbol her zaman talep görür. Piyasa içi.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>570–580k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-0-sce-touch/sahibinden-renault-symbol-1-0-sce-touch-2017-model-165-000-km-beyaz/41179900" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>5</td><td><strong>Mitsubishi Colt 1.3 Invite</strong></td><td>2008</td><td class="km-mid">135.000</td><td class="price-mid">575k</td><td>Füme</td><td><span class="tag-galeri">GALERİ</span></td><td><span class="sat-stars">●●●</span></td><td>⚠️ "Hatasız Değişensiz" galeri iddiası. 135k km makul. Colt sağlam ama Türkiye'de az var, satması zaman alır. Füme renk minus.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>555–565k</td><td><a href="https://www.arabam.com/ilan/galeriden-satilik-mitsubishi-colt-1-3-invite/2008-otomatik-mitsubishi-colt-1-3-invite-hatasiz-degisensiz/39022429" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>6</td><td><strong>Opel Corsa 1.2 Twinport Enjoy 111</strong></td><td>2011</td><td class="km-mid">133.000</td><td class="price-mid">585k</td><td>Siyah</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>⚠️ 133k km makul. 585k biraz fazla (piyasa 550-580k). Siyah minus. Corsa elektrik sorunlarına dikkat.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>565–575k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-opel-corsa-1-2-twinport-enjoy-111/sahibinden-opel-corsa-1-2-twinport-enjoy-111-2011-model-eskisehir-130-110-km-siyah/40968304" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>7</td><td><strong>Peugeot 206 1.4 X-Design</strong></td><td>2006</td><td class="km-mid">136.000</td><td class="price-ok">425k</td><td>Gri (Gümüş)</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>⚠️ 206 çok popüler. 136k km, gri renk. 2006 biraz eski. Piyasa sınırı fiyat. Ekspere şart.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>405–415k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-peugeot-206-1-4-x-design/sahibinden-peugeot-206-1-4-x-design-2006-model-135-000-km-gri-gumus/41023651" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>8</td><td><strong>Chevrolet Aveo 1.3 D LS</strong></td><td>2012</td><td class="km-mid">185.000</td><td class="price-mid">578k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●</span></td><td>⚠️ "Masrafsız tertemiz" ama 185k km fazla. 1.3D motor (Fiat kökenli) aslında iyi ama Aveo satmak zor. 578k piyasa üstü.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>550–560k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-chevrolet-aveo-1-3-d-ls/sahibinden-masrafsiz-tertemiz-dusuk-km-aveo/41005668" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>9</td><td><strong>Citroen C3 1.4 HDi X Furio</strong></td><td>2006</td><td class="km-mid">144.000</td><td class="price-ok">425k</td><td>Bordo</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>⚠️ 2006 dizel C3, 144k km makul. DPF sorunları olabilir. Bordo renk minus. Piyasa içi fiyat.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>405–415k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-citroen-c3-1-4-hdi-x-furio/sahibinden-citroen-c3-1-4-hdi-x-furio-2006-model/36830193" target="_blank">→</a></td></tr>
+<tr class="row-bak"><td>10</td><td><strong>Toyota Yaris 1.3 Terra Plus</strong></td><td>2008</td><td class="km-mid">165.000</td><td class="price-high">600k</td><td>Gri (metalik)</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>⚠️ Toyota güvenilirlik artısı. 165k km. Ama 600k bu yaş/km için fazla (piyasa 520-580k). Pazarlık şart.</td><td><span class="badge badge-bak">⚠️ BAK</span></td><td>570–580k</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-toyota-yaris-1-3-terra-plus/sahibinden-toyota-yaris-1-3-terra-plus-2008-model-eskisehir/40998733" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>11</td><td>Opel Corsa 1.4 Twinport Enjoy</td><td>2007</td><td class="km-high">197.000</td><td>450k</td><td>Mavi</td><td><span class="tag-galeri">GALERİ</span></td><td><span class="sat-stars">●●●●</span></td><td>❌ 197k km çok yüksek. Galeri 450k istiyor — bu km için haklı değil.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/galeriden-satilik-opel-corsa-1-4-twinport-enjoy/opel-corsa-1-4-twinport-enjoy-2007-model-benzinli-eskisehir/27903053" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>12</td><td>Peugeot 307 1.6 HDi Comfort</td><td>2006</td><td class="km-high">181.000</td><td>439k</td><td>Siyah</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>❌ 307 HDi kronik baş contası + BSI. 181k km yüksek.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-peugeot-307-1-6-hdi-comfort/sahibinden-peugeot-307-1-6-hdi-comfort-2006-model-eskisehir-181000-km-siyah/41406654" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>13</td><td>Opel Astra 1.6 Enjoy</td><td>2009</td><td class="km-high">199.000</td><td>570k</td><td>Gri</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>❌ 199k km limite yakın. Bu km'de 570k değmez.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-opel-astra-1-6-enjoy/sahibinden-opel-astra-1-6-enjoy-2009-model/41244854" target="_blank">→</a></td></tr>
+<tr class="row-kacin"><td>14</td><td>Opel Corsa 1.3 CDTI Essentia</td><td>2013</td><td class="km-high">190.000</td><td class="price-high">600k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●</span></td><td>🚫 Dizel Corsa 190k km = EGR/turbo masrafı yakın. 600k TL bu araç için ödeme değmez.</td><td><span class="badge badge-kacin">🚫 KAÇIN</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-opel-corsa-1-3-cdti-essentia/sahibinden-opel-corsa-1-3-cdti-essentia-2013-model-acil-satilik/39773645" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>15</td><td>BMW 3 Serisi 316i</td><td>2005</td><td class="km-high">197.000</td><td>540k</td><td>Gri</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>❌ BMW bakım çok pahalı. 197k km + 2005 = servise bağımlı. Kaçın.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-bmw-3-serisi-316i-standart/sahibinden-bmw-3-serisi-316i-standart-2005-model/41333011" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>16</td><td>VW Polo 1.4 Tour</td><td>2009</td><td class="km-high">193.000</td><td class="price-high">600k</td><td>Lacivert</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>❌ 193k km + 600k — bu kondisyon için piyasa 500-550k. Lacivert minus.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-volkswagen-polo-1-4-tour/sahibinden-volkswagen-polo-1-4-tour-2009-model-193-000-km-lacivert/41310321" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>17</td><td>Renault Clio 1.2 Authentique</td><td>2006</td><td class="km-mid">173.000</td><td>450k</td><td>Gri</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>❌ 2006 + 173k km için 450k haklı değil.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-2-authentique/sahibinden-renault-clio-1-2-authentique-2006-model/41283330" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>18</td><td>Renault Clio 1.5 dCi Authentique</td><td>2007</td><td class="km-high">186.000</td><td>430k</td><td>Beyaz</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>❌ 186k km dizel Clio. EGR/DPF riski yüksek.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-5-dci-authentique/sahibinden-renault-clio-1-5-dci-authentique-2007-model/41239493" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>19</td><td>Renault Symbol 1.5 dCi Expression</td><td>2010</td><td class="km-high">192.000</td><td>465k</td><td>Gri</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●●</span></td><td>❌ 192k km çok yüksek. Dizel Symbol bu km'de masraf bekle.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-5-dci-expression/sahibinden-renault-symbol-1-5-dci-expression-2010-model/41202102" target="_blank">→</a></td></tr>
+<tr class="row-pas"><td>20</td><td>Ford Focus 1.6 TDCi Trend (Sivrihisar)</td><td>2007</td><td class="km-high">200.000</td><td>565k</td><td>Gri</td><td><span class="tag-sah">SAHİBİNDEN</span></td><td><span class="sat-stars">●●●●</span></td><td>❌ Tam km sınırında. Sivrihisar (şehir dışı). Focus 1.6 TDCi enjektör sorunları. 565k haklı değil.</td><td><span class="badge badge-pas">❌ PAS</span></td><td>—</td><td><a href="https://www.arabam.com/ilan/sahibinden-satilik-ford-focus-1-6-tdci-trend/sahibinden-ford-focus-1-6-tdci-trend-2007-model-eskisehir-194-500-km-gri-gumus/41097580" target="_blank">→</a></td></tr>
+</tbody></table></div>
+<div class="kronik-box">
+  <h3>⚠️ Kronik Sorunlar (Arabam.com Listesi)</h3>
+  <div class="kronik-item"><span class="kronik-name">Peugeot 307 1.6 HDi:</span> Baş contası + BSI elektronik. 180k+ km'de büyük masraf.</div>
+  <div class="kronik-item"><span class="kronik-name">Opel Corsa 1.3 CDTI Dizel (2006–2013):</span> EGR tıkanması, turbo arızası, yüksek km'de pahalı bakım.</div>
+  <div class="kronik-item"><span class="kronik-name">BMW E46 316i (2005):</span> VANOS, diferansiyel, yağ sızıntıları. Bakım = yatırımın üstüne çıkar.</div>
+  <div class="kronik-item"><span class="kronik-name">Ford Focus 1.6 TDCi:</span> Yakıt enjeksiyon sistemi hassas, yüksek km'de pahalı.</div>
+  <div class="kronik-item"><span class="kronik-name">Citroen C3 1.4 HDi:</span> DPF tıkanması + BSI sorunları yüksek km'de.</div>
 </div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">4. Fiat Linea 1.3 Multijet 2014</div>
-    <div class="esk-card-price">589.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 138.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-ok">2 lokal boyalı · değişen yok</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">Galeri ilanı. Değişen parça yok, sadece 2 lokal boya. Açıklama çoğunlukla ödeme bilgisi. Dizel Linea ekonomik ama yedek parça pahalı olabilir.</div>
-  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 500–650k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725792" target="_blank">arabam.com/ilan/40725792 ↗</a></div>
 </div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">5. Chevrolet Aveo 1.4 LTZ 2012</div>
-    <div class="esk-card-price">549.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 119.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">3 lokal boyalı (sağ taraf)</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">"Bakımları tam, lastikler yeni, 119km orijinal." Dürüst açıklama. Ancak GM Türkiye'den çekildi — satılabilirlik ve yedek parça sıkıntılı.</div>
-  <div><span class="esk-sat4">●● Zor satılır</span> · Piyasa: 430–580k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40986943" target="_blank">arabam.com/ilan/40986943 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">6. Opel Corsa 1.2 Active 2014</div>
-    <div class="esk-card-price">600.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 80.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">1 değişen (sol ön kapı) · 3 boyalı</span>
-    <span class="esk-tag-ok">Tramer YOK</span>
-  </div>
-  <div class="esk-card-yorum">"Memurdan temiz satılık araç." Çok kısa. Tramer yok ama sol kapı değişmiş. Fiyat bu km/model için biraz yüksek.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 520–680k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41329547" target="_blank">arabam.com/ilan/41329547 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">7. Renault Symbol 1.4 Expression 2011</div>
-    <div class="esk-card-price">570.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 106.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">1 değişen (kaput) · 2 boyalı</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">Sahibinden, kısa açıklama. Değişen kaput + arka boyalar ön-arka iki darbe işaretçisi. Fiyat yüksek, pazarlık yapılabilir.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 450–600k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/39033900" target="_blank">arabam.com/ilan/39033900 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">8. Fiat Linea 1.3 Multijet 2014</div>
-    <div class="esk-card-price">589.750 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 108.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-bad">1 değişen · 3 boyalı · 2 lokal</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">"2015 çıkışlı, tek elden, sorunsuz motor." Ancak 1 değişen + 5 boyalı parça çok fazla. Galeri ilanı.</div>
-  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 500–650k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725776" target="_blank">arabam.com/ilan/40725776 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">9. Opel Corsa 1.3 CDTI 2012</div>
-    <div class="esk-card-price">600.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 132.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">1 değişen (sağ arka kapı) · 3 boyalı</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">"Uzun yıllar tek kişi, motor/şanzıman çok güzel, lastik+akü yeni." Güvenilir açıklama, arka kaza var ama ön temiz. 600k biraz yüksek pazarlık yapılabilir.</div>
-  <div><span class="esk-sat2">●●●● Kolay satılır</span> · Piyasa: 480–640k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40562935" target="_blank">arabam.com/ilan/40562935 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">10. Fiat Linea 1.3 Multijet 2011</div>
-    <div class="esk-card-price">549.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 135.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">2 boyalı · 1 lokal</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">Galeri, ödeme ağırlıklı açıklama. Hız sabitleyici ve kamera ekranı var. Kaput ucunda sorun olduğu ima edilmiş. Ekspertiz yaptırılmalı.</div>
-  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 480–600k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40725749" target="_blank">arabam.com/ilan/40725749 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">🆕 11. Nissan Primera 1.6 Tekna 2005</div>
-    <div class="esk-card-price">565.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 127.500 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir (Galeri)</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-ok">2 lokal · değişen yok</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">Galeri "DEĞİŞEN KAYIT YOK". Sağ+sol arka çamurluk lokal boya. Nissan Primera Türkiye'de nadir — yedek parça zorluğu, satılabilirlik düşük, piyasa üstü fiyat.</div>
-  <div><span class="esk-sat4">●● Zor satılır</span> · Piyasa: 350–550k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/40939602" target="_blank">arabam.com/ilan/40939602 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">🆕 12. Citroen C3 1.4 HDi X Furio 2006</div>
-    <div class="esk-card-price">425.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 144.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir (Sahibinden)</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-bad">2 değişen · 2 boyalı sol taraf</span>
-    <span class="esk-tag-warn">Tramer belirtilmemiş</span>
-  </div>
-  <div class="esk-card-yorum">En ucuz araç. Sahibinden garaj arabası, eksper raporu var. Sol taraf darbesi (2 değişen). Dizel yakıt ekonomisi. Ekspertiz şart.</div>
-  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 300–450k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/36830193" target="_blank">arabam.com/ilan/36830193 ↗</a></div>
-</div>
-
-<div class="esk-card">
-  <div class="esk-card-head">
-    <div class="esk-card-model">🆕 13. Peugeot 206 1.4 Fever OTOMATİK 2006</div>
-    <div class="esk-card-price">548.500 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 80.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir (Yasin Otomotiv Galeri)</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-warn">3 lokal boyalı · değişen yok</span>
-    <span class="esk-tag-bad">⚠️ OTOMATİK 2-Tronic KRONİK</span>
-  </div>
-  <div class="esk-card-yorum">⚠️ 2-Tronic şanzıman kronik sorunu! Aksi takdirde 80k km liste en düşük, dürüst galeri, safkan benzin, iç dış tertemiz. Şanzıman tamiri çok pahalı.</div>
-  <div><span class="esk-sat3">●●● Orta satılır</span> · Piyasa: 350–500k TL</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/39224338" target="_blank">arabam.com/ilan/39224338 ↗</a></div>
-</div>
-
-<div class="esk-card kaçın">
-  <div class="esk-card-head">
-    <div class="esk-card-model">⛔ KAÇIN — Renault Clio 1.2 Grandtour 2011</div>
-    <div class="esk-card-price">560.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 156.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-bad">3 DEĞİŞEN: her iki ön çamurluk + ön tampon</span>
-  </div>
-  <div class="esk-card-yorum">3 değişen parça ile ciddi kafa kazası geçirmiş. Station wagon kasa, bakımlı deniyor ama hasar çok ağır.</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41178045" target="_blank">arabam.com/ilan/41178045 ↗</a></div>
-</div>
-
-<div class="esk-card kaçın">
-  <div class="esk-card-head">
-    <div class="esk-card-model">⛔ KAÇIN — Renault Symbol 0.9 TCe 2013</div>
-    <div class="esk-card-price">499.000 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 117.500 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-bad">İLANDA "KAZALI FOTOĞRAFI MEVCUTTUR"</span>
-  </div>
-  <div class="esk-card-yorum">Kaza fotoğrafı ilanda belirtilmiş. "Tamamı orijinal" yazmasına rağmen güvenilmez.</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41060335" target="_blank">arabam.com/ilan/41060335 ↗</a></div>
-</div>
-
-<div class="esk-card kaçın">
-  <div class="esk-card-head">
-    <div class="esk-card-model">⛔ KAÇIN — Opel Corsa 1.4 Otomatik 2013</div>
-    <div class="esk-card-price">538.500 TL</div>
-  </div>
-  <div class="esk-card-row"><span class="esk-card-label">KM:</span> 156.000 &nbsp; <span class="esk-card-label">Konum:</span> Eskişehir</div>
-  <div class="esk-card-tags">
-    <span class="esk-tag-bad">ŞASE UCUNDA İŞLEM VARDIR</span>
-  </div>
-  <div class="esk-card-yorum">Şase müdahalesi tespit edilmiş — hiçbir koşulda satın alınmaz.</div>
-  <div class="esk-card-link"><a href="https://www.arabam.com/ilan/41031240" target="_blank">arabam.com/ilan/41031240 ↗</a></div>
-</div>
-
-</div><!-- /esk-cards -->
-
-<p style="font-size:10px;color:#aaa;margin-top:10px;text-align:center">arabam.com Eskişehir · Haziran 2026 · Filtre: 300–600k TL, max 200km, 2005+ · Claude Cowork tarafından analiz edildi</p>
-</div><!-- /tab-eskisehir -->
-
 
 <script>
-const D=[
-[1,"","Chevrolet Kalos 1.2 SE","ENS OTOMOTİV 2005 KALOS LPG",2005,175000,315000,"315k","235k–340k","1321352102","175k km yüksek, 2005 model. Makul giriş ama km fazla.","orta",false,false,false,"sat3","●● Zor"],
-[2,"km-low","Fiat Palio 1.2 Go","CarwinX 2005 PALİO 133k",2005,133000,317500,"317.5k","145k–345k","1322491531","📖 Ön panel işlemli + ön tampon demiri değişmiş (hafif ön darbe). TRAMER yok ama hasar var. Ekspere şart.","orta",false,true,false,"sat2","●●● Orta"],
-[3,"","Renault Symbol 1.5 DCI","195k DCI DİZEL 2012",2012,195000,329950,"329.9k","229k–370k","1315649740","📖 Komple boyalı, 3 parça değişen. 195k km çok yüksek. Şemayı mutlaka gör.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
-[4,"","Peugeot 206 1.4 XT","164k km masrafsız",2005,164000,330000,"330k","178k–317k","1322110596","Piyasa üstünde ⚠️. 206 max 317k. Pazarlık yap.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[5,"","Chevrolet Spark 1.0 SX","Acil bayan arabası Spark",2007,165000,340000,"340k","210k–400k","1315378526","📖 ❌ SİLİNDİR KAPAK CONTA değişmiş + 65k TL bakım yapılmış. Şase/podya belirsiz. Motor yoğun bakım görmüş.","kotu",false,true,true,"sat3","●● Zor"],
-[6,"km-mid","Peugeot 206 1.4 Comfort","Düşük km 206 Sedan",2009,151000,340000,"340k","178k–317k","1303650991","Piyasa üstünde ⚠️. 206 max 317k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[7,"km-mid","Chevrolet Lacetti 1.6 SX","SAFKAN BENZİNLİ LACETTİ",2005,150000,342000,"342k","250k–425k","1310618131","📖 1000 TL TRAMER sembolik. Bakım düzenli. Ama satıcı hesabı Nisan 2026 açılmış — yeni hesap dikkat.","orta",false,true,false,"sat3","●● Zor"],
-[8,"","Peugeot 206 1.4 X-Line","160k değişensiz 206",2006,160000,360000,"360k","178k–317k","","Piyasa çok üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[9,"km-low","Fiat Marea 1.6 Liberty","Fiat Marea Temiz",2006,115000,360000,"360k","212k–385k","1317648106","Piyasa içinde. 115k km ✅. Ama Marea kronik arıza riski.","orta",true,false,false,"sat2","●●● Orta"],
-[10,"km-mid","Chery Kimo 1.3 Forza","DÜŞÜK KM OTOMATİK Kimo",2011,150000,365000,"365k","180k–477k","1316144821","Otomatik güzel ama Chery servis ağı yok ⚠️.","orta",true,false,false,"sat3","● Çok zor"],
-[11,"","Fiat Punto 1.3 Multijet","Punto 1.3 MJet",2012,192000,375000,"375k","254k–450k","1321244063","📖 Açıklama neredeyse yok — 'bilgi mesajla'. Ön tampon değişmiş. 192k km yüksek.","orta",false,true,false,"sat2","●●● Orta"],
-[12,"","Fiat Palio 1.4 Fire","TEMİZ BAKIMLI Palio 184k",2008,184000,383999,"384k","145k–345k","1319508800","Piyasa üstünde ⚠️⚠️. Palio max 345k.","kotu",false,false,false,"sat2","●●● Orta"],
-[13,"","Renault Clio 1.5 dCi","Clio dCi Alize 165k",2006,165000,390000,"390k","235k–355k","1319654745","Piyasa üstünde ⚠️. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[14,"","Renault Clio 1.4 Authentique","DESTİCİLER 2005 CLİO",2005,194000,395000,"395k","235k–355k","1319435787","Piyasa üstünde ⚠️. 194k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[15,"km-low","Peugeot 206+ 1.4 HDi Urban Move","FULL BAKIMLI 206+ 126k",2012,126000,395000,"395k","270k–385k","1318100607","📖 ✅ GALERİ DÜRÜST: değişen+boyalı parçalar açıkça listeli. TRAMER 2.000 TL. Triger yeni. 1.4 HDi 5-6L. Fiyat mantıklı.","iyi",false,true,false,"sat1","●●●●● Çok kolay"],
-[16,"km-mid","Fiat Panda 1.2 Dynamic","2012 PANDA",2012,143000,399500,"399.5k","325k–630k","1322574673","📖 ⚠️ 'Kazasız' yazıyor ama TRAMER 12.000 TL. Galeri çelişkili. İlk el, City Mod, bakımlar evraklı. Ekspere şart.","orta",false,true,false,"sat2","●●● Orta"],
-[17,"","Renault Clio 1.4","temiz clio 191k",2005,191450,400000,"400k","235k–355k","1320983300","Piyasa üstünde. 191k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[18,"","Opel Corsa 1.2 Twinport","Corsa 1.2 Essentia 187k",2012,187000,400000,"400k","229k–383k","1309742370","Piyasa üstünde. Elektrik sorunları bilinen model.","kotu",true,false,false,"sat2","●●● Orta"],
-[19,"","Peugeot 206+ 1.4 Envy","ENS OTOMOTİV 206+ 195k",2010,195000,405000,"405k","270k–385k","1319569300","Piyasa üstünde. 195k km + galeri fiyatı fazla.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[20,"","Fiat Palio 1.2 Active","sahibinden Palio 194k",2005,194100,405000,"405k","145k–345k","1320371580","Piyasa çok üstünde ⚠️⚠️. Aşırı pahalı.","kotu",false,false,false,"sat2","●●● Orta"],
-[21,"km-low","Renault Clio 1.4","15 YIL SAHİBİNDEN 85k CLİO",2005,85000,409500,"409.5k","235k–355k","","Piyasa üstünde. 85k km ✅✅. İLAN KAPANMIŞ.","orta",false,false,false,"sat1","●●●●● Çok kolay"],
-[22,"","Seat Ibiza 1.2 Reference","ACİL SEAT İBİZA 173k",2009,173000,410000,"410k","390k–630k","1321956183","📖 ❌ ŞASE İŞLEMLİ + AİRBAG ARIZALI + marşta ses + silecek akıtıyor + direksiyon korna arızası. 5 mekanik sorun.","kotu",true,true,true,"sat2","●●● Orta"],
-[23,"","Hyundai Getz 1.5 CRDi GLS","DEĞİŞENSİZ hasar kayıtsız",2005,188000,414000,"414k","265k–415k","1320815652","📖 ✅ Değişen yok, lokal boyalar kabul edilebilir. Satıcı: 'Şase/podya/airbag işlemsiz'. Hesap 2023 açılmış — araç doğrulanmalı.","iyi",false,true,false,"sat1","●●●● Kolay"],
-[24,"km-low","Fiat Palio 1.4 Fire Sole","126k Egea motorlu Palio",2008,126000,419000,"419k","145k–345k","1297996733","Piyasa üstünde ⚠️⚠️. Palio max 345k. 126k ✅ ama 419k çok.","kotu",false,false,false,"sat2","●●● Orta"],
-[25,"","Renault Clio 1.5 dCi","ORJİNAL HATASIZ CLİO 188k",2006,188000,420000,"420k","235k–355k","","Piyasa üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[26,"","Ford Fiesta 1.4 Comfort","Sorunsuz Fiesta 200k",2005,200000,420000,"420k","190k–420k","1318891792","Piyasa üst sınırı. 200k km tam sınırda.","kotu",false,false,false,"sat2","●●●● Kolay"],
-[27,"","Opel Corsa 1.2 Twinport","BOL EKSTRALI HAFTASONU Corsa",2006,185000,420000,"420k","229k–383k","1319055017","Piyasa üstünde. Opel Corsa kronik elektrik.","kotu",true,false,false,"sat2","●●● Orta"],
-[28,"km-mid","Chevrolet Aveo 1.2 LS","SORUNSUZ AVEO LS 152k",2011,152000,420000,"420k","245k–375k","1317847202","📖 ⚠️ TRAMER 3.000 TL + Motor Kaputu + Sağ Ön Kapı DEĞİŞMİŞ (sağ ön darbe). Hesap Mayıs 2026 yeni. Ekspere şart.","orta",false,true,false,"sat3","●● Zor"],
-[29,"km-low","Fiat Albea Sole 1.4","TEMİZ DÜŞÜK KM Albea",2011,128000,425000,"425k","150k–350k","1322431771","Piyasa çok üstünde ⚠️⚠️. Albea max 350k. Kronik sorunlu.","kotu",true,false,false,"sat2","●●● Orta"],
-[30,"","Ford Fiesta 1.4 TDCi Trend","2011 Fiesta TDCi",2011,180780,425000,"425k","309k–465k","1317070207","📖 ❌ KM MANİPÜLASYONU — Satıcı kendisi yazıyor: 'Km orijinal değil, gerçek ~300.000 km'. Bu araç 300k km'de.","kotu",false,true,true,"sat2","●●●● Kolay"],
-[31,"km-mid","Peugeot 206 1.4 X-Design","Orijinal 136k Triger Yeni",2006,136000,425000,"425k","178k–317k","1320450917","Piyasa çok üstünde ⚠️⚠️. 206 max 317k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[32,"km-low","Hyundai Accent 1.3 Admire","DÜŞÜK KM 11YILLIK Accent",2006,126500,429000,"429k","170k–385k","1319031738","📖 ❌ 13 PARÇA BOYALI (komple kaza boya şüphesi). 'Temizlik boyası' açıklaması yetersiz. Tramer kaydı mutlaka sorgulanmalı.","kotu",false,true,true,"sat1","●●●● Kolay"],
-[33,"","Renault Clio 1.5 dCi","Garajdan Clio 186k",2007,186000,430000,"430k","235k–355k","1322143398","Piyasa üstünde. 186k km.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[34,"","Fiat Punto Grande 1.4","DEĞİŞENSİZ 198k Punto",2006,198698,434500,"434.5k","290k–419k","1317664366","198.7k km çok yüksek. Değişensiz ama km+fiyat fazla.","kotu",false,false,false,"sat2","●●● Orta"],
-[35,"","Fiat Albea Sole 1.4","DEĞİRMEN GRUP Albea 168k",2009,168000,435000,"435k","150k–350k","1289426892","Piyasa çok üstünde. Albea kronik. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
-[36,"km-mid","Ford Ka 1.2 Titanium","Ford Ka Ekonomik Fırsat",2009,152000,435000,"435k","310k–460k","1320148642","📖 ✅ İhtiyaçtan satıyor. Bakımlar tamam (balata, yağ, klima). Hasar kaydı yok. 152k için 410-420k'ya pazarlık yap.","iyi",false,true,false,"sat2","●●● Orta"],
-[37,"","Citroen C4 1.4 SX","8 YIL SAHİBİNDEN C4 Full",2009,170000,437500,"437.5k","280k–465k","1322748947","📖 8 yıllık tek sahip, ekspere açık, LPG yok, muayene 2028. 1 parça değişmiş (H100 çarpması). Dürüst satıcı.","orta",false,true,false,"sat2","●●● Orta"],
-[38,"km-low","Daihatsu Sirion 1.3 Touring","56k KM DEĞİŞENSİZ SİRİON",2005,56000,440000,"440k","305k–600k","1319401032","📖 🏆 TOYOTA MOTORLU, 2. sahip. Komple boyalı ama değişen yok (dürüst). Bakımlar 3k km önce. Muayene 2027. LED far.","iyi",false,true,false,"sat3","●● Zor"],
-[39,"km-mid","Citroen C3 1.4 X Furio","Sahibinden Temiz C3 155k",2010,155000,445000,"445k","230k–465k","1270468269","📖 ✅ 3 parça lokal boya, değişen yok. 11 yıllık hesap sahibi. Bakımlar yapılmış, akü yeni. Dürüst açıklama.","iyi",false,true,false,"sat2","●●● Orta"],
-[40,"","Peugeot 407 1.6 HDi Comfort","KARABEYLER 407 DEĞİŞENSİZ",2007,190000,445000,"445k","340k–600k","1314871748","Piyasa içinde. 407 çok yüksek bakım masrafı ⚠️⚠️. 190k km.","kotu",true,false,false,"sat2","●●● Orta"],
-[41,"","Renault Clio 1.4 Dynamique","Değişensiz Clio 158k",2005,158000,445000,"445k","235k–355k","1310104752","Piyasa çok üstünde ⚠️⚠️. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[42,"","Opel Corsa 1.2 OTOMATİK","acil otomatik Corsa 172k",2005,172000,450000,"450k","229k–383k","1322888282","Otomatik dikkat çekici ama Corsa kronik. 450k çok.","kotu",true,false,false,"sat2","●●● Orta"],
-[43,"","Opel Corsa 1.2 Twinport","Satılık Corsa 172k",2005,172000,450000,"450k","229k–383k","1322886874","42 numaralı ile neredeyse aynı. Corsa kronik.","kotu",true,false,false,"sat2","●●● Orta"],
-[44,"","Ford Fiesta 1.4 TDCi Comfort","temiz Fiesta 190k",2006,190000,450000,"450k","190k–420k","1321425478","Piyasa üstünde. 190k km, 2006. 420k max piyasa.","kotu",false,false,false,"sat2","●●●● Kolay"],
-[45,"","Renault Symbol 1.5 DCI","Bakımlı dolu Symbol 192k",2010,192000,450000,"450k","229k–370k","1312890999","Piyasa üstünde. Symbol 370k, burada 450k. 192k km.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[46,"","Ford Fusion 1.4 TDCi","ford fusion 177k",2006,177000,450000,"450k","365k–600k","1317825603","📖 ⚠️ Sol ön çamurluk + bagaj kapağı değişmiş (sürtme). Hesap Mayıs 2026 yeni. Minimal açıklama. 177k km pahalı.","orta",true,true,false,"sat3","●● Zor"],
-[47,"","Fiat Albea 1.3 Multijet","PARÇA BOYALI Albea 181k",2010,181000,450000,"450k","150k–350k","1317730380","'Parça boyalı' = hasar. Albea dizel kronik. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
-[48,"","Fiat Albea 1.3 Multijet","2011 albea dizel 186k",2011,186000,450000,"450k","150k–350k","1317023392","Albea dizel kronik. 186k km. Kaçın.","kotu",true,false,true,"sat2","●●● Orta"],
-[49,"km-low","Chevrolet Aveo 1.2 LS","Sağlık Personeli Aveo 117k",2011,117270,450000,"450k","245k–375k","","117.27k ✅✅ ama 450k çok. İLAN KAPANMIŞ.","orta",false,false,false,"sat3","●● Zor"],
-[50,"km-low","Skoda Octavia 1.6 FSI","122k OCTAVIA KLİMALI",2005,122000,459000,"459k","310k–650k","1322243079","📖 ⚠️ Motor kaputu değişmiş + sağ taraf + sol ön boyalı (6 parça). Galeri 'hasar yok' diyor — tramer belgesi iste. 122k km iyi.","orta",true,true,false,"sat2","●●● Orta"],
-[51,"","Peugeot 207 1.4 Millesim","207 BENZİN LPG MİLLESİM 199k",2011,198900,459750,"459.8k","360k–470k","1314279212","📖 ❌ 198.9k km + sağ taraf tümüyle boyalı + sol çamurluk değişmiş (iki taraflı hasar). Fiyat bu km için yüksek.","kotu",false,true,true,"sat1","●●●● Kolay"],
-[52,"","Renault Symbol 1.2","Renault Symbol 2012 Beylikova",2012,182500,460000,"460k","229k–370k","1320172353","Piyasa üstünde. 182.5k km, Symbol max 370k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[53,"","Hyundai Getz 1.5 CRDi VGT","2008 GETZ 1.5 VGT 192k",2008,192190,465000,"465k","265k–415k","1322813842","Piyasa üstünde. 192k km + 465k. Max 415k.","kotu",false,false,false,"sat1","●●●● Kolay"],
-[54,"","Peugeot 107 1.0 OTOMATİK","2008 107 VTİ OTOMATİK",2008,171000,465000,"465k","329k–635k","1316758941","📖 Galeri komple boya yapmış. 171k otomatik 107 için 465k pahalı. Boya gerekçesi belirsiz.","orta",false,true,false,"sat2","●●● Orta"],
-[55,"","Renault Symbol 1.4","Temiz Symbol 190k",2009,190000,465000,"465k","229k–370k","1321442751","Piyasa üstünde. 190k km. Max 370k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[56,"","Opel Corsa 1.2 Twinport","Orjinal 180k Corsa",2010,180000,465000,"465k","229k–383k","1320801315","Piyasa çok üstünde. Corsa 383k. Kronik.","kotu",true,false,false,"sat2","●●● Orta"],
-[57,"","Peugeot 208 1.2 PureTech","ACİL 208 2015 muayeneli",2015,177500,470000,"470k","365k–525k","1318982570","📖 Kaput değişimi: yüksekten cisim düşmüş (dürüstçe açıklanmış). Muayene 2028. CarPlay, geri kamera.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
-[58,"","Citroen C3 1.4 HDi","EKONOMİK DİZEL C3 200k",2011,200000,475000,"475k","230k–465k","1320386871","Piyasa sınırında. 200k km sınırda. C3 dizel yakıt cimrisi.","orta",false,false,false,"sat2","●●● Orta"],
-[59,"","Renault Symbol 1.4","2010 SYMBOL 160k",2010,160000,475000,"475k","229k–370k","","Piyasa üstünde. İLAN KAPANMIŞ.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[60,"","Fiat Linea 1.3 Multijet","Linea 194k aile aracı",2011,194000,475000,"475k","245k–399k","","194k km. Linea max 399k. İLAN KAPANMIŞ.","kotu",false,false,false,"sat2","●●● Orta"],
-[61,"","Seat Cordoba 1.4 Costa","KRAL OTOMOTİV CORDOBA",2005,195000,479750,"479.8k","305k–520k","1316049540","📖 ❌ Sistemde 'orijinal' yazıyor ama açıklamada 'TAVAN HARİÇ BOYALI'. Galeri kasıtlı eksik girmiş. 195k km, 2005 model.","kotu",false,true,true,"sat2","●●● Orta"],
-[62,"","Renault Clio 1.5 dCi Extreme","RENAULT CLIO 3 195k",2008,195500,480000,"480k","235k–355k","1321078581","Piyasa çok üstünde. 195k km. Max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[63,"","Opel Corsa 1.3 CDTI","YAKIT CİMRİSİ Corsa 180k",2006,180000,480000,"480k","229k–383k","1320643454","Piyasa üstünde. Corsa 383k. Dizel Opel.","kotu",true,false,false,"sat2","●●● Orta"],
-[64,"km-mid","Opel Meriva 1.3 CDTI","DEĞİŞENSİZ 145k MERİVA",2008,145000,485000,"485k","358k–595k","1314745257","📖 ✅ Değişen/boyalı yok. 4 yıllık galeri, ekspertiz fotoğrafı var. 'Güneş yanığı' boya masrafı çıkarabilir. Mekanik sağlam.","iyi",true,true,false,"sat3","●● Zor"],
-[65,"km-low","Chevrolet Spark 1.2 LS","BAYANDAN SPARK 125k",2011,125750,485000,"485k","210k–400k","1308708841","Piyasa çok üstünde. Spark max 400k, burada 485k.","kotu",false,false,false,"sat3","●● Zor"],
-[66,"km-low","Peugeot 208 1.0 VTi","SAHİBİNDEN 208 2013 97k",2013,97274,485000,"485k","365k–525k","1319770234","📖 Kaput+çamurluk değişmiş, kapı+çamurluk boyalı — dürüstçe gösterilmiş. 4 Michelin kış lastiği. 460-470k'ya pazarlık.","orta",false,true,false,"sat1","●●●●● Çok kolay"],
-[67,"","Chevrolet Aveo 1.3 D LT","DOLU PAKET AVEO TAKSİT",2012,180000,485000,"485k","245k–375k","1237503721","Piyasa çok üstünde. Aveo max 375k.","kotu",false,false,false,"sat3","●● Zor"],
-[68,"km-mid","Peugeot 206+ 1.4 HDi","2010 206+ HDİ 136k",2010,136000,490000,"490k","270k–385k","1322585432","Piyasa çok üstünde. 206+ max 385k, burada 490k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[69,"km-low","Fiat Linea 1.4 Fire","düşük km Linea 2013 95k",2013,95500,490000,"490k","245k–399k","1294209189","🚫 Bot engeli — ilan açıklaması okunamadı. 95.5k km çok düşük ✅✅✅. 2013 model. 490k fazla (max 399k). Güçlü pazarlık.","orta",false,false,false,"sat2","●●● Orta"],
-[70,"","Ford Fiesta 1.4 TDCi Titanium","189k Fiesta Titanium",2010,189000,490000,"490k","309k–465k","1319947484","Piyasa üstünde. 189k km. Titanium en üst donanım.","kotu",false,false,false,"sat2","●●●● Kolay"],
-[71,"","Renault Clio 1.5 dCi Dynamique","satilik Clio 182k",2007,182490,490000,"490k","235k–355k","1317456157","Piyasa çok üstünde. 182.5k km + 490k. Clio max 355k.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[72,"km-mid","Peugeot 301 1.2 VTi","ARD AUTO HATASIZ 301 157k",2013,157000,499000,"499k","320k–545k","1322723956","🚫 Bot engeli — ilan okunamadı. Piyasa içinde ✅. 2013 model, 157k km. 301 1.2 VTi titreşim sorunu bilinmeli.","orta",false,false,false,"sat2","●●● Orta"],
-[73,"","Ford Focus 1.6 TDCi Trend X","FOCUS 184k BAKIMLI SEDAN",2009,184000,499900,"499.9k","330k–575k","1322520864","🚫 Bot engeli — ilan okunamadı. Piyasa içinde ✅. Focus büyük konforlu. 184k km. Bakımlı.","orta",false,false,false,"sat2","●●●● Kolay"],
-[74,"km-mid","Dacia Sandero 1.5 dCi","GÜVENÇ 2010 İLK EL 157k",2010,157000,500000,"500k","264k–485k","1311693597","🚫 Bot engeli — ilan okunamadı. Piyasa üstünde ⚠️. Sandero max 485k. 1. el, servis bakımlı.","orta",false,false,false,"sat2","●●●● Kolay"],
-[75,"","Peugeot 307 1.6 HDi","Temiz 307 197k",2007,197000,500000,"500k","325k–465k","1321184678","Piyasa üstünde. 307 max 465k. 197k km. 307 HDi baş contası ve elektronik sorunlu ⚠️.","kotu",true,false,false,"sat2","●●● Orta"],
-[76,"","Toyota Yaris 1.3 Terra","temiz Yaris 198k",2007,198000,500000,"500k","265k–385k","1320600241","Piyasa çok üstünde. 198k km çok yüksek.","kotu",false,false,false,"sat1","●●●●● Çok kolay"],
-[77,"","Peugeot 308 1.6 VTi","SAHİBİNDEN 2009 MANUEL 308",2009,180000,500000,"500k","340k–530k","1272887977","🚫 Bot engeli — ilan okunamadı. Piyasa içinde. 180k km. 308 VTi şanzıman ve elektronik sorunları bilinen model ⚠️.","orta",true,false,false,"sat2","●●●● Kolay"],
-[78,"","Opel Corsa 1.2 Twinport","SAHİBİNDEN Corsa 197k",2012,197000,500000,"500k","229k–383k","1279218790","Piyasa çok üstünde. 197k km çok yüksek. Corsa kronik.","kotu",true,false,false,"sat2","●●● Orta"]
-];
-let sc=-1,sa=true;
-function pc(p,m){const x=m.match(/(\d+)k–(\d+)k/);if(!x)return'p-ok';return p<=parseInt(x[2])*1000?'p-good':'p-bad';}
-function render(){
-  const q=document.getElementById('q').value.toLowerCase();
-  const ck=document.getElementById('ck').checked;
-  const cs=document.getElementById('cs').checked;
-  const cr=document.getElementById('cr').checked;
-  let data=[...D];
-  if(sc>=0){data.sort((a,b)=>{let av=a[sc],bv=b[sc];if(typeof av==='number'&&typeof bv==='number')return sa?av-bv:bv-av;return sa?String(av).localeCompare(String(bv),'tr'):String(bv).localeCompare(String(av),'tr');});}
-  const tb=document.getElementById('tb');
-  const cards=document.getElementById('cards');
-  let count=0,html='',chtml='';
-  data.forEach(r=>{
-    const [num,cls,model,title,year,km,price,priceStr,market,rid,comment,yc,chronic,read,kacin,satilCls,satilTxt]=r;
-    if(!ck&&chronic)return;
-    if(!cs&&!rid)return;
-    if(!cr&&kacin)return;
-    const txt=(model+title+comment+satilTxt).toLowerCase();
-    if(q&&!txt.includes(q))return;
-    count++;
-    let rowCls=kacin?'kacin':(chronic?'chronic':(cls||''));
-    const piyasaCls=pc(price,market);
-    const readBadge=read?'&nbsp;<span class="read">📖</span>':''
-    const kacinBadge=kacin?'<br><span class="kacin-badge">❌ KAÇIN</span>':''
-    const chBadge=chronic&&!kacin?'<br><span class="ch">⚠️ kronik</span>':''
-    const linkHtml=rid?`<a href="https://www.sahibinden.com/ilan/${rid}/detay" target="_blank">${title}</a>${readBadge}`:`${title} <span class="sold">[kapandı]</span>`;
-    html+=`<tr class="${rowCls}">
-<td>${num}</td>
-<td><b>${model}</b>${chBadge}${kacinBadge}</td>
-<td style="max-width:180px;font-size:11px">${linkHtml}</td>
-<td>${year}</td>
-<td>${km.toLocaleString('tr')}</td>
-<td class="fiyat">${priceStr}</td>
-<td class="${piyasaCls}">${market}</td>
-<td class="yorum ${yc}">${comment}</td>
-<td class="${satilCls}" style="white-space:nowrap">${satilTxt}</td>
-</tr>`;
-    const pLabel=pc(price,market)==='p-good'?`<span style="color:var(--green);font-weight:bold">${market} ✓</span>`:`<span style="color:var(--red)">${market} ↑</span>`;
-    chtml+=`<div class="card ${rowCls}">
-<div class="card-head">
-<div>
-<div class="card-model">#${num} ${model}${kacinBadge}${chBadge}</div>
-${rid?`<a class="card-link" href="https://www.sahibinden.com/ilan/${rid}/detay" target="_blank">${title}${read?' 📖':''}</a>`:`<span style="color:#aaa;font-size:11px">${title} [kapandı]</span>`}
-</div>
-<div style="text-align:right">
-<div class="card-price">${priceStr}</div>
-<div class="${satilCls}" style="font-size:10px">${satilTxt}</div>
-</div>
-</div>
-<div class="card-body">
-<div class="card-row">
-<span>${year}</span>
-<span>${km.toLocaleString('tr')} km</span>
-<span>${pLabel}</span>
-</div>
-<div class="card-yorum ${yc}">${comment}</div>
-</div>
-</div>`;
-  });
-  tb.innerHTML=html;
-  cards.innerHTML=chtml;
-  document.getElementById('cnt').textContent=count+' ilan';
-}
-function sort(col){if(sc===col)sa=!sa;else{sc=col;sa=true;}render();}
-render();
-
-// Tab switching
-function showTab(name,btn){
-  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
+function showTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(tabId).classList.add('active');
   btn.classList.add('active');
 }
-
-// Arabam table sort
-let aDir={};
-function sortA(col){
-  const tb=document.querySelector('#a-table tbody');
-  const rows=Array.from(tb.rows);
-  const asc=(aDir[col]=!aDir[col]);
-  rows.sort((a,b)=>{
-    let av=a.cells[col].innerText.trim().replace(/[₺.,\s\n].*/g,'').replace(/[^0-9]/g,'');
-    let bv=b.cells[col].innerText.trim().replace(/[₺.,\s\n].*/g,'').replace(/[^0-9]/g,'');
-    const na=parseFloat(av),nb=parseFloat(bv);
-    if(!isNaN(na)&&!isNaN(nb))return asc?na-nb:nb-na;
-    return asc?av.localeCompare(bv,'tr'):bv.localeCompare(av,'tr');
-  });
-  rows.forEach(r=>tb.appendChild(r));
-}
-
-const ARABAM_MARKET = {
-  1: '800k-900k',
-  2: '730k-820k',
-  3: '400k-500k',
-  4: '700k-850k',
-  5: '760k-850k',
-  6: '800k-900k',
-  7: '700k-790k',
-  8: '770k-860k',
-  9: '460k-530k',
-  10: '560k-640k',
-  11: '610k-700k',
-  12: '790k-870k',
-  13: '700k-780k',
-  14: '600k-660k',
-  15: '700k-790k',
-  16: '660k-750k',
-  17: '650k-735k'
-};
-
-const ARABAM_CHRONIC = {
-  1: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
-  2: {level:'high', label:'KRONİK', issues:'Astra J 1.4T: PCV/kapak diyaframı, M32 şanzıman, turbo ve soğutma kaçakları.'},
-  3: {level:'high', label:'KRONİK', issues:'Corsa 1.3 CDTI: triger zinciri, EGR/DPF, turbo ve ECU su alma riski.'},
-  4: {level:'med', label:'Kronik kontrol', issues:'Corolla 1.4 D-4D: EGR/intake karbonu ve kısa kullanımda DPF tıkanması.'},
-  5: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
-  6: {level:'med', label:'Kronik kontrol', issues:'Astra J 1.6: bobin/misfire, termostat ve yağ soğutucu contası kontrol edilmeli.'},
-  8: {level:'high', label:'KRONİK', issues:'Astra J 1.4T: PCV/kapak diyaframı, M32 şanzıman, turbo ve soğutma kaçakları.'},
-  9: {level:'high', label:'KRONİK', issues:'Fiesta 1.4 TDCi: enjektör keçesi, EGR, turbo ve arka plastik su borusu.'},
-  10: {level:'high', label:'KRONİK', issues:'Polo 1.2 TDI: EGR/DPF, turbo/enjektör ve Dieselgate yazılım sonrası emisyon sistemi riski.'},
-  11: {level:'high', label:'KRONİK', issues:'Polo 1.2 TDI: EGR/DPF, turbo/enjektör ve Dieselgate yazılım sonrası emisyon sistemi riski.'},
-  12: {level:'med', label:'Kronik kontrol', issues:'Egea 1.4 Fire: yağ eksiltme; LPG varsa supap/kompresyon kontrolü.'},
-  15: {level:'high', label:'KRONİK', issues:'Peugeot 301 1.6 HDi: enjektör keçesi, turbo yağ besleme, EGR/DPF riski.'},
-  16: {level:'high', label:'KRONİK', issues:'Peugeot 301 BlueHDi: AdBlue/SCR tankı, NOx sensörü, EGR/DPF riski.'},
-  17: {level:'high', label:'KRONİK', issues:'Peugeot 301 BlueHDi: AdBlue/SCR tankı, NOx sensörü, EGR/DPF riski.'}
-};
-
-const ARABAM_LISTING_TO_ROW = {
-  41348812: 1,
-  40964267: 2,
-  39773645: 3,
-  40945095: 4,
-  39254114: 5,
-  40106594: 6,
-  41318637: 7,
-  41289931: 8,
-  39714640: 9,
-  41163377: 10,
-  41276551: 11,
-  40602791: 12,
-  38862080: 13,
-  41179900: 14,
-  41106955: 15,
-  40895887: 16,
-  40574741: 17
-};
-
-const ARABAM_TABLE_FIXUPS = {
-  3: {seller:'Sahibinden<br><span class="ilankod">Eskişehir/Mahmudiye</span>'},
-  4: {seller:'Galeri ZİRVE OTOMOTİV'},
-  5: {seller:'Sahibinden 3.yıl'},
-  6: {boya:'Tamamı orijinal'},
-  7: {seller:'Sahibinden'},
-  8: {seller:'Sahibinden'},
-  9: {seller:'Sahibinden'},
-  11: {seller:'Sahibinden 11.yıl'},
-  12: {boya:'Tamamı orijinal'},
-  13: {seller:'Sahibinden<br><span class="ilankod">Kocaeli/Gebze</span>'},
-  14: {seller:'Sahibinden<br><span class="ilankod">Eskişehir</span>'},
-  15: {seller:'Sahibinden<br><span class="ilankod">Eskişehir</span>'},
-  16: {seller:'Sahibinden<br><span class="ilankod">Ankara/Keçiören</span>'},
-  17: {boya:'Tamamı orijinal'}
-};
-
-function chronicHtml(chronic){
-  if(!chronic) return '<span class="a-chronic-none">—</span>';
-  return `<span class="a-chronic-pill a-chronic-${chronic.level}">${chronic.label}</span><small>${chronic.issues}</small>`;
-}
-
-function ensureArabamColumns(row,num){
-  if(row.cells.length>=14) return;
-  const fix=ARABAM_TABLE_FIXUPS[num];
-  if(!fix) return;
-  if(fix.seller){
-    const cell=row.insertCell(8);
-    cell.innerHTML=fix.seller;
-  }
-  if(fix.boya){
-    const cell=row.insertCell(9);
-    cell.innerHTML=fix.boya;
-  }
-}
-
-function decorateArabamMarket(){
-  const headerRow=document.querySelector('#a-table thead tr');
-  const hasMarketHeader=headerRow && Array.from(headerRow.children).some(th=>th.textContent.trim()==='Piyasa');
-  if(headerRow && !hasMarketHeader){
-    const th=document.createElement('th');
-    th.textContent='Piyasa';
-    headerRow.insertBefore(th, headerRow.children[5]);
-  }
-
-  document.querySelectorAll('#a-table tbody tr').forEach(row=>{
-    if(row.querySelector('td.a-market')) return;
-    const num=parseInt(row.cells[0].textContent.trim(),10);
-    const band=ARABAM_MARKET[num];
-    if(!band) return;
-    const price=parseInt(row.cells[4].textContent.replace(/[^\d]/g,''),10);
-    const [lo,hi]=band.split('-').map(v=>parseInt(v,10)*1000);
-    const cell=row.insertCell(5);
-    cell.className='a-market';
-    if(price<lo){
-      cell.innerHTML=`${band} TL<br><small>Piyasa altı</small>`;
-    }else if(price>hi){
-      cell.innerHTML=`${band} TL<br><small>Piyasa üstü</small>`;
-    }else{
-      cell.innerHTML=`${band} TL<br><small>Piyasa içinde</small>`;
-    }
-  });
-
-  document.querySelectorAll('.a-pitem').forEach(item=>{
-    const text=item.textContent;
-    const m=text.match(/#(\d+)/);
-    if(!m) return;
-    const band=ARABAM_MARKET[parseInt(m[1],10)];
-    if(!band || text.includes('Piyasa bandı:')) return;
-    item.insertAdjacentHTML('beforeend', `<br><span style="color:#666;padding-left:28px;">Piyasa bandı: ${band} TL</span>`);
-  });
-
-  document.querySelectorAll('.a-card').forEach(card=>{
-    const title=card.querySelector('.a-card-title');
-    const body=card.querySelector('.a-card-body');
-    if(!title || !body || card.querySelector('.a-card-market')) return;
-    const m=title.textContent.match(/(\d+)\./);
-    if(!m) return;
-    const band=ARABAM_MARKET[parseInt(m[1],10)];
-    if(!band) return;
-    const row=document.createElement('div');
-    row.className='a-card-row a-card-market';
-    row.innerHTML=`<span class="a-card-label">Piyasa</span><span class="a-card-val">${band} TL</span>`;
-    const note=body.querySelector('.a-card-note');
-    body.insertBefore(row, note || body.firstChild);
-  });
-}
-
-function decorateArabamChronic(){
-  const headerRow=document.querySelector('#a-table thead tr');
-  const hasChronicHeader=headerRow && Array.from(headerRow.children).some(th=>th.textContent.trim()==='Kronik');
-  if(headerRow && !hasChronicHeader){
-    const th=document.createElement('th');
-    th.textContent='Kronik';
-    headerRow.insertBefore(th, headerRow.children[8]);
-  }
-
-  document.querySelectorAll('#a-table tbody tr').forEach(row=>{
-    const num=parseInt(row.cells[0].textContent.trim(),10);
-    ensureArabamColumns(row,num);
-    if(row.querySelector('td.a-chronic-cell')) return;
-    const cell=row.insertCell(8);
-    cell.className='a-chronic-cell';
-    cell.innerHTML=chronicHtml(ARABAM_CHRONIC[num]);
-  });
-
-  document.querySelectorAll('.a-pitem').forEach(item=>{
-    const listing=item.textContent.match(/#(\d{8})/);
-    if(!listing || item.querySelector('.a-chronic-note')) return;
-    const rowNum=ARABAM_LISTING_TO_ROW[listing[1]];
-    const chronic=ARABAM_CHRONIC[rowNum];
-    if(!chronic) return;
-    item.insertAdjacentHTML('beforeend', `<span class="a-chronic-note"><b>Kronik:</b> ${chronic.issues}</span>`);
-  });
-
-  document.querySelectorAll('.a-card').forEach(card=>{
-    const title=card.querySelector('.a-card-title');
-    const body=card.querySelector('.a-card-body');
-    if(!title || !body || card.querySelector('.a-card-chronic')) return;
-    const rowMatch=title.textContent.match(/(\d+)\./);
-    if(!rowMatch) return;
-    const chronic=ARABAM_CHRONIC[parseInt(rowMatch[1],10)];
-    if(!chronic) return;
-    const row=document.createElement('div');
-    row.className='a-card-row a-card-chronic';
-    row.innerHTML=`<span class="a-card-label">Kronik</span><span class="a-card-val">${chronic.issues}</span>`;
-    const note=body.querySelector('.a-card-note');
-    body.insertBefore(row, note || body.firstChild);
-  });
-}
-decorateArabamMarket();
-decorateArabamChronic();
-
-// Kriter sıralaması (✅ 300–600k TL, ≤200k km → ⚠️ sınırda → ❌ bütçe/km üstü)
-const ARABAM_KRITER_BY_ID = {
-  41179900: {order:0, label:'✅ Uygun'},
-  41163377: {order:0, label:'✅ Uygun'},
-  39773645: {order:1, label:'⚠️ Sınırda'},
-  39714640: {order:2, label:'❌ KM Üstü'},
-};
-function decorateArabamKriter(){
-  const rowToId={};
-  for(const [id,row] of Object.entries(ARABAM_LISTING_TO_ROW)) rowToId[row]=parseInt(id);
-  const headerRow=document.querySelector('#a-table thead tr');
-  if(headerRow&&!Array.from(headerRow.children).some(th=>th.textContent.trim()==='Kriter')){
-    const th=document.createElement('th');
-    th.textContent='Kriter'; th.style.width='75px';
-    headerRow.insertBefore(th,headerRow.children[1]);
-  }
-  const tbody=document.querySelector('#a-table tbody');
-  Array.from(tbody.rows).forEach(row=>{
-    if(row.querySelector('td.kriter-cell')) return;
-    const num=parseInt(row.cells[0].textContent.trim(),10);
-    const lid=rowToId[num];
-    const k=(lid&&ARABAM_KRITER_BY_ID[lid])||{order:2,label:'❌ Bütçe Üstü'};
-    const cell=row.insertCell(1);
-    cell.className='cls-cell kriter-cell';
-    if(k.order===0) cell.style.cssText='background:#d4edda;color:#155724;font-weight:700;text-align:center;white-space:nowrap;font-size:11px';
-    else if(k.order===1) cell.style.cssText='background:#fff3cd;color:#856404;font-weight:700;text-align:center;white-space:nowrap;font-size:11px';
-    else cell.style.cssText='background:#f8d7da;color:#721c24;text-align:center;white-space:nowrap;font-size:11px';
-    cell.textContent=k.label;
-    row.dataset.kriterOrder=k.order;
-  });
-  const rows=Array.from(tbody.rows);
-  rows.sort((a,b)=>(parseInt(a.dataset.kriterOrder)||2)-(parseInt(b.dataset.kriterOrder)||2));
-  rows.forEach(r=>tbody.appendChild(r));
-}
-decorateArabamKriter();
 </script>
+<div style="text-align:center;padding:12px;font-size:0.7rem;color:#3d444d;background:#0d1117;margin-top:20px;border-top:1px solid #21262d">
+  Otomatik güncellendi · 20 Haziran 2026 ·
+  <a href="https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false" target="_blank">arabam.com</a> ·
+  <a href="https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2005&price_min=300000&price_max=600000" target="_blank">sahibinden.com</a>
+</div>
 </body>
 </html>
