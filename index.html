@@ -963,5 +963,22 @@ table.listing-table td.al{color:var(--green)}
 </div>
 
 </div>
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  const targetTab = document.getElementById(id);
+  if (targetTab) targetTab.classList.add('active');
+  const btn = event.currentTarget || event.target;
+  if (btn) btn.classList.add('active');
+}
+
+function toggleCard(header) {
+  const body = header.nextElementSibling;
+  if (body && body.classList.contains('card-body')) {
+    body.classList.toggle('open');
+  }
+}
+</script>
 </body>
 </html>
