@@ -911,5 +911,31 @@ table.listing-table td.al{color:var(--green)}
 </div>
 
 </div>
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(function(el) {
+    el.classList.remove('active');
+    el.style.display = 'none';
+  });
+  document.querySelectorAll('.tab').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  var target = document.getElementById(id);
+  if (target) { target.classList.add('active'); target.style.display = 'block'; }
+  // Find clicked tab button
+  document.querySelectorAll('.tab').forEach(function(el) {
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').indexOf(id) !== -1) {
+      el.classList.add('active');
+    }
+  });
+}
+function toggleCard(el) {
+  var body = el.nextElementSibling;
+  if (!body) return;
+  var isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  el.classList.toggle('open', !isOpen);
+}
+</script>
 </body>
 </html>
