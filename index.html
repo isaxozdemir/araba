@@ -24,8 +24,8 @@ h1 span.date{font-size:.8rem;color:var(--muted);margin-left:auto}
 .priority-list li:last-child{border:none}
 .priority-list li::before{content:counter(item);position:absolute;left:0;top:5px;width:20px;height:20px;background:var(--accent);border-radius:50%;font-size:.75rem;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
 .card{background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
-.card.new{border-color:#2563eb}
-.card.updated{border-color:var(--yellow)}
+.card.new{}
+.card.updated{}
 .card.gone{opacity:.5;border-style:dashed}
 .card.danger{border-color:var(--red)}
 .card-header{padding:12px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
@@ -96,6 +96,10 @@ table.listing-table td.al{color:var(--green)}
 .card:has(.verdict.warn){border-color:rgba(210,153,34,.5)!important}
 .card:has(.verdict.danger){border-color:rgba(218,54,51,.5)!important}
 .card:has(.verdict.evil){border-color:rgba(218,54,51,.5)!important}
+
+.card:has(.verdict.bak){border-color:rgba(210,153,34,.5)!important}
+.card.warn{border-color:rgba(210,153,34,.5)!important}
+.card.pass{border-color:rgba(218,54,51,.5)!important}
 </style>
 </head>
 <body>
