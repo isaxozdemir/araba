@@ -71,7 +71,7 @@ Topladığın ilanları mevcut sitedeki bilinen ilanlarla karşılaştır:
 - 🔄 **Değişen:** Her ikisinde de var ama fiyat/bilgi farklı → Güncelleme + tekrar analiz
 - ✅ **TAM ANALİZ edilmiş & değişmemiş:** Kart aynen korunur, ilan sayfasına girme
 - 📋 **ÖZET SATIR & değişmemiş:** Mevcut sitede sadece tablo satırı var → Tam analiz yap
-- ❌ **Kalkan:** Mevcut sitede var, bugün listede yok → Üstü çizili işaretle
+- ❌ **Kalkan:** Mevcut sitede var, bugün listede yok → **ÖNCE İLAN URL'İNE GİT**, 404 / "ilan bulunamadı" alıyorsan üstü çizili işaretle. "Favorilerde yok" yeterli DEĞİL — doğrulamadan ~~İLANDAN KALKAN~~ etiketi koyma.
 
 ---
 
@@ -288,6 +288,7 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - **✅ HÂLÂ YAYINDA** — aktif, değişmemiş ilanlar
 - **~~İLANDAN KALKAN~~** — listeden kalkan ilanlar (silme, üstü çizili göster)
 - "GÜNCELLENDİ" veya belirsiz etiket kullanma — fiyat değişmemişse ✅ HÂLÂ YAYINDA kullan
+- **~~İLANDAN KALKAN~~ YALNIZCA** ilan URL'i 404 / "ilan bulunamadı" döndürdüğünde kullanılır — "favorilerde yok" veya "listede görünmüyor" yeterli değil, URL'i ziyaret edip doğrula
 
 #### Kart İçeriği UI Formatı
 - Accordion içindeki tüm bilgiler **info-grid / info-card** mini-kart formatında gösterilir
