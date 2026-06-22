@@ -133,13 +133,13 @@ O marka-modelin Türkiye'deki bilinen yaygın sorunları (3-5 madde).
 - Hangi taraftan hasar aldığını yorumla (ön/arka/sol/sağ)
 - 0/0 Tertemiz | 1-2 hafif | 3-5 orta | 6+ ağır
 - "Sök tak" veya "değişen parça" ibaresi ilan açıklamasında var mı?
-(Arabam.com'da tabloda boyalar belirtilmemiş olabilir, belirtilmeyip açıklamada yazabilir, direkt şüpheli olarak algılama, sen bulduğun bilgileri kullanmaya çalış, satıcılar tabloyu doldurmakla uğraşmak istemiyor olabilir)
+(Arabam.com'da tabloda boyalar/değişenler/tramer belirtilmemiş olabilir, belirtilmeyip açıklamada yazabilir, belirtilmeyen paneller muhtemelen orijinaldir, direkt şüpheli olarak algılama, sen bulduğun bilgileri kullanmaya çalış, satıcılar tabloyu doldurmakla uğraşmak istemiyor olabilir)
 
 #### 4.5 — Kaza / Tramer / Hasar Kaydı
 - Tramer tutarı (TL)
 - 0: Yok | 1–10k: Çok hafif | 10–50k: Hafif-orta | 50–150k: Orta-ağır | 150k+: Ağır risk
 - Hasar kaydı ile fiziksel hasar uyuşuyor mu?
-(Arabam.com'da tramer belirtilmemiş diyorsa aracın trameri olmayabilir, direkt şüpheli olarak algılama)
+⚠️ **Arabam.com "belirtilmemiş" uyarısı:** Arabam.com'da tramer, ağır hasar kaydı ve diğer hasar alanları "belirtilmemiş" görünüyorsa bu **arabam.com'un varsayılan gösterimidir** — satıcı tabloyu doldurmamış demektir, şüpheli olarak değerlendirme. Muhtemelen o araçta ağır hasar veya tramer yoktur. **İstisna:** Satıcı ilan açıklamasında, fotoğraflarda veya başka bir yerde hasarın varlığını kendisi belirtmişse, o zaman ağır hasar/tramer var olarak değerlendir.
 
 #### 4.6 — İlan Açıklaması İnceleme
 İlan açıklamasındaki dikkat edilmesi gereken şeyler:
@@ -181,12 +181,24 @@ Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır 
 #### 4.13 — İlana Özel Kırmızı Bayraklar
 🚨 şu şeyleri öne çıkar:
 - Şase hasarı / airbag açılmış mı?
-- KM manipülasyonu şüphesi (km-yıl uyumsuzluğu, bakım kayıtları)
-- Taksi çıkması şüphesi
-- Şehir dışından araç (farklı plaka)
+- KM manipülasyonu şüphesi (bakım kayıtlarıyla büyük çelişki — küçük farklar normal, ör. 54k vs 55k sorun değil)
+- Taksi çıkması şüphesi (somut kanıt olmalı — sadece km yüksek olması yetmez)
 - Ekspertiz bulgularından kritik notlar
 - Parça bulunamayan model riski
-- Fiyat çok düşükse neden? (hasar gizleme?)
+
+**KESINLIKLE kırmızı bayrak yapma (bunlar saçma kırmızı bayraklardır):**
+- İstanbul / büyük şehir plakası → "yoğun trafik" spekülatif, bunu bayrak yapma
+- Takas yok → "acele satış" anlamına gelmez, bu standart bir tercih
+- KM farkı 1k-2k arasında → (ör. 54k vs 55k) bu normal ölçüm farkı, manipülasyon değil
+- Motor gücü "zayıf" → 75hp, 3 silindir, küçük motor; alıcının ihtiyacına göre normal bir araç, bunu bayrak yapma
+- Satıcı sayfası / fotoğraf sayısı az → eksik bilgi soruya taşı, bayrak yapma
+- Renk "koyu/açık" → satılabilirlik skoruna yansıt ama bayrak yapma
+- "Neden satıyor?" spekülasyonu → bilinmiyorsa yorum yapma
+- **"İlk sahibi değilim"** → 2. el her araç ilk sahibi olmayan biriyle başlar; galeri satışları da dahil. Bu ASLA kırmızı bayrak değil.
+- **Fiyat filtre aralığının üstünde** → Adem'in listesi filtreden BAĞIMSIZDIR. Fiyatın 300-600k filtresini aşması kırmızı bayrak değil; piyasa karşılaştırması başka info-card'da yapılır.
+- **Arabam.com'da tramer / hasar / boya "belirtilmemiş"** → Bu arabam.com'un varsayılan görünümüdür, satıcı tabloyu doldurmamış demektir. Şüpheli SAYMA. İstisna: satıcı ilan açıklamasında veya fotoğraflarda hasarı kendisi yazmışsa, o zaman var say.
+
+**Kırmızı bayrak olması için somut kanıt gerekir** — "belki", "olabilir", "şüpheli gibi görünüyor" seviyesindeki şeyler bayrak değil, en fazla sorulmayan sorular bölümüne taşı.
 
 #### 4.14 — Bu İlanda Sorulmayan Sorular
 3-5 ilana özgü soru (genel sorular değil, bu araça özel).
