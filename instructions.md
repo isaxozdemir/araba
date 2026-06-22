@@ -1,4 +1,23 @@
-# Instructions
+```javascript
+// SHA al
+const sha = (await (await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
+  headers: {'Authorization': 'token GITHUB_TOKEN'}
+})).json()).sha;
+
+// UTF-8 safe encode
+const enc = new TextEncoder().encode(htmlContent);
+let bin = '';
+enc.forEach(b => bin += String.fromCharCode(b));
+const b64 = btoa(bin);
+
+// Push
+await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
+  method: 'PUT',
+  headers: {'Authorization': 'token GITHUB_TOKEN', 'Content-Type': 'application/json'},
+  body: JSON.stringify({message: 'auto: günlük güncelleme', content: b64, sha})
+});
+```
+⚠️ `btoa(unescape(encodeURIComponent()))` KULLANMA — Türkçe karakterlerde hata verir.# Instructions
 
 ## Görev: Eskişehir Araba İlanları Sitesini Güncelle
 
@@ -193,15 +212,15 @@ Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır 
 
 ### ADIM 5 — Sıralama
 
-Her sekme içinde sıralama:
-yeni eklenenleri doğru kategoriye ekle!!!
+Her sekme içinde sıralama — yeni eklenenler verdict'lerine göre doğru kategoriye girer:
 1. ✅ Al (fırsat skoru yüksekten düşüğe)
 2. ⚠️ Bakılabilir (fırsat skoru yüksekten düşüğe)
 3. ❌ Pas Geç
 4. 🚫 KAÇIN
 5. ⏭️ Bekleyen Analiz (analiz edilememiş ilanlar — özet bilgi + link)
-6. ~~Kalkan İlanlar~~ (üstü çizili tablo)
-ilanların çerçevelerinin renkleri de bulundukları kategoriye göre uyumlu olmalı). AL: yeşil, BAKILABİLİR: Sarı, PAS GEÇ, KAÇIN: kırmızı
+6. ~~İLANDAN KALKAN~~ (YALNIZCA URL 404 dönenler — üstü çizili, bir güncelleme sonra kaldırılır)
+
+Kart çerçeve renkleri kategoriye göre: AL → yeşil, BAKILABİLİR → sarı, PAS GEÇ / KAÇIN → kırmızı
 
 ---
 
@@ -269,7 +288,7 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 
 - Mevcut siteyi her çalışmada önce oku — TAM ANALİZ edilmiş kartları koru
 - ÖZET SATIR ilanları = analiz bekliyor, öncelik sırasında ele al
-- Analiz yaptığın gün olarak sitedeki tarihi güncelle
+- Analiz yaptığın gün olarak sitedeki tarihi güncelle — her sekmenin stats barını (ilan sayısı + tarih + değişim) güncelle
 - Favoriden çıkan ilanları sayfadan tamamen kaldır — badge veya kart gösterme
 - URL 404 dönen ilanları ~~İLANDAN KALKAN~~ olarak göster (kısa süre, bir güncelleme sonra kaldır)
 - Fiyat değişikliklerini eski→yeni formatında göster
@@ -321,6 +340,15 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - Her kartın verdict'ine göre doğru bölümde olduğunu kontrol et
 - success → AL, warn/bak → BAKILABİLİR, danger → PAS GEÇ, evil → KAÇIN
 - Yanlış bölümdeki kartları tespit edip doğru bölüme taşı
+
+#### İlan Sayısı Stats Barı
+Her sekmenin üstündeki stats satırı her güncellemede değişmeli:
+```
+X ilan · Y sayfa · TARİH tarandı · 🔍= yeni ilan · ilan sayısı ÖNCEKİ_TARİH'deki N'den M'ye çıktı
+```
+- Toplam aktif ilan sayısını say (favoriden çıkarılan ve kalkan dahil değil)
+- Önceki sayı ve tarihi mevcut stats satırından al
+- Sadece tarih ve sayı değişir, format sabit kalır
 
 #### Kart Header HTML Yapısı (KRİTİK)
 Her kartın header'ı tam olarak bu yapıda olmalı — `card-title` ve `card-meta` ikisi de inner `<div>`'in **içinde**:
