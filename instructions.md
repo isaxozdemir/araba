@@ -397,3 +397,26 @@ Ic ice cerceve olusmasin diye kesinlikle uyulmasi gereken kurallar:
 3. Kart siniri bulmak icin lastIndexOf kullanirken: '<div class="card "' (tirnak+bosluk ile) ya da '<div class="card"' kullan. '<div class="card"' boslugsuz kullanma — card-body, card-header, card-title ile eslesir ve yanlis pozisyon verir.
 4. Ekleme/guncellemeden sonra dogrula: html.split(ilanID).length - 1 ile kac kez geciyor say. 2+ ise duplikat var demektir.
 5. Kart sinir pozisyonunu bulduktan sonra o pozisyondaki HTML'i logla ve gercekten dis kart div'i mi oldugunu kontrol et.
+
+
+---
+
+### ADIM 8 — Kategorilendirme ve Siralama (HER GUNCELLEMEDE ZORUNLU)
+
+**Her guncelleme sonrasinda asagidaki islem MUTLAKA yapilmali:**
+
+1. Tum kartlari badge'lerine gore dogru kategoriye yerlestir: AL kart AL bolumunde, BAKILABiLiR kart BAKILABiLiR bolumunde, PAS GEC kart PAS GEC bolumunde, KACIN kart KACIN bolumunde olmali.
+2. Her kategori icindeki kartlar firsat skoruna gore BUYUKTEN KUCUGE (azalan) siralali olmali.
+3. Removed (listeden kalkan) kartlar kendi kategorisinin EN ALTINA eklenir.
+4. cat-header score range'i guncelle: en yuksek ve en dusuk aktif kart skorlariyla.
+
+**cat-header yapisi:**
+- AL: `<div class="cat-header success">✅ AL (MAX-MIN/100)</div>`
+- BAKILABiLiR: `<div class="cat-header warn">⚠️ BAKILABiLiR (MAX-MIN/100)</div>`
+- PAS GEC: `<div class="cat-header danger">❌ PAS GEC (MAX-MIN/100)</div>`
+- KACIN: `<div class="cat-header evil">🚫 KACIN (MAX-MIN/100)</div>`
+
+**Kontrol adimlari:**
+- Guncelleme oncesi: kartlari oku, verdict badge'ini kontrol et, hangi kategoride olmasi gerektigini belirle.
+- Guncelleme sonrasi: html.indexOf('[ilanID]') ile her ilan ID'nin dogru cat-header altinda oldugunu dogrula.
+- Kart sayisi degismemeli (sadece sira ve konum degisebilir).
