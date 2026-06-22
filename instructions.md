@@ -322,6 +322,17 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - success → AL, warn/bak → BAKILABİLİR, danger → PAS GEÇ, evil → KAÇIN
 - Yanlış bölümdeki kartları tespit edip doğru bölüme taşı
 
+#### Kart Header HTML Yapısı (KRİTİK)
+Her kartın header'ı tam olarak bu yapıda olmalı — `card-title` ve `card-meta` ikisi de inner `<div>`'in **içinde**:
+```html
+<div class="card-header" onclick="toggleCard(this)"><div>
+    <div class="card-title">EMOJI Model Yıl <span class="badge ...">...</span></div>
+    <div class="card-meta">KM · <strong>FİYAT TL</strong> · Satıcı · Şehir · Renk · Yakıt · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:XX%"></span></span> XX/100</span></div>
+  </div></div>
+```
+- `card-meta` inner `<div>`'in **dışına** çıkmamalı — aksi hâlde meta başlıkla aynı satırda görünür
+- Yakıt (Benzin/Dizel/LPG) ile Fırsat arasında mutlaka ` · ` separatörü olmalı
+
 #### GitHub Push — UTF-8 Safe Encoding
 ```javascript
 const enc = new TextEncoder().encode(htmlContent);
