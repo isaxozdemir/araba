@@ -384,3 +384,16 @@ for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
 const b64 = btoa(binary);
 ```
 `btoa(unescape(encodeURIComponent()))` yöntemi kullanma — UTF-8 hatası verir.
+
+
+---
+
+### ADIM 7 — Kart HTML Yapisi Kurallari
+
+Ic ice cerceve olusmasin diye kesinlikle uyulmasi gereken kurallar:
+
+1. Her kartin dis div tagi MUTLAKA kapatilmali: card-header + card-body + kapanis. Stub kart (sadece card-header, body yok, dis-div acik) birakma.
+2. Mevcut karti guncellerken: once eski karti tamamen sil, sonra yeni karti ekle. Ikisini ust uste koyma.
+3. Kart siniri bulmak icin lastIndexOf kullanirken: '<div class="card "' (tirnak+bosluk ile) ya da '<div class="card"' kullan. '<div class="card"' boslugsuz kullanma — card-body, card-header, card-title ile eslesir ve yanlis pozisyon verir.
+4. Ekleme/guncellemeden sonra dogrula: html.split(ilanID).length - 1 ile kac kez geciyor say. 2+ ise duplikat var demektir.
+5. Kart sinir pozisyonunu bulduktan sonra o pozisyondaki HTML'i logla ve gercekten dis kart div'i mi oldugunu kontrol et.
