@@ -276,3 +276,56 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - Adem'in listesi çok sayfalı: ?page=2, ?page=3 vb. tüm sayfalar taranmalı, boş sayfa gelene kadar devam et
 - Bash workspace olmayabilir (disk alanı) — JS ile Chrome üzerinden push et
 - Tasarımı koru, sadece içerik ve tarih değişmeli
+
+
+---
+
+### TASARIM KURALLARI (Kesinlikle Uyulacak)
+
+#### Etiket Sistemi
+- **🆕 LİSTEYE YENİ EKLENEN** — tam bu metni kullan, "YENİ" veya başka kısaltma kullanma
+- **🔄 FİYATI GÜNCELLENDİ (eski TL → yeni TL)** — YALNIZCA fiyat gerçekten değiştiğinde ve eski+yeni fiyat biliniyorsa kullan
+- **✅ HÂLÂ YAYINDA** — aktif, değişmemiş ilanlar
+- **~~İLANDAN KALKAN~~** — listeden kalkan ilanlar (silme, üstü çizili göster)
+- "GÜNCELLENDİ" veya belirsiz etiket kullanma — fiyat değişmemişse ✅ HÂLÂ YAYINDA kullan
+
+#### Kart İçeriği UI Formatı
+- Accordion içindeki tüm bilgiler **info-grid / info-card** mini-kart formatında gösterilir
+- Alta alta düz metin (h4, p) KULLANILMAZ
+- Her bilgi tipi kendi info-card'ında
+- info-block wrapper KULLANILMAZ, info-card doğrudan info-grid içine girer
+
+#### Kart Çerçeve Renkleri
+- Renk **kategori**den gelir, "yeni" / "güncellenmiş" statüsünden DEĞİL
+- ✅ AL → yeşil çerçeve
+- ⚠️ BAKILABİLİR → sarı çerçeve
+- ❌ PAS GEÇ → kırmızı çerçeve
+- 🚫 KAÇIN → kırmızı çerçeve
+
+#### Başlık Emojileri
+- Her kartın başlık metni kategoriye göre emoji ile başlar:
+  - AL bölümü → `✅ Model Adı`
+  - BAKILABİLİR bölümü → `⚠️ Model Adı`
+  - PAS GEÇ bölümü → `❌ Model Adı`
+  - KAÇIN bölümü → `🚫 Model Adı`
+- 🚗, 🔵, 🟡 gibi belirsiz emojiler kullanma
+
+#### Fırsat Skoru Progress Bar
+- **Tek renk** — gradient (kırmızı→turuncu→yeşil) KULLANILMAZ
+
+#### Doğru Kategori Yerleşimi
+- Her kartın verdict'ine göre doğru bölümde olduğunu kontrol et
+- success → AL, warn/bak → BAKILABİLİR, danger → PAS GEÇ, evil → KAÇIN
+- Yanlış bölümdeki kartları tespit edip doğru bölüme taşı
+
+#### GitHub Push — UTF-8 Safe Encoding
+```javascript
+const enc = new TextEncoder().encode(htmlContent);
+const blob = new Blob([enc]);
+const ab = await blob.arrayBuffer();
+const bytes = new Uint8Array(ab);
+let binary = '';
+for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+const b64 = btoa(binary);
+```
+`btoa(unescape(encodeURIComponent()))` yöntemi kullanma — UTF-8 hatası verir.
