@@ -420,3 +420,43 @@ Ic ice cerceve olusmasin diye kesinlikle uyulmasi gereken kurallar:
 - Guncelleme oncesi: kartlari oku, verdict badge'ini kontrol et, hangi kategoride olmasi gerektigini belirle.
 - Guncelleme sonrasi: html.indexOf('[ilanID]') ile her ilan ID'nin dogru cat-header altinda oldugunu dogrula.
 - Kart sayisi degismemeli (sadece sira ve konum degisebilir).
+
+
+---
+
+## ADIM 9 — Yanlış Kırmızı Bayrak Kalıpları (Kesinlikle Yapılmaması Gerekenler)
+
+Aşağıdaki hatalar birden fazla ilanda tekrarlandı. Bu kalıpların HİÇBİRİ kırmızı bayrak değildir.
+
+### 9.1 "Belirtilmemiş" kuralı (tekrar ve genişletilmiş)
+Arabam.com'da tramer / boya / değişen / hasar alanları "belirtilmemiş" görünüyorsa:
+- Bu arabam.com'un **varsayılan gösterimidir** — satıcı tabloyu doldurmamış demektir.
+- **Şüpheli SAYMA. Kırmızı bayrak YAPMA.**
+- İstisna: Satıcı ilan açıklamasında, fotoğraflarda veya başka bir yerde hasarın/tramerin varlığını **kendisi belirtmişse**, o zaman var say.
+
+### 9.2 "Arabam.com belirtilmemiş ↔ Satıcı/galeri yok = çelişki" YANLIŞ
+Arabam.com'da tramer "belirtilmemiş" görünürken satıcı/galeri "tramer yok" diyorsa:
+- Bu **çelişki değildir**. Belirtilmemiş = platform default, satıcı da yok diyor = **tutarlı**.
+- "Tramer çelişkisi" diye kırmızı bayrak açma.
+
+### 9.3 "0 boya/değişen yüksek km'de şüpheli" YANLIŞ
+0 boyalı, 0 değişen panel her km'de **ARTIDUR**, eksi değil.
+- Yüksek km'de 0 boya/değişen görmek nadir ve olumludur — "şüpheli" değil, "temiz araç" işaretidir.
+- **Asla "X km'de 0 boya şüpheli" deme.**
+
+### 9.4 Genel motor riskleri kırmızı bayrak OLMAZ
+DPF tıkanması, enjektör aşınması, EGR kirlenmesi, turbo sızıntısı gibi km bazlı rutin riskler:
+- Bunlar **motor notu / bakım önerisi** olarak yazılır.
+- Spesifik kanıt olmadan (test sonucu, satıcı beyanı, belirtilen arıza) kırmızı bayrak yapılmaz.
+- Doğru kullanım: "155k km'de enjektör testi ve DPF kontrolü önerilir" (motor notu).
+- Yanlış kullanım: "🚨 DPF/enjektör riski başlamış olabilir" (kırmızı bayrak).
+
+### 9.5 Özet — Neyin kırmızı bayrak olduğu
+Kırmızı bayrak ancak şunlar için yapılır:
+- Satıcının **kendisinin belirttiği** hasar/tramer/sorun
+- Boya tablosunda **somut değer** (boyalı/değişen panel sayısı)
+- **Gerçek tramer tutarı** (örn. "713 TL tramer" — belirtilmemiş değil, rakam var)
+- Fotoğraflarda görülen hasar
+- Çelişkili satıcı beyanları (farklı yerlerde farklı şeyler söylüyorsa)
+- Piyasa dışı yüksek fiyat
+- Eksik belge (LPG dönüşüm belgesi yok gibi)
