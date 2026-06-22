@@ -71,7 +71,8 @@ Topladığın ilanları mevcut sitedeki bilinen ilanlarla karşılaştır:
 - 🔄 **Değişen:** Her ikisinde de var ama fiyat/bilgi farklı → Güncelleme + tekrar analiz
 - ✅ **TAM ANALİZ edilmiş & değişmemiş:** Kart aynen korunur, ilan sayfasına girme
 - 📋 **ÖZET SATIR & değişmemiş:** Mevcut sitede sadece tablo satırı var → Tam analiz yap
-- ❌ **Kalkan:** Mevcut sitede var, bugün listede yok → **ÖNCE İLAN URL'İNE GİT**, 404 / "ilan bulunamadı" alıyorsan üstü çizili işaretle. "Favorilerde yok" yeterli DEĞİL — doğrulamadan ~~İLANDAN KALKAN~~ etiketi koyma.
+- 🗑️ **Favoriden çıkan:** Mevcut sitede var, bugün favoriler listesinde yok → **sayfadan tamamen kaldır.** Kart gösterme, badge koyma — liste değişti, göstermeye gerek yok.
+- ~~İLANDAN KALKAN~~ **Gerçekten kalkan:** İlan URL'ine git → 404 / "ilan bulunamadı" alıyorsan → üstü çizili ~~İLANDAN KALKAN~~ olarak kısa süre tut (bir güncelleme sonra kaldır). "Favorilerde yok" yeterli DEĞİL — URL doğrulaması zorunlu.
 
 ---
 
@@ -269,7 +270,8 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - Mevcut siteyi her çalışmada önce oku — TAM ANALİZ edilmiş kartları koru
 - ÖZET SATIR ilanları = analiz bekliyor, öncelik sırasında ele al
 - Analiz yaptığın gün olarak sitedeki tarihi güncelle
-- Kalkan ilanları silme, üstü çizili göster
+- Favoriden çıkan ilanları sayfadan tamamen kaldır — badge veya kart gösterme
+- URL 404 dönen ilanları ~~İLANDAN KALKAN~~ olarak göster (kısa süre, bir güncelleme sonra kaldır)
 - Fiyat değişikliklerini eski→yeni formatında göster
 - Her ilan için fotoğrafları tara — ekspertiz raporu öncelikli
 - Adem'in listesindeki ilanlar filtreye uymasa bile tam analiz yapılır — km, fiyat, yıl sınırı yok
@@ -286,9 +288,10 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 - **🆕 LİSTEYE YENİ EKLENEN** — tam bu metni kullan, "YENİ" veya başka kısaltma kullanma
 - **🔄 FİYATI GÜNCELLENDİ (eski TL → yeni TL)** — YALNIZCA fiyat gerçekten değiştiğinde ve eski+yeni fiyat biliniyorsa kullan
 - **✅ HÂLÂ YAYINDA** — aktif, değişmemiş ilanlar
-- **~~İLANDAN KALKAN~~** — listeden kalkan ilanlar (silme, üstü çizili göster)
+- **~~İLANDAN KALKAN~~** — ilan URL'i 404 / "ilan bulunamadı" döndürdüğünde kullanılır (kısa süre göster, sonraki güncellemede kaldır)
+- **Favoriden çıkan ilanlar** sayfadan tamamen kaldırılır — hiçbir badge konmaz, kart gösterilmez
 - "GÜNCELLENDİ" veya belirsiz etiket kullanma — fiyat değişmemişse ✅ HÂLÂ YAYINDA kullan
-- **~~İLANDAN KALKAN~~ YALNIZCA** ilan URL'i 404 / "ilan bulunamadı" döndürdüğünde kullanılır — "favorilerde yok" veya "listede görünmüyor" yeterli değil, URL'i ziyaret edip doğrula
+- **~~İLANDAN KALKAN~~ YALNIZCA** URL 404 döndürdüğünde kullanılır — "favorilerde yok" veya "listede görünmüyor" yeterli değil, URL'i ziyaret edip doğrula
 
 #### Kart İçeriği UI Formatı
 - Accordion içindeki tüm bilgiler **info-grid / info-card** mini-kart formatında gösterilir
