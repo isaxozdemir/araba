@@ -71,6 +71,7 @@ Her yeni/değişen/bekleyen ilan için Claude in Chrome ile ilan sayfasını aç
 3. **O Modelin Kronik Problemleri** — Türkiye'deki 3–5 bilinen sorun
 4. **Boya / Değişen / Sök-Tak** — kaç parça, hangi taraf, ağırlık yorumu
 5. **Kaza / Tramer / Hasar** — TL tutarı + ağırlık değerlendirmesi
+   > ⚠️ Arabam.com’da tramer belirtilmemiş diyorsa araçın trameri olmayabilir — direkt şüpheli olarak algılama.
 6. **İlan Açıklaması İncelemesi** — çelişkiler, acele satış, LPG, muayene, ipotek
 7. **Fotoğraf + Ekspertiz Raporu** — varsa tam oku, "📋 Ekspertiz Bulundu" olarak işaretle
 8. **Satıcı Tipi** — bireysel / galeri (ad + konum)
