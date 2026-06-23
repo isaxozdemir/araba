@@ -5,67 +5,113 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskişehir Araba İlanları</title>
 <style>
-:root{--bg:#0f1117;--card:#1a1d27;--card2:#22263a;--border:#2e3250;--accent:#5b8dee;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--dark-red:#7f1d1d;--text:#e2e8f0;--muted:#94a3b8;--score-bg:#1e293b}
+/* ── Design Tokens ────────────────────────────────────────────────────────── */
+:root{
+  --bg:#0f1117;--card:#1a1d27;--card2:#22263a;--border:#2e3250;
+  --accent:#5b8dee;
+  --green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--dark-red:#7f1d1d;
+  --text:#e2e8f0;--muted:#94a3b8;--score-bg:#1e293b;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;line-height:1.5}
 h1{padding:16px 20px;font-size:1.2rem;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 h1 span.date{font-size:.8rem;color:var(--muted);margin-left:auto}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
 .tabs{display:flex;background:var(--card);border-bottom:2px solid var(--border);overflow-x:auto}
 .tab{padding:10px 18px;cursor:pointer;white-space:nowrap;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:.2s}
 .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 .tab-content{display:none;padding:12px}
 .tab-content.active{display:block}
+
+/* ── Alerts & Info ────────────────────────────────────────────────────────── */
 .alert{background:#1c1a0a;border-left:4px solid var(--yellow);padding:10px 14px;margin-bottom:12px;border-radius:4px;font-size:.85rem}
 .alert.red{background:#1c0a0a;border-left-color:var(--red)}
-.priority-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:14px}
-.priority-box h3{color:var(--accent);margin-bottom:8px;font-size:.95rem}
-.priority-list{list-style:none;counter-reset:item}
-.priority-list li{counter-increment:item;padding:5px 0 5px 28px;position:relative;border-bottom:1px solid var(--border)}
-.priority-list li:last-child{border:none}
-.priority-list li::before{content:counter(item);position:absolute;left:0;top:5px;width:20px;height:20px;background:var(--accent);border-radius:50%;font-size:.75rem;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.filter-info{font-size:.78rem;color:var(--muted);padding:8px 12px;background:var(--card2);border-radius:6px;margin-bottom:12px}
+.section-title{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+
+/* ── Card Shell ───────────────────────────────────────────────────────────── */
 .card{background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
-.card.new{}
-.card.updated{}
 .card.gone{opacity:.5;border-style:dashed}
-.card.danger{border-color:var(--red)}
 .card-header{padding:12px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
 .card-header:hover{background:var(--card2)}
-.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:12px;font-size:.72rem;font-weight:700;white-space:nowrap}
-.badge.new{background:#1d3461;color:#93c5fd}
-.badge.updated{background:#3b2d00;color:var(--yellow)}
-.badge.active{background:#052e16;color:var(--green)}
-.badge.gone{background:#1c1c1c;color:#6b7280}
-.badge.kaçin{background:#7f1d1d;color:#fca5a5}
-.badge.al{background:#052e16;color:#86efac}
-.badge.bak{background:#422006;color:#fcd34d}
-.badge.pas{background:#1e1b4b;color:#a5b4fc}
 .card-title{font-weight:700;flex:1;min-width:200px}
 .card-meta{display:flex;flex-wrap:wrap;gap:6px;font-size:.78rem;color:var(--muted);align-items:center}
-.score-bar{height:6px;border-radius:3px;background:#1e293b;width:100px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:4px}
-.score-fill{display:block;height:100%;border-radius:3px;background:#58a6ff}
 .card-body{padding:14px 16px;border-top:1px solid var(--border);display:none}
 .card-body.open{display:block}
+
+/* ── Category Section Headers ─────────────────────────────────────────────── */
+/* .cat-header is written by build.js; card borders are auto-applied via :has() */
+.cat-header{padding:6px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin:16px 0 8px}
+.cat-header.success{background:rgba(46,160,67,.12);color:#4ade80;border:1px solid rgba(46,160,67,.3)}
+.cat-header.warn   {background:rgba(210,153,34,.12);color:#fbbf24;border:1px solid rgba(210,153,34,.3)}
+.cat-header.danger {background:rgba(218,54,51,.12);color:#f87171;border:1px solid rgba(218,54,51,.3)}
+.cat-header.evil   {background:rgba(218,54,51,.18);color:#fca5a5;border:1px solid rgba(218,54,51,.4)}
+
+/* ── Badge System ─────────────────────────────────────────────────────────── */
+/*
+  STATUS badges (ilan durumu):
+    live     → ✅ HÂLÂ YAYINDA   (mavi outline)
+    new      → 🆕 LİSTEYE YENİ   (lacivert dolgu)
+    removed  → İLANDAN KALKAN    (gri outline, üstü çizili)
+
+  VERDICT badges (karar):
+    al       → ✅ AL              (yeşil dolgu)
+    bak      → ⚠️ BAKILABİLİR   (amber dolgu)
+    pas      → ❌ PAS GEÇ        (mor/lacivert dolgu)
+    kaçin    → 🚫 KAÇIN          (koyu kırmızı dolgu)
+*/
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:12px;font-size:.72rem;font-weight:700;white-space:nowrap}
+/* status */
+.badge.live   {background:rgba(31,111,235,.15);color:#58a6ff;border:1px solid rgba(31,111,235,.4)}
+.badge.new    {background:#1d3461;color:#93c5fd}
+.badge.updated{background:#3b2d00;color:var(--yellow)}
+.badge.removed{background:#21262d;color:#6e7681;border:1px solid #30363d}
+.badge.removed s{text-decoration:line-through}
+/* verdict */
+.badge.al    {background:#052e16;color:#86efac}
+.badge.bak   {background:#422006;color:#fcd34d}
+.badge.pas   {background:#1e1b4b;color:#a5b4fc}
+.badge.kaçin {background:#7f1d1d;color:#fca5a5}
+
+/* ── Score Bar ────────────────────────────────────────────────────────────── */
+.score-bar{height:6px;border-radius:3px;background:#1e293b;width:100px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:4px}
+.score-fill{display:block;height:100%;border-radius:3px;background:#58a6ff}
+
+/* ── Info Grid (accordion content) ───────────────────────────────────────── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:0 0 14px 0}
+.info-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 13px}
+.info-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#8b949e;margin-bottom:6px}
+.info-value{font-size:13px;color:#c9d1d9;line-height:1.5}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 @media(max-width:600px){.grid-2{grid-template-columns:1fr}}
-.info-block{background:var(--card2);border-radius:6px;padding:10px 12px}
-.info-block h4{color:var(--muted);font-size:.75rem;text-transform:uppercase;margin-bottom:6px;letter-spacing:.05em}
-.info-block p{font-size:.85rem}
+
+/* ── Verdict Block (inside card body) ────────────────────────────────────── */
+/*
+  verdict class → card border color (via :has selector):
+    success → green  (AL)
+    warn    → amber  (BAKILABİLİR)
+    danger  → red    (PAS GEÇ)
+    evil    → red    (KAÇIN)
+*/
+.verdict{background:var(--card2);border-radius:6px;padding:10px 12px;margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card:has(.verdict.success){border-color:rgba(46,160,67,.5)!important}
+.card:has(.verdict.warn)   {border-color:rgba(210,153,34,.5)!important}
+.card:has(.verdict.danger) {border-color:rgba(218,54,51,.5)!important}
+.card:has(.verdict.evil)   {border-color:rgba(218,54,51,.5)!important}
+
+/* ── Legacy / Misc ────────────────────────────────────────────────────────── */
+.ilanlink,.ilan-link{display:inline-flex;align-items:center;gap:4px;color:var(--accent);text-decoration:none;font-size:.8rem;padding:3px 8px;border:1px solid var(--border);border-radius:4px;margin-top:6px}
+.ilanlink:hover,.ilan-link:hover{background:var(--card2)}
+.strikethrough{text-decoration:line-through;opacity:.5}
 .red-flags{background:#1c0a0a;border:1px solid #7f1d1d;border-radius:6px;padding:10px 12px;margin-top:10px}
 .red-flags h4{color:var(--red);font-size:.8rem;margin-bottom:6px}
-.red-flags ul{list-style:none;font-size:.83rem}
-.red-flags ul li::before{content:"🚨 ";margin-right:4px}
-.verdict{background:var(--card2);border-radius:6px;padding:10px 12px;margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.verdict-score{font-size:1.5rem;font-weight:900;min-width:42px}
-.verdict-score.high{color:var(--green)}
-.verdict-score.mid{color:var(--yellow)}
-.verdict-score.low{color:var(--red)}
-.questions{background:#0f1f2e;border-radius:6px;padding:10px 12px;margin-top:10px;font-size:.83rem}
-.questions h4{color:var(--accent);margin-bottom:6px}
-.questions ol{padding-left:18px}
-.questions li{margin-bottom:4px}
-.ilanlink{display:inline-flex;align-items:center;gap:4px;color:var(--accent);text-decoration:none;font-size:.8rem;padding:3px 8px;border:1px solid var(--border);border-radius:4px;margin-top:6px}
-.ilanlink:hover{background:var(--card2)}
-.section-title{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.ekspertiz-box{background:#052e16;border:1px solid #166534;border-radius:6px;padding:10px 12px;margin-top:10px;font-size:.83rem}
+.ekspertiz-box h4{color:var(--green);margin-bottom:6px}
+.priority-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:14px}
+.priority-box h3{color:var(--accent);margin-bottom:8px;font-size:.95rem}
 table.listing-table{width:100%;border-collapse:collapse;font-size:.8rem}
 table.listing-table th{background:var(--card2);color:var(--muted);padding:7px 8px;text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
 table.listing-table td{padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top}
@@ -74,33 +120,6 @@ table.listing-table td.price{font-weight:700;color:var(--accent);white-space:now
 table.listing-table td.kaçin{color:var(--red)}
 table.listing-table td.bak{color:var(--yellow)}
 table.listing-table td.al{color:var(--green)}
-.strikethrough{text-decoration:line-through;opacity:.5}
-.pill{display:inline-block;padding:1px 6px;border-radius:10px;font-size:.7rem;margin-left:4px}
-.pill.new{background:#1d3461;color:#93c5fd}
-.pill.gone{background:#2d2d2d;color:#6b7280}
-.ekspertiz-box{background:#052e16;border:1px solid #166534;border-radius:6px;padding:10px 12px;margin-top:10px;font-size:.83rem}
-.ekspertiz-box h4{color:var(--green);margin-bottom:6px}
-.filter-info{font-size:.78rem;color:var(--muted);padding:8px 12px;background:var(--card2);border-radius:6px;margin-bottom:12px}
-
-/* Info card grid */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:0 0 14px 0}
-.info-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 13px}
-.info-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#8b949e;margin-bottom:6px}
-.info-value{font-size:13px;color:#c9d1d9;line-height:1.5}
-/* Badge system */
-.badge.live{background:rgba(31,111,235,.15);color:#58a6ff;border:1px solid rgba(31,111,235,.4)}
-.badge.removed{background:#21262d;color:#6e7681;border:1px solid #30363d}
-.badge.removed s{text-decoration:line-through}
-/* Card border colors by verdict */
-.card:has(.verdict.success){border-color:rgba(46,160,67,.5)!important}
-.card:has(.verdict.warn){border-color:rgba(210,153,34,.5)!important}
-.card:has(.verdict.danger){border-color:rgba(218,54,51,.5)!important}
-.card:has(.verdict.evil){border-color:rgba(218,54,51,.5)!important}
-.card:has(.verdict.pas){border-color:rgba(218,54,51,.5)!important}
-
-.card:has(.verdict.bak){border-color:rgba(210,153,34,.5)!important}
-.card.warn{border-color:rgba(210,153,34,.5)!important}
-.card.pass{border-color:rgba(218,54,51,.5)!important}
 </style>
 </head>
 <body>
@@ -149,7 +168,7 @@ table.listing-table td.al{color:var(--green)}
   <div class="info-card"><div class="info-label">🔩 Yedek Parça &amp; Satılabilirlik</div><div class="info-value">Renault/Dacia — parça ●●●●● · Symbol Türkiye'de çok yaygın ●●●●● · Beyaz en kolay satar ✅ · Renault servisi her yerde mevcut</div></div>
   <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">680.000 TL teklif et → 690.000 TL'ye çık → 695.000 TL üstünde değmez.</div></div>
   <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">1. Tramer kaydı gerçekten sıfır mı? (TRAMER sorgulat) 2. Timing belt ne zaman değişti? 3. Klima çalışıyor mu? 4. Galeri öncesi kaçıncı el?</div></div>
-  <div class="verdict al">✅ AL — 2019 model 65.000 km, tüm paneller orijinal, tramersiz beyan, yedek anahtar mevcut. Bağımsız ekspertiz + tramer sorgusu yaptır; temiz çıkarsa kesinlikle al.</div>
+  <div class="verdict success">✅ AL — 2019 model 65.000 km, tüm paneller orijinal, tramersiz beyan, yedek anahtar mevcut. Bağımsız ekspertiz + tramer sorgusu yaptır; temiz çıkarsa kesinlikle al.</div>
   <a href="https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/hatasiz-boyasiz-tramersiz-ilk-elden/40967352" target="_blank" class="ilan-link">↗ İlanı Gör (40967352)</a>
 </div>
 </div>
@@ -170,7 +189,7 @@ table.listing-table td.al{color:var(--green)}
   <div class="info-card"><div class="info-label">🔩 Yedek Parça &amp; Satılabilirlik</div><div class="info-value">Renault/Dacia grubu — parça bol ve ucuz ●●●●○ · Symbol Türkiye'de popüler bütçe sedan, ilan sayısı yüksek, ikinci elde tutunur ●●●○○ · Beyaz renk — satılabilirlik kolay ✅</div></div>
   <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">680.000 TL teklif et → 695.000 TL'ye çık → 720.000 TL üstünde değmez.</div></div>
   <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">1. Son bakım ne zaman, belgesi var mı? 2. Kaçıncı sahibi, önceki sahip kim? (galeri mi, bireysel mi?) 3. Krank mili / alt motor kontrol yapıldı mı? 4. Klima soğutuyor mu? 5. Galeri kaç aydır açık?</div></div>
-  <div class="verdict al">⚠️ BAKILABİLİR — Tüm paneller orijinal, hatasız boyasız, galeri garantisi var. 104.500 km biraz yüksek ve galeri 1. yıl yeni (referans az). Bağımsız ekspertiz + alt motor kontrolü şartiyle iyi bir seçenek.</div>
+  <div class="verdict warn">⚠️ BAKILABİLİR — Tüm paneller orijinal, hatasız boyasız, galeri garantisi var. 104.500 km biraz yüksek ve galeri 1. yıl yeni (referans az). Bağımsız ekspertiz + alt motor kontrolü şartiyle iyi bir seçenek.</div>
   <a href="https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/garp-otomotiv-2019-model-hatasiz-boyasiz-symbol-1-0-sce/38530271" target="_blank" class="ilan-link">↗ İlanı Gör (38530271)</a>
 </div>
 </div>
@@ -230,7 +249,7 @@ table.listing-table td.al{color:var(--green)}
     <div class="info-label">💰 Pazarlık Hedef Fiyatı</div>
     <div class="info-value">Teklif: 795.000 TL — Limit: 815.000 TL. Sağ taraf küçük hasarı ve LPG takmalı olması gerekçesiyle pazarlık yapılabilir.</div>
   </div>
-  <div class="verdict al">
+  <div class="verdict warn">
     <strong>⚠️ BAKILABİLİR</strong> — 2017 Egea 1.4 Fire, 0/0 orijinal gövde, düşük km, piyasa altı fiyat. LPG takmalı olması ve triger kayışı geçmişinin belirsizliği tek soru işaretleri. Satıcı dürüst ve açık. Triger kayışı geçmişi ve SBM temizse güçlü aday. <strong>Fırsat Skoru: 78/100.</strong>
   </div>
   <div class="info-card">
@@ -265,7 +284,7 @@ table.listing-table td.al{color:var(--green)}
 <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">1 boyalı panel neden? Muayene raporu var mı?</div></div>
 <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">Teklif: <strong>555.000 TL</strong> — Limit: <strong>580.000 TL</strong></div></div>
 </div>
-<div class="verdict al"><strong>✅ AL —</strong> 2017 Touch paketi, tramersiz, 1 boyalı, uygun fiyat. 165k km atmosferik için sorun değil. Ekspertizde temiz çıkarsa en iyi fiyat/değer oranı. <strong>Fırsat Skoru: 77/100.</strong></div>
+<div class="verdict success"><strong>✅ AL —</strong> 2017 Touch paketi, tramersiz, 1 boyalı, uygun fiyat. 165k km atmosferik için sorun değil. Ekspertizde temiz çıkarsa en iyi fiyat/değer oranı. <strong>Fırsat Skoru: 77/100.</strong></div>
 <a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-0-sce-touch/2017-symbol-1-0-sce-touch-165bin-km/41179900" target="_blank" class="ilanlink">↗ İlanı Gör (41179900)</a>
 </div>
 </div>
@@ -291,7 +310,7 @@ table.listing-table td.al{color:var(--green)}
 <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">12 belirtilmemiş panel ne durumda? Muayenede not düşüldü mü? Turbo sesi var mı?</div></div>
 <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">Teklif: <strong>620.000 TL</strong> — Limit: <strong>645.000 TL</strong></div></div>
 </div>
-<div class="verdict warn"><strong>✅ AL —</strong> 2020 model, tramersiz, dürüst satıcı — değerli. 12 belirtilmemiş panel tek ciddi soru işareti; görme + ekspertizde temiz çıkarsa iyi alım. <strong>Fırsat Skoru: 74/100.</strong></div>
+<div class="verdict success"><strong>✅ AL —</strong> 2020 model, tramersiz, dürüst satıcı — değerli. 12 belirtilmemiş panel tek ciddi soru işareti; görme + ekspertizde temiz çıkarsa iyi alım. <strong>Fırsat Skoru: 74/100.</strong></div>
 <a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-0-9-tce-joy/2020-symbol-0-9-tce-121bin-km-tramersiz/41318637" target="_blank" class="ilanlink">✖ İlan Kaldırıldı (41318637)</a>
 </div>
 </div>
@@ -409,7 +428,7 @@ table.listing-table td.al{color:var(--green)}
 </div>
 <div class="card warn">
 <div class="card-header" onclick="toggleCard(this)"><div>
-  <div class="card-title">⚠️ Fiat Egea 1.3 Multijet Easy Stil 2020 <span class="badge success">✅ HÂLÂ YAYINDA</span> <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+  <div class="card-title">⚠️ Fiat Egea 1.3 Multijet Easy Stil 2020 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
   <div class="card-meta">155.000 km · <strong>850.000 TL</strong> · Galeriden · Eskişehir · Beyaz · Dizel · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:74%"></span></span> 74/100</span></div>
 </div></div>
 <div class="card-body">
@@ -445,7 +464,7 @@ table.listing-table td.al{color:var(--green)}
 </div>
 <div class="card warn">
 <div class="card-header" onclick="toggleCard(this)"><div>
-  <div class="card-title">⚠️ Fiat Egea 1.4 Fire Urban Plus 2020 <span class="badge success">✅ HÂLÂ YAYINDA</span> <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+  <div class="card-title">⚠️ Fiat Egea 1.4 Fire Urban Plus 2020 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
   <div class="card-meta">71.000 km · <strong>859.000 TL</strong> · Galeriden · Eskişehir · Gri · Benzin · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:72%"></span></span> 72/100</span></div>
 </div></div>
 <div class="card-body">
@@ -630,7 +649,7 @@ table.listing-table td.al{color:var(--green)}
 </div>
 <div class="card warn">
 <div class="card-header" onclick="toggleCard(this)"><div>
-  <div class="card-title">⚠️ Renault Symbol 1.5 dCi Joy 2014 <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+  <div class="card-title">⚠️ Renault Symbol 1.5 dCi Joy 2014 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
   <div class="card-meta">217.000 km · <strong>620.000 TL</strong> · Sahibinden · Eskişehir · Beyaz · Dizel · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:68%"></span></span> 68/100</span></div>
 </div></div>
 <div class="card-body">
@@ -722,7 +741,7 @@ table.listing-table td.al{color:var(--green)}
 </div>
 <div class="card warn">
 <div class="card-header" onclick="toggleCard(this)"><div>
-  <div class="card-title">⚠️ Opel Astra 1.6 Edition 2013 <span class="badge success">✅ HÂLÂ YAYINDA</span> <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+  <div class="card-title">⚠️ Opel Astra 1.6 Edition 2013 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
   <div class="card-meta">156.000 km · <strong>770.000 TL</strong> · Galeriden · Eskişehir · Gri · LPG &amp; Benzin · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:63%"></span></span> 63/100</span></div>
 </div></div>
 <div class="card-body">
@@ -762,7 +781,7 @@ table.listing-table td.al{color:var(--green)}
 </div>
 <div class="card warn">
 <div class="card-header" onclick="toggleCard(this)"><div>
-<div class="card-title">⚠️ Renault Fluence 1.6 Authentique 2010 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+<div class="card-title">⚠️ Renault Fluence 1.6 Authentique 2010 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
 <div class="card-meta">135.000 km · <strong>700.000 TL</strong> · Sahibinden · Füme · LPG &amp; Benzin · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:63%"></span></span> 63/100</span></div>
 </div></div>
 <div class="card-body">
@@ -847,14 +866,14 @@ table.listing-table td.al{color:var(--green)}
   <div class="info-card"><div class="info-label">🚨 Kırmızı Bayraklar</div><div class="info-value">Tramer 32.500 TL — ön tarafta hasar kaydı mevcut (sol ön değişen + sağ ön boyalı ile tutarlı). · 1.4 TDi DPF şehir içi kullanımda tıkanma riski — bakım geçmişi kritik. · 779k TL hasar geçmişiyle üst bantta; pazarlık yapılabilir. · VW servis maliyetleri yüksek.</div></div>
   <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">1. DPF durumu, kaç km'de temizlendi? 2. Triger (timing belt) değişimi yapıldı mı? 3. Sol ön taraf hizalaması tam mı? 4. Şehir içi mi, otoyol mu kullanıldı?</div></div>
   <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">745.000 TL teklif et. Tramer ve hasar gerekçesiyle 30-40k indirim talep et. 760.000 TL üstünde değmez.</div></div>
-  <div class="verdict pass">⚠️ BAKILABİLİR — 2016 Polo dizel yakıt cimrisi ve çekici, galeri boya/değişen/trameri şeffaf beyan etmiş (artı). Ancak ön hasar + DPF riski + yüksek servis maliyetleri. Ekspertiz + DPF testi zorunlu; 745k TL altında anlaşılırsa değerlendir.</div>
+  <div class="verdict warn">⚠️ BAKILABİLİR — 2016 Polo dizel yakıt cimrisi ve çekici, galeri boya/değişen/trameri şeffaf beyan etmiş (artı). Ancak ön hasar + DPF riski + yüksek servis maliyetleri. Ekspertiz + DPF testi zorunlu; 745k TL altında anlaşılırsa değerlendir.</div>
   <a href="https://www.arabam.com/ilan/galeriden-satilik-volkswagen-polo-1-4-tdi-trendline/41076576" target="_blank" class="ilan-link">↗ İlanı Gör (41076576)</a>
 </div>
 </div>
 </div>
 <div class="card pass">
 <div class="card-header" onclick="toggleCard(this)"><div>
-  <div class="card-title">⚠️ Renault Clio 1.2 Joy 2014 <span class="badge success">✅ HÂLÂ YAYINDA</span> <span class="badge warn">⚠️ BAKILABİLİR</span></div>
+  <div class="card-title">⚠️ Renault Clio 1.2 Joy 2014 <span class="badge live">✅ HÂLÂ YAYINDA</span> <span class="badge bak">⚠️ BAKILABİLİR</span></div>
   <div class="card-meta">152.000 km · <strong>635.000 TL</strong> · Sahibinden · Odunpazarı/Eskişehir · Beyaz · Benzin · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:57%"></span></span> 57/100</span></div>
 </div></div>
 <div class="card-body">
@@ -891,7 +910,7 @@ table.listing-table td.al{color:var(--green)}
       <div class="info-label">🚨 Dikkat</div>
       <div class="info-value">Sağ arka 2 DEĞİŞEN panel — hasar geçmişi · LPG başlıkta var ama araçta yok (yanıltıcı) · 3. sahip · 152.000 km yüksek · Ekspertiz zorunlu</div>
     </div>
-    <div class="verdict pass">⚠️ BAKILABİLİR — Fiyat makul, triger yenilenmiş, motor güvenilir. Sağ arka 2 değişen panel ciddi eksi, LPG başlığı yanıltıcı. Görme + ekspertiz koşuluyla değerlendirilebilir.</div>
+    <div class="verdict warn">⚠️ BAKILABİLİR — Fiyat makul, triger yenilenmiş, motor güvenilir. Sağ arka 2 değişen panel ciddi eksi, LPG başlığı yanıltıcı. Görme + ekspertiz koşuluyla değerlendirilebilir.</div>
     <a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-2-joy/sahibinden-renault-clio-1-2-joy-2014-model/41430238" class="ilan-link">↗ İlanı Gör (41430238)</a>
   </div>
 </div>
@@ -918,7 +937,7 @@ table.listing-table td.al{color:var(--green)}
     <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">DPF durumu nedir (soot yüzdesi)? Enjektörler hiç değiştirildi mi? Turbo'da yağ kaçağı var mı? Önceki sahipler kaç kişi? Km bu kadar yüksek neden (ticari mi kullanıldı)?</div></div>
     <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">DPF/enjektör masrafı olasılığı gerekçesiyle hedef <strong>565.000 TL</strong>, maksimum 600.000 TL.</div></div>
 </div>
-    <div class="verdict pass"><strong>⚠️ BAKILABİLİR —</strong> Tramer temiz, galeri şeffaf, motor şu an çalışıyor. Ancak 272k km K9K'da DPF-enjektör masrafı yakındır — bunu bilerek alınmalı. Bağımsız ekspertiz ve DPF basınç testi şart. <strong>Fırsat Skoru: 55/100.</strong> Teklif: 565k — Limit: 600k.</div>
+    <div class="verdict warn"><strong>⚠️ BAKILABİLİR —</strong> Tramer temiz, galeri şeffaf, motor şu an çalışıyor. Ancak 272k km K9K'da DPF-enjektör masrafı yakındır — bunu bilerek alınmalı. Bağımsız ekspertiz ve DPF basınç testi şart. <strong>Fırsat Skoru: 55/100.</strong> Teklif: 565k — Limit: 600k.</div>
     <a href="https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-joy/41421117" target="_blank" class="ilanlink">↗ İlanı Gör (41421117)</a>
   </div>
 </div>
@@ -939,7 +958,7 @@ table.listing-table td.al{color:var(--green)}
   <div class="info-card"><div class="info-label">🚨 Kırmızı Bayraklar</div><div class="info-value">· Zaman zinciri: 125k km'de kontrol edilmediyse yakın zamanda pahalı bakım · 2 değişen + 12.2k TL tramer (ön sol hasar) · Bu hasar profiline göre fiyat yüksek · Açıklamada yıl tutarsızlığı (2013 kayıt / "2014" açıklama)</div></div>
   <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">620.000 TL teklif et → 640.000 TL'ye çık → 650.000 TL üstünde değmez.</div></div>
   <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">1. Zaman zinciri ne zaman değişti? 2. Sol ön hasarın sebebi nedir? 3. Alt motor kontrolü yapıldı mı? 4. Yıl tutarsızlığı neden?</div></div>
-  <div class="verdict pass">❌ PAS GEÇ — 2013 model 125k km, 2 değişen, 12.2k TL tramer, zaman zinciri riski. Fiyat hasar profiline göre yüksek.</div>
+  <div class="verdict danger">❌ PAS GEÇ — 2013 model 125k km, 2 değişen, 12.2k TL tramer, zaman zinciri riski. Fiyat hasar profiline göre yüksek.</div>
   <a href="https://www.arabam.com/ilan/galeriden-satilik-opel-astra-1-6-enjoy-plus/opel-asta-1-6-enjoy-plus-125-bin-km-2013-manuel-hiz-sabitleme/41466509" target="_blank" class="ilan-link">↗ İlanı Gör (41466509)</a>
 </div>
 </div>
@@ -966,7 +985,7 @@ table.listing-table td.al{color:var(--green)}
 <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">Turbo sesi var mı? Soğuk çalışmada duman? 20k önceki bakım tam neydi? Faturalar var mı?</div></div>
 <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">Teklif: <strong>540.000 TL</strong> — Limit: <strong>570.000 TL</strong></div></div>
 </div>
-<div class="verdict pass"><strong>⚠️ BAKILABİLİR —</strong> Orijinal ve dürüst satıcı artı. Ama 242.000 km 0.9 TCe turbo çok riskli. Görme + turbo sesi kontrolü şart. <strong>Fırsat Skoru: 54/100.</strong></div>
+<div class="verdict warn"><strong>⚠️ BAKILABİLİR —</strong> Orijinal ve dürüst satıcı artı. Ama 242.000 km 0.9 TCe turbo çok riskli. Görme + turbo sesi kontrolü şart. <strong>Fırsat Skoru: 54/100.</strong></div>
 <a href="https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-0-9-tce-icon/sahibinden-renault-clio-0-9-tce-icon-2012-model/41415060" target="_blank" class="ilanlink">↗ İlanı Gör (41415060)</a>
 </div>
 </div>
@@ -994,7 +1013,7 @@ table.listing-table td.al{color:var(--green)}
     <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">Sol taraf hasarı için sigorta kaydı/ekspertiz var mı? Ön takım hangi parçası sesi yapıyor (tam teşhis)? Kaç önceki sahibi var? Motor yağı tüketimi var mı?</div></div>
     <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">Süspansiyon sorunu + sol taraf hasarı gerekçesiyle 575.000 TL hedef, maksimum <strong>610.000 TL</strong>.</div></div>
 </div>
-    <div class="verdict pass"><strong>⚠️ BAKILABİLİR —</strong> Süspansiyonun tam teşhisi ve sol taraf sigorta geçmişi netleşirse değerlendirilebilir. Kronik mekanik sorun çözümsüz kalıyorsa ❌ PAS GEÇ'e döner. <strong>Fırsat Skoru: 52/100.</strong> Teklif: 575k — Limit: 610k.</div>
+    <div class="verdict danger"><strong>⚠️ BAKILABİLİR —</strong> Süspansiyonun tam teşhisi ve sol taraf sigorta geçmişi netleşirse değerlendirilebilir. Kronik mekanik sorun çözümsüz kalıyorsa ❌ PAS GEÇ'e döner. <strong>Fırsat Skoru: 52/100.</strong> Teklif: 575k — Limit: 610k.</div>
     <a href="https://www.arabam.com/ilan/otomobil/peugeot-301-16-hdi-active/41432574" target="_blank" class="ilanlink">↗ İlanı Gör (41432574)</a>
   </div>
 </div>
@@ -1020,7 +1039,7 @@ table.listing-table td.al{color:var(--green)}
     <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">Kapak contası neden değişti (aşırı ısınma mı, soğutma arızası mı)? Silindir kafası plan kontrolü yapıldı mı? Turbo neden gitti (yağ bakımı aksatıldı mı)? Soğutma sistemi (termostat, radyatör) durumu nedir?</div></div>
     <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">18 yaş + kapak conta geçmişi gerekçesiyle hedef <strong>400.000 TL</strong>, maksimum 430.000 TL.</div></div>
 </div>
-    <div class="verdict pass"><strong>⚠️ BAKILABİLİR —</strong> Satıcı şeffaf, tramer tutarlı, bakımlar kapsamlı. Ancak silindir kapak contası geçmişi ciddi soru işareti — silindir kafası ekspertiz şart. Temizse uygun fiyatlı, sağlam bir araç olabilir. <strong>Fırsat Skoru: 51/100.</strong> Teklif: 400k — Limit: 430k.</div>
+    <div class="verdict warn"><strong>⚠️ BAKILABİLİR —</strong> Satıcı şeffaf, tramer tutarlı, bakımlar kapsamlı. Ancak silindir kapak contası geçmişi ciddi soru işareti — silindir kafası ekspertiz şart. Temizse uygun fiyatlı, sağlam bir araç olabilir. <strong>Fırsat Skoru: 51/100.</strong> Teklif: 400k — Limit: 430k.</div>
     <a href="https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-extreme/41390514" target="_blank" class="ilanlink">↗ İlanı Gör (41390514)</a>
   </div>
 </div>
@@ -1046,7 +1065,7 @@ table.listing-table td.al{color:var(--green)}
 <div class="info-card"><div class="info-label">❓ Sorulmayan Sorular</div><div class="info-value">Tramer hasarı onarımı kim yaptı? Timing kontrolü var mı?</div></div>
 <div class="info-card"><div class="info-label">💰 Pazarlık Hedef Fiyatı</div><div class="info-value">Teklif: <strong>-</strong> — Limit: <strong>-</strong></div></div>
 </div>
-<div class="verdict pass"><strong>❌ PAS GEÇ —</strong> 29.800 TL yüksek tramer + ağır karoser hasarı + bilinen timing riski = çok kötü kombinasyon. Pas geç. <strong>Fırsat Skoru: 49/100.</strong></div>
+<div class="verdict danger"><strong>❌ PAS GEÇ —</strong> 29.800 TL yüksek tramer + ağır karoser hasarı + bilinen timing riski = çok kötü kombinasyon. Pas geç. <strong>Fırsat Skoru: 49/100.</strong></div>
 <a href="https://www.arabam.com/ilan/sahibinden-satilik-volkswagen-polo-1-2-tdi/2014-polo-1-2-tdi-157bin-km/41163377" target="_blank" class="ilanlink">↗ İlanı Gör (41163377)</a>
 </div>
 </div>
