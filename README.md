@@ -1,8 +1,8 @@
-# 🚗 Eskişehir Araç İlanları Takip Sitesi
+# Eskişehir Araç İlanları Takip Sitesi
 
 **https://isaxozdemir.github.io/araba/**
 
-Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kapsamlı analiz yapan ve kategorize eden kişisel araç takip sitesi.
+Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kapsamlı analiz yapan ve kategorize eden kişisel araç takip sistesi.
 
 ---
 
@@ -12,11 +12,11 @@ Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kap
 - Her ilan için 17 başlıklı detaylı AI analizi yapar
 - İlanları 4 kategoriye ayırır: **✅ AL / ⚠️ BAKILABİLİR / ❌ PAS GEÇ / 🚫 KAÇIN**
 - Adem'in Arabam.com favori listesini ayrıca takip eder (filtreden bağımsız)
-- Günlük otomatik güncelleme
+- Tüm durum `data/listings.json`'da tutulur — HTML hiçbir zaman elle düzenlenmez
 
 ---
 
-## Filtre Kriterleri (İsa'nın Listesi)
+## Filtre Kriterleri
 
 | Kriter | Değer |
 |--------|-------|
@@ -31,50 +31,29 @@ Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kap
 
 ---
 
-## Kart Yapısı
+## Komutlar
 
-Her ilan kartı iki bölümden oluşur:
-
-**Başlık (her zaman görünür):**
-Model · Yıl · Km · Fiyat · Durum etiketi · Karar rozeti · Fırsat skoru
-
-**İçerik (akordiyon — tıklayınca açılır):**
-- 📋 Ekspertiz Raporu (varsa)
-- 💰 Piyasa Fiyatı
-- 🔧 Motor Analizi + Kronik Problemler
-- 🎨 Boya / Değişen / Sök-Tak
-- 💥 Kaza / Tramer / Hasar
-- 📝 İlan Açıklaması Notları
-- 📸 Fotoğraf Notları
-- 🏢 Satıcı Tipi
-- 🔩 Yedek Parça + Satılabilirlik + Piyasa Yoğunluğu
-- 🚨 Kırmızı Bayraklar
-- ❓ Sorulmayan Sorular
-- 💰 Pazarlık Hedef Fiyatı
-- ✅ Son Karar + Fırsat Skoru + Gerekçe
-- 💬 Genel Yorum
+| Komut | Açıklama |
+|-------|----------|
+| `/daily` | Tam günlük çalışma: scrape → analiz → render → GitHub push |
+| `/analyze [url]` | Tek bir ilanı derinlemesine analiz et |
+| `/render` | `node render/build.js` — listings.json'dan index.html yeniden üret |
+| `/status` | listings.json özeti: ilan sayısı, bekleyen analizler, son çalışma |
 
 ---
 
-## Durum Etiketleri
+## Mimari
 
-| Etiket | Anlam |
-|--------|-------|
-| 🆕 LİSTEYE YENİ EKLENEN | İlk kez eklendi |
-| 🔄 FİYATI GÜNCELLENDİ (eski→yeni) | Fiyat değişti |
-| ✅ HÂLÂ YAYINDA | Değişiklik yok |
-| ~~İLANDAN KALKAN~~ | İlan kaldırıldı |
+```
+config/         ← filtreler, kaynak URL'ler, kişisel listeler
+data/           ← listings.json (tek kaynak) + günlük diff'ler
+prompts/        ← scrape / analyze / score / flags / orchestrate
+render/         ← build.js → listings.json'dan index.html üretir
+index.html      ← çıktı (asla elle düzenleme)
+```
 
----
-
-## Kategori Renkleri
-
-| Kategori | Renk |
-|----------|------|
-| ✅ AL | Yeşil çerçeve |
-| ⚠️ BAKILABİLİR | Sarı çerçeve |
-| ❌ PAS GEÇ | Kırmızı çerçeve |
-| 🚫 KAÇIN | Kırmızı çerçeve |
+Bkz. `CLAUDE.md` — giriş noktası ve mimari özeti.  
+Bkz. `instructions.md` — JSON şeması ve GitHub push detayları.
 
 ---
 
@@ -95,5 +74,5 @@ Model · Yıl · Km · Fiyat · Durum etiketi · Karar rozeti · Fırsat skoru
 
 - Statik HTML + GitHub Pages
 - Koyu tema, mobil uyumlu
+- `data/listings.json` tek kaynak — `render/build.js` deterministik HTML üretir
 - Günlük Claude AI ile otomatik güncelleme
-- Bkz. `instructions.md` — güncelleme talimatları

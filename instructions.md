@@ -1,33 +1,12 @@
-```javascript
-// SHA al
-const sha = (await (await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
-  headers: {'Authorization': 'token GITHUB_TOKEN'}
-})).json()).sha;
+# Görev: Araba İlanları Sitesini Güncelle
 
-// UTF-8 safe encode
-const enc = new TextEncoder().encode(htmlContent);
-let bin = '';
-enc.forEach(b => bin += String.fromCharCode(b));
-const b64 = btoa(bin);
+Her gün çalışan bu görev, Eskişehir'deki güncel araç ilanlarını tarar, AI analizi yapar, `data/listings.json`'a yazar ve `render/build.js` ile `index.html` üretir, ardından GitHub'a push eder.
 
-// Push
-await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
-  method: 'PUT',
-  headers: {'Authorization': 'token GITHUB_TOKEN', 'Content-Type': 'application/json'},
-  body: JSON.stringify({message: 'auto: günlük güncelleme', content: b64, sha})
-});
-```
-⚠️ `btoa(unescape(encodeURIComponent()))` KULLANMA — Türkçe karakterlerde hata verir.# Instructions
-
-## Görev: Eskişehir Araba İlanları Sitesini Güncelle
-
-Her gün çalışan bu görev, https://isaxozdemir.github.io/araba/ adresini Eskişehir'deki güncel araç ilanlarıyla günceller ve GitHub'a push eder.
-
-github'ta README ve instructions.md oku!
+Site: https://isaxozdemir.github.io/araba/
 
 ---
 
-### FİLTRE KRİTERLERİ
+## FİLTRE KRİTERLERİ
 
 - İl: Eskişehir
 - Max km: 200.000
@@ -40,24 +19,23 @@ Adem'in listesi bu filtrelerden BAĞIMSIZ olarak değerlendirilir — hepsine ta
 
 ---
 
-### ADIM 0 — Mevcut Siteyi Oku
+## ADIM 0 — Config ve Mevcut State'i Yükle
 
-Önce mevcut siteyi oku: https://isaxozdemir.github.io/araba/
+GitHub'dan aşağıdaki dosyaları oku:
 
-Mevcut sayfadaki tüm ilanları çıkar. Her ilan için:
-- Tam analiz edilmiş mi? (📋 Ekspertiz Raporu (varsa, yeşil çerçeve), - Piyasa Fiyatı (benzer araç aralığı + bu ilanın konumu), - Motor Analizi + Kronik Problemler, - Boya/Değişen/Sök-Tak Bilgileri, - Kaza/Tramer/Hasar Kaydı, - İlan Açıklaması Notları, - Fotoğraf Notları, - Satıcı Tipi, - 🔧 Yedek Parça Bulunabilirliği + Satılabilirlik + Renk Etkisi + Piyasa Yoğunluğu, - 🚨 Kırmızı Bayraklar (kırmızı arka plan), - ❓ Sorulmayan Sorular, - 💰 Pazarlık Hedef Fiyatı, - ✅/⚠️/❌/🚫 Son Karar + Fırsat Skoru (progress bar) + Gerekçe (Karar verirken kolaya kaçma, detaylı analiz sonucu ver.), - Genel Yorum,- İlanın linki varsa = TAM ANALİZ)
-- Sadece tablo satırı mı? (= ÖZET SATIR, analiz bekliyor)
-- Kalkan mı işaretlenmiş?
+1. `config/filters.json` → aktif filtreleri belleğe al
+2. `config/sources.json` → kaynak URL'leri ve pagination bilgisini al
+3. `config/lists.json` → kişisel listeleri (noFilters:true olanlar) al
+4. `data/listings.json` → mevcut tüm ilanları belleğe al ("bilinen ilanlar")
 
-Bu listeyi "bilinen ilanlar" olarak sakla.
+`data/listings.json`'daki her ilan için şunları kaydet: URL, fiyat, km, analiz durumu (`analysis.verdict`).  
+**HTML sitesi artık parse edilmez** — tek kaynak `data/listings.json`'dur.
 
 ---
 
-### ADIM 1 — İlan Listesini Tara
+## ADIM 1 — İlan Listesini Tara
 
-> **Tarama Sırası: Önce Adem'in Listesi, ardından Sahibinden, son olarak Arabam.com Eskişehir.**
-
-Her kaynak için önce `mcp__workspace__web_fetch` dene. Boş veya JS-render gelirse `mcp__Claude_in_Chrome__navigate` + `mcp__Claude_in_Chrome__get_page_text` kullan.
+Her kaynak için önce `web_fetch` dene. Boş veya JS-render gelirse `Claude in Chrome` ile navigate et.
 
 **SAYFALAMA — TÜM SAYFALAR:**
 - Sahibinden: `&pagingOffset=20`, `&pagingOffset=40` vb. — son sayfaya kadar devam et
@@ -70,239 +48,260 @@ https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_m
 https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false
 
 **C) Adem'in Arabam.com Favorileri (FİLTREDEN BAĞIMSIZ):**
-https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3
-
-⚠️ **SAYFALAMA ZORUNLU:** Bu liste birden fazla sayfaya yayılıyor. Her sayfayı sırayla tara:
 - Sayfa 1: https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3
-- Sayfa 2: https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3?page=2
-- Sayfa 3: https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3?page=3
-- Sayfa 4+: `?page=4`, `?page=5` vb. — boş sayfa gelene kadar devam et
+- Sayfa 2+: `?page=2`, `?page=3` vb. — boş sayfa gelene kadar devam et
 
-⚠️ **FİLTRE BAĞIMSIZLIĞI:** Adem'in listesindeki tüm ilanlar analiz edilir — km, fiyat, yıl, il filtreleri bu sekmeye UYGULANMAZ. Adem'in listesindeki her ilan tam analiz alır.
+⚠️ **FİLTRE BAĞIMSIZLIĞI:** Adem'in listesindeki tüm ilanlar analiz edilir — km, fiyat, yıl, il filtreleri bu listeye UYGULANMAZ.
 
-Her ilan için topla: link, model, yıl, km, fiyat, boya, değişen, tramer. Henüz ilan sayfasına girme.
+Her ilan için topla: URL, model, yıl, km, fiyat, boya, değişen, tramer. Henüz ilan sayfasına girme.
 
 ---
 
-### ADIM 2 — İlanları Sınıflandır
+## ADIM 2 — İlanları Sınıflandır
 
-Topladığın ilanları mevcut sitedeki bilinen ilanlarla karşılaştır:
+Toplanan ilanları `data/listings.json`'daki bilinen ilanlarla karşılaştır:
 
-- 🆕 **Yeni:** Bugün var, mevcut sitede yok → Tam analiz (en yüksek öncelik)
-- 🔄 **Değişen:** Her ikisinde de var ama fiyat/bilgi farklı → Güncelleme + tekrar analiz
-- ✅ **TAM ANALİZ edilmiş & değişmemiş:** Kart aynen korunur, ilan sayfasına girme
-- 📋 **ÖZET SATIR & değişmemiş:** Mevcut sitede sadece tablo satırı var → Tam analiz yap
-- 🗑️ **Favoriden çıkan:** Mevcut sitede var, bugün favoriler listesinde yok → **sayfadan tamamen kaldır.** Kart gösterme, badge koyma — liste değişti, göstermeye gerek yok.
-- ~~İLANDAN KALKAN~~ **Gerçekten kalkan:** İlan URL'ine git → 404 / "ilan bulunamadı" alıyorsan → üstü çizili ~~İLANDAN KALKAN~~ olarak kısa süre tut (bir güncelleme sonra kaldır). "Favorilerde yok" yeterli DEĞİL — URL doğrulaması zorunlu.
+| Durum | Tanım | İşlem |
+|-------|-------|-------|
+| 🆕 Yeni | Bugün var, listings.json'da yok | `statusBadge: "new"` — tam analiz |
+| 🔄 Güncel | Her ikisinde var, fiyat/bilgi değişmiş | `statusBadge: "updated"` — yeniden analiz |
+| ✅ Değişmedi + tam analiz var | Her ikisinde var, değişmemiş, `verdict` pending değil | Olduğu gibi koru — ilan sayfasına girme |
+| 📋 Bekleyen | Her ikisinde var, değişmemiş, `verdict: "pending"` | Öncelik sırasına ekle |
+| 🗑️ Favoriden çıktı | Adem listesinden çıkmış | `data/listings.json`'dan tamamen sil (yalnızca Adem listesi için) |
+| ~~KALKAN~~ | URL 404 döndü | `status: "removed"` — kısa süre göster, sonraki güncellemede sil |
 
 ---
 
-### ADIM 3 — Öncelik Sırası
+## ADIM 3 — Öncelik Sırası
 
-İlan sayfalarına şu sırayla gir:
-1. 🆕 Yeni ilanlar — yüksek öncelikli (düşük km, düşük fiyat, az boya/hasar, yeni model)
-2. 🆕 Yeni ilanlar — düşük öncelikli
+İlan detay sayfalarına şu sırayla gir:
+
+1. 🆕 Yeni — yüksek öncelikli (düşük km, düşük fiyat, az boya/hasar)
+2. 🆕 Yeni — düşük öncelikli
 3. 🔄 Değişen ilanlar
-4. 📋 Daha önce sadece ÖZET SATIR olan ilanlar (analiz bekleyen)
-5. ✅ TAM ANALİZ edilmiş değişmemiş ilanlar → atla
+4. 📋 Bekleyen analizler (`verdict: "pending"`)
+5. ✅ Değişmemiş + tam analiz var → atla
 
-**⚠️ BOT ENGELİ:** Sahibinden'de bot engeli olabilir. Öncelik sırasına sadık kal, mümkün olduğunca tüm ilanlara bak.
-**🎯 HEDEF:** Her ilan er ya da geç TAM ANALİZ'e kavuşmalı. O gün analiz edilemeyenler sekme sonunda "⏭️ Bekleyen Analiz" bölümüne eklenir, bir sonraki çalışmada ele alınır.
+**⚠️ BOT ENGELİ:** Sahibinden'de bot engeli olabilir. Öncelik sırasına sadık kal.  
+**🎯 HEDEF:** Her ilan er ya da geç tam analize kavuşmalı. Çalışma yarım kalsa bile `listings.json`'daki analiz edilmiş ilanlar korunur — yarın kaldığı yerden devam edilir.
 
 ---
 
-### ADIM 4 — Her Yeni, Değişen ve Bekleyen İlan İçin Detaylı Analiz
+## ADIM 4 — Her Yeni, Değişen ve Bekleyen İlan İçin Detaylı Analiz
 
-Claude in Chrome ile ilan sayfasını aç. Tüm aşağıdaki bölümleri doldur:
+Claude in Chrome ile ilan sayfasını aç. Tüm aşağıdaki bölümleri doldur.  
+Analiz sonucu `data/listings.json`'a yazılır — HTML asla elle yazılmaz.
 
-#### 4.1 — Piyasa Fiyat Aralığı
-Benzer kondüsyon (±2 yıl, ±30k km, benzer hasar/boya durumu) arabam.com ve sahibinden fiyatları. Bu sitelerde o spesifik model için tek tek bakman ve piyasa fiyat aralığını bulman gerek.)
-- Piyasa altı / piyasa içi / piyasa üstü — net yorum.
+### 4.1 — Piyasa Fiyat Aralığı
+Benzer kondüsyon (±2 yıl, ±30k km, benzer hasar/boya durumu) arabam.com ve sahibinden fiyatları. O spesifik model için tek tek bakman ve piyasa fiyat aralığını bulman gerekiyor.
+- Piyasa altı / piyasa içi / piyasa üstü — net yorum
 - "Bu araç piyasaya göre X TL ucuz/pahalı."
 
-#### 4.2 — Motor Analizi
+### 4.2 — Motor Analizi
 - Motor tipi (benzin/dizel/LPG), cc, hp
 - Motor değişmiş mi? (ilan açıklaması + ekspertiz)
 - Motor sağlam mı, kronik mi? (genel bilgi + ilan kanıtları)
 - DPF/EGR/zaman zinciri/turbo/otomatik şanzıman riskleri varsa belirt
 
-#### 4.3 — O Modelin Kronik Problemleri
-O marka-modelin Türkiye'deki bilinen yaygın sorunları (3-5 madde).
-İnternetten o modelle ilgili araştırma yap ve kronik problemi varsa bul ve belirt.
+### 4.3 — O Modelin Kronik Problemleri
+O marka-modelin Türkiye'deki bilinen yaygın sorunları (3-5 madde). İnternetten araştır, kronik problemi varsa bul ve belirt.
 
-#### 4.4 — Boya / Değişen / Sök-Tak Bilgileri
+### 4.4 — Boya / Değişen / Sök-Tak Bilgileri
 - Kaç parça boyalı, kaç parça değişen, kaç parça lokal boya?
 - Hangi taraftan hasar aldığını yorumla (ön/arka/sol/sağ)
 - 0/0 Tertemiz | 1-2 hafif | 3-5 orta | 6+ ağır
-- "Sök tak" veya "değişen parça" ibaresi ilan açıklamasında var mı?
-(Arabam.com'da tabloda boyalar/değişenler/tramer belirtilmemiş olabilir, belirtilmeyip açıklamada yazabilir, belirtilmeyen paneller muhtemelen orijinaldir, direkt şüpheli olarak algılama, sen bulduğun bilgileri kullanmaya çalış, satıcılar tabloyu doldurmakla uğraşmak istemiyor olabilir)
 
-#### 4.5 — Kaza / Tramer / Hasar Kaydı
+(Arabam.com'da tabloda boyalar/değişenler/tramer belirtilmemiş olabilir — belirtilmeyen paneller muhtemelen orijinaldir, direkt şüpheli olarak algılama.)
+
+### 4.5 — Kaza / Tramer / Hasar Kaydı
 - Tramer tutarı (TL)
 - 0: Yok | 1–10k: Çok hafif | 10–50k: Hafif-orta | 50–150k: Orta-ağır | 150k+: Ağır risk
 - Hasar kaydı ile fiziksel hasar uyuşuyor mu?
-⚠️ **Arabam.com "belirtilmemiş" uyarısı:** Arabam.com'da tramer, ağır hasar kaydı ve diğer hasar alanları "belirtilmemiş" görünüyorsa bu **arabam.com'un varsayılan gösterimidir** — satıcı tabloyu doldurmamış demektir, şüpheli olarak değerlendirme. Muhtemelen o araçta ağır hasar veya tramer yoktur. **İstisna:** Satıcı ilan açıklamasında, fotoğraflarda veya başka bir yerde hasarın varlığını kendisi belirtmişse, o zaman ağır hasar/tramer var olarak değerlendir.
 
-#### 4.6 — İlan Açıklaması İnceleme
-İlan açıklamasındaki dikkat edilmesi gereken şeyler:
+⚠️ **Arabam.com "belirtilmemiş" uyarısı:** Arabam.com'da tramer, ağır hasar kaydı ve diğer hasar alanları "belirtilmemiş" görünüyorsa bu arabam.com'un **varsayılan gösterimidir** — satıcı tabloyu doldurmamış demektir, şüpheli olarak değerlendirme. İstisna: Satıcı ilan açıklamasında veya fotoğraflarda hasarın varlığını kendisi belirtmişse, o zaman var say.
+
+### 4.6 — İlan Açıklaması İnceleme
 - Çelişkili bilgiler, acele satış ibareleri, LPG notu, muayene tarihi
 - "Değişensiz/hatasız/boyasız" iddiası — doğrulanıyor mu?
 - İpotek, rehin, ceza notu var mı?
 
-#### 4.7 — Fotoğraf ve Ekspertiz Raporu İncelemesi (KRİTİK)
+### 4.7 — Fotoğraf ve Ekspertiz Raporu İncelemesi (KRİTİK)
 Her fotoğrafı tara:
-- **Ekspertiz raporu** var mı? Varsa tam oku: hasarlı parçalar, boya kalınlığı, şase durumu, airbag durumu, km doğruluğu. "📋 Ekspertiz Raporu Bulundu" başlığıyla listele.
+- Ekspertiz raporu var mı? Varsa tam oku: hasarlı parçalar, boya kalınlığı, şase durumu, airbag durumu, km doğruluğu.
 - Ekspertiz yoksa: "Ekspertiz raporu yok."
 - Genel: hasar izi, boya farkı, pas, iç mekan durumu, motor görüntüsü, şüpheli açılar.
 
-#### 4.8 — Satıcı Tipi
+### 4.8 — Satıcı Tipi
 Sahibinden (bireysel) mi, galeri mi? Galerinin adı/konumu.
 
-#### 4.9 — İkinci El Satılabilirlik
-Aracın o modelinin ikinci el piyasasındaki tutunması:
+### 4.9 — İkinci El Satılabilirlik
 - Türkiye'de o model ne kadar sevilir?
-- Kaçıncı sahibi? 2. 3. sahiplik OK.
 - Arabam.com ve sahibinden'de o modelden kaç ilan var? (piyasa yoğunluğu)
-- Kronik sorunlu modeller zor satar — belirt
 - Yedek parça bulunurluğu kolay mı zor mu?
 - O renk sevilip sevilmiyor mu? (beyaz/gri/siyah kolay; kahve/sarı/mor zor)
 - Satılabilirlik skoru: ●●●●● Çok kolay / ●●●● Kolay / ●●● Orta / ●● Zor / ● Çok zor
 
-#### 4.10 — Yedek Parça Bulunabilirliği
+### 4.10 — Yedek Parça Bulunabilirliği
 - Parça Bulunabilirlik Skoru: ●●●●● → ●
 - Türkiye'deki resmi servis ve yetkili servis varlığı
-- Jenerik/OEM parça piyasası
 
-#### 4.11 — Renk ve Satılabilirlik Etkisi
+### 4.11 — Renk ve Satılabilirlik Etkisi
 - Renk: beyaz/gümüş/siyah → kolay | kırmızı/lacivert → orta | kahve/bordo/sarı/mor → zor
-- Bu aracın rengi satılabilirliği nasıl etkiliyor?
 
-#### 4.12 — Piyasa Yoğunluğu
-Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır veya tahmin et)
+### 4.12 — Piyasa Yoğunluğu
+Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var?
 
-#### 4.13 — İlana Özel Kırmızı Bayraklar
-🚨 şu şeyleri öne çıkar:
-- Şase hasarı / airbag açılmış mı?
-- KM manipülasyonu şüphesi (bakım kayıtlarıyla büyük çelişki — küçük farklar normal, ör. 54k vs 55k sorun değil)
-- Taksi çıkması şüphesi (somut kanıt olmalı — sadece km yüksek olması yetmez)
+### 4.13 — Kırmızı Bayraklar
+
+🚨 Bunlar kırmızı bayraktır (somut kanıt şartıyla):
+- Şase hasarı / airbag açılmış
+- KM manipülasyonu şüphesi (bakım kayıtlarıyla büyük çelişki — küçük farklar normal)
+- Taksi çıkması şüphesi (somut kanıt olmalı — sadece km yüksekliği yetmez)
 - Ekspertiz bulgularından kritik notlar
-- Parça bulunamayan model riski
+- LPG dönüşüm belgesi yok
 
-**KESINLIKLE kırmızı bayrak yapma (bunlar saçma kırmızı bayraklardır):**
-- İstanbul / büyük şehir plakası → "yoğun trafik" spekülatif, bunu bayrak yapma
-- Takas yok → "acele satış" anlamına gelmez, bu standart bir tercih
-- KM farkı 1k-2k arasında → (ör. 54k vs 55k) bu normal ölçüm farkı, manipülasyon değil
-- Motor gücü "zayıf" → 75hp, 3 silindir, küçük motor; alıcının ihtiyacına göre normal bir araç, bunu bayrak yapma
-- Satıcı sayfası / fotoğraf sayısı az → eksik bilgi soruya taşı, bayrak yapma
-- Renk "koyu/açık" → satılabilirlik skoruna yansıt ama bayrak yapma
-- "Neden satıyor?" spekülasyonu → bilinmiyorsa yorum yapma
-- **"İlk sahibi değilim"** → 2. el her araç ilk sahibi olmayan biriyle başlar; galeri satışları da dahil. Bu ASLA kırmızı bayrak değil.
-- **Fiyat filtre aralığının üstünde** → Adem'in listesi filtreden BAĞIMSIZDIR. Fiyatın 300-600k filtresini aşması kırmızı bayrak değil; piyasa karşılaştırması başka info-card'da yap
-- **İlanın ili/konumu** → Adem'in listesinde konum filtresi yoktur; Ankara, İstanbul, İzmir gibi şehirler bayrak değil. Hiçbir listede "X şehrinden" kırmızı bayrak olmaz.
-- **Satıcıya uzak mesafe / nakliye** → Uzaklık lojistik bir tercih, kırmızı bayrak değil. Eskişehir–Ankara gibi kısa mesafeler zaten "uzak" sayılmaz. Varsa nakliye seçeneğini "Sorulmayan Sorular"a taşı.
-- **Renk "kusur gizler" iddiası** → Koyu/açık renk araç kusurları gizler gibi spekülatif yorumlar bayrak değil. Boya/tramer verisi varsa onu yaz, renk spekülasyonu yapma.
-- **HRI / Hasar Risk İndeksi skoru** → Platform sistemleri (HRI vb.) araç değerlendirme araçlarıdır. Bir skoru düşük diye kırmızı bayrak yapamazsın — somut hasar/boya/tramer verisi varsa onu yaz.ılır.
-- **Arabam.com'da tramer / hasar / boya "belirtilmemiş"** → Bu arabam.com'un varsayılan görünümüdür, satıcı tabloyu doldurmamış demektir. Şüpheli SAYMA. İstisna: satıcı ilan açıklamasında veya fotoğraflarda hasarı kendisi yazmışsa, o zaman var say.
+**Kesinlikle kırmızı bayrak YAPMA:**
+- İstanbul / büyük şehir plakası → spekülatif, bayrak yapma
+- Takas yok → standart bir tercih
+- KM farkı 1k-2k arası → normal ölçüm farkı
+- Motor gücü "zayıf" → alıcının ihtiyacına göre normal araç
+- Fotoğraf sayısı az → soruya taşı
+- "İlk sahibi değilim" → 2. el araçta normal, ASLA bayrak değil
+- Fiyat filtre aralığının üstünde → Adem'in listesi filtresiz, bayrak değil
+- İlanın ili/konumu → Adem listesinde konum filtresi yok, bayrak değil
+- Arabam.com "belirtilmemiş" → platform default, şüpheli sayma
+- 0 boya/değişen "yüksek km'de şüpheli" → bu artıdır, eksi değil
+- DPF/EGR/enjektör riski → somut kanıt yoksa motor notu olarak yaz, bayrak yapma
 
-- **Satıcı tek değişen/boyalı paneli açıkça belirtip "başka değişen/boya yoktur" diyorsa** → Bu şeffaflık artısıdır, kırmızı bayrak DEĞİLDİR. Aksine skor lehine değerlendir. Satıcı hangi panelin değiştiğini bizzat söylemişse, geri kalan panellerin orijinal olduğuna dair güçlü bir sinyal var demektir.
+**Kırmızı bayrak için somut kanıt gerekir** — "belki", "olabilir" seviyesindeki şeyler en fazla "Sorulmayan Sorular"a taşınır.
 
-**Kırmızı bayrak olması için somut kanıt gerekir** — "belki", "olabilir", "şüpheli gibi görünüyor" seviyesindeki şeyler bayrak değil, en fazla sorulmayan sorular bölümüne taşı.
-
-#### 4.14 — Bu İlanda Sorulmayan Sorular
+### 4.14 — Sorulmayan Sorular
 3-5 ilana özgü soru (genel sorular değil, bu araça özel).
 
-#### 4.15 — Pazarlık Hedef Fiyatı
+### 4.15 — Pazarlık Hedef Fiyatı
 "X TL'ye teklif et, Y TL'ye çık, Z TL üstünde değmez."
 
-#### 4.16 — Son Karar
-- **Karar:** ✅ Al / ⚠️ Bakılabilir / ❌ Pas Geç / 🚫 KAÇIN
-- **Fırsat skoru:** 0–100 (aşağıdaki ağırlıklarla hesapla)
-  - Fiyat vs piyasa: 25 puan
-  - Düşük KM veya genç araç: 20 puan
-  - Hasar/boya durumu: 20 puan
-  - Motor güvenilirliği: 15 puan
-  - Parça bulunabilirliği: 10 puan
-  - Satılabilirlik/renk: 10 puan
+### 4.16 — Son Karar
+- **Karar:** ✅ AL / ⚠️ BAKILABİLİR / ❌ PAS GEÇ / 🚫 KAÇIN
+- **Fırsat skoru:** 0–100
+
+| Bileşen | Ağırlık |
+|---------|---------|
+| Fiyat vs piyasa | 25 puan |
+| Düşük km / genç araç | 20 puan |
+| Hasar / boya durumu | 20 puan |
+| Motor güvenilirliği | 15 puan |
+| Parça bulunabilirliği | 10 puan |
+| Satılabilirlik / renk | 10 puan |
+
 - **Ana gerekçe:** 1-2 cümle özet
 
-#### 4.17 — Genel Yorum
+### 4.17 — Genel Yorum
 2-3 cümle. Bu aracı kimler için önerilir, hangi koşulda alınır.
 
 ---
 
-### ADIM 5 — Sıralama
+## ADIM 5 — listings.json Güncelle
 
-**Fırsat Skoru Eşikleri ve CSS Sınıfları:**
-- ✅ AL: 75–100 → `card al` / `verdict al`
-- ⚠️ BAKILABİLİR: 60–74 → `card warn` / `verdict warn`
-- ❌ PAS GEÇ: 45–59 → `card pass` / `verdict pass`
-- 🚫 KAÇIN: 0–44 → `card kacin` / `verdict kacin`
+Her analiz edilen ilan için `data/listings.json`'u güncelle:
 
-Her sekme içinde sıralama — yeni eklenenler verdict'lerine göre doğru kategoriye girer:
-1. ✅ Al (fırsat skoru yüksekten düşüğe)
-2. ⚠️ Bakılabilir (fırsat skoru yüksekten düşüğe)
-3. ❌ Pas Geç
-4. 🚫 KAÇIN
-5. ⏭️ Bekleyen Analiz (analiz edilememiş ilanlar — özet bilgi + link)
-6. ~~İLANDAN KALKAN~~ (YALNIZCA URL 404 dönenler — üstü çizili, bir güncelleme sonra kaldırılır)
+```json
+{
+  "id": "12345",
+  "url": "https://...",
+  "source": "sahibinden",
+  "title": "2006 Opel Corsa 1.3 CDTI",
+  "year": 2006,
+  "km": 113000,
+  "price": 485000,
+  "color": "Gümüş Gri",
+  "fuel": "Dizel",
+  "seller": "Galeri Adı",
+  "city": "Eskişehir",
+  "statusBadge": "new",
+  "priceHistory": [485000],
+  "firstSeen": "2026-06-23",
+  "lastSeen": "2026-06-23",
+  "status": "active",
+  "analysis": {
+    "verdict": "AL",
+    "score": 74,
+    "analyzedAt": "2026-06-23",
+    "sections": {
+      "marketPrice": "...",
+      "engine": "...",
+      "chronicProblems": "...",
+      "paint": "...",
+      "accident": "...",
+      "description": "...",
+      "photos": "...",
+      "expertise": "...",
+      "sellerType": "...",
+      "sellability": "...",
+      "redFlags": ["..."],
+      "questions": ["..."],
+      "negotiation": "...",
+      "verdictReason": "...",
+      "comment": "..."
+    }
+  }
+}
+```
 
-Kart çerçeve renkleri kategoriye göre: AL → yeşil, BAKILABİLİR → sarı, PAS GEÇ / KAÇIN → kırmızı
+`lastRun` alanını bugünün tarihi ile güncelle.
+
+**Kurallar:**
+- `verdict` değerleri: `"AL"` / `"BAKILABİLİR"` / `"PAS GEÇ"` / `"KAÇIN"` / `"pending"`
+- `statusBadge`: `"new"` / `"updated"` / `"active"` / `"removed"`
+- `status: "removed"` → bir sonraki çalışmada silinir
+- Adem listesinden çıkan ilan → `listings.json`'dan tamamen silinir
+- Zaten tam analiz edilmiş ve değişmemiş ilan → listings.json'a dokunma
 
 ---
 
-### ADIM 6 — index.html Oluştur
+## ADIM 6 — Render
 
-3 sekme: **Adem'in Listesi** | **Sahibinden Eskişehir** | **Arabam.com Eskişehir**
+```bash
+node render/build.js
+```
 
-> **İşlem Sırası:** Adem'in Listesi her çalışmada önce taranır ve analiz edilir; ardından Sahibinden Eskişehir, en son Arabam.com Eskişehir işlenir. Sekme sırası HTML'de de bu şekildedir (Adem ilk).
-
-**Etiket sistemi:**
-- 🆕 LİSTEYE YENİ EKLENEN | 🔄 FİYATI GÜNCELLENEN (eski→yeni fiyat) | ✅ HÂLÂ YAYINDA | ~~İLANDAN KALKAN~~
-
-**Kart başlığı (her zaman görünür):**
-Model | Yıl | Km | Fiyat | Durum etiketi | Karar rozeti | Fırsat skoru progress bar (tek renk) | İlan linki | 📋 (ekspertiz varsa)
-
-**Kart içeriği (accordion/toggle — açılınca görünür):**
-Bütün sınıflanan araçlarda bu bilgiler gözükmeli ve bunlar kendi kartlarında olmalı UI anlaşılır olmalı alta alta metin olmamalı. küçük kartların içinde bilgiler şeklinde olmalı.
-- 📋 Ekspertiz Raporu (varsa, yeşil çerçeve)
-- Piyasa Fiyatı (benzer araç aralığı + bu ilanın konumu)
-- Motor Analizi + Kronik Problemler
-- Boya/Değişen/Sök-Tak Bilgileri
-- Kaza/Tramer/Hasar Kaydı
-- İlan Açıklaması Notları
-- Fotoğraf Notları
-- Satıcı Tipi
-- 🔧 Yedek Parça Bulunabilirliği + Satılabilirlik + Renk Etkisi + Piyasa Yoğunluğu
-- 🚨 Kırmızı Bayraklar (kırmızı arka plan)
-- ❓ Sorulmayan Sorular
-- 💰 Pazarlık Hedef Fiyatı
-- ✅/⚠️/❌/🚫 Son Karar + Fırsat Skoru (progress bar) + Gerekçe (Karar verirken kolaya kaçma, detaylı analiz sonucu ver.)
-- Genel Yorum
-- İlanın linki
-
-**Tasarım:** koyu tema (#0f1117 arka plan), mobil uyumlu, fırsat skoru tek renk progress bar, accordion kartlar.
+Bu script `data/listings.json`'u okur ve `index.html`'i deterministik olarak üretir.  
+**Agent asla doğrudan HTML yazmaz.**
 
 ---
 
-### ADIM 7 — GitHub'a Push Et
+## ADIM 7 — GitHub'a Push Et
 
-GitHub token: `GITHUB_TOKEN`
+GitHub token: `GITHUB_TOKEN`  
 Repo: `isaxozdemir/araba`
 
-SHA al ve PUT ile push et:
+Her iki dosyayı da push et: önce `data/listings.json`, sonra `index.html`.
+
+**listings.json push (browser JS):**
 ```javascript
-// Browser JS ile (UTF-8 safe):
+const r = await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/data/listings.json', {
+  headers: {'Authorization': 'token GITHUB_TOKEN'}
+});
+const sha = (await r.json()).sha;
+const enc = new TextEncoder().encode(JSON.stringify(listings, null, 2));
+let bin = ''; enc.forEach(b => bin += String.fromCharCode(b));
+const b64 = btoa(bin);
+await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/data/listings.json', {
+  method: 'PUT',
+  headers: {'Authorization': 'token GITHUB_TOKEN', 'Content-Type': 'application/json'},
+  body: JSON.stringify({message: 'data: listings.json güncelle', content: b64, sha})
+});
+```
+
+**index.html push (browser JS, UTF-8 safe):**
+```javascript
 const r = await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
   headers: {'Authorization': 'token GITHUB_TOKEN'}
 });
 const sha = (await r.json()).sha;
 const enc = new TextEncoder().encode(htmlContent);
-const blob = new Blob([enc]);
-const ab = await blob.arrayBuffer();
-const bytes = new Uint8Array(ab);
-let binary = '';
-for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-const b64 = btoa(binary);
+let bin = ''; enc.forEach(b => bin += String.fromCharCode(b));
+const b64 = btoa(bin);
 await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html', {
   method: 'PUT',
   headers: {'Authorization': 'token GITHUB_TOKEN', 'Content-Type': 'application/json'},
@@ -310,169 +309,17 @@ await fetch('https://api.github.com/repos/isaxozdemir/araba/contents/index.html'
 });
 ```
 
----
-
-### ÖNEMLİ NOTLAR
-
-- Mevcut siteyi her çalışmada önce oku — TAM ANALİZ edilmiş kartları koru
-- ÖZET SATIR ilanları = analiz bekliyor, öncelik sırasında ele al
-- Analiz yaptığın gün olarak sitedeki tarihi güncelle — her sekmenin stats barını (ilan sayısı + tarih + değişim) güncelle
-- Favoriden çıkan ilanları sayfadan tamamen kaldır — badge veya kart gösterme
-- URL 404 dönen ilanları ~~İLANDAN KALKAN~~ olarak göster (kısa süre, bir güncelleme sonra kaldır)
-- Fiyat değişikliklerini eski→yeni formatında göster
-- Her ilan için fotoğrafları tara — ekspertiz raporu öncelikli
-- Adem'in listesindeki ilanlar filtreye uymasa bile tam analiz yapılır — km, fiyat, yıl sınırı yok
-- Adem'in listesi çok sayfalı: ?page=2, ?page=3 vb. tüm sayfalar taranmalı, boş sayfa gelene kadar devam et
-- Bash workspace olmayabilir (disk alanı) — JS ile Chrome üzerinden push et
-- Tasarımı koru, sadece içerik ve tarih değişmeli
-
+⚠️ `btoa(unescape(encodeURIComponent()))` KULLANMA — Türkçe karakterlerde UTF-8 hatası verir.
 
 ---
 
-### TASARIM KURALLARI (Kesinlikle Uyulacak)
+## ÖNEMLİ NOTLAR
 
-#### Etiket Sistemi
-- **🆕 LİSTEYE YENİ EKLENEN** — tam bu metni kullan, "YENİ" veya başka kısaltma kullanma
-- **🔄 FİYATI GÜNCELLENDİ (eski TL → yeni TL)** — YALNIZCA fiyat gerçekten değiştiğinde ve eski+yeni fiyat biliniyorsa kullan
-- **✅ HÂLÂ YAYINDA** — aktif, değişmemiş ilanlar
-- **~~İLANDAN KALKAN~~** — ilan URL'i 404 / "ilan bulunamadı" döndürdüğünde kullanılır (kısa süre göster, sonraki güncellemede kaldır)
-- **Favoriden çıkan ilanlar** sayfadan tamamen kaldırılır — hiçbir badge konmaz, kart gösterilmez
-- "GÜNCELLENDİ" veya belirsiz etiket kullanma — fiyat değişmemişse ✅ HÂLÂ YAYINDA kullan
-- **~~İLANDAN KALKAN~~ YALNIZCA** URL 404 döndürdüğünde kullanılır — "favorilerde yok" veya "listede görünmüyor" yeterli değil, URL'i ziyaret edip doğrula
-
-#### Kart İçeriği UI Formatı
-- Accordion içindeki tüm bilgiler **info-grid / info-card** mini-kart formatında gösterilir
-- Alta alta düz metin (h4, p) KULLANILMAZ
-- Her bilgi tipi kendi info-card'ında
-- info-block wrapper KULLANILMAZ, info-card doğrudan info-grid içine girer
-
-#### Kart Çerçeve Renkleri
-- Renk **kategori**den gelir, "yeni" / "güncellenmiş" statüsünden DEĞİL
-- ✅ AL → yeşil çerçeve
-- ⚠️ BAKILABİLİR → sarı çerçeve
-- ❌ PAS GEÇ → kırmızı çerçeve
-- 🚫 KAÇIN → kırmızı çerçeve
-
-#### Başlık Emojileri
-- Her kartın başlık metni kategoriye göre emoji ile başlar:
-  - AL bölümü → `✅ Model Adı`
-  - BAKILABİLİR bölümü → `⚠️ Model Adı`
-  - PAS GEÇ bölümü → `❌ Model Adı`
-  - KAÇIN bölümü → `🚫 Model Adı`
-- 🚗, 🔵, 🟡 gibi belirsiz emojiler kullanma
-
-#### Fırsat Skoru Progress Bar
-- **Tek renk** — gradient (kırmızı→turuncu→yeşil) KULLANILMAZ
-
-#### Doğru Kategori Yerleşimi
-- Her kartın verdict'ine göre doğru bölümde olduğunu kontrol et
-- success → AL, warn/bak → BAKILABİLİR, danger → PAS GEÇ, evil → KAÇIN
-- Yanlış bölümdeki kartları tespit edip doğru bölüme taşı
-
-#### İlan Sayısı Stats Barı
-Her sekmenin üstündeki stats satırı her güncellemede değişmeli:
-```
-X ilan · Y sayfa · TARİH tarandı · 🔍= yeni ilan · ilan sayısı ÖNCEKİ_TARİH'deki N'den M'ye çıktı
-```
-- Toplam aktif ilan sayısını say (favoriden çıkarılan ve kalkan dahil değil)
-- Önceki sayı ve tarihi mevcut stats satırından al
-- Sadece tarih ve sayı değişir, format sabit kalır
-
-#### Kart Header HTML Yapısı (KRİTİK)
-Her kartın header'ı tam olarak bu yapıda olmalı — `card-title` ve `card-meta` ikisi de inner `<div>`'in **içinde**:
-```html
-<div class="card-header" onclick="toggleCard(this)"><div>
-    <div class="card-title">EMOJI Model Yıl <span class="badge ...">...</span></div>
-    <div class="card-meta">KM · <strong>FİYAT TL</strong> · Satıcı · Şehir · Renk · Yakıt · <span>Fırsat: <span class="score-bar"><span class="score-fill" style="width:XX%"></span></span> XX/100</span></div>
-  </div></div>
-```
-- `card-meta` inner `<div>`'in **dışına** çıkmamalı — aksi hâlde meta başlıkla aynı satırda görünür
-- Yakıt (Benzin/Dizel/LPG) ile Fırsat arasında mutlaka ` · ` separatörü olmalı
-
-#### GitHub Push — UTF-8 Safe Encoding
-```javascript
-const enc = new TextEncoder().encode(htmlContent);
-const blob = new Blob([enc]);
-const ab = await blob.arrayBuffer();
-const bytes = new Uint8Array(ab);
-let binary = '';
-for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-const b64 = btoa(binary);
-```
-`btoa(unescape(encodeURIComponent()))` yöntemi kullanma — UTF-8 hatası verir.
-
-
----
-
-### ADIM 7 — Kart HTML Yapisi Kurallari
-
-Ic ice cerceve olusmasin diye kesinlikle uyulmasi gereken kurallar:
-
-1. Her kartin dis div tagi MUTLAKA kapatilmali: card-header + card-body + kapanis. Stub kart (sadece card-header, body yok, dis-div acik) birakma.
-2. Mevcut karti guncellerken: once eski karti tamamen sil, sonra yeni karti ekle. Ikisini ust uste koyma.
-3. Kart siniri bulmak icin lastIndexOf kullanirken: '<div class="card "' (tirnak+bosluk ile) ya da '<div class="card"' kullan. '<div class="card"' boslugsuz kullanma — card-body, card-header, card-title ile eslesir ve yanlis pozisyon verir.
-4. Ekleme/guncellemeden sonra dogrula: html.split(ilanID).length - 1 ile kac kez geciyor say. 2+ ise duplikat var demektir.
-5. Kart sinir pozisyonunu bulduktan sonra o pozisyondaki HTML'i logla ve gercekten dis kart div'i mi oldugunu kontrol et.
-
-
----
-
-### ADIM 8 — Kategorilendirme ve Siralama (HER GUNCELLEMEDE ZORUNLU)
-
-**Her guncelleme sonrasinda asagidaki islem MUTLAKA yapilmali:**
-
-1. Tum kartlari badge'lerine gore dogru kategoriye yerlestir: AL kart AL bolumunde, BAKILABiLiR kart BAKILABiLiR bolumunde, PAS GEC kart PAS GEC bolumunde, KACIN kart KACIN bolumunde olmali.
-2. Her kategori icindeki kartlar firsat skoruna gore BUYUKTEN KUCUGE (azalan) siralali olmali.
-3. Removed (listeden kalkan) kartlar kendi kategorisinin EN ALTINA eklenir.
-4. cat-header score range'i guncelle: en yuksek ve en dusuk aktif kart skorlariyla.
-
-**cat-header yapisi:**
-- AL: `<div class="cat-header success">✅ AL (MAX-MIN/100)</div>`
-- BAKILABiLiR: `<div class="cat-header warn">⚠️ BAKILABiLiR (MAX-MIN/100)</div>`
-- PAS GEC: `<div class="cat-header danger">❌ PAS GEC (MAX-MIN/100)</div>`
-- KACIN: `<div class="cat-header evil">🚫 KACIN (MAX-MIN/100)</div>`
-
-**Kontrol adimlari:**
-- Guncelleme oncesi: kartlari oku, verdict badge'ini kontrol et, hangi kategoride olmasi gerektigini belirle.
-- Guncelleme sonrasi: html.indexOf('[ilanID]') ile her ilan ID'nin dogru cat-header altinda oldugunu dogrula.
-- Kart sayisi degismemeli (sadece sira ve konum degisebilir).
-
-
----
-
-## ADIM 9 — Yanlış Kırmızı Bayrak Kalıpları (Kesinlikle Yapılmaması Gerekenler)
-
-Aşağıdaki hatalar birden fazla ilanda tekrarlandı. Bu kalıpların HİÇBİRİ kırmızı bayrak değildir.
-
-### 9.1 "Belirtilmemiş" kuralı (tekrar ve genişletilmiş)
-Arabam.com'da tramer / boya / değişen / hasar alanları "belirtilmemiş" görünüyorsa:
-- Bu arabam.com'un **varsayılan gösterimidir** — satıcı tabloyu doldurmamış demektir.
-- **Şüpheli SAYMA. Kırmızı bayrak YAPMA.**
-- İstisna: Satıcı ilan açıklamasında, fotoğraflarda veya başka bir yerde hasarın/tramerin varlığını **kendisi belirtmişse**, o zaman var say.
-
-### 9.2 "Arabam.com belirtilmemiş ↔ Satıcı/galeri yok = çelişki" YANLIŞ
-Arabam.com'da tramer "belirtilmemiş" görünürken satıcı/galeri "tramer yok" diyorsa:
-- Bu **çelişki değildir**. Belirtilmemiş = platform default, satıcı da yok diyor = **tutarlı**.
-- "Tramer çelişkisi" diye kırmızı bayrak açma.
-
-### 9.3 "0 boya/değişen yüksek km'de şüpheli" YANLIŞ
-0 boyalı, 0 değişen panel her km'de **ARTIDUR**, eksi değil.
-- Yüksek km'de 0 boya/değişen görmek nadir ve olumludur — "şüpheli" değil, "temiz araç" işaretidir.
-- **Asla "X km'de 0 boya şüpheli" deme.**
-
-### 9.4 Genel motor riskleri kırmızı bayrak OLMAZ
-DPF tıkanması, enjektör aşınması, EGR kirlenmesi, turbo sızıntısı gibi km bazlı rutin riskler:
-- Bunlar **motor notu / bakım önerisi** olarak yazılır.
-- Spesifik kanıt olmadan (test sonucu, satıcı beyanı, belirtilen arıza) kırmızı bayrak yapılmaz.
-- Doğru kullanım: "155k km'de enjektör testi ve DPF kontrolü önerilir" (motor notu).
-- Yanlış kullanım: "🚨 DPF/enjektör riski başlamış olabilir" (kırmızı bayrak).
-
-### 9.5 Özet — Neyin kırmızı bayrak olduğu
-Kırmızı bayrak ancak şunlar için yapılır:
-- Satıcının **kendisinin belirttiği** hasar/tramer/sorun
-- Boya tablosunda **somut değer** (boyalı/değişen panel sayısı)
-- **Gerçek tramer tutarı** (örn. "713 TL tramer" — belirtilmemiş değil, rakam var)
-- Fotoğraflarda görülen hasar
-- Çelişkili satıcı beyanları (farklı yerlerde farklı şeyler söylüyorsa)
-- Piyasa dışı yüksek fiyat
-- Eksik belge (LPG dönüşüm belgesi yok gibi)
+- `data/listings.json` tek kaynak — HTML sitesi parse edilmez
+- Zaten tam analiz edilmiş ve değişmemiş ilanlar atlanır — idempotent çalışma
+- Çalışma yarım kalsa bile progress kaybolmaz — yarın kaldığı yerden devam et
+- Favoriden çıkan ilanları listings.json'dan tamamen sil
+- URL 404 dönen ilanlar `status: "removed"` olarak işaretle
+- Fiyat değişikliklerini `priceHistory` dizisine ekle
+- Adem'in listesindeki ilanlar filtreye uymasa bile tam analiz yapılır
+- Bash workspace olmayabilir (disk alanı) — `render/build.js`'i JS içinden çalıştır veya Node environment kullan
