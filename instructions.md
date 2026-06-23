@@ -260,15 +260,22 @@ Her analiz edilen ilan için `data/listings.json`'u güncelle:
 **Sıralama ve Kategorilendirme:**  
 `render/build.js` çalıştırmadan önce `listings.json` verisinde her ilanın doğru kategoride olduğundan emin ol:
 
-| verdict | Sekme kategorisi |
-|---------|-----------------|
-| `"AL"` | ✅ AL |
-| `"BAKILABİLİR"` | ⚠️ BAKILABİLİR |
-| `"PAS GEÇ"` | ❌ PAS GEÇ |
-| `"KAÇIN"` | 🚫 KAÇIN |
+| Puan Aralığı | verdict | Sekme kategorisi |
+|-------------|---------|-----------------|
+| 75–100 | `"AL"` | ✅ AL |
+| 60–74 | `"BAKILABİLİR"` | ⚠️ BAKILABİLİR |
+| 45–59 | `"PAS GEÇ"` | ❌ PAS GEÇ |
+| 0–44 | `"KAÇIN"` | 🚫 KAÇIN |
 
 Her kategori içinde ilanlar **skora göre büyükten küçüğe** sıralanır (`score` alanı).  
 `status: "removed"` olan ilanlar kendi kategorilerinin **en altına** düşer.
+
+Kart başlığı emojisi ve badge, verdict ile tutarlı olmalı:
+- ✅ AL → badge al, verdict success, başlık `✅ Araç Adı`
+- ⚠️ BAKILABİLİR → badge bak, verdict warn, başlık `⚠️ Araç Adı`
+- ❌ PAS GEÇ → badge pas, verdict danger, başlık `❌ Araç Adı`
+- 🚫 KAÇIN → badge kaçin, verdict evil, başlık `🚫 Araç Adı`
+- İlan kalktıysa: `badge removed` status badge ile başlık emojisi **verdictine göre** belirlenir (❌ yalnızca PAS GEÇ içindir).
 
 ---
 
