@@ -232,6 +232,12 @@ Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır 
 
 ### ADIM 5 — Sıralama
 
+**Fırsat Skoru Eşikleri ve CSS Sınıfları:**
+- ✅ AL: 75–100 → `card al` / `verdict al`
+- ⚠️ BAKILABİLİR: 60–74 → `card warn` / `verdict warn`
+- ❌ PAS GEÇ: 45–59 → `card pass` / `verdict pass`
+- 🚫 KAÇIN: 0–44 → `card kacin` / `verdict kacin`
+
 Her sekme içinde sıralama — yeni eklenenler verdict'lerine göre doğru kategoriye girer:
 1. ✅ Al (fırsat skoru yüksekten düşüğe)
 2. ⚠️ Bakılabilir (fırsat skoru yüksekten düşüğe)
