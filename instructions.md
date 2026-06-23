@@ -267,8 +267,12 @@ Her analiz edilen ilan için `data/listings.json`'u güncelle:
 | 45–59 | `"PAS GEÇ"` | ❌ PAS GEÇ |
 | 0–44 | `"KAÇIN"` | 🚫 KAÇIN |
 
+> ⚠️ **Kategori her zaman `score` alanından türetilir.** `verdict` metni açıklama amaçlıdır.  
+> `render/build.js` içindeki `scoreToVerdict()` fonksiyonu tek yetkili kaynaktır.  
+> Score değişirse (yeniden analiz), kategori ve sıralama otomatik güncellenir.
+
 Her kategori içinde ilanlar **skora göre büyükten küçüğe** sıralanır (`score` alanı).  
-`status: "removed"` olan ilanlar kendi kategorilerinin **en altına** düşer.
+`status: "removed"` olan ilanlar **kendi kategorisinin en altına** düşer (ayrı bölüme değil).
 
 Kart başlığı emojisi ve badge, verdict ile tutarlı olmalı:
 - ✅ AL → badge al, verdict success, başlık `✅ Araç Adı`

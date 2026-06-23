@@ -16,6 +16,28 @@ const allListings = Object.entries(raw.listings || {}).map(([url, l]) => ({ ...l
 const today = new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
 const lastRun = raw.lastRun || today;
 
+// ─── Score → category (single source of truth) ───────────────────────────────
+
+// These thresholds are authoritative. Category is always derived from score;
+// the stored verdict field is used only for pending (score === 0) listings.
+function scoreToVerdict(score) {
+  if (score >= 75) return 'AL';
+  if (score >= 60) return 'BAKI';
+  if (score >= 45) return 'PAS';
+  return 'KACIN';
+}
+
+function effectiveVerdict(l) {
+  const score = l.analysis?.score || 0;
+  if (score > 0) return scoreToVerdict(score);
+  // No score yet — fall back to stored verdict (normalize Turkish → internal code)
+  const v = l.analysis?.verdict || 'pending';
+  if (v === 'BAKILABİLİR') return 'BAKI';
+  if (v === 'PAS GEÇ')     return 'PAS';
+  if (v === 'KAÇIN')        return 'KACIN';
+  return v; // 'AL' | 'pending' unchanged
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function esc(str) {
@@ -85,7 +107,7 @@ function infoCard(label, value) {
 function renderCard(l) {
   const a = l.analysis || {};
   const s = a.sections || {};
-  const verdict = a.verdict || 'pending';
+  const verdict = effectiveVerdict(l);   // ← always derived from score
   const score = a.score || 0;
   const emoji = verdictEmoji(verdict);
 
@@ -200,33 +222,39 @@ function renderTab(source, tabId, isActive) {
   const removed = ls.filter(l => l.status === 'removed');
 
   const ORDER = ['AL', 'BAKI', 'PAS', 'KACIN', 'pending'];
-  const groups = {};
-  ORDER.forEach(v => { groups[v] = []; });
+
+  // Group by score-derived verdict (single source of truth)
+  const activeGroups  = {};
+  const removedGroups = {};
+  ORDER.forEach(v => { activeGroups[v] = []; removedGroups[v] = []; });
 
   active.forEach(l => {
-    const v = l.analysis?.verdict || 'pending';
-    (groups[v] || groups['pending']).push(l);
+    const v = effectiveVerdict(l);
+    (activeGroups[v] || activeGroups['pending']).push(l);
+  });
+  removed.forEach(l => {
+    const v = effectiveVerdict(l);
+    (removedGroups[v] || removedGroups['pending']).push(l);
   });
 
   // Sort by score desc within each group
+  const byScoreDesc = (a, b) => (b.analysis?.score || 0) - (a.analysis?.score || 0);
   ORDER.forEach(v => {
-    groups[v].sort((a, b) => (b.analysis?.score || 0) - (a.analysis?.score || 0));
+    activeGroups[v].sort(byScoreDesc);
+    removedGroups[v].sort(byScoreDesc);
   });
 
   const statsBar = `<div class="filter-info">📊 ${active.length} ilan · ${lastRun} tarandı</div>`;
 
   let body = statsBar;
   ORDER.forEach(v => {
-    if (groups[v].length > 0) {
-      body += catHeader(v, groups[v]);
-      groups[v].forEach(l => { body += renderCard(l); });
-    }
+    const ag = activeGroups[v]  || [];
+    const rg = removedGroups[v] || [];
+    if (ag.length + rg.length === 0) return;
+    body += catHeader(v, ag);               // score range based on active only
+    ag.forEach(l => { body += renderCard(l); });
+    rg.forEach(l => { body += renderCard(l); }); // removed at bottom of same category
   });
-
-  if (removed.length > 0) {
-    body += `<div class="cat-header" style="opacity:.45">🗑️ Kaldırılan İlanlar</div>`;
-    removed.forEach(l => { body += renderCard(l); });
-  }
 
   return `<div id="${tabId}" class="tab-content${isActive ? ' active' : ''}">\n${body}\n</div>`;
 }
