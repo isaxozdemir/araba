@@ -5,6 +5,20 @@ Site: https://isaxozdemir.github.io/araba/
 
 ---
 
+## ⛔ index.html'yi Doğrudan Düzenleme
+
+`index.html` bir ÇIKTI dosyasıdır — elle düzenleme yapma.
+
+**Doğru akış:**
+1. `data/listings.json` güncelle
+2. `node render/build.js` çalıştır
+3. Oluşan `index.html`'yi commit et
+
+**Eğer zorunlu olarak index.html düzenlemen gerekiyorsa** → önce `render/card-template.md` oku.  
+Yanlış CSS sınıfı veya bozuk HTML yapısı kart sınırını kırar, skoru yanlış gösterir.
+
+---
+
 ## Komutlar
 
 | Komut | Açıklama |
