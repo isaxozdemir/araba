@@ -200,6 +200,8 @@ Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır 
 - **Fiyat filtre aralığının üstünde** → Adem'in listesi filtreden BAĞIMSIZDIR. Fiyatın 300-600k filtresini aşması kırmızı bayrak değil; piyasa karşılaştırması başka info-card'da yapılır.
 - **Arabam.com'da tramer / hasar / boya "belirtilmemiş"** → Bu arabam.com'un varsayılan görünümüdür, satıcı tabloyu doldurmamış demektir. Şüpheli SAYMA. İstisna: satıcı ilan açıklamasında veya fotoğraflarda hasarı kendisi yazmışsa, o zaman var say.
 
+- **Satıcı tek değişen/boyalı paneli açıkça belirtip "başka değişen/boya yoktur" diyorsa** → Bu şeffaflık artısıdır, kırmızı bayrak DEĞİLDİR. Aksine skor lehine değerlendir. Satıcı hangi panelin değiştiğini bizzat söylemişse, geri kalan panellerin orijinal olduğuna dair güçlü bir sinyal var demektir.
+
 **Kırmızı bayrak olması için somut kanıt gerekir** — "belki", "olabilir", "şüpheli gibi görünüyor" seviyesindeki şeyler bayrak değil, en fazla sorulmayan sorular bölümüne taşı.
 
 #### 4.14 — Bu İlanda Sorulmayan Sorular
