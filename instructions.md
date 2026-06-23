@@ -55,6 +55,8 @@ Bu listeyi "bilinen ilanlar" olarak sakla.
 
 ### ADIM 1 — İlan Listesini Tara
 
+> **Tarama Sırası: Önce Adem'in Listesi, ardından Sahibinden, son olarak Arabam.com Eskişehir.**
+
 Her kaynak için önce `mcp__workspace__web_fetch` dene. Boş veya JS-render gelirse `mcp__Claude_in_Chrome__navigate` + `mcp__Claude_in_Chrome__get_page_text` kullan.
 
 **SAYFALAMA — TÜM SAYFALAR:**
@@ -238,7 +240,9 @@ Kart çerçeve renkleri kategoriye göre: AL → yeşil, BAKILABİLİR → sarı
 
 ### ADIM 6 — index.html Oluştur
 
-3 sekme: **Sahibinden Eskişehir** | **Arabam.com Eskişehir** | **Adem'in Listesi**
+3 sekme: **Adem'in Listesi** | **Sahibinden Eskişehir** | **Arabam.com Eskişehir**
+
+> **İşlem Sırası:** Adem'in Listesi her çalışmada önce taranır ve analiz edilir; ardından Sahibinden Eskişehir, en son Arabam.com Eskişehir işlenir. Sekme sırası HTML'de de bu şekildedir (Adem ilk).
 
 **Etiket sistemi:**
 - 🆕 LİSTEYE YENİ EKLENEN | 🔄 FİYATI GÜNCELLENEN (eski→yeni fiyat) | ✅ HÂLÂ YAYINDA | ~~İLANDAN KALKAN~~
