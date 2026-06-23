@@ -257,6 +257,19 @@ Her analiz edilen ilan için `data/listings.json`'u güncelle:
 - Adem listesinden çıkan ilan → `listings.json`'dan tamamen silinir
 - Zaten tam analiz edilmiş ve değişmemiş ilan → listings.json'a dokunma
 
+**Sıralama ve Kategorilendirme:**  
+`render/build.js` çalıştırmadan önce `listings.json` verisinde her ilanın doğru kategoride olduğundan emin ol:
+
+| verdict | Sekme kategorisi |
+|---------|-----------------|
+| `"AL"` | ✅ AL |
+| `"BAKILABİLİR"` | ⚠️ BAKILABİLİR |
+| `"PAS GEÇ"` | ❌ PAS GEÇ |
+| `"KAÇIN"` | 🚫 KAÇIN |
+
+Her kategori içinde ilanlar **skora göre büyükten küçüğe** sıralanır (`score` alanı).  
+`status: "removed"` olan ilanlar kendi kategorilerinin **en altına** düşer.
+
 ---
 
 ## ADIM 6 — Render

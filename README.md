@@ -10,7 +10,7 @@ Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kap
 
 - Sahibinden.com ve Arabam.com'daki Eskişehir ilanlarını otomatik tarar
 - Her ilan için 17 başlıklı detaylı AI analizi yapar
-- İlanları 4 kategoriye ayırır: **✅ AL / ⚠️ BAKILABİLİR / ❌ PAS GEÇ / 🚫 KAÇIN**
+- İlanları 4 kategoriye ayırır: **✅ AL / ⚠️ BAKILABİLİR / ❌ PAS GEÇ / 🚫 KAÇIN** (skora göre büyükten küçüğe; silinmiş ilanlar en alta)
 - Adem'in Arabam.com favori listesini ayrıca takip eder (filtreden bağımsız)
 - Tüm durum `data/listings.json`'da tutulur — HTML hiçbir zaman elle düzenlenmez
 

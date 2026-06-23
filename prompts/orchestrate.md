@@ -111,6 +111,8 @@ Analiz edilen her ilan için `data/listings.json`'u güncelle:
 
 `lastRun` alanını bugünün tarihi ile güncelle.
 
+**Sıralama kuralı:** Her ilanın `verdict` değeri hangi kategoriye girdiğini belirler (AL / BAKILABİLİR / PAS GEÇ / KAÇIN). `render/build.js` ilanları her kategori içinde `score` büyükten küçüğe sıralar; `status: "removed"` olanlar en alta eklenir.
+
 ---
 
 ## Adım 6 — Render
