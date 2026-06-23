@@ -1,0 +1,16 @@
+{
+  "adem": {
+    "name": "Adem'in Listesi",
+    "tabId": "adem",
+    "source": "arabam",
+    "baseUrl": "https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3",
+    "pagination": {
+      "param": "page",
+      "step": 1,
+      "mode": "page"
+    },
+    "noFilters": true,
+    "fetchMethod": "web_fetch_first_fallback_chrome",
+    "notes": "Tüm ilanlar filtreden bağımsız olarak tam analiz alır. km, fiyat, yıl, il sınırı yok. Favoriden çıkarılan ilanlar sayfadan tamamen kaldırılır."
+  }
+}

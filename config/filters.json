@@ -1,0 +1,10 @@
+{
+  "il": "Eskişehir",
+  "kmMax": 200000,
+  "fiyatMin": 300000,
+  "fiyatMax": 600000,
+  "yilMin": 2005,
+  "agirHasarKayitli": false,
+  "taksiCikmasi": false,
+  "notes": "Adem'in listesi bu filtrelerden BAĞIMSIZDIR — noFilters:true olan listeler için uygulanmaz."
+}

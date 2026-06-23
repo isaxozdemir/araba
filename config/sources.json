@@ -1,0 +1,25 @@
+{
+  "sahibinden": {
+    "name": "Sahibinden Eskişehir",
+    "tabId": "sahi",
+    "baseUrl": "https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2005&price_min=300000&price_max=600000",
+    "pagination": {
+      "param": "pagingOffset",
+      "step": 20,
+      "mode": "offset"
+    },
+    "fetchMethod": "web_fetch_first_fallback_chrome",
+    "notes": "Bot engeli olabilir. Önce web_fetch dene, boş/JS-render gelirse Chrome'a geç."
+  },
+  "arabam": {
+    "name": "Arabam.com Eskişehir",
+    "tabId": "arabam",
+    "baseUrl": "https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false",
+    "pagination": {
+      "param": "page",
+      "step": 1,
+      "mode": "page"
+    },
+    "fetchMethod": "web_fetch_first_fallback_chrome"
+  }
+}
