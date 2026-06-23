@@ -283,6 +283,47 @@ Kart başlığı emojisi ve badge, verdict ile tutarlı olmalı:
 
 ---
 
+### ⚠️ HTML Düzenleme Kuralları (kart HTML'si elle değiştiriliyorsa)
+
+Adem listesindeki kart HTML'leri `listings.json`'a geçilene kadar elle düzenlenebilir. Bu durumda aşağıdaki kurallara **kesinlikle** uy — hatalar sistemi bozar:
+
+**1. Verdict div class'ı**  
+`verdict success` / `verdict warn` / `verdict danger` / `verdict evil` kullan.  
+`verdict al`, `verdict bak` gibi class'lar **yoktur** ve CSS'de tanımsızdır.
+
+```html
+<!-- ✅ DOĞRU -->
+<div class="verdict success"><strong>✅ AL —</strong> Analiz metni. <strong>Fırsat Skoru: 78/100.</strong></div>
+
+<!-- ❌ YANLIŞ -->
+<div class="verdict al"><strong>✅ AL — Analiz metni.</div>
+```
+
+**2. `<strong>` tag'ları kapatılmalı**  
+Verdict div içindeki `<strong>` tag'ı `</strong>` ile kapatılmalı.  
+Kapanmayan tag kart sınırlarını bozar, tüm listeyi etkiler.
+
+**3. Score bar genişliği**  
+Skor değiştirildiğinde **hem `width:%` hem de `/100` metni** güncellenmeli:
+
+```html
+<!-- ✅ DOĞRU — her ikisi de 78 -->
+<span class="score-fill" style="width:78%"></span></span> 78/100</span>
+
+<!-- ❌ YANLIŞ — bar eski değerde kaldı -->
+<span class="score-fill" style="width:66%"></span></span> 78/100</span>
+```
+
+**4. Kırmızı bayrak divini kaldırırken**  
+`<div class="alert red">...</div>` bloğunu kaldırıyorsan tüm satırı sil.  
+`<div class="` gibi yarım bir tag bırakma — bu kapanmayan div oluşturur ve parse'ı çöküdürür.
+
+**5. Kart bölüm sıralaması değişmez**  
+Skoru değiştirince kart otomatik olarak doğru bölüme (`AL`/`BAKILABİLİR`/`PAS GEÇ`/`KAÇIN`) taşınmaz.  
+Skor değişiminden sonra `render/build.js`'i çalıştır — ya da bu repoyu clone eden Claude Code oturumu aracılığıyla yeniden kategorize et.
+
+---
+
 ## ADIM 6 — Render
 
 ```bash
