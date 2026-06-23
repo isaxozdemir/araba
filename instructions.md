@@ -197,7 +197,11 @@ Arabam.com + sahibinden'de o model için toplam kaç aktif ilan var? (araştır 
 - Renk "koyu/açık" → satılabilirlik skoruna yansıt ama bayrak yapma
 - "Neden satıyor?" spekülasyonu → bilinmiyorsa yorum yapma
 - **"İlk sahibi değilim"** → 2. el her araç ilk sahibi olmayan biriyle başlar; galeri satışları da dahil. Bu ASLA kırmızı bayrak değil.
-- **Fiyat filtre aralığının üstünde** → Adem'in listesi filtreden BAĞIMSIZDIR. Fiyatın 300-600k filtresini aşması kırmızı bayrak değil; piyasa karşılaştırması başka info-card'da yapılır.
+- **Fiyat filtre aralığının üstünde** → Adem'in listesi filtreden BAĞIMSIZDIR. Fiyatın 300-600k filtresini aşması kırmızı bayrak değil; piyasa karşılaştırması başka info-card'da yap
+- **İlanın ili/konumu** → Adem'in listesinde konum filtresi yoktur; Ankara, İstanbul, İzmir gibi şehirler bayrak değil. Hiçbir listede "X şehrinden" kırmızı bayrak olmaz.
+- **Satıcıya uzak mesafe / nakliye** → Uzaklık lojistik bir tercih, kırmızı bayrak değil. Eskişehir–Ankara gibi kısa mesafeler zaten "uzak" sayılmaz. Varsa nakliye seçeneğini "Sorulmayan Sorular"a taşı.
+- **Renk "kusur gizler" iddiası** → Koyu/açık renk araç kusurları gizler gibi spekülatif yorumlar bayrak değil. Boya/tramer verisi varsa onu yaz, renk spekülasyonu yapma.
+- **HRI / Hasar Risk İndeksi skoru** → Platform sistemleri (HRI vb.) araç değerlendirme araçlarıdır. Bir skoru düşük diye kırmızı bayrak yapamazsın — somut hasar/boya/tramer verisi varsa onu yaz.ılır.
 - **Arabam.com'da tramer / hasar / boya "belirtilmemiş"** → Bu arabam.com'un varsayılan görünümüdür, satıcı tabloyu doldurmamış demektir. Şüpheli SAYMA. İstisna: satıcı ilan açıklamasında veya fotoğraflarda hasarı kendisi yazmışsa, o zaman var say.
 
 - **Satıcı tek değişen/boyalı paneli açıkça belirtip "başka değişen/boya yoktur" diyorsa** → Bu şeffaflık artısıdır, kırmızı bayrak DEĞİLDİR. Aksine skor lehine değerlendir. Satıcı hangi panelin değiştiğini bizzat söylemişse, geri kalan panellerin orijinal olduğuna dair güçlü bir sinyal var demektir.
