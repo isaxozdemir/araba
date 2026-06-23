@@ -8,7 +8,7 @@ Her kaynak için önce `mcp__workspace__web_fetch` dene. Boş veya JS-render gel
 
 **Sayfa 1:**
 ```
-https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2005&price_min=300000&price_max=600000
+https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2010&price_min=500000&price_max=800000
 ```
 
 **Sonraki sayfalar:** `&pagingOffset=20`, `&pagingOffset=40`, `&pagingOffset=60` ... son sayfaya kadar devam et.
@@ -29,7 +29,7 @@ https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_m
 
 **Sayfa 1:**
 ```
-https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false
+https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=500000&maxPrice=800000&minYear=2010&maxkm=200000&severaldamaged=false
 ```
 
 **Sonraki sayfalar:** `&page=2`, `&page=3` ... boş sayfa gelene kadar devam et.

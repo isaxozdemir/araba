@@ -22,8 +22,8 @@ Eskişehir'deki ikinci el araç ilanlarını günlük olarak tarayan, AI ile kap
 |--------|-------|
 | İl | Eskişehir |
 | Max km | 200.000 |
-| Fiyat aralığı | 300.000 – 600.000 TL |
-| Min yıl | 2005 |
+| Fiyat aralığı | 500.000 – 800.000 TL |
+| Min yıl | 2010 |
 | Ağır hasar | Hayır |
 | Taksi çıkması | Yok |
 

@@ -10,8 +10,8 @@ Site: https://isaxozdemir.github.io/araba/
 
 - İl: Eskişehir
 - Max km: 200.000
-- Fiyat: 300.000 – 600.000 TL
-- Min yıl: 2005
+- Fiyat: 500.000 – 800.000 TL
+- Min yıl: 2010
 - Ağır hasar kayıtlı: Hayır
 - Taksi çıkması: Yok
 
