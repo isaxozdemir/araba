@@ -16,6 +16,15 @@ const allListings = Object.entries(raw.listings || {}).map(([url, l]) => ({ ...l
 const today = new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
 const lastRun = raw.lastRun || today;
 
+const FILTERS_PATH = path.join(ROOT, 'config', 'filters.json');
+const filters = JSON.parse(fs.readFileSync(FILTERS_PATH, 'utf8'));
+const filterLabel = [
+  `${(filters.fiyatMin/1000).toFixed(0)}–${(filters.fiyatMax/1000).toFixed(0)}k TL`,
+  `${filters.yilMin}+`,
+  `≤${(filters.kmMax/1000).toFixed(0)}k km`,
+  'Ağır hasar yok',
+].join(' · ');
+
 // ─── Score → category (single source of truth) ───────────────────────────────
 
 // These thresholds are authoritative. Category is always derived from score;
@@ -376,7 +385,7 @@ const html = `<!DOCTYPE html>
 <body>
 
 <h1>🚗 Eskişehir Araba İlanları
-  <span class="date">${today} · Claude Code · Filtre: 300–600k TL · 2005+ · ≤200k km · Ağır hasar yok</span>
+  <span class="date">${today} · Claude Code · Filtre: ${filterLabel}</span>
 </h1>
 
 <div class="tabs">
