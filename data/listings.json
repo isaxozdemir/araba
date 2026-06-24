@@ -1,5 +1,5 @@
 {
-  "lastRun": "24 Haz 2026",
+  "lastRun": "2026-06-24",
   "listings": {
     "https://www.arabam.com/ilan/41179900": {
       "url": "https://www.arabam.com/ilan/41179900",
@@ -648,6 +648,733 @@
           "negotiation": "Fiyat ne olursa olsun bakılmaz",
           "comment": "29.8k tramer + değişen parça = ağır kaza geçmişi. İstanbul'da olması da uzaklık dezavantajı. Kesinlikle KAÇIN.",
           "verdictReason": "29.800 TL tramer + değişen ön çamurluk = ağır kaza geçmişi, güvenli değil"
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/hatasiz-boyasiz-tramersiz-ilk-elden/40967352": {
+      "id": "40967352",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/hatasiz-boyasiz-tramersiz-ilk-elden/40967352",
+      "source": "arabam",
+      "title": "Renault Symbol 1.0 SCe Joy 2019",
+      "year": 2019,
+      "km": 65000,
+      "price": 695000,
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "seller": "Galeri (Hoşnudiye, Tepebaşı)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        695000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "AL",
+        "score": 85,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Galeri beyanı: 'Boyasız, değişensiz, tramersiz, ilk elden alınmış.' Arabam.com: Tüm 13 panel Orijinal. Galeri dilediğiniz ekspertize açık. Bağımsız ekspertiz + TRAMER sorgusu önerilir.",
+          "marketPrice": "2019 Symbol 1.0 SCe 60-70k km: ~670.000–750.000 TL. 695.000 TL piyasa içi. 65k km dikkate alındığında makul.",
+          "paint": "Boya: YOK · Değişen: YOK · Lokal Boya: YOK · Tüm 13 panel Orijinal · Tramer: Galeri 'Tramersiz' diyor",
+          "engine": "1.0 SCe 75hp · 3 silindir · Önden çekiş · Manuel · Benzin · Turbo yok, DPF yok — basit ve güvenilir. Timing belt bakımı sorulmalı.",
+          "chronicProblems": "1. Timing belt (gergi kasnağı) 60-80k'da bakım şart · 2. Throttle body kirlenmesi 100k+ sonrası · 3. Klima kompresörü — yaygın Renault sorunu · 4. 3 silindir doğal titreşim",
+          "sellerType": "Galeri · Hoşnudiye Mh., Tepebaşı, Eskişehir · 'Aile aracı, ilk elden alınmış' · Yedek anahtar + kitapçık · Takas uygun",
+          "sellability": "Renault/Dacia — parça ●●●●● · Symbol Türkiye'de çok yaygın ●●●●● · Beyaz en kolay satar · Renault servisi her yerde mevcut",
+          "redFlags": [],
+          "questions": [
+            "Tramer kaydı gerçekten sıfır mı? (TRAMER sorgulat)",
+            "Timing belt ne zaman değişti?",
+            "Klima çalışıyor mu?",
+            "Galeri öncesi kaçıncı el?"
+          ],
+          "negotiation": "680.000 TL teklif et → 690.000 TL'ye çık → 695.000 TL üstünde değmez.",
+          "verdictReason": "2019 model 65.000 km, tüm paneller orijinal, tramersiz beyan, yedek anahtar mevcut. Bağımsız ekspertiz + tramer sorgusu yaptır; temiz çıkarsa kesinlikle al.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/garp-otomotiv-2019-model-hatasiz-boyasiz-symbol-1-0-sce/38530271": {
+      "id": "38530271",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-renault-symbol-1-0-sce-joy/garp-otomotiv-2019-model-hatasiz-boyasiz-symbol-1-0-sce/38530271",
+      "source": "arabam",
+      "title": "Renault Symbol 1.0 SCe Joy 2019",
+      "year": 2019,
+      "km": 104500,
+      "price": 710000,
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "seller": "GARP OTOMOTİV (Tepebaşı)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        710000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "AL",
+        "score": 78,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Galeri beyanı: Hatasız, Boyasız, Tramersiz. Arabam.com: Tüm paneller Orijinal. Tramer: Belirtilmemiş (arabam.com varsayılanı). Galeri garantisi: 'Söylenenler harici bir şey çıkması durumunda masraflar tarafımıza aittir.'",
+          "marketPrice": "2019 Symbol 1.0 SCe benzin 90-120k km: ~620.000–820.000 TL. 710.000 TL piyasa ortası-üstü; tüm panelleri orijinal temiz araç için makul.",
+          "paint": "Boya: YOK · Değişen: YOK · Lokal Boya: YOK · Tüm 13 panel Orijinal · Tramer: Galeri 'Tramersiz' diyor",
+          "engine": "1.0 SCe (H4B) 65hp · 3 silindir · Önden çekiş · Manuel · Benzin · Zaman zinciri yok. SCe versiyonu TCe'den farklı — turbo yok.",
+          "chronicProblems": "1. Krank mili yağ sızıntısı — 100k+ km'de görülebilir · 2. Süspansiyon elemanları yıpranması 100k+ km'de · 3. Klima kompresörü sorunları · 4. Plastik iç döşeme yorulması · 5. Direksiyon kutusu sızıntısı",
+          "sellerType": "GARP OTOMOTİV — Arabam.com Platinum Üye (1. Yıl, yeni galeri) · Batıkent Mah., Tepebaşı, Eskişehir · Takas uygun · Yetki Belge No: 2600785",
+          "sellability": "Renault/Dacia grubu — parça bol ve ucuz ●●●●○ · Symbol Türkiye'de popüler bütçe sedan ●●●○○ · Beyaz renk — satılabilirlik kolay",
+          "redFlags": [],
+          "questions": [
+            "Son bakım ne zaman, belgesi var mı?",
+            "Kaçıncı sahibi, önceki sahip kim?",
+            "Krank mili / alt motor kontrol yapıldı mı?",
+            "Klima soğutuyor mu?",
+            "Galeri kaç aydır açık?"
+          ],
+          "negotiation": "680.000 TL teklif et → 695.000 TL'ye çık → 720.000 TL üstünde değmez.",
+          "verdictReason": "Tüm paneller orijinal, hatasız boyasız, galeri garantisi var. 104.500 km biraz yüksek ve galeri 1. yıl yeni. Bağımsız ekspertiz + alt motor kontrolü şartiyle iyi seçenek.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-dacia-sandero-1-0-ambiance/ersoyoglu-ndan-dacia-sandero-2020-degisensiz-boyasiz-54-000-km/41460115": {
+      "id": "41460115",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-dacia-sandero-1-0-ambiance/ersoyoglu-ndan-dacia-sandero-2020-degisensiz-boyasiz-54-000-km/41460115",
+      "source": "arabam",
+      "title": "Dacia Sandero 1.0 Ambiance 2020",
+      "year": 2020,
+      "km": 54000,
+      "price": 689500,
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "seller": "ERSOYOĞLU OTOMOTİV (Odunpazarı)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        689500
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 74,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Galeri tespiti: Değişen yok, Sağ Ön Çamurluk lokal boyalı, Tramer: 3.000 TL, şase ve tüm direkler orijinal, airbagler orijinal. Bağımsız ekspertiz aldırılması önerilir.",
+          "marketPrice": "2020 model Sandero benzin 40-70k km: 750.000–990.000 TL. 689.500 TL piyasanın ~150.000 TL altında — fiyat çok cazip.",
+          "engine": "1.0 SCe 75hp · 3 silindir · 999cc · Önden çekiş · 0-100: 14,5 sn · Ort. tüketim: 5,4 lt/100km · Muayene: 22/05/2028",
+          "chronicProblems": "Timing belt bakım · Throttle body kirlenmesi · Klima kompresörü",
+          "paint": "Değişen: YOK · Boyalı: Sağ Ön Çamurluk (lokal, 1 panel) · Tramer: 3.000 TL · Şase: Orijinal · Airbagler: Tümü orijinal",
+          "accident": "Tramer: 3.000 TL — çok hafif.",
+          "description": "ERSOYOĞLU OTOMOTİV (Ticaret Bakanlığı yetkili galeri) · Galeri km garantisi: 55.000 km · Yedek anahtar mevcut · Takas yok · Kredi kartına 12 taksit",
+          "photos": "Fotoğraflar incelenmeli.",
+          "sellerType": "ERSOYOĞLU OTOMOTİV (Ticaret Bakanlığı yetkili galeri) · Odunpazarı, Eskişehir",
+          "sellability": "Dacia/Renault grubu — yedek parça bol ve ucuz. Beyaz renk, satılabilirlik iyi.",
+          "redFlags": [],
+          "questions": [
+            "Sağ ön çamurluk hasarının sebebi nedir?",
+            "Servis/bakım geçmişi belgeleri mevcut mu?",
+            "Klima soğutuyor mu?"
+          ],
+          "negotiation": "650.000 TL teklif et → 670.000 TL'ye çık → 700.000 TL üstünde değmez.",
+          "verdictReason": "Fiyat piyasanın ~150k TL altında, km iyi, 1 panel lokal boya + 3.000 TL tramer var. Bağımsız ekspertiz şart; temiz çıkarsa AL'a yakın bir araç.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-fiat-egea-1-3-multijet-easy-stil/calkinsin-hatasiz-boyasiz-tramersiz/41462427": {
+      "id": "41462427",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-fiat-egea-1-3-multijet-easy-stil/calkinsin-hatasiz-boyasiz-tramersiz/41462427",
+      "source": "arabam",
+      "title": "Fiat Egea 1.3 Multijet Easy Stil 2020",
+      "year": 2020,
+      "km": 155000,
+      "price": 850000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "ÇALKINSIN OTOMOTİV (Odunpazarı)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        850000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 74,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "2020 · 155.000 km · Galeri (ÇALKINSIN OTOMOTİV, Odunpazarı) · Takas kabul · 12 taksit",
+          "marketPrice": "850.000 TL · Piyasa: 800k–950k TL (155k km arası) → piyasa ortası. 20–30k TL indirim koridoru var. Teklif: 820k / Limit: 835k",
+          "engine": "1.3 Multijet 95HP — Fiat'ın en yaygın dizeli, servis bol. 155k km'de rutin bakım dönemine girmiş: enjektör testi, DPF kontrolü, turbo sızıntısı muayenesi önerilir.",
+          "chronicProblems": "DPF tıkanması (şehir içi kısa mesafe kullanımda) · EGR kirlenmesi",
+          "paint": "0 BOYALI · 0 DEĞİŞEN — 155.000 km'de tüm paneller orijinal, büyük artı. Galeri tespiti: 'Tramer yok, şase hatasız, airbag hatasız.'",
+          "accident": "Galeri 'Tramer yok, şase hatasız, airbag hatasız' diyor. Arabam.com'da tramer 'belirtilmemiş' → platform default.",
+          "description": "0 boya · 0 değişen (155k km'de nadirdir) · Galeri tramer/şase/airbag temiz tespiti · 1.3 Multijet güvenilir dizel · Takas + 12 taksit",
+          "photos": "155k km'de enjektör testi + DPF kontrolü zorunlu. Bağımsız ekspertiz yok — görülmeden alınmamalı.",
+          "sellerType": "Galeri (ÇALKINSIN OTOMOTİV, Odunpazarı)",
+          "sellability": "Egea Türkiye'nin en popüler modeli — parça çok kolay, servis bol. Takas + 12 taksit",
+          "redFlags": [],
+          "questions": [
+            "Enjektör testi yapıldı mı?",
+            "DPF durumu?",
+            "Bağımsız ekspertiz alınabilir mi?"
+          ],
+          "negotiation": "Teklif: 820.000 TL — Limit: 835.000 TL",
+          "verdictReason": "0 boya, 0 değişen, galeri tramer temiz demesi önemli artılar. 155k km biraz yüksek, 155k km dizel bakım dönemine girmiş — ekspertizde enjektör/DPF kontrolü yaptır.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-fiat-egea-1-4-fire-urban-plus/2020-model-1-4-egea-hatasiz-boyasiz-cam-gibi/41448145": {
+      "id": "41448145",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-fiat-egea-1-4-fire-urban-plus/2020-model-1-4-egea-hatasiz-boyasiz-cam-gibi/41448145",
+      "source": "arabam",
+      "title": "Fiat Egea 1.4 Fire Urban Plus 2020",
+      "year": 2020,
+      "km": 71000,
+      "price": 859000,
+      "color": "Gri",
+      "fuel": "Benzin",
+      "seller": "Galeriden (Eskişehir)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        859000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 72,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "2020 · 71.000 km · Gri · Benzin · Manuel · Muayene: 10 Temmuz 2027",
+          "marketPrice": "859.000 TL · Galeriden · Eskişehir · Takasa uygun. Fiyat üst bantta ama pazarlık yapılabilir.",
+          "engine": "1.4 Fire (95 HP) · Dijital klima · Hız sabitleme · 6 airbag · Çelik jant",
+          "chronicProblems": "1.4 Fire genel olarak güvenilir atmosferik motor. LPG yok. Triger kayışı bakımı takip edilmeli.",
+          "paint": "Arabam.com tablosu 'belirtilmemiş' → platform default. Satıcı kendi yazmış: '(Sağ Arka Çamurluk Local Boya)' → 1 adet lokal boya. Tramer 'belirtilmemiş' → arabam.com default; satıcı 'tramersiz' diyor.",
+          "accident": "Tramer: Satıcı 'tramersiz' diyor. Arabam.com 'belirtilmemiş' → platform default.",
+          "description": "Galeri 'söylenilen harici bir şey çıkarsa ekspertiz ücreti şahsıma ait' diyor. Muayene yeni (2027). Takasa uygun.",
+          "photos": "Sağ arka çamurluk lokal boya yerinde kontrol edilmeli.",
+          "sellerType": "Galeri. Ekspertiz garantisi veriyor.",
+          "sellability": "Egea parçaları bol. Gri renk orta satılabilirlik.",
+          "redFlags": [],
+          "questions": [
+            "Sağ arka çamurluk lokal boya ne zaman yapıldı?",
+            "Tramer kaydı sorgulansın?",
+            "Bağımsız ekspertiz mümkün mü?"
+          ],
+          "negotiation": "Teklif: 820.000 TL — Limit: 840.000 TL",
+          "verdictReason": "Ekspertizle görülebilir. Lokal boya şeffaf açıklanmış, galeri ekspertiz garantisi veriyor. Tramer yok, ağır hasar yok. Fiyat üst bantta ama pazarlık yapılabilir.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-5-dci-joy/sahibinden-renault-symbol-1-5-dci-joy-2014-model-217-000-km-beyaz/40805977": {
+      "id": "40805977",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-renault-symbol-1-5-dci-joy/sahibinden-renault-symbol-1-5-dci-joy-2014-model-217-000-km-beyaz/40805977",
+      "source": "arabam",
+      "title": "Renault Symbol 1.5 dCi Joy 2014",
+      "year": 2014,
+      "km": 217000,
+      "price": 620000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        620000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 68,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "2014 · 217.000 km · Beyaz · Dizel · Sahibinden bireysel · Eskişehir",
+          "marketPrice": "620.000 TL · Piyasa: 570.000–690.000 TL → orta bant. Satıcı 'ciddi alıcıya pazarlık' diyor. Teklif: 565k / Limit: 590k",
+          "engine": "Renault K9K 1.5 dCi 90HP — Türkiye'nin en güvenilir dizel motorlarından biri. İyi bakımlı K9K 400.000+ km dayanır.",
+          "chronicProblems": "EGR temizliği · DPF bakımı gerekebilir",
+          "paint": "1 DEĞİŞEN: Sağ Ön Çamurluk. 3 BOYALI: Sağ Ön Kapı · Sağ Arka Kapı · Sağ Arka Çamurluk → sağ taraf tümüyle hasar görmüş. Tramer 'belirtilmemiş'; satıcı 'tramersiz' diyor.",
+          "accident": "Tramer arabam.com'da 'belirtilmemiş' → platform default; satıcı açıklamasında 'tramersiz' diyor.",
+          "description": "Km orijinal · Bakımlar düzenli · Muayene yeni · Lastikler yeni · Sigara içilmemiş · Klima · Bluetooth/USB · 'Ciddi alıcıya pazarlık'",
+          "photos": "Fotoğraflar dikkatle incelenmeli; sağ taraf hasarı kontrol edilmeli.",
+          "sellerType": "Sahibinden bireysel, açıklaması detaylı ve dürüst.",
+          "sellability": "K9K motor güvenilir ve dayanıklı. Parça bol ve ucuz. Beyaz iyi satılabilirlik.",
+          "redFlags": [
+            "Sağ taraf 4 panel hasar: 1 değişen + 3 boyalı — ciddi hasar geçmişi var",
+            "217.000 km yüksek"
+          ],
+          "questions": [
+            "Sağ taraf hasarı detayları?",
+            "EGR/DPF durumu?",
+            "Bakım geçmişi belgeli mi?"
+          ],
+          "negotiation": "Teklif: 565.000 TL — Limit: 590.000 TL",
+          "verdictReason": "K9K motor büyük artı, satıcı dürüst. Sağ taraf 4 panel hasar ciddi eksi — bağımsız ekspertizle görülmeli.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-renault-fluence-1-6-authentique/sahibinden-renault-fluence-1-6-authentique-2010-model/41408966": {
+      "id": "41408966",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-renault-fluence-1-6-authentique/sahibinden-renault-fluence-1-6-authentique-2010-model/41408966",
+      "source": "arabam",
+      "title": "Renault Fluence 1.6 Authentique 2010",
+      "year": 2010,
+      "km": 135000,
+      "price": 700000,
+      "color": "Füme",
+      "fuel": "LPG & Benzin",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        700000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 63,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Bağımsız ekspertiz belirtilmemiş.",
+          "marketPrice": "2010 Renault Fluence 1.6 Authentique 135k km piyasası: 620.000–720.000 TL. 700.000 TL üst banda yakın — sol taraf boya geçmişi göz önüne alındığında indirim payı var.",
+          "engine": "1.6 16v 110hp · 4 silindir · LPG & Benzin · Düz vites · Yeni kayış + devirdaim + 4 lastik (satıcı belirtmiş). Yıllık ortalama 9.000 km, az kullanılmış.",
+          "chronicProblems": "LPG sistemi bakımı · Soğutma sistemi",
+          "paint": "4 BOYALI: Sol Ön Çamurluk + Sol Ön Kapı + Sol Arka Kapı + Ön Tampon. Değişen panel yok. Sol taraf + ön tampon boya yoğunluğu tek bir çarpma olayına işaret ediyor.",
+          "accident": "Tramer tutarı platform tarafından belirtilmemiş.",
+          "description": "Sahibinden (bireysel) · İlk sahibi değil. Yeni kayış + devirdaim + 4 lastik. LPG sistemi son bakım tarihi ve marka sorulmalı.",
+          "photos": "Fotoğraflar incelenmeli. Sol taraf boyaları kontrol edilmeli.",
+          "sellerType": "Sahibinden bireysel · Yeşiltepe Mh., Tepebaşı, Eskişehir · İlk sahibi değil.",
+          "sellability": "Renault Türkiye'de yaygın — yedek parça kolay. Fluence sedan + LPG orta talep. Füme renk orta satılabilirlik.",
+          "redFlags": [
+            "Sol taraf boya yoğunluğu (sol ön çamurluk + sol ön kapı + sol arka kapı + ön tampon) — sol taraftan çarpma geçmişi",
+            "Bireysel satıcı, ilk sahip değil — bakım kayıtları belgesiz olabilir"
+          ],
+          "questions": [
+            "LPG dönüşüm tarihi ve sistemi hangi marka?",
+            "Sol taraf boya nedeni?",
+            "Kaçıncı el?",
+            "Servis kayıtları var mı?"
+          ],
+          "negotiation": "650.000 TL teklif et — 675.000 TL üstünde değmez.",
+          "verdictReason": "Sol taraf boyalı ama değişen panel yok, yapısal hasar yok. Yeni kayış/devirdaim/lastik artı. 650-675k TL bandında bağımsız ekspertizle alınabilir.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-volkswagen-polo-1-4-tdi-trendline/41076576": {
+      "id": "41076576",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-volkswagen-polo-1-4-tdi-trendline/41076576",
+      "source": "arabam",
+      "title": "VW Polo 1.4 TDi Trendline 2016",
+      "year": 2016,
+      "km": 130000,
+      "price": 779000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "AZİZOĞLU PLAZA (Odunpazarı)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        779000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 58,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Galeri boya/değişen/trameri şeffaf beyan etmiş — artı.",
+          "marketPrice": "2016 VW Polo 1.4 TDi 130k km hasar kayıtlı → piyasa 720–800k TL. 779k TL üst bandında; tramer ve hasar göz önüne alındığında pahalı.",
+          "engine": "1.4 TDi 75hp · 3 silindir · Dizel · DPF filtresi var — şehir içi kullanımda DPF tıkanması riski kritik.",
+          "chronicProblems": "DPF tıkanması şehir içi kullanımda · Timing belt bakımı",
+          "paint": "Sol ön çamurluk değişen, sağ ön çamurluk boyalı — ön darbe ile tutarlı. Galeri şeffaf beyan etmiş. Tramer: 32.500 TL.",
+          "accident": "Tramer: 32.500 TL — ön taraf hasarını doğruluyor.",
+          "description": "AZİZOĞLU PLAZA (Galeri) · Odunpazarı, Eskişehir. VW yetkili servis bakım kayıtları sorulmalı.",
+          "photos": "Fotoğraflar incelenmeli. Sol ön taraf hizalaması kontrol edilmeli.",
+          "sellerType": "AZİZOĞLU PLAZA (Galeri) · Odunpazarı, Eskişehir",
+          "sellability": "VW yedek parça maliyetleri yüksek. Polo popüler model, beyaz renk — satılabilirlik iyi.",
+          "redFlags": [
+            "Tramer 32.500 TL — ön tarafta hasar kaydı",
+            "1.4 TDi DPF şehir içi kullanımda tıkanma riski",
+            "VW servis maliyetleri yüksek"
+          ],
+          "questions": [
+            "DPF durumu, kaç km'de temizlendi?",
+            "Triger (timing belt) değişimi yapıldı mı?",
+            "Sol ön taraf hizalaması tam mı?"
+          ],
+          "negotiation": "745.000 TL teklif et. 760.000 TL üstünde değmez.",
+          "verdictReason": "2016 Polo dizel çekici, galeri şeffaf (artı). Ancak ön hasar + DPF riski + yüksek servis maliyetleri. 745k TL altında anlaşılırsa değerlendir.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-2-joy/sahibinden-renault-clio-1-2-joy-2014-model/41430238": {
+      "id": "41430238",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-2-joy/sahibinden-renault-clio-1-2-joy-2014-model/41430238",
+      "source": "arabam",
+      "title": "Renault Clio 1.2 Joy 2014",
+      "year": 2014,
+      "km": 152000,
+      "price": 635000,
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        635000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 57,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "2014 · 152.000 km · Beyaz · Benzin · Sahibinden bireysel · 3. sahip · Muayene: Aralık 2027",
+          "marketPrice": "635.000 TL · Piyasa: 580.000–680.000 TL → orta bant. Teklif: 575k / Limit: 610k",
+          "engine": "Renault 1.2 16V 75HP (D4F) — basit ve güvenilir atmosferik motor. Triger + devirdaim + ateşleme 125.000 km'de yenilenmiş.",
+          "chronicProblems": "Soğutma sistemi (termostat/radyatör) dikkat",
+          "paint": "2 DEĞİŞEN: Sağ Arka Çamurluk + Sağ Arka Kapı → sağ arka bölge hasar geçmişi. 0 boyalı panel.",
+          "accident": "Tramer 'belirtilmemiş' → platform default; satıcı 'tramersiz' diyorsa kabul et.",
+          "description": "3. sahip, 152.000 km · Bakımlar zamanında yapılmış · Triger/devirdaim/ateşleme 125k'da yenilendi · İlan başlığı 'LPG & Benzin' yazıyor ama araçta LPG mevcut değil.",
+          "photos": "Fotoğraflar incelenmeli. Sağ arka hasar bölgesi kontrol edilmeli.",
+          "sellerType": "Sahibinden bireysel. 3. sahip.",
+          "sellability": "1.2 16V güvenilir basit motor. Parça bol ve ucuz. Beyaz iyi satılabilirlik.",
+          "redFlags": [
+            "Sağ arka 2 DEĞİŞEN panel — hasar geçmişi",
+            "LPG başlıkta var ama araçta yok (yanıltıcı)"
+          ],
+          "questions": [
+            "Sağ arka hasar detayları?",
+            "LPG başlığı yanıltıcı — araçta kesinlikle yok mu?",
+            "Önceki bakım geçmişi?"
+          ],
+          "negotiation": "Teklif: 575.000 TL — Limit: 610.000 TL",
+          "verdictReason": "Fiyat makul, triger yenilenmiş, motor güvenilir. Sağ arka 2 değişen panel ciddi eksi, LPG başlığı yanıltıcı.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-joy/41421117": {
+      "id": "41421117",
+      "url": "https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-joy/41421117",
+      "source": "arabam",
+      "title": "Renault Clio 1.5 dCi Joy 2019",
+      "year": 2019,
+      "km": 272000,
+      "price": 635000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "MAS-CAR (Eskişehir)",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        635000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 55,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Galeri (MAS-CAR) kendi ekspertiz tespitini açıklıyor: 'ön kaput değişen, sol yanda 2 tam 1 lokal boya.' Arabam veritabanıyla kısmen uyuşuyor.",
+          "marketPrice": "2019 Clio 1.5 dCi piyasası: Yüksek km (250k+) 560.000–650.000 TL. Bu ilan 272k km ile 635.000 TL — yüksek km segmentinde orta bant.",
+          "engine": "1.5 dCi K9K 75 hp. K9K motoru uzun ömürlüdür ancak 272.000 km'de kritik kontrol: DPF tıkanma riski yüksek (±5.000 TL değişim), Enjektörler (±3.000 TL/enjektör), Turbo — yağ kaçağı kontrolü şart.",
+          "chronicProblems": "DPF tıkanması 272k km'de yüksek risk · Enjektör yıpranması · Turbo yağ kaçağı kontrolü",
+          "paint": "2 boyalı: Sol Arka Çamurluk, Sol Ön Kapı. 1 değişen: Motor Kaputu. 0 lokal. Galeri açıklaması tutarlı.",
+          "accident": "TRAMER KAYDI YOKTUR — galeri belgesiyle teyit ediyor.",
+          "description": "'Motor, yürüyen, şanziman sorunsuz. Bakımlar düzenli.' Galeri MAS-CAR. %0.99 finansman, takas ve geri alım imkânı.",
+          "photos": "Sol ön köşe (kaput-çamurluk hizalaması) ve sol kapı panel farkı mutlaka yerinde görülmeli.",
+          "sellerType": "Galeriden — MAS-CAR Motorlu Araçlar, Eskişehir. İkinci el araç yetkili belgesi var (2600339).",
+          "sellability": "K9K motoru parça açısından çok bol. Beyaz renk yeniden satışta güçlü. Ancak 272k km yeniden satışı zorlaştırır.",
+          "redFlags": [
+            "272.000 km ticari kullanım seviyesi — DPF ve enjektör masrafı yakın vadede beklenmeli",
+            "Motor Kaputu değişen — ön çarpışma",
+            "635k TL bu km için iyimser fiyat"
+          ],
+          "questions": [
+            "DPF durumu nedir (soot yüzdesi)?",
+            "Enjektörler hiç değiştirildi mi?",
+            "Turbo'da yağ kaçağı var mı?",
+            "Km bu kadar yüksek neden (ticari mi)?"
+          ],
+          "negotiation": "Hedef: 565.000 TL, maksimum 600.000 TL.",
+          "verdictReason": "Tramer temiz, galeri şeffaf, motor şu an çalışıyor. Ancak 272k km K9K'da DPF-enjektör masrafı yakındır. Bağımsız ekspertiz ve DPF basınç testi şart.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/galeriden-satilik-opel-astra-1-6-enjoy-plus/opel-asta-1-6-enjoy-plus-125-bin-km-2013-manuel-hiz-sabitleme/41466509": {
+      "id": "41466509",
+      "url": "https://www.arabam.com/ilan/galeriden-satilik-opel-astra-1-6-enjoy-plus/opel-asta-1-6-enjoy-plus-125-bin-km-2013-manuel-hiz-sabitleme/41466509",
+      "source": "arabam",
+      "title": "Opel Astra 1.6 Enjoy Plus 2013",
+      "year": 2013,
+      "km": 125000,
+      "price": 679950,
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "seller": "Galeri (Odunpazarı)",
+      "city": "Eskişehir",
+      "statusBadge": "new",
+      "status": "active",
+      "priceHistory": [
+        679950
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 55,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "2 değişen (Motor Kaputu + Sol Ön Çamurluk). Tramer: Satıcı 'iki parça halinde 12.202 TL'. Galeri KM garantisi veriyor.",
+          "marketPrice": "2013 Astra 1.6 benzin 120-130k km: ~550.000–720.000 TL. 679.950 TL piyasa üst bandı — 2 değişen + 12.2k TL tramer dikkate alındığında pahalı.",
+          "engine": "1.6 A16XER 115hp · 4 silindir · 1598cc · Manuel. Zaman zinciri 100k+ km'de kritik kontrol noktası.",
+          "chronicProblems": "Zaman zinciri/kasnak aşınması — 100k+ km'de kritik, pahalı onarım · Krank mili yağ sızıntısı · Termostat arızası · Hidrolik direksiyon sızıntısı",
+          "paint": "Boya: YOK · Değişen: Motor Kaputu + Sol Ön Çamurluk (2 parça) · Tramer: 12.202 TL · Ön sol taraf hasar geçmişi",
+          "accident": "Tramer: 12.202 TL (satıcı beyanı) · Ön sol taraf hasar geçmişi.",
+          "description": "Galeri · Sultandere 75. Yıl Mh., Odunpazarı · Takas uygun · 12 taksit · Dikkat: Açıklamada '2014' yazıyor ama resmi kayıt 2013",
+          "photos": "Sol ön taraf bölgesi dikkatle incelenmeli.",
+          "sellerType": "Galeri · Sultandere 75. Yıl Mh., Odunpazarı, Eskişehir",
+          "sellability": "Opel yetkili servisi Türkiye'de azaldı ●●●○○ · Astra J ikinci elde ilgi azalıyor ●●○○○ · Beyaz renk destekliyor",
+          "redFlags": [
+            "Zaman zinciri: 125k km'de kontrol edilmediyse pahalı bakım",
+            "2 değişen + 12.2k TL tramer",
+            "Açıklamada yıl tutarsızlığı (2013 kayıt / '2014' açıklama)"
+          ],
+          "questions": [
+            "Zaman zinciri ne zaman değişti?",
+            "Sol ön hasarın sebebi?",
+            "Yıl tutarsızlığı neden?"
+          ],
+          "negotiation": "620.000 TL teklif et → 640.000 TL'ye çık → 650.000 TL üstünde değmez.",
+          "verdictReason": "2013 model 125k km, 2 değişen, 12.2k TL tramer, zaman zinciri riski. Fiyat hasar profiline göre yüksek.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-0-9-tce-icon/sahibinden-renault-clio-0-9-tce-icon-2012-model/41415060": {
+      "id": "41415060",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-0-9-tce-icon/sahibinden-renault-clio-0-9-tce-icon-2012-model/41415060",
+      "source": "arabam",
+      "title": "Renault Clio 0.9 TCe Icon 2012",
+      "year": 2012,
+      "km": 242000,
+      "price": 615000,
+      "color": "Kırmızı",
+      "fuel": "Benzin",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        615000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 54,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Bağımsız ekspertiz sunulmamış. Satıcı içten ve ayrıntılı.",
+          "marketPrice": "2012 Clio 0.9 TCe piyasası: 520.000–640.000 TL. 615.000 TL üst banda yakın; 242.000 km için fiyat biraz yüksek.",
+          "engine": "Renault 0.9 TCe (H4Bt) 90hp turbo benzin, 3 silindir. Kronik: turbo sızıntısı (150k+ sonrası sık), ısıtma sistemi sorunları. 242.000 km'de turbo durumu kritik.",
+          "chronicProblems": "Turbo sızıntısı 150k+ sonrası sık · Isıtma sistemi sorunları · 3 silindir titreşimi",
+          "paint": "Tamamı orijinal: 0 boyalı, 0 değişen, 0 belirtilmemiş. Şeffaflık mükemmel. Multimedyada küçük çatlak.",
+          "accident": "Tramer: YOKTUR.",
+          "description": "'BOYA DEĞİŞEN SÖK TAK YOKTUR. TRAMER YOK. Motor kusursuzdur, yağ/duman yok. 4 lastik yeni, muayene yeni. Ağır bakım 20k km önce faturalı. Yedek anahtar+kitapçık.' Dürüst ve ayrıntılı.",
+          "photos": "Motor bölmesi detaylı görülmeli. Turbo bölgesinde yağ sızıntısı izi aranmalı.",
+          "sellerType": "Sahibinden bireysel. İlan dili güvenilir izlenimi veriyor.",
+          "sellability": "0.9 TCe turbo parçaları bulunur ama pahalı. Kırmızı renk satılabilirliği düşürür.",
+          "redFlags": [
+            "242.000 km'de 0.9 TCe turbo riski çok yüksek",
+            "Kırmızı renk",
+            "Piyasa üst fiyat"
+          ],
+          "questions": [
+            "Turbo sesi var mı?",
+            "Soğuk çalışmada duman?",
+            "20k önceki bakım tam neydi?"
+          ],
+          "negotiation": "Teklif: 540.000 TL — Limit: 570.000 TL",
+          "verdictReason": "Orijinal ve dürüst satıcı artı. Ama 242.000 km 0.9 TCe turbo çok riskli.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/otomobil/peugeot-301-16-hdi-active/41432574": {
+      "id": "41432574",
+      "url": "https://www.arabam.com/ilan/otomobil/peugeot-301-16-hdi-active/41432574",
+      "source": "arabam",
+      "title": "Peugeot 301 1.6 HDi Active 2017",
+      "year": 2017,
+      "km": 182000,
+      "price": 650000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        650000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 52,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Resmi ekspertiz raporu yok.",
+          "marketPrice": "2017 P301 1.6 HDi piyasa aralığı: 580.000 – 740.000 TL. 650.000 TL alt-orta bandda. Hasarlılar 580–630k aralığında.",
+          "engine": "1.6 HDi 92 hp (DV6DTED). Genel olarak güvenilir. Bilinen kronik: enjektör sızıntısı 150k+ km'de, ısıtıcı tapa, partikül filtresi. Muayene 2027 Aralık.",
+          "chronicProblems": "Enjektör sızıntısı 150k+ km'de · Isıtıcı tapa (bujiler) · Partikül filtresi",
+          "paint": "5 boyalı: Sol Ön Çamurluk, Sol Ön Kapı, Sol Arka Kapı, Sol Arka Çamurluk, Motor Kaputu. 1 lokal: Arka Kaput. 0 değişen. Sol taraf tümüyle boyanmış.",
+          "accident": "Tramer: 8.800 TL. Sol taraf 5 panel boyalı ama tramer sadece 8.800 TL — ciddi tutarsızlık. Sol tarafın büyük bölümü sigorta dışı tamir edilmiş olabilir.",
+          "description": "'Ön takımı yeni yaptırdım fakat yine ses gelmeye başladı' — satıcı kronik süspansiyon sorununu bizzat beyan ediyor. Bu beyan çok önemli bir uyarı.",
+          "photos": "Sol taraf boyaları işık altında mutlaka kontrol edilmeli.",
+          "sellerType": "Sahibinden, bireysel. İlk sahibi değil. Kronik sorunu bizzat beyan etmesi görece dürüstlük işareti.",
+          "sellability": "P301 parçaları Türkiye'de bulunabilir. Beyaz renk yeniden satışta avantaj. Kronik süspansiyon sorunu yeniden satışı zorlaştırır.",
+          "redFlags": [
+            "Sol taraf 5 panel boyalı, tramer sadece 8.800 TL — sigorta dışı büyük tamir şüphesi",
+            "Satıcının bizzat 'ön takım sesi geçmedi' demesi — çözümsüz mekanik sorun",
+            "Motor kaputu boyalı — ön çarpışma geçmişi"
+          ],
+          "questions": [
+            "Sol taraf hasarı için sigorta kaydı/ekspertiz var mı?",
+            "Ön takım hangi parçası sesi yapıyor?",
+            "Kaç önceki sahibi var?"
+          ],
+          "negotiation": "Süspansiyon + sol taraf hasarı gerekçesiyle 575.000 TL hedef, maksimum 610.000 TL.",
+          "verdictReason": "Süspansiyonun tam teşhisi ve sol taraf sigorta geçmişi netleşirse değerlendirilebilir. Kronik mekanik sorun çözümsüz kalıyorsa PAS GEÇ.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-extreme/41390514": {
+      "id": "41390514",
+      "url": "https://www.arabam.com/ilan/otomobil/renault-clio-15-dci-extreme/41390514",
+      "source": "arabam",
+      "title": "Renault Clio 1.5 dCi Extreme 2008",
+      "year": 2008,
+      "km": 242000,
+      "price": 465000,
+      "color": "Mavi (metalik)",
+      "fuel": "Dizel",
+      "seller": "Sahibinden",
+      "city": "Eskişehir",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        465000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 51,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Resmi bağımsız ekspertiz yok. Satıcı aracın durumunu açıkça yazıyor — beyan arabam veritabanıyla birebir uyuşuyor.",
+          "marketPrice": "2008 Clio 1.5 dCi piyasa aralığı: 320.000 – 480.000 TL. 465.000 TL üst bandda.",
+          "engine": "1.5 dCi K9K 65 hp. Turbo değişti, Triger değişti, Silindir kapak contası değişti. Silindir kapak contası değişimi kritik: motor geçmişte aşırı ısındığını gösterir. Silindir kafası eğrilik kontrol edilmiş mi?",
+          "chronicProblems": "Silindir kapak contası geçmişi — aşırı ısınma şüphesi · Turbo geçmişi · DPF bakımı",
+          "paint": "2 boyalı: Sağ Ön Çamurluk, Sol Ön Çamurluk. 0 lokal, 0 değişen. Satıcı beyan ediyor — arabam ile uyuşuyor.",
+          "accident": "Tramer: 32.000 TL — 29.10.2025 tarihli. Satıcı açıklıyor: 'sol çamurluk boyanması ve far değişmesinden kaynaklanıyor.'",
+          "description": "Satıcı boya/değişen/tramer konusunda son derece şeffaf. 'Yağ yakma, duman atma, yağ kaçağı yok, motor yürüyen mükemmel'",
+          "photos": "Ön bölge yakından görülmeli. Silindir kafasının geçirdiği tamir izleri motor bölmesinde görülebilir.",
+          "sellerType": "Sahibinden, bireysel, 3. sahip. Açıklama kalitesi yüksek.",
+          "sellability": "K9K motoru parça bol ve ucuz. Mavi metalik renk nötr. 2008 Clio alıcı kitlesi daralıyor.",
+          "redFlags": [
+            "Silindir kapak contası değişmiş — motor aşırı ısınma geçmişi şüphesi",
+            "Turbo değişmiş — eski turbo öldüyse yeni turbo da etkilenmiş olabilir",
+            "18 yaşlı araç",
+            "465k fiyat bu yaş için yüksek"
+          ],
+          "questions": [
+            "Kapak contası neden değişti (aşırı ısınma mı)?",
+            "Silindir kafası plan kontrolü yapıldı mı?",
+            "Turbo neden gitti?",
+            "Soğutma sistemi durumu?"
+          ],
+          "negotiation": "18 yaş + kapak conta geçmişi gerekçesiyle hedef: 400.000 TL, maksimum 430.000 TL.",
+          "verdictReason": "Satıcı şeffaf, tramer tutarlı, bakımlar kapsamlı. Silindir kapak contası geçmişi ciddi soru işareti — silindir kafası ekspertiz şart.",
+          "comment": ""
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-fiat-egea-1-3-multijet-easy/akademisyenden-fiat-egea-1-3-multijet/41479564": {
+      "id": "41479564",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-fiat-egea-1-3-multijet-easy/akademisyenden-fiat-egea-1-3-multijet/41479564",
+      "source": "arabam",
+      "title": "Fiat Egea 1.3 Multijet Easy 2017",
+      "year": 2017,
+      "km": 161000,
+      "price": 695000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden",
+      "city": "Eskişehir/Tepebaşı",
+      "statusBadge": "active",
+      "status": "active",
+      "priceHistory": [
+        695000
+      ],
+      "firstSeen": "2026-06-23",
+      "lastSeen": "2026-06-23",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 50,
+        "analyzedAt": "2026-06-23",
+        "sections": {
+          "expertise": "Satıcı ekspertiz raporu mevcut diyor; bağımsız onaylama şart.",
+          "marketPrice": "2017 Egea 1.3 Multijet 161k km piyasası: 650.000–800.000 TL. 695k TL orta bant — 33k TL trameriyle bu fiyat fazla.",
+          "engine": "Fiat 1.3 Multijet 95hp dizel. Güvenilir motor ama 161k km'de rutin bakım dönemi.",
+          "chronicProblems": "DPF tıkanması · EGR kirlenmesi · Turbo sızıntısı",
+          "paint": "Arka kaput değişmiş (arka çarpma kanıtı). Sağ/sol arka çamurluk + sağ ön kapı lokal boyalı.",
+          "accident": "Tramer: 33.000 TL kayıtlı. Arka kaput değişen hasar kaydıyla tutarlı.",
+          "description": "Satıcı dürüst, bakımlar zamanında, ekspertiz var diyor.",
+          "photos": "Arka bölge hasarı incelenmeli.",
+          "sellerType": "Sahibinden bireysel.",
+          "sellability": "Egea Türkiye'de popüler. Parça bol. Beyaz renk iyi satılabilirlik.",
+          "redFlags": [
+            "Tramer 33.000 TL kayıtlı",
+            "Arka kaput değişen — arka çarpma kanıtı"
+          ],
+          "questions": [
+            "Tramer 33k TL — tamamı bu mu?",
+            "Arka çarpmada hız ve açı?",
+            "Ekspertiz raporunda tam olarak ne yazıyor?"
+          ],
+          "negotiation": "Teklif: 640.000 TL — Limit: 660.000 TL",
+          "verdictReason": "Satıcı dürüst, bakımlar zamanında, ekspertiz var. Ama 33k TL tramer + arka kaput değişen bu fiyatta değmez. Tramersiz alternatifler önce.",
+          "comment": ""
         }
       }
     }
