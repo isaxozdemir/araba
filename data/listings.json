@@ -512,8 +512,8 @@
       "fuel": "Benzin",
       "seller": "Galeri (Hoşnudiye, Tepebaşı)",
       "city": "Eskişehir",
-      "statusBadge": "active",
-      "status": "active",
+      "statusBadge": "removed",
+      "status": "removed",
       "priceHistory": [
         695000
       ],
@@ -693,8 +693,8 @@
       "fuel": "Benzin",
       "seller": "Galeriden (Eskişehir)",
       "city": "Eskişehir",
-      "statusBadge": "active",
-      "status": "active",
+      "statusBadge": "removed",
+      "status": "removed",
       "priceHistory": [
         859000
       ],
