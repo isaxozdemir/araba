@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-06-24",
+  "lastRun": "2026-07-01",
   "listings": {
     "https://www.arabam.com/ilan/41179900": {
       "url": "https://www.arabam.com/ilan/41179900",
@@ -149,81 +149,6 @@
         }
       }
     },
-    "https://www.arabam.com/ilan/41289931": {
-      "url": "https://www.arabam.com/ilan/41289931",
-      "source": "adem",
-      "status": "live",
-      "statusBadge": "live",
-      "title": "Opel Astra 1.4T Sport Still 2012",
-      "km": 167000,
-      "price": 830000,
-      "seller": "Sahibinden",
-      "city": "Eskişehir",
-      "color": "Gümüş",
-      "fuel": "Benzin",
-      "id": "41289931",
-      "analysis": {
-        "score": 70,
-        "sections": {
-          "marketPrice": "770.000–860.000 TL · Piyasa İÇİNDE — ama üst sınıra yakın",
-          "engine": "1.4 Turbo 120 hp — güçlü ama turbo bakımı pahalılaşabilir (167k km)",
-          "chronicProblems": "Astra J 1.4T: turbo contası, elektronik arızalar, ön salıncak, egzoz manifoldu — 160k+ km'de risk artar",
-          "paint": "Tamamı orijinal — hiç boyalı panel yok",
-          "accident": "Tramer kaydı YOK",
-          "description": "Sahibinden · Triger garantili (1 yıl) · Sunroof · 167k km",
-          "photos": null,
-          "sellerType": "Sahibinden / Eskişehir",
-          "sellability": "●●● Orta — Astra J talep görüyor ama 830k fiyatı alıcıyı düşündürür",
-          "expertise": null,
-          "redFlags": [],
-          "questions": [
-            "Triger garantisi belgesi var mı?",
-            "Turbo basıncı kontrol edildi mi?",
-            "Motor yağ tüketimi var mı?"
-          ],
-          "negotiation": "790–800k hedef; kronik sorunlar ve 167k km argümanıyla indirim istenilebilir",
-          "comment": "Orijinal ve tramersiz güçlü artılar; ancak 830k yüksek fiyat ve Astra J kronik sorunları düşündürüyor.",
-          "verdictReason": "Orijinal + tramersiz + triger yeni = iyi profil; kronik sorunlar ve fiyat baskı yapıyor"
-        }
-      }
-    },
-    "https://www.arabam.com/ilan/40106594": {
-      "url": "https://www.arabam.com/ilan/40106594",
-      "source": "adem",
-      "status": "live",
-      "statusBadge": "live",
-      "title": "Opel Astra 1.6 Edition 2015",
-      "km": 77000,
-      "price": 849900,
-      "seller": "Galeri (Erdost Otomotiv)",
-      "city": "Eskişehir",
-      "color": "Beyaz",
-      "fuel": "LPG+Benzin",
-      "id": "40106594",
-      "analysis": {
-        "score": 68,
-        "sections": {
-          "marketPrice": "800.000–900.000 TL · Piyasa İÇİNDE — 77k km için mantıklı",
-          "engine": "1.6 SIDI 170 hp · LPG sonradan — yakıt maliyeti avantajı",
-          "chronicProblems": "Astra J 1.6: zamanlama zinciri, elektronik sorunlar, ön salıncak — düzenli bakım şart",
-          "paint": "Hatasız boyasız — tamamı orijinal",
-          "accident": "Tramer belirtilmemiş (galeri, büyük ihtimalle yok)",
-          "description": "Galeri ilanı · Erdost Otomotiv · 77k km hatasız boyasız",
-          "photos": null,
-          "sellerType": "Galeri / Eskişehir — teslim pratik",
-          "sellability": "●●● Orta — 850k fiyat alıcıyı düşündürür; km ile pazarda öne çıkabilir",
-          "expertise": null,
-          "redFlags": [],
-          "questions": [
-            "LPG montajı yetkili mi?",
-            "Tramer raporu talep edilebilir mi?"
-          ],
-          "negotiation": "820–830k hedef; 'piyasa içinde ama en düşük km' avantajı var",
-          "comment": "77k km listede en düşük (Egea hariç), hatasız. Astra kronik sorunları ve yüksek fiyat dezavantaj.",
-          "verdictReason": "77k km + hatasız = iyi kondisyon; Astra kronik ve 850k fiyat skoru bastırıyor"
-        }
-      }
-    },
     "https://www.arabam.com/ilan/41348812": {
       "url": "https://www.arabam.com/ilan/41348812",
       "source": "adem",
@@ -258,44 +183,6 @@
           "negotiation": "750–760k hedef; Ankara lokasyonu argümanıyla pazarlık mümkün",
           "comment": "Hatasız boyasız ve piyasa altı fiyat iyi. Ankara'daki galeri uzaklık dezavantajı.",
           "verdictReason": "Piyasa altı + hatasız = cazip; Ankara ve Astra kronik baskı yapıyor"
-        }
-      }
-    },
-    "https://www.arabam.com/ilan/41318637": {
-      "url": "https://www.arabam.com/ilan/41318637",
-      "source": "adem",
-      "status": "live",
-      "statusBadge": "live",
-      "title": "Renault Symbol 0.9 TCe 2020",
-      "km": 121000,
-      "price": 680000,
-      "seller": "Sahibinden",
-      "city": "Eskişehir",
-      "color": "Beyaz",
-      "fuel": "Benzin",
-      "id": "41318637",
-      "analysis": {
-        "score": 65,
-        "sections": {
-          "marketPrice": "700.000–790.000 TL · Piyasa ALTINDA — 2020 model için fırsat",
-          "engine": "0.9 TCe 90 hp turbo — listede en yeni motor (2020); turbo bakımı uzun vadede önemli",
-          "chronicProblems": "0.9 TCe: yağ tüketimi, turbo plaka, zaman zinciri aşınması bilinen sorunlar — km arttıkça risk artar",
-          "paint": "1 lokal boyalı panel · Diğer 12 belirtilmemiş (platform standardı, sorun değil)",
-          "accident": "Tramer belirtilmemiş",
-          "description": "2020 model · Muayene 2027'ye kadar geçerli · Sahibinden",
-          "photos": null,
-          "sellerType": "Sahibinden / Eskişehir",
-          "sellability": "●●●●● Çok kolay — 2020 model Symbol bulunması zor, hızlı satılır",
-          "expertise": null,
-          "redFlags": [],
-          "questions": [
-            "Turbo kontrolü yapıldı mı?",
-            "Yağ tüketimi var mı?",
-            "Servis kayıtları var mı?"
-          ],
-          "negotiation": "655–665k hedef; 0.9 TCe kronik sorunları argümanıyla indirim istenebilir",
-          "comment": "2020 model listede en yeni (Egea hariç). Piyasa altı fiyat. 0.9 TCe kronik sorunları takip edilmeli.",
-          "verdictReason": "2020 model + piyasa altı = güçlü; 0.9 TCe kronik sorunlar ve ekspertiz zorunluluğu baskı yapıyor"
         }
       }
     },
@@ -374,44 +261,6 @@
           "negotiation": "665–675k hedef; değişen kaput ve Kocaeli ile pazarlık",
           "comment": "73k km çok düşük ve 2019 model cazip. Arka kaput değişimi kaza geçmişine işaret — arka yapı ekspertizle incelenmeli.",
           "verdictReason": "Düşük km + piyasa altı = cazibe; arka kaput değişimi ve Kocaeli uzaklığı baskı yapıyor"
-        }
-      }
-    },
-    "https://www.arabam.com/ilan/41276551": {
-      "url": "https://www.arabam.com/ilan/41276551",
-      "source": "adem",
-      "status": "live",
-      "statusBadge": "live",
-      "title": "VW Polo 1.2 TDi Trendline 2012",
-      "km": 113000,
-      "price": 675000,
-      "seller": "Sahibinden (emekli memur)",
-      "city": "Eskişehir",
-      "color": "Gümüş",
-      "fuel": "Dizel",
-      "id": "41276551",
-      "analysis": {
-        "score": 63,
-        "sections": {
-          "marketPrice": "610.000–700.000 TL · Piyasa ÜSTÜNDE — 720k'dan 675k'ya inmiş, yine de yüksek",
-          "engine": "1.2 TDi 75 hp dizel — düşük km motor için hâlâ erken; debriyaj yeni",
-          "chronicProblems": "VW 1.2 TDi: yağ tüketimi, zaman zinciri aşınması, enjektör arızası — bilinen sorunlar",
-          "paint": "3 lokal boyalı tampon bölgesi · 10 belirtilmemiş (platform standardı, sorun değil)",
-          "accident": "Tramer belirtilmemiş",
-          "description": "11 yıllık emekli memur · Garajda muhafaza · Debriyaj yeni · Fiyat 720k'dan 675k'ya inmiş",
-          "photos": null,
-          "sellerType": "Sahibinden / Eskişehir — ihtiyaçtan satış, dürüst profil",
-          "sellability": "●●●● Kolay — Polo VW güvencesiyle tercih edilir",
-          "expertise": null,
-          "redFlags": [],
-          "questions": [
-            "VW zaman zinciri servisi yapıldı mı?",
-            "Yağ tüketimi var mı?",
-            "Servis kayıtları var mı?"
-          ],
-          "negotiation": "645–655k hedef; piyasa üstü fiyat ve 3 lokal boya argümanıyla indirim istenilebilir",
-          "comment": "113k km garaj arabası profili güven veriyor. Piyasa üstü fiyat ve VW 1.2 TDi kronik sorunları düşündürüyor.",
-          "verdictReason": "Emekli garaj arabası + 113k km = iyi kondisyon; kronik sorunlar ve piyasa üstü fiyat baskı yapıyor"
         }
       }
     },
@@ -1377,6 +1226,1242 @@
           "comment": ""
         }
       }
+    },
+    "https://www.arabam.com/ilan/38394059": {
+      "url": "https://www.arabam.com/ilan/38394059",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Clio 1.5 dCi SportTourer Touch 2016",
+      "km": 210000,
+      "price": 739750,
+      "seller": "Dark Motors (Galeri)",
+      "city": "Eskişehir",
+      "color": "Gri",
+      "fuel": "Dizel",
+      "id": "38394059",
+      "year": 2016,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        739750
+      ],
+      "analysis": {
+        "score": 62,
+        "sections": {
+          "marketPrice": "Eskişehir'de 2016 Clio SportTourer dizel örnekleri 650.000-750.000 TL bandında; bu araç bandın ortasında, km filtre üstü (210.000) olsa da fiyat/durum dengeli.",
+          "engine": "1.5 dCi 75-100 HP — Renault-Nissan'ın en sağlam dizellerinden, düşük yakıt tüketimi ve makul bakım maliyeti; bu km'de enjektör/turbo kontrolü önerilir.",
+          "chronicProblems": "Clio 1.5 dCi'de bilinen sorunlar: enjektör arızası, turbo aşınması, EGR tıkanıklığı, yakıt pompası; 200k km üzerinde bu kontroller şart.",
+          "paint": "2 parça değişen (sağ arka çamurluk, motor kaputu) + 1 boyalı (sağ arka kapı) — orta seviye (3 parça).",
+          "accident": "Satıcı açıklamasında 3.000 TL hasar kaydı belirtiyor (çok hafif); platformda tramer 'belirtilmemiş' görünüyor, satıcı beyanıyla çelişmiyor.",
+          "description": "Galeri ilanı, açık ve detaylı; şase/podye/airbag işlemi yok deniyor. Takasa uygun, pazarlık payı var.",
+          "photos": "18 fotoğraf; dış kondisyon temiz görünüyor, galeri önünde çekilmiş net fotoğraflar.",
+          "expertise": null,
+          "sellerType": "Galeriden — Dark Motors, Platinum Üye, 1. yıl.",
+          "sellability": "●●●●○ İyi — Clio SportTourer (station wagon) formu biraz niş ama otomatik vites talebi artırır.",
+          "redFlags": [],
+          "questions": [
+            "3.000 TL'lik hasar kaydının detayı nedir (parça/işçilik)?",
+            "210.000 km'de triger/enjektör bakım geçmişi var mı?",
+            "Otomatik şanzıman bakımı ne zaman yapıldı?"
+          ],
+          "negotiation": "739.750 TL listeden; km filtre üstü olduğu için 700-710k'ya çekilebilir, 690k altı zor kabul edilir.",
+          "verdictReason": "Dengeli fiyat ve düşük-orta hasar geçmişine karşın yüksek km (210k) skoru sınırlıyor.",
+          "comment": "Otomatik vites arayan ve station wagon kullanışlılığını önemseyen biri için değerlendirilebilir; km yüksek olduğundan uzun vade planlayanlar için ideal değil."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41355122": {
+      "url": "https://www.arabam.com/ilan/41355122",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Clio 1.5 dCi SportTourer Joy 2013",
+      "km": 272000,
+      "price": 560000,
+      "seller": "Bireysel (Sahibinden)",
+      "city": "Ankara",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41355122",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        600000,
+        560000
+      ],
+      "analysis": {
+        "score": 57,
+        "sections": {
+          "marketPrice": "272.000 km çok yüksek olsa da 560.000 TL (600k'dan indirimli) bu km için düşük/orantılı; benzer düşük km'li örnekler 650k+ seviyede.",
+          "engine": "1.5 dCi 75 hp — sağlam motor ama 272.000 km'de genel yorgunluk riski artar; enjektör/turbo/triger geçmişi kritik.",
+          "chronicProblems": "Clio 1.5 dCi: enjektör, turbo, EGR, yakıt pompası; bu km seviyesinde neredeyse kaçınılmaz bakım kalemleri.",
+          "paint": "2 boyalı (sağ ön + sol ön çamurluk), değişen yok — hafif seviye.",
+          "accident": "Tramer belirtilmemiş (platform varsayılanı); ekspertiz raporu olduğu ilan başlığında belirtiliyor ama sayfada detay görünmüyor.",
+          "description": "Kısa ama net: balata/akü yeni değişmiş, 10 bin bakımı yapılmış. Fiyat indirimi (600k→560k) satıcının satmaya istekli olduğunu gösteriyor.",
+          "photos": "11 fotoğraf mevcut, standart galeri/sahibinden görselleri.",
+          "expertise": "İlan başlığı ekspertiz raporundan bahsediyor ancak rapor sayfada görüntülenemedi — teyit gerekir.",
+          "sellerType": "Sahibinden — Ankara İvedik OSB, bireysel.",
+          "sellability": "●●●○○ Orta — 272.000 km alıcı havuzunu daraltır; Ankara'da, Eskişehir dışı.",
+          "redFlags": [
+            "272.000 km ile filtre çok üstünde (Adem listesinde olduğu için değerlendirmeye alındı)",
+            "Ekspertiz raporu iddiası doğrulanamadı"
+          ],
+          "questions": [
+            "Ekspertiz raporunu paylaşabilir misiniz?",
+            "272.000 km'de triger seti değişti mi?",
+            "Fiyat 560k'da son mu, daha inecek mi?"
+          ],
+          "negotiation": "560.000 TL üzerinden 520-530k teklif edilebilir; km çok yüksek olduğu için pazarlık payı geniş.",
+          "verdictReason": "Çok yüksek km skoru büsbütün düşürüyor; fiyat orantılı olsa da uzun vadeli güvenilirlik riski yüksek.",
+          "comment": "Kısa vadeli/ekonomik kullanım için düşünülebilir ama yüksek km nedeniyle ilk tercih olmamalı; ekspertiz raporu görülmeden karar verilmemeli."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41444514": {
+      "url": "https://www.arabam.com/ilan/41444514",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Peugeot 301 1.6 BlueHDI Active 2018",
+      "km": 171000,
+      "price": 749000,
+      "seller": "Coşkun Otomotiv (Galeri)",
+      "city": "Ankara",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41444514",
+      "year": 2018,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        749000
+      ],
+      "analysis": {
+        "score": 72,
+        "sections": {
+          "marketPrice": "Eskişehir/Ankara'da 2018 301 BlueHDI 171k km için 749.000 TL bandın üst kısmında ama aracın 'tamamı orjinal' durumu bunu destekliyor.",
+          "engine": "1.6 BlueHDI 102 hp — Peugeot/Citroen'in yaygın dizeli; DPF ve enjektör bakımı düzenli yapılırsa güvenilir.",
+          "chronicProblems": "301/BlueHDI ailesinde bilinen konular: DPF tıkanması, enjektör, çift kütlü volan; bu araçta henüz belirti yok.",
+          "paint": "Tamamı orijinal — 0/0, tertemiz kayıt. Ağır hasarlı: Hayır.",
+          "accident": "Tramer tutarı yok — kayıtlarda temiz.",
+          "description": "Galeri açıklaması net: motor/şanzıman/yürüyen aksam sorunsuz, değişen-boya-hasar yok, km orjinal. Kredi imkanları sunuluyor.",
+          "photos": "27 fotoğraf; galeri sunumu düzenli.",
+          "expertise": "'Araçlarımız kilometre ve ekspertiz garantilidir' ibaresi var ama ayrı rapor paylaşılmamış.",
+          "sellerType": "Galeriden — Coşkun Otomotiv, Yetki Belge No: 0602430.",
+          "sellability": "●●●●● Çok kolay — 301 orta-yaygın segment, beyaz renk, galeri garantisi artı puan.",
+          "redFlags": [],
+          "questions": [
+            "Ekspertiz garantisi yazılı olarak veriliyor mu?",
+            "DPF temizliği/değişimi yapıldı mı?",
+            "Takas değerlendirmesinde hangi araçlar kabul ediliyor?"
+          ],
+          "negotiation": "749.000 TL'den 715-725k'ya çekilebilir; tamamen orjinal olması pazarlık payını sınırlar.",
+          "verdictReason": "Tamamen orijinal kayıt ve temiz tramer, orta-üst fiyat bandını haklı çıkarıyor; km ve motor riski düşük.",
+          "comment": "Hatasız-boyasız arayan ve galeri güvencesi isteyenler için sağlam bir seçenek; Ankara'da olması Eskişehir alıcıları için ek mesafe getirir."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41550176": {
+      "url": "https://www.arabam.com/ilan/41550176",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Corsa 1.3 CDTI Essentia 2013",
+      "km": 213600,
+      "price": 605000,
+      "seller": "Bireysel (Sahibinden)",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41550176",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        605000
+      ],
+      "analysis": {
+        "score": 62,
+        "sections": {
+          "marketPrice": "2013 Corsa CDTI 213k km için 605.000 TL Eskişehir'de normal bandda; benzer km'li Corsa'lar 580-650k arasında.",
+          "engine": "1.3 CDTI 75 hp — Opel/Fiat ortak dizel motoru, düşük yakıt tüketimi, bilinen sağlam blok.",
+          "chronicProblems": "Corsa 1.3 CDTI: enjektör, turbo, EGR valfi; 200k km üzerinde kontrol edilmesi gereken kalemler.",
+          "paint": "3 boyalı + 1 lokal boyalı (sağ taraf: kapı, çamurluk) — orta seviye (4 parça), değişen yok.",
+          "accident": "Tramer tutarı yok; satıcı 'hasar kaydı yok' diyor, platform da doğruluyor.",
+          "description": "Açık ve dürüst: değişen yok, 3-3.5 parça ince çizik boyası, muayene 18/05/2028'e kadar geçerli, klima aktif, yağ/filtre bakımı yeni.",
+          "photos": "11 fotoğraf, standart sahibinden sunumu.",
+          "expertise": null,
+          "sellerType": "Sahibinden — bireysel, Eskişehir Odunpazarı.",
+          "sellability": "●●●●○ İyi — Corsa çok yaygın, beyaz renk, Eskişehir yerel avantajı.",
+          "redFlags": [],
+          "questions": [
+            "Sağ taraftaki 4 parça boyanın nedeni neydi (çizik mi, küçük çarpma mı)?",
+            "Km 213.600 aktif kullanımdan mı artıyor, satış anındaki kesin km ne?",
+            "Triger seti değişim geçmişi var mı?"
+          ],
+          "negotiation": "605.000 TL'den 575-585k'ya pazarlık payı var; muayenesi uzun olduğu için makul fiyat.",
+          "verdictReason": "Dengeli fiyat, temiz tramer ve şeffaf açıklama; orta seviye boya ve yüksek km skoru sınırlıyor.",
+          "comment": "Eskişehir'de yerel, dürüst bir sahibinden satıcısı; günlük kullanım için mantıklı ama uzun km geçmişi göz önünde bulundurulmalı."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41584328": {
+      "url": "https://www.arabam.com/ilan/41584328",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Peugeot 301 1.2 PureTech Active 2019",
+      "km": 149000,
+      "price": 665000,
+      "seller": "Galeri",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "41584328",
+      "year": 2019,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        665000
+      ],
+      "analysis": {
+        "score": 77,
+        "sections": {
+          "marketPrice": "2019 301 149k km için 665.000 TL — Eskişehir'de benzer 301'lerin çoğu 700k+ seviyesinde; bu araç piyasa altında, iyi fiyat/değer.",
+          "engine": "1.2 PureTech 76-100 hp benzinli — PSA'nın küçük hacimli turbo benzinlisi; zincir gerginlik ayarı ve yağ tüketimi bilinen risk noktaları.",
+          "chronicProblems": "PureTech ailesi: yağ tüketimi, zincir gerginlik ayarı sesi, bujilerin erken kirlenmesi; düzenli yağ takibi önemli.",
+          "paint": "Tamamı orijinal — 0/0, hatasız boyasız değişensiz beyanı ilanla uyumlu.",
+          "accident": "Tramer 'belirtilmemiş' (platform varsayılanı, şüpheli değil); hasar kaydı yok beyanı var.",
+          "description": "Kısa ve net: 'Araç hatasız boyasız değişensiz, hasar kaydı yok.' Takasa uygun değil.",
+          "photos": "29 fotoğraf; galeri sunumu geniş kapsamlı.",
+          "expertise": null,
+          "sellerType": "Galeriden, Eskişehir Odunpazarı Sultandere.",
+          "sellability": "●●●●● Çok kolay — beyaz renk, temiz kayıt, Eskişehir yerel, 301 orta-yaygın talep.",
+          "redFlags": [],
+          "questions": [
+            "PureTech motorunda zincir gerginlik ayarı yapıldı mı?",
+            "Yağ tüketimi şikayeti oldu mu?",
+            "Takasa neden uygun değil, satıcı tarafında bir kısıtlama mı var?"
+          ],
+          "negotiation": "665.000 TL zaten piyasa altı; 640-650k'ya çıkarılabilir, bu seviyenin altı zor.",
+          "verdictReason": "Piyasa altı fiyat + tamamen orijinal kayıt + düşük-orta km kombinasyonu listenin güçlü adaylarından biri yapıyor.",
+          "comment": "Fiyat/değer dengesi çok iyi; PureTech motorun yağ takibine dikkat edilmesi koşuluyla güvenle değerlendirilebilir. Hemen bakılmalı."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41685691": {
+      "url": "https://www.arabam.com/ilan/41685691",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Peugeot 301 1.6 BlueHDI Active 2018",
+      "km": 154000,
+      "price": 635000,
+      "seller": "Ataköy Motors (Galeri)",
+      "city": "İstanbul",
+      "color": "Gri",
+      "fuel": "Dizel",
+      "id": "41685691",
+      "year": 2018,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        635000
+      ],
+      "analysis": {
+        "score": 71,
+        "sections": {
+          "marketPrice": "2018 301 BlueHDI 154k km için 635.000 TL — Eskişehir/Ankara'daki benzerlerinden (700k+) belirgin ucuz; İstanbul lokasyonu fiyatı düşürmüş olabilir.",
+          "engine": "1.6 BlueHDI 102 hp dizel — DPF bakımı düzenli yapılmalı, aksi halde maliyetli arıza riski.",
+          "chronicProblems": "301/BlueHDI: DPF tıkanması, çift kütlü volan, enjektör; galeri ekspertiz notunda büyük sorun işaretlenmemiş.",
+          "paint": "1 boyalı (sol ön çamurluk) + 2 değişen (kaput, sağ ön çamurluk) — orta seviye (3 parça); şase/podye/airbag'de işlem yok (satıcı beyanı).",
+          "accident": "Tramer 'belirtilmemiş'; galeri ekspertiz notunda ayrı tramer rakamı paylaşılmamış.",
+          "description": "Galeri ekspertiz notu şeffaf: 'Boya: sol ön çamurluk, Değişen: kaput-sağ ön çamurluk, Tramer:' (boş bırakılmış).",
+          "photos": "26 fotoğraf, galeri sunumu.",
+          "expertise": "Galeri kendi ekspertiz notunu paylaşmış (boya/değişen detayı).",
+          "sellerType": "Galeriden — Ataköy Motors, İstanbul Bakırköy.",
+          "sellability": "●●●○○ Orta — İstanbul'da olması Eskişehir alıcıları için nakliye/görme maliyeti getirir; gri renk orta talep.",
+          "redFlags": [],
+          "questions": [
+            "Tramer rakamı ekspertiz notunda neden boş bırakılmış?",
+            "Kaput ve çamurluk değişimi hangi olayla ilgili?",
+            "Eskişehir'e teslimat/nakliye seçeneği var mı?"
+          ],
+          "negotiation": "635.000 TL'den 600-610k'ya çekilebilir; İstanbul mesafesi pazarlık gücü verir.",
+          "verdictReason": "Çok iyi fiyat/değer oranına karşın orta seviye kaporta geçmişi ve İstanbul mesafesi skoru sınırlıyor.",
+          "comment": "Fiyat açısından listenin en cazip 301'lerinden biri; İstanbul'dan Eskişehir'e getirtme lojistiğini göze alanlar için değerlendirilebilir."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41452814": {
+      "url": "https://www.arabam.com/ilan/41452814",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Clio 1.5 dCi SportTourer Joy 2013",
+      "km": 250000,
+      "price": 594000,
+      "seller": "Bireysel",
+      "city": "Ankara",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41452814",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        600000,
+        594000
+      ],
+      "analysis": {
+        "score": 61,
+        "sections": {
+          "marketPrice": "250.000 km çok yüksek ama 594.000 TL (600k'dan indirimli) bu km için orantılı/düşük; benzer düşük km'li Clio SportTourer'lar 650k+.",
+          "engine": "1.5 dCi 75 hp — sağlam motor; satıcı triger seti ve enjektörün yeni değiştiğini belirtiyor, bu olumlu.",
+          "chronicProblems": "Clio 1.5 dCi: enjektör, turbo, EGR; bu araçta enjektör ve triger yenilenmiş olması riski azaltıyor.",
+          "paint": "2 tam + 1 lokal boya (motor kaputu, sağ arka çamurluk/kapı) — orta seviye (3 parça), değişen yok.",
+          "accident": "Tramer 16.500 TL — satıcı açıkça beyan ediyor, hafif-orta bandda, şeffaf.",
+          "description": "Çok detaylı ve dürüst açıklama: bakım geçmişi, lastik/triger/enjektör yenilikleri, tramer rakamı net verilmiş. Takas değerlendirilir.",
+          "photos": "15 fotoğraf mevcut.",
+          "expertise": null,
+          "sellerType": "Sahibinden — Ankara Sincan, bireysel.",
+          "sellability": "●●●○○ Orta — 250.000 km alıcı havuzunu daraltır, Ankara'da; şeffaf satıcı ve bakım geçmişi artı.",
+          "redFlags": [],
+          "questions": [
+            "16.500 TL'lik tramer hangi parçayı kapsıyor?",
+            "250.000 km'de şanzıman/debriyaj kontrolü yapıldı mı?",
+            "Fiyat 594k'da son mu?"
+          ],
+          "negotiation": "594.000 TL'den 560-570k'ya inebilir; km yüksekliği pazarlık gücü verir.",
+          "verdictReason": "Şeffaf satıcı ve yakın zamanda yapılan bakımlar olumlu; ancak 250.000 km skoru ciddi şekilde düşürüyor.",
+          "comment": "Bakım geçmişi güçlü ve satıcı dürüst; yüksek km'yi kabul edebilecek, kısa-orta vadeli kullanım planlayan alıcılar için uygun."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41546039": {
+      "url": "https://www.arabam.com/ilan/41546039",
+      "source": "adem",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Ford Fiesta 1.5 TDCi Trend 2013",
+      "km": 126000,
+      "price": 680000,
+      "seller": "Bireysel",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41546039",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        680000
+      ],
+      "analysis": {
+        "score": 63,
+        "sections": {
+          "marketPrice": "2013 Fiesta dizel 126k km için 680.000 TL bandın biraz üstünde; benzer Fiesta'lar Eskişehir'de 580-650k arasında görülüyor.",
+          "engine": "1.5 TDCi 75 hp — Ford/PSA ortak dizel; turbo ve DPF bakımı düzenli olmalı.",
+          "chronicProblems": "Fiesta 1.5 TDCi: turbo aşınması, DPF tıkanması, enjektör; orta km'de henüz kritik değil ama takip gerekir.",
+          "paint": "4 boyalı (sağ ön çamurluk, motor kaputu, ön+arka tampon) — orta seviye, değişen yok.",
+          "accident": "Tramer 12.000 TL — satıcı 'hasar kaydı fotoğraflarda paylaşılmış' diyerek şeffaf davranıyor.",
+          "description": "Triger seti ve periyodik bakım bu yıl yapılmış, 4 lastik sıfır; 'ağır hasar kaydı yoktur' notu var.",
+          "photos": "9 fotoğraf, standart sahibinden sunumu.",
+          "expertise": null,
+          "sellerType": "Sahibinden — Eskişehir Tepebaşı, bireysel.",
+          "sellability": "●●●●○ İyi — Fiesta yaygın ve aranan, beyaz renk, Eskişehir yerel.",
+          "redFlags": [],
+          "questions": [
+            "Tampon+çamurluk+kaput boyasının nedeni tek bir olay mı, birden fazla mı?",
+            "Km 126.000 aracın gerçek/orijinal km'si mi?",
+            "DPF/turbo son bakım tarihi nedir?"
+          ],
+          "negotiation": "680.000 TL biraz yüksek; 630-645k aralığına çekilmeye çalışılmalı.",
+          "verdictReason": "Km ve konum iyi ama fiyat piyasaya göre yüksek; orta seviye boya geçmişi de skoru sınırlıyor.",
+          "comment": "Eskişehir yerel ve km makul olsa da fiyat pazarlık gerektiriyor; boya dağılımının tek bir olaydan mı geldiği sorulmalı."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/41076843": {
+      "url": "https://www.arabam.com/ilan/41076843",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Citroen C3 1.2 PureTech Feel 2020",
+      "km": 96000,
+      "price": 779000,
+      "seller": "Azizoğlu Plaza Otomotiv (Galeri)",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "41076843",
+      "year": 2020,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        779000
+      ],
+      "analysis": {
+        "score": 73,
+        "sections": {
+          "marketPrice": "2020 C3 96k km için 779.000 TL — filtre üst bandına yakın (max 800k) ama düşük km ve tamamen orijinal kayıt bunu destekliyor.",
+          "engine": "1.2 PureTech 83 hp benzinli — küçük hacimli turbo motor, zincir gerginlik ayarı ve yağ tüketimi bilinen risk noktaları.",
+          "chronicProblems": "PureTech ailesi: yağ tüketimi, zincir sesi, buji kirlenmesi; triger seti 83.000 km'de değişmiş olması (galeri notu) olumlu.",
+          "paint": "Tamamı orijinal — 0/0, değişen/boya yok.",
+          "accident": "Tramer 32.500 TL — galeri notunda 'jant/lastik değişiminden' kaynaklandığı açıkça belirtiliyor, kaporta hasarı değil, düşük risk.",
+          "description": "Galeri notu detaylı: değişen-boya yok, triger 83k'da değişmiş, muayene 29/11/2027'ye kadar geçerli, koltuk/döşemede deformasyon yok.",
+          "photos": "37 fotoğraf, kapsamlı galeri sunumu.",
+          "expertise": "Galeri 'dilediğiniz ekspere açık' notu veriyor; bağımsız ekspertiz önerilir.",
+          "sellerType": "Galeriden — Azizoğlu Plaza Otomotiv, Yetki Belge No: 2600515.",
+          "sellability": "●●●●○ İyi — beyaz renk, Eskişehir yerel, C3 orta-yaygın talep.",
+          "redFlags": [],
+          "questions": [
+            "32.500 TL'lik tramer kaydının jant/lastik kaynaklı olduğu belgelenebilir mi?",
+            "Zincir gerginlik ayarı yapıldı mı?",
+            "Garanti kapsamında kalan bir şey var mı (2020 model)?"
+          ],
+          "negotiation": "779.000 TL'den 745-755k'ya çekilebilir; tamamen orijinal kayıt pazarlığı sınırlar.",
+          "verdictReason": "Düşük km ve temiz kaporta geçmişi güçlü; tramer rakamının jant/lastik kaynaklı olması riski azaltıyor, fiyat biraz üst bantta.",
+          "comment": "Düşük km ve neredeyse hatasız kayıtla listenin güçlü adaylarından; PureTech motorun yağ takibine dikkat edilmeli."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/40394614": {
+      "url": "https://www.arabam.com/ilan/40394614",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Egea 1.3 Multijet Easy 2021",
+      "km": 121620,
+      "price": 780000,
+      "seller": "Galeri",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "40394614",
+      "year": 2021,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        780000
+      ],
+      "analysis": {
+        "score": 58,
+        "sections": {
+          "marketPrice": "2021 Egea dizel 121k km için 780.000 TL — bu yaş/km için Eskişehir'de görülen 700-750k bandının üstünde, boya geçmişi düşünüldüğünde pahalı kalıyor.",
+          "engine": "1.3 Multijet 95 hp — Fiat/PSA dizel, DPF ve turbo bakımı önemli; bu km'de henüz erken ama takip gerekir.",
+          "chronicProblems": "Egea 1.3 Multijet: DPF tıkanması, turbo, enjektör; 2021 model için bu erken dönemde büyük sorun beklenmez.",
+          "paint": "1 değişen (ön tampon, yapısal değil) + 5 boyalı + 3 lokal boyalı = 9 parça — 2021 model için AĞIR seviye (6+ kategorisi).",
+          "accident": "Tramer 17.889 TL — hafif-orta bandda, disclosed ama boya kapsamı ile büyüklüğü tutarsız görünüyor.",
+          "description": "Satıcı kısaca 'yanlarda boyalar var, değişen yok' diyor; şema 9 parçayı kapsıyor, 3 yaşındaki bir araç için normalin çok üstünde.",
+          "photos": "21 fotoğraf; galeri sunumu var ama boya dağılımının fotoğraflarla teyidi önerilir.",
+          "expertise": null,
+          "sellerType": "Galeriden, Eskişehir Odunpazarı Sultandere.",
+          "sellability": "●●●●○ İyi — Egea çok yaygın ve aranan, beyaz renk; boya geçmişi ikinci satışta soru işareti oluşturabilir.",
+          "redFlags": [
+            "3 yaşındaki bir araçta 9 parça boyalı/lokal boyalı olması normalin çok üstünde — geniş kapsamlı bir çarpma/onarım geçmişi olabilir, tramer rakamı (17.889 TL) bu kapsamla orantısız görünüyor"
+          ],
+          "questions": [
+            "9 parçalık boyanın tek bir olaydan mı, birden fazla olaydan mı kaynaklandığı nedir?",
+            "Şase/podye/airbag'de herhangi bir işlem var mı?",
+            "Tramer 17.889 TL'nin hangi tarihte ve hangi hasardan kaynaklandığı belgelenebilir mi?"
+          ],
+          "negotiation": "780.000 TL yüksek; boya geçmişi nedeniyle 700-720k'nın altına çekilmeye çalışılmalı, aksi halde pas geçilebilir.",
+          "verdictReason": "Düşük km olumlu olsa da 3 yaşındaki araçta 9 parça boya/lokal boya geçmişi ciddi bir kırmızı bayrak; fiyat da bu riske göre yüksek kalıyor.",
+          "comment": "Düşük km cazip görünse de yaygın boya deseni dikkatle sorgulanmalı; bağımsız ekspertiz şart, aksi halde pas geçilmesi daha güvenli."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/39992726": {
+      "url": "https://www.arabam.com/ilan/39992726",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Peugeot 301 1.2 VTi Access 2014",
+      "km": 125000,
+      "price": 585000,
+      "seller": "Bireysel",
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "39992726",
+      "year": 2014,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        585000
+      ],
+      "analysis": {
+        "score": 74,
+        "sections": {
+          "marketPrice": "2014 301 125k km için 585.000 TL — Eskişehir'deki benzer 301'lerin çoğundan (650k+) belirgin ucuz, iyi fiyat/değer.",
+          "engine": "1.2 VTi 73 hp benzinli — basit, düşük bakım maliyetli, turbo/DPF riski yok.",
+          "chronicProblems": "301 VTi benzinli ailesinde büyük kronik sorun bildirilmiyor; rutin bakım kalemleri dışında risk düşük.",
+          "paint": "4 boyalı + 1 lokal boyalı (5 parça) — orta-ağır seviye, değişen yok.",
+          "accident": "Tramer 38.000 TL — satıcı 2024'te arka tampon+stop farı değişimini açıkça anlatıyor, orta bandda ama nedeni şeffaf.",
+          "description": "Çok detaylı ve dürüst: km orijinal, muayene 2027 sonuna kadar, boyalı parçalar işaretlenmiş, tramer fotoğraflarda mevcut, şase/direklerde işlem yok, garaj aracı.",
+          "photos": "15 fotoğraf, satıcı boyalı bölgeleri fotoğraflarla göstermiş.",
+          "expertise": "Ayrı ekspertiz raporu yok ama satıcı açıklaması ekspertiz kalitesinde detaylı.",
+          "sellerType": "Sahibinden — Eskişehir Tepebaşı, bireysel.",
+          "sellability": "●●●●○ İyi — beyaz renk, Eskişehir yerel, 301 orta-yaygın talep.",
+          "redFlags": [],
+          "questions": [
+            "38.000 TL'lik tramerin 2024 tarihli tampon/stop değişimi dışında başka bir kalemi var mı?",
+            "116.000 km'de yapılan 'ağır bakım' neyi kapsıyordu?",
+            "Şase/direklerin ekspertiz raporu var mı?"
+          ],
+          "negotiation": "585.000 TL zaten piyasa altı; 560-570k'ya çekilebilir.",
+          "verdictReason": "İyi fiyat/değer ve çok şeffaf satıcı açıklaması güçlü; orta-ağır boya geçmişi ve tramer skoru biraz sınırlıyor.",
+          "comment": "Dürüst ve detaylı bir sahibinden ilanı; boya geçmişi olsa da nedeni açık ve inandırıcı — fiyat/değer dengesi iyi olan bir seçenek."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-2014-model-1.2-corsa-170.000-km-1322847090/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-2014-model-1.2-corsa-170.000-km-1322847090/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Corsa 1.2 Twinport Essentia 2014",
+      "km": 170000,
+      "price": 520000,
+      "seller": "Aysoy Otomotiv (Galeri)",
+      "city": "Eskişehir",
+      "color": "Kahverengi",
+      "fuel": "Benzin",
+      "id": "1322847090",
+      "year": 2014,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        520000
+      ],
+      "analysis": {
+        "score": 66,
+        "sections": {
+          "marketPrice": "2014 Corsa 170k km için 520.000 TL — bu listedeki en ucuz aday, Eskişehir/Ankara piyasasında benzer Corsa'lar 580k+ seviyesinde.",
+          "engine": "1.2 Twinport 85 hp benzinli — basit, güvenilir, düşük bakım maliyetli motor.",
+          "chronicProblems": "Corsa 1.2 Twinport'ta büyük kronik sorun bildirilmiyor; rutin conta/buji bakımı dışında risk az.",
+          "paint": "1 değişen (sağ ön çamurluk) + 5 boyalı + 1 lokal boyalı (7 parça toplam) — AĞIR seviye (6+ kategorisi).",
+          "accident": "18.000 TL tramer — satıcı 'önemsiz hasar kaydı' diyor; boya kapsamı (7 parça) bu rakamla kıyaslandığında biraz büyük görünüyor.",
+          "description": "Full servis bakımlı, triger/devirdaim/fren balata değişmiş, arka park sensörü, multimedya var, muayene 2027 Haziran'a kadar.",
+          "photos": "11 fotoğraf; galeri iç/dış çekimler standart.",
+          "expertise": "Sahibinden'in kendi boya/değişen şeması mevcut (7 parça işaretli) — ayrı bağımsız ekspertiz yok.",
+          "sellerType": "Galeriden — Aysoy Otomotiv, 1 yıllık üye.",
+          "sellability": "●●●○○ Orta — kahverengi renk satışta zorluk yaratır (zor renk kategorisi); fiyat avantajı bunu kısmen dengeler.",
+          "redFlags": [
+            "7 parça boyalı/değişen, 18.000 TL'lik 'önemsiz' tramer rakamıyla orantısız görünüyor — geniş kapsamlı bir yan çarpma geçmişi olabilir"
+          ],
+          "questions": [
+            "7 parçalık boya/değişenin tek bir kazadan mı geldiği nedir?",
+            "18.000 TL'lik tramer hangi kalemleri kapsıyor?",
+            "Şase/podye/airbag'de herhangi bir işlem var mı?"
+          ],
+          "negotiation": "520.000 TL zaten en ucuz aday; boya geçmişi nedeniyle 490-500k'ya çekilmeye çalışılmalı.",
+          "verdictReason": "Fiyat çok cazip ama 7 parçalık boya/değişen geçmişi ve kahverengi renk skoru belirgin şekilde düşürüyor.",
+          "comment": "En ucuz seçenek olsa da kapsamlı boya geçmişi nedeniyle bağımsız ekspertiz şart; fiyat avantajını riskle dengelemek isteyenler için."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-ufuk-honda-plaza-2013-opel-astra-1,6-hb-essentia-hatasiz-1325737098/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-ufuk-honda-plaza-2013-opel-astra-1,6-hb-essentia-hatasiz-1325737098/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.6 Essentia 2013",
+      "km": 67500,
+      "price": 725000,
+      "seller": "Honda Plaza Ufuk (Galeri)",
+      "city": "Eskişehir",
+      "color": "Gümüş Gri",
+      "fuel": "Benzin",
+      "id": "1325737098",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        725000
+      ],
+      "analysis": {
+        "score": 90,
+        "sections": {
+          "marketPrice": "2013 Astra'da 67.500 km olağanüstü düşük (yıllık ~5.200 km); 725.000 TL nominal olarak bandın üst kısmında ama bu km seviyesi için tam olarak hak edilmiş bir fiyat, benzer km'li Astra bulmak neredeyse imkansız.",
+          "engine": "1.6 benzinli 115 hp — Opel'in en yaygın ve sağlam motorlarından biri; bu kadar düşük km ile mekanik risk minimum.",
+          "chronicProblems": "Astra 1.6 benzinli için ciddi kronik sorun bildirilmiyor; düşük km bu riskleri zaten önemsiz kılıyor.",
+          "paint": "Tamamen orijinal — 0/0, ekspertiz notunda 'hatasız boyasız değişensiz' teyit ediliyor, sadece ufak çizik/göçük var.",
+          "accident": "Tramer kaydı yok; ağır hasar kaydı: Hayır.",
+          "description": "İlk sahibinden, tüm periyodik bakımlar yapılmış, motor/süspansiyon/şanzıman sorunsuz, döşeme/trim deformasyonu yok — çok temiz bir kayıt.",
+          "photos": "39 fotoğraf; galeri iç/dış/motor bölmesi geniş kapsamlı, araç görsel olarak çok temiz.",
+          "expertise": "Galeri kendi ekspertiz notunu paylaşmış: 'Hatasız boyasız değişensiz, ufak tefek çizik/göçük var.'",
+          "sellerType": "Galeriden — Honda Plaza Ufuk, 19 yıllık köklü galeri, Eskişehir merkez.",
+          "sellability": "●●●●● Çok kolay — gümüş gri renk en kolay satılan tonlardan, köklü galeri güvencesi, ilk sahibinden kayıt.",
+          "redFlags": [],
+          "questions": [
+            "İlk sahibinden olduğu belgeleniyor mu (ruhsat/trafik kaydı)?",
+            "Muayene Kasım 2026'da bitiyor, yenileme maliyeti dahil mi?",
+            "Takas neden kabul edilmiyor (Hayır olarak işaretli)?"
+          ],
+          "negotiation": "725.000 TL'den 700-710k'ya küçük bir pazarlık payı olabilir; bu km/durum kombinasyonu için fiyat zaten adil, agresif pazarlık gerekmez.",
+          "verdictReason": "Olağanüstü düşük km, tamamen orijinal kayıt, ilk sahibinden ve köklü galeri güvencesi — listenin en güçlü adayı.",
+          "comment": "Bu listedeki en temiz ve en düşük km'li araç; uzun vadeli, sorunsuz kullanım arayan herkes için ilk sırada değerlendirilmeli. Hemen incelenmeli."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-ilk-el-39binkm-2021-cikisli-hatasiza-yakin-1325708316/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-ilk-el-39binkm-2021-cikisli-hatasiza-yakin-1325708316/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Egea 1.4 Fire Easy Plus 2020",
+      "km": 39000,
+      "price": 759000,
+      "seller": "Araz Motorlu Araçlar (Galeri)",
+      "city": "Eskişehir",
+      "color": "Gri",
+      "fuel": "Benzin",
+      "id": "1325708316",
+      "year": 2020,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        759000
+      ],
+      "analysis": {
+        "score": 73,
+        "sections": {
+          "marketPrice": "2020 Egea 39.000 km için 759.000 TL — bu kadar düşük km için makul, ancak sağ taraf boya geçmişi netleşmeden 'iyi fiyat' demek risklidir.",
+          "engine": "1.4 Fire 76-100 hp benzinli — basit, güvenilir, turbo/DPF derdi olmayan motor; bu km'de mekanik risk minimal.",
+          "chronicProblems": "Egea 1.4 Fire benzinli için ciddi kronik sorun bildirilmiyor; düşük km riskleri zaten küçültüyor.",
+          "paint": "İlan açıklaması sadece 'ön sağ çamurlukta sök tak boya' diyor, ancak boya şeması sağ ön çamurluk + sağ ön kapı + sağ arka kapı + sağ arka çamurluk (4 parça, TÜM SAĞ TARAF) boyalı gösteriyor — açıklama ile şema arasında tutarsızlık var.",
+          "accident": "Tramer kaydı yok (satıcı beyanı); ağır hasar kaydı: Hayır. Ancak sağ taraf tam boyalı olması tramersiz bir 'sök-tak' için beklenenden fazla.",
+          "description": "'Ön sağ çamurlukta sök tak boya vardır, tramer kaydı yoktur' — açıklama şemadaki 4 panelin sadece bir kısmını (çamurluk) anlatıyor, kapılar açıklamada geçmiyor.",
+          "photos": "29 fotoğraf; sağ taraf panellerin yakından incelenmesi önerilir.",
+          "expertise": "Galeri kendi boya şemasını paylaşmış (4 panel sağ taraf boyalı) — bağımsız ekspertiz şart, açıklamadaki eksik bilgi nedeniyle.",
+          "sellerType": "Galeriden — Araz Motorlu Araçlar, 7 yıllık galeri, Eskişehir Odunpazarı.",
+          "sellability": "●●●●○ İyi — gri renk, düşük km, Eskişehir yerel, galeri takas kabul ediyor.",
+          "redFlags": [
+            "Şema sağ taraftan 4 panelin (çamurluk+2 kapı+arka çamurluk) boyalı olduğunu gösteriyor ama açıklama sadece 'ön sağ çamurlukta sök tak boya' diyor — bu tutarsızlık, düşük km'ye rağmen daha kapsamlı bir sağ yan çarpma geçmişini gizleyebilir"
+          ],
+          "questions": [
+            "Sağ taraftaki 4 panelin tamamının neden boyalı olduğu açıklanabilir mi?",
+            "Bu boya tek bir olaydan mı, yoksa ayrı zamanlarda mı oluştu?",
+            "Şase/podye/airbag'de kesinlikle işlem olmadığı bağımsız ekspertizle teyit edilebilir mi?"
+          ],
+          "negotiation": "759.000 TL'den, sağ taraf boya belirsizliği nedeniyle 700-720k'ya çekilmeye çalışılmalı; netlik sağlanmadan üst fiyattan alınmamalı.",
+          "verdictReason": "Olağanüstü düşük km (39.000) çok cazip ama sağ taraftaki 4 panel boya ile açıklamadaki 'sadece çamurluk' beyanı arasındaki tutarsızlık ciddi bir soru işareti; bağımsız ekspertiz olmadan tam güvenilmez.",
+          "comment": "Km açısından listenin en iyi adaylarından, ama sağ taraf boya deseni dikkatle sorgulanmalı; ekspertiz sonucu netleşmeden yüksek pazarlıksız alınmamalı."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/35874867": {
+      "url": "https://www.arabam.com/ilan/35874867",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Citroen C-Elysée 1.6 HDi Live",
+      "km": 199000,
+      "price": 645000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "35874867",
+      "year": 2018,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        645000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/37362776": {
+      "url": "https://www.arabam.com/ilan/37362776",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.3 CDTI Essentia Konfor",
+      "km": 134000,
+      "price": 800000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Gri (Gümüş)",
+      "fuel": "Dizel",
+      "id": "37362776",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        800000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/39073236": {
+      "url": "https://www.arabam.com/ilan/39073236",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Chevrolet Cruze 1.6 Design Edition Plus",
+      "km": 185600,
+      "price": 670000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Kahverengi",
+      "fuel": "Dizel",
+      "id": "39073236",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        670000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/39190291": {
+      "url": "https://www.arabam.com/ilan/39190291",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Ford Fiesta 1.25 Trend X",
+      "km": 145000,
+      "price": 719000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "39190291",
+      "year": 2016,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        719000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/40778156": {
+      "url": "https://www.arabam.com/ilan/40778156",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Megane 1.6 Expression",
+      "km": 182000,
+      "price": 662500,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Gri (Gümüş)",
+      "fuel": "Benzin/LPG",
+      "id": "40778156",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        662500
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41130175": {
+      "url": "https://www.arabam.com/ilan/41130175",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Insignia 1.4T Edition Elegance",
+      "km": 165000,
+      "price": 795000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Gri",
+      "fuel": "Benzin",
+      "id": "41130175",
+      "year": 2012,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        795000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41311834": {
+      "url": "https://www.arabam.com/ilan/41311834",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Volkswagen Polo 1.2 TDi BlueMotion",
+      "km": 174000,
+      "price": 720000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41311834",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        720000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41443739": {
+      "url": "https://www.arabam.com/ilan/41443739",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Hyundai i20 Troy 1.4 CVVT Prime Plus",
+      "km": 198000,
+      "price": 695000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Gri",
+      "fuel": "Benzin",
+      "id": "41443739",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        695000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41567415": {
+      "url": "https://www.arabam.com/ilan/41567415",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Citroen C3 1.4 VTi Collection",
+      "km": 126000,
+      "price": 670000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "41567415",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        670000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41582876": {
+      "url": "https://www.arabam.com/ilan/41582876",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Audi A1 1.4 TFSI Attraction",
+      "km": 184400,
+      "price": 795000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Benzin",
+      "id": "41582876",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        795000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41618641": {
+      "url": "https://www.arabam.com/ilan/41618641",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.3 CDTI Enjoy",
+      "km": 177000,
+      "price": 637000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Gri",
+      "fuel": "Dizel",
+      "id": "41618641",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        637000
+      ],
+      "analysis": null
+    },
+    "https://www.arabam.com/ilan/41661826": {
+      "url": "https://www.arabam.com/ilan/41661826",
+      "source": "arabam",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Egea 1.3 Multijet Easy",
+      "km": 191200,
+      "price": 640000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "id": "41661826",
+      "year": 2017,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        640000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-degisen-yok-sadece-1-lokal-boya-2022-fiat-egea-1.3-m.jet-1317163536/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-degisen-yok-sadece-1-lokal-boya-2022-fiat-egea-1.3-m.jet-1317163536/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Egea 1.3 Multijet Easy",
+      "km": 179800,
+      "price": 799000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1317163536",
+      "year": 2022,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        799000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-alfa-romeo-alfa-romeo-2-sahibinden-sunroof-ve-cam-tavan-yok-1325801027/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-alfa-romeo-alfa-romeo-2-sahibinden-sunroof-ve-cam-tavan-yok-1325801027/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Alfa Romeo Giulietta 1.6 JTD Distinctive",
+      "km": 198000,
+      "price": 510000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325801027",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        510000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-renault-2013-1.5-dci-degisensiz-bakimli-temiz-aile-araci-1325800776/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-2013-1.5-dci-degisensiz-bakimli-temiz-aile-araci-1325800776/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Clio 1.5 dCi Joy",
+      "km": 123000,
+      "price": 750000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325800776",
+      "year": 2013,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        750000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-dacia-guvenc-den-2010-1.5-dci-ilk-el-157.000-km-servis-bakimli-beyaz-1311693597/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-dacia-guvenc-den-2010-1.5-dci-ilk-el-157.000-km-servis-bakimli-beyaz-1311693597/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Dacia Sandero 1.5 dCi Ambiance",
+      "km": 157000,
+      "price": 500000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1311693597",
+      "year": 2010,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        500000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-hatasiz-opel-corsa-1.2-twinport-1322739669/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-hatasiz-opel-corsa-1.2-twinport-1322739669/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Corsa 1.2 Twinport Essentia",
+      "km": 153000,
+      "price": 589000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1322739669",
+      "year": 2012,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        589000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-hyundai-ilk-el-garaj-arabasi-112bin-km-de-kusursuz-1,5-vgt-en-tutulani-1325731854/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-hyundai-ilk-el-garaj-arabasi-112bin-km-de-kusursuz-1,5-vgt-en-tutulani-1325731854/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Hyundai Getz 1.5 CRDi VGT",
+      "km": 112000,
+      "price": 515000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325731854",
+      "year": 2010,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        515000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-seat-beyaz-kelebegim-yeni-sahibini-ariyor-1325730765/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-seat-beyaz-kelebegim-yeni-sahibini-ariyor-1325730765/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Seat Leon 1.4 TSI Style",
+      "km": 193663,
+      "price": 720000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325730765",
+      "year": 2010,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        720000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-masrafsiz-aile-araci-bol-ekstrali-185-binde-degisensiz-1319611670/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-masrafsiz-aile-araci-bol-ekstrali-185-binde-degisensiz-1319611670/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.6 Edition",
+      "km": 185000,
+      "price": 695000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1319611670",
+      "year": 2014,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        695000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-es-ozcan-dan-corsa-1.4-otomatik-plusmakyajli-plusdegisensiz-1314480495/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-es-ozcan-dan-corsa-1.4-otomatik-plusmakyajli-plusdegisensiz-1314480495/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Corsa 1.4 Twinport Essentia",
+      "km": 164000,
+      "price": 730000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1314480495",
+      "year": 2012,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        730000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-gozde-otomotivden-plushatasiz-boyasiz-plusotomatik-vites-plusdusuk-km-li-1325695240/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-gozde-otomotivden-plushatasiz-boyasiz-plusotomatik-vites-plusdusuk-km-li-1325695240/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Corsa 1.2 Twinport Essentia",
+      "km": 159000,
+      "price": 685000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325695240",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        685000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-renault-sahibinden-1319836256/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-sahibinden-1319836256/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Renault Clio 0.9 TCe Sport Tourer Touch",
+      "km": 106000,
+      "price": 795000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1319836256",
+      "year": 2019,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        795000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-tertemiz-astra-h-1325647380/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-tertemiz-astra-h-1325647380/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.3 CDTI Essentia Konfor",
+      "km": 180000,
+      "price": 667500,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325647380",
+      "year": 2010,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        667500
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-citroen-ogretmenden-temiz-bakimli-1325654486/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-citroen-ogretmenden-temiz-bakimli-1325654486/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Citroen C3 1.2 PureTech Live",
+      "km": 80797,
+      "price": 750000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325654486",
+      "year": 2017,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        750000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-degisensiz-hasar-kayitsiz-1.6-astra-j-1319542545/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-degisensiz-hasar-kayitsiz-1.6-astra-j-1319542545/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Opel Astra 1.6 Edition",
+      "km": 186000,
+      "price": 680000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1319542545",
+      "year": 2012,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        680000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-degisensiz-fiat-linea-multijet-1325625367/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-degisensiz-fiat-linea-multijet-1325625367/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Linea 1.3 Multijet Actual Plus",
+      "km": 199000,
+      "price": 539000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1325625367",
+      "year": 2014,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        539000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-cetinkaya-dan-2012-fiat-linea-1.6-multi-jet,active-plus,dusuk-km-1297169388/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-cetinkaya-dan-2012-fiat-linea-1.6-multi-jet,active-plus,dusuk-km-1297169388/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Fiat Linea 1.6 Multijet Active Plus",
+      "km": 95000,
+      "price": 650000,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1297169388",
+      "year": 2012,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        650000
+      ],
+      "analysis": null
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-ford-2011-ford-c-max-cam-tvn-e.bagaj-kaput-tvn-bagaj-boyasiz-1322597825/detay": {
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-ford-2011-ford-c-max-cam-tvn-e.bagaj-kaput-tvn-bagaj-boyasiz-1322597825/detay",
+      "source": "sahibinden",
+      "status": "active",
+      "statusBadge": "new",
+      "title": "Ford C-Max 1.6 EcoBoost Titanium",
+      "km": 149000,
+      "price": 709500,
+      "seller": null,
+      "city": "Eskişehir",
+      "color": null,
+      "fuel": null,
+      "id": "1322597825",
+      "year": 2011,
+      "firstSeen": "2026-07-01",
+      "lastSeen": "2026-07-01",
+      "priceHistory": [
+        709500
+      ],
+      "analysis": null
     }
   }
 }
