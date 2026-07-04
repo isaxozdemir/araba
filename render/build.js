@@ -364,14 +364,16 @@ const JS = `
 function getCardScoreValue(card) {
   var meta = card.querySelector('.card-meta');
   if (!meta) return 0;
-  var m = meta.textContent.match(/(\d+)\/100/);
+  var re = new RegExp('([0-9]+)/100');
+  var m = meta.textContent.match(re);
   return m ? parseInt(m[1], 10) : 0;
 }
 function getCardPriceValue(card) {
   var meta = card.querySelector('.card-meta');
   if (!meta) return Infinity;
-  var m = meta.textContent.match(/([\d.]+)\s*TL/);
-  return m ? parseInt(m[1].replace(/\./g, ''), 10) : Infinity;
+  var re = new RegExp('([0-9.]+)[ ]*TL');
+  var m = meta.textContent.match(re);
+  return m ? parseInt(m[1].split('.').join(''), 10) : Infinity;
 }
 function sortAllCardGroups(mode) {
   document.querySelectorAll('.tab-content').forEach(function(tabContent) {
