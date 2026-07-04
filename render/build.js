@@ -360,6 +360,58 @@ table.listing-table td.price{font-weight:700;color:var(--accent);white-space:now
 // ─── JavaScript ───────────────────────────────────────────────────────────────
 
 const JS = `
+
+function getCardScoreValue(card) {
+  var meta = card.querySelector('.card-meta');
+  if (!meta) return 0;
+  var m = meta.textContent.match(/(\d+)\/100/);
+  return m ? parseInt(m[1], 10) : 0;
+}
+function getCardPriceValue(card) {
+  var meta = card.querySelector('.card-meta');
+  if (!meta) return Infinity;
+  var m = meta.textContent.match(/([\d.]+)\s*TL/);
+  return m ? parseInt(m[1].replace(/\./g, ''), 10) : Infinity;
+}
+function sortAllCardGroups(mode) {
+  document.querySelectorAll('.tab-content').forEach(function(tabContent) {
+    var children = Array.from(tabContent.children);
+    var groups = [];
+    var cur = null;
+    children.forEach(function(child) {
+      if (child.classList.contains('cat-header')) {
+        cur = { header: child, cards: [] };
+        groups.push(cur);
+      } else if (child.classList.contains('card') && cur) {
+        cur.cards.push(child);
+      }
+    });
+    groups.forEach(function(g) {
+      var sorted = g.cards.slice().sort(function(a, b) {
+        if (mode === 'price') return getCardPriceValue(a) - getCardPriceValue(b);
+        return getCardScoreValue(b) - getCardScoreValue(a);
+      });
+      var anchor = g.header;
+      sorted.forEach(function(card) {
+        anchor.after(card);
+        anchor = card;
+      });
+    });
+  });
+  document.querySelectorAll('.sort-toggle button').forEach(function(btn) {
+    var isActive = btn.dataset.mode === mode;
+    btn.style.background = isActive ? '#2563eb' : '#fff';
+    btn.style.color = isActive ? '#fff' : '#333';
+    btn.style.fontWeight = isActive ? '700' : '400';
+  });
+  try { localStorage.setItem('sortMode', mode); } catch(e) {}
+}
+window.sortAllCardGroups = sortAllCardGroups;
+document.addEventListener('DOMContentLoaded', function() {
+  var saved = null;
+  try { saved = localStorage.getItem('sortMode'); } catch(e) {}
+  sortAllCardGroups(saved === 'price' ? 'price' : 'score');
+});
 function showTab(id) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -392,6 +444,12 @@ const html = `<!DOCTYPE html>
   <div class="tab active" onclick="showTab('adem')">🏆 Adem'in Listesi</div>
   <div class="tab" onclick="showTab('sahi')">🔍 Sahibinden Eskişehir</div>
   <div class="tab" onclick="showTab('arabam')">🔍 Arabam.com Eskişehir</div>
+</div>
+
+<div class="sort-toggle" style="margin:12px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+  <span style="font-size:.85rem;color:#666;">Sırala:</span>
+  <button data-mode="score" onclick="sortAllCardGroups('score')" style="padding:6px 12px;border-radius:6px;border:1px solid #ccc;cursor:pointer;">🏆 Puana Göre</button>
+  <button data-mode="price" onclick="sortAllCardGroups('price')" style="padding:6px 12px;border-radius:6px;border:1px solid #ccc;cursor:pointer;">💰 Fiyata Göre (Duşükten Yükseğe)</button>
 </div>
 
 ${renderTab('adem',        'adem',   true)}
