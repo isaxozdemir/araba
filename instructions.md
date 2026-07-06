@@ -10,7 +10,7 @@ Site: https://isaxozdemir.github.io/araba/
 
 - İl: Eskişehir
 - Max km: 200.000
-- Fiyat: 500.000 – 800.000 TL
+- Fiyat: 500.000 – 650.000 TL
 - Min yıl: 2010
 - Ağır hasar kayıtlı: Hayır
 - Taksi çıkması: Yok
@@ -42,10 +42,10 @@ Her kaynak için önce `web_fetch` dene. Boş veya JS-render gelirse `Claude in 
 - Arabam.com: `&page=2`, `&page=3` vb. — son sayfaya kadar devam et
 
 **A) Sahibinden Eskişehir:**
-https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2005&price_min=300000&price_max=600000
+https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2010&price_min=500000&price_max=650000
 
 **B) Arabam.com Eskişehir:**
-https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=300000&maxPrice=600000&minYear=2005&maxkm=200000&severaldamaged=false
+https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=500000&maxPrice=650000&minYear=2010&maxkm=200000&severaldamaged=false
 
 **C) Adem'in Arabam.com Favorileri (FİLTREDEN BAĞIMSIZ):**
 - Sayfa 1: https://www.arabam.com/favori/liste/ff094e97f7104d089034cb9c0343dac3
