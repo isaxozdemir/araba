@@ -2,7 +2,7 @@
   "sahibinden": {
     "name": "Sahibinden Eskişehir",
     "tabId": "sahi",
-    "baseUrl": "https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2010&price_min=500000&price_max=800000",
+    "baseUrl": "https://www.sahibinden.com/otomobil/eskisehir?a116445=1263354&a4_max=200000&a5_min=2010&price_min=500000&price_max=650000",
     "pagination": {
       "param": "pagingOffset",
       "step": 20,
@@ -14,7 +14,7 @@
   "arabam": {
     "name": "Arabam.com Eskişehir",
     "tabId": "arabam",
-    "baseUrl": "https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=500000&maxPrice=800000&minYear=2010&maxkm=200000&severaldamaged=false",
+    "baseUrl": "https://www.arabam.com/ikinci-el/otomobil-eskisehir?currency=TL&minPrice=500000&maxPrice=650000&minYear=2010&maxkm=200000&severaldamaged=false",
     "pagination": {
       "param": "page",
       "step": 1,
