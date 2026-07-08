@@ -91,7 +91,7 @@ var preanalyze = function preanalyze(data) {
       marketPrice: mp,
       engine: engNote+dslNote,
       chronicProblems: chronic.join(' · '),
-      paint: claims?'İlan başlığı hatasız/boyasız/değişensiz türü iddia taşıyor — TEYİTSİZ; ekspertiz şart.':(dmgMention?'Başlıkta boya/lokal ifadesi geçiyor — kapsamı detay analizde netleşecek.':'Liste verisinde boya/değişen bilgisi yok (platform varsayılanı — şüpheli sayılmaz). Ekspertizle netleşir.'),
+      paint: claims?'İlan başlığı hatasız/boyasız/değişensiz türü iddia taşıyor — TEYİTSİZ; ekspertiz şart.':(dmgMention?'Başlıkta boya/lokal ifadesi geçiyor — kapsamı detay analizde netleşecek.':'Bu alan yalnızca liste/başlık bilgisine dayalı bir ön-analizdir; ilan DETAY SAYFASINDAKİ boya/değişen tablosu henüz incelenmedi (henüz derin analiz yapılmadı). \"Belirtilmemiş/varsayılan\" yorumu sadece Arabam.com'un platform arayüzü için geçerlidir — Sahibinden gibi platformlarda satıcı gerçek boya/değişen bilgisi girmiş olabilir. Gerçek durum derin analizde (detay sayfası ziyareti) netleşecek.'),
       accident: /tramersiz|hasar kayıtsız|hasarsız/.test(tl)?'İlan tramersiz/hasar kayıtsız iddia ediyor — sorgu ile teyit edilmeli.':'Tramer bilgisi liste verisinde yok — sorgulanmalı.',
       description: title,
       photos: '🤖 Otomatik ön analiz — fotoğraf ve ilan detay sayfası henüz incelenmedi; sıradaki günlük çalıştırmalarda öncelik sırasına göre derin analizle güncellenecek.',
