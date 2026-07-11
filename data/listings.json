@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-07-08",
+  "lastRun": "2026-07-11",
   "listings": {
     "https://www.arabam.com/ilan/41179900": {
       "url": "https://www.arabam.com/ilan/41179900",
@@ -29396,6 +29396,704 @@
           "negotiation": "568.700 TL teklif et, 589.875 TL’ye kadar çık; üzeri bu ön analizle savunulamaz.",
           "verdictReason": "🤖 Ön analiz skoru 62/100: fiyat-emsal konumu (15/25), km+yaş (10/20), model güvenilirliği (10/15) temelinde. Derin analizde güncellenebilir.",
           "comment": "Ön analize göre makul aday; fiyat/durum teyidi için derin analiz beklenmeli veya ekspertizle gidilmeli."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-opel-astra-1-6-essentia/sahibinden-opel-astra-1-6-essentia-2012-model/41839877": {
+      "id": "41839877",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-opel-astra-1-6-essentia/sahibinden-opel-astra-1-6-essentia-2012-model/41839877",
+      "source": "adem",
+      "title": "Sahibinden Opel Astra 1.6 Essentia 2012 Model",
+      "year": 2012,
+      "km": 152000,
+      "price": 672000,
+      "color": "Gri",
+      "fuel": "LPG & Benzin",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        672000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 74,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2012 model LPG'li Astra H hatchback'ler bu km bandında piyasada 550-650bin TL bandında; 672bin TL, tamamen orijinal (0 boya/değişen) olması nedeniyle savunulabilir ama yine de piyasanın biraz üzerinde. Bu araç piyasaya göre ~30-50bin TL pahalı sayılabilir.",
+          "engine": "1.6 16V (Family1 Z16XEP tipi) benzin/LPG motor. Motor değişmemiş. Bu motor ailesinde yüksek km'de zincir gerdiricisi sesi bildirilmiş vakalar var; somut arıza belirtisi yok, genel km riski olarak not düşülüyor.",
+          "chronicProblems": "Opel Astra H'de bilinen sorunlar: ön amortisör/salıncak burçları, elektrik kontak aksaklıkları (cam/kilit), bazı 1.6 motorlarda zincir gerdirici sesi, LPG'li versiyonlarda enjektör/supap aşınması.",
+          "paint": "0/0 Tertemiz — ilan sahibi 'tamamı orijinal' bildiriyor, tek istisna sol ön çamurlukta küçük göçük (boyasız). Ölçek: 0/0 tertemiz kategorisinde.",
+          "accident": "Tramer tutarı yok / 0. Ağır hasarlı: Hayır. Hasar kaydı ile fiziksel durum uyumlu görünüyor.",
+          "description": "Açıklama tutarlı: bakımlar yeni yapılmış, muayene güncel, LPG notu belirtilmiş. Acele satış ifadesi yok. İpotek/rehin bilgisi verilmemiş.",
+          "expertise": null,
+          "photos": "7 fotoğraf mevcut; açıklamadaki sol ön çamurluk göçüğü dışında belirgin hasar/boya farkı iddiası yok.",
+          "sellerType": "Bireysel (sahibinden).",
+          "sellability": "●●●●○ İkinci el talebi orta-yüksek (Astra yaygın) · parça bulunurluğu yüksek · gri renk kolay satılır · piyasa yoğunluğu orta (Eskişehir'de birden fazla benzer ilan mevcut).",
+          "redFlags": [],
+          "questions": [
+            "LPG sistemi ne zaman taktırıldı, ruhsatlı mı?",
+            "Sol ön çamurluktaki göçük ne zaman oluştu, düzeltilecek mi?",
+            "Zincir/gerdirici sesi var mı, son bakımda kontrol edildi mi?",
+            "Kaç sahip değiştirdi?"
+          ],
+          "negotiation": "640.000 TL'ye teklif et, 655.000 TL'ye kadar çıkılabilir, 670.000 TL üzerine değmez.",
+          "verdictReason": "Tertemiz kayıt (0 boya/değişen) ve iyi bakım geçmişi var ama fiyat piyasanın biraz üzerinde; bu yüzden BAKILABİLİR.",
+          "comment": "Temiz geçmişli, uzun süre elde tutulacak bir araç arayanlar için uygun; LPG ekonomisinden faydalanmak isteyenlere hitap eder. Fiyatta biraz pazarlık payı olduğunda değerlendirilebilir."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-5-dci-joy/2018-temiz-aile-araci/41896702": {
+      "id": "41896702",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-renault-clio-1-5-dci-joy/2018-temiz-aile-araci/41896702",
+      "source": "adem",
+      "title": "2018 Temiz Aile Aracı - Renault Clio 1.5 dCi Joy",
+      "year": 2018,
+      "km": 160000,
+      "price": 815000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        815000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "AL",
+        "score": 76,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2018 model dCi Clio'lar bu km'de piyasada tipik olarak 700-800bin TL bandında; 815bin TL üst sınırda ama temiz kayıt (hasarsız, değişensiz) bu farkı kısmen açıklıyor. Piyasaya göre hafif pahalı.",
+          "engine": "1.5 dCi (K9K) turbo dizel, 75hp. Motor değişmemiş. K9K ailesinde bilinen riskler: enjektör çatlağı, turbo aşınması, DPF tıkanması (özellikle şehir içi kullanımda) — bu ilanda somut arıza belirtisi yok, genel motor notu olarak düşülüyor.",
+          "chronicProblems": "Renault Clio IV dCi'de yaygın: K9K enjektör arızaları, DPF tıkanması, swirl flap (girdap klapesi) sorunları, ön panel/döşeme gıcırtıları.",
+          "paint": "Belirtilmemiş resmi alanda ama açıklamada 'değişen yoktur, 1-2 yerde boyasız düzleme var' deniyor — düzleme boyasız olduğu için 0-1/0 aralığında hafif kategori.",
+          "accident": "Ağır hasarlı: Belirtilmemiş (platform varsayılanı, şüpheli sayılmaz). Açıklamada 'hasar kaydı yoktur' ifadesi var.",
+          "description": "Muayene 03.07.2028'e kadar geçerli, bakım evrakları mevcut olduğu belirtilmiş. 'Pazarlık araç başında olur' notu var, acele satış izlenimi yok.",
+          "expertise": null,
+          "photos": "10 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden).",
+          "sellability": "●●●●● İkinci el talebi çok yüksek (Clio dCi ekonomik dizel arayanların favorisi) · parça bulunurluğu yüksek · beyaz renk kolay satılır · piyasa yoğunluğu yüksek (çok sayıda benzer ilan var, rekabetçi pazar).",
+          "redFlags": [],
+          "questions": [
+            "Timing kayışı/triger seti en son ne zaman değiştirildi?",
+            "1-2 yerdeki boyasız düzlemeler hangi panellerde?",
+            "DPF ile ilgili herhangi bir uyarı lambası yandı mı?",
+            "Bakım evrakları hangi yetkili serviste tutulmuş?"
+          ],
+          "negotiation": "780.000 TL'ye teklif et, 800.000 TL'ye kadar çıkılabilir, 815.000 TL üzerine değmez.",
+          "verdictReason": "Hasarsız/değişensiz kayıt, düşük yakıt tüketimli dCi motor ve yüksek talep gören bir model olması AL kararını destekliyor; tek eksi fiyatın piyasa üstü olması.",
+          "comment": "Uzun yol yapan, yakıt ekonomisi önceliği olan aileler için iyi bir seçenek; fiyatta biraz pazarlık yapılabilirse değerlendirilebilir."
+        }
+      }
+    },
+    "https://www.arabam.com/ilan/sahibinden-satilik-chevrolet-aveo-1-3-d-ltz/sahibinden-chevrolet-aveo-1-3-d-ltz-2012-model-eskisehir-140-000-km-beyaz/41874867": {
+      "id": "41874867",
+      "url": "https://www.arabam.com/ilan/sahibinden-satilik-chevrolet-aveo-1-3-d-ltz/sahibinden-chevrolet-aveo-1-3-d-ltz-2012-model-eskisehir-140-000-km-beyaz/41874867",
+      "source": "arabam",
+      "title": "Sahibinden Chevrolet Aveo 1.3 D LTZ 2012 Model Eskişehir 140.000 km Beyaz",
+      "year": 2012,
+      "km": 140000,
+      "price": 630000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        630000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 62,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2012 model dizel Aveo sedan bu km'de piyasada 500-600bin TL bandında; 630bin TL, kayıtlı 1 değişen + 4 boyalı parça göz önüne alındığında piyasanın biraz üzerinde.",
+          "engine": "1.3 D (Multijet ortak platform, 95hp) turbo dizel. Satıcı motorla ilgili çok sayıda somut bakım kalemi paylaşmış (enjektör seti, turbo selenoid valf, devirdaim pompası) — bu şeffaflık olumlu ama sık arıza geçmişini de gösteriyor.",
+          "chronicProblems": "Chevrolet Aveo/Kalos ailesinde bilinen: turbo selenoid valf arızaları, enjektör sorunları, ön amortisör takozu aşınması — hepsi bu ilanda zaten değiştirilmiş durumda.",
+          "paint": "1 değişen (motor kaputu), 4 boyalı (sağ arka kapı, sağ ön kapı, sol ön kapı, sağ ön çamurluk). Ölçek: 3-5 orta seviye.",
+          "accident": "Tramer tutarı: 6.100 TL — çok hafif kategori. Hasar kaydı ile açıklamadaki 'motor kaputu değişmiş' bilgisi uyumlu.",
+          "description": "Satıcı çok detaylı bakım geçmişi paylaşmış (parça bazında km ve tarih belirtilmiş) — şeffaflık yüksek, acele satış izlenimi yok. Expertiz raporu olduğunu belirtiyor.",
+          "expertise": "Satıcı elinde ekspertiz raporu olduğunu belirtiyor ancak rapor ilanla birlikte paylaşılmamış; görüşme sırasında istenmeli.",
+          "photos": "11 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden).",
+          "sellability": "●●○○○ Chevrolet Türkiye pazarından 2020'de çekildiği için ikinci el talebi ve parça bulunurluğu zayıflıyor · beyaz renk kolay satılır ama marka desteği zayıf · piyasa yoğunluğu düşük.",
+          "redFlags": [
+            "Motor kaputu değişmiş (satıcının kendisi belirtmiş)",
+            "4 parça boyalı — orta seviye boya geçmişi"
+          ],
+          "questions": [
+            "Ekspertiz raporunu paylaşabilir misiniz?",
+            "Motor kaputu neden değişti, hangi hasardan?",
+            "Turbo selenoid valf değişiminden sonra performans sorunu yaşandı mı?",
+            "Chevrolet yetkili servisi kapandı, yedek parça nereden temin ediliyor?"
+          ],
+          "negotiation": "590.000 TL'ye teklif et, 610.000 TL'ye kadar çıkılabilir, 630.000 TL üzerine değmez.",
+          "verdictReason": "Detaylı bakım geçmişi ve hafif tramer olumlu ama orta seviye boya geçmişi ve Chevrolet'nin Türkiye'den çekilmiş olması parça/satılabilirlik riski taşıyor.",
+          "comment": "Motoruna hakim, kendi bakımını takip edebilecek kullanıcılar için uygun olabilir; marka desteğinin zayıflığı nedeniyle uzun vadeli parça tedariki konusunda araştırma yapılmalı."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2018-fiat-egea-1.4-fire-easyplus-123.000km-temiz-aile-araci-1326402227/detay": {
+      "id": "1326402227",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2018-fiat-egea-1.4-fire-easyplus-123.000km-temiz-aile-araci-1326402227/detay",
+      "source": "sahibinden",
+      "title": "2018 Fiat Egea 1.4 Fire EasyPlus | 123.000km | Temiz Aile Aracı",
+      "year": 2018,
+      "km": 123000,
+      "price": 500000,
+      "color": "Beyaz",
+      "fuel": "Benzinli",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        500000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "AL",
+        "score": 86,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2018 model benzinli Egea'lar bu km bandında piyasada tipik olarak 550-650bin TL; 500bin TL bu ilanı piyasaya göre belirgin şekilde (50-100bin TL) ucuz kılıyor.",
+          "engine": "1.4 Fire (8v atmosferik benzin, 95hp) motor. Multiair değil, basit ve düşük arıza riskli bir motor ailesi. Motor değişmemiş.",
+          "chronicProblems": "Fiat Egea'da bilinen: bazı modellerde infotainment/multimedya donması, elektrik kontak şikayetleri, dizel versiyonlarda DPF sorunları (bu araç benzinli olduğu için DPF riski yok).",
+          "paint": "Belirtilmemiş (platform varsayılanı, şüpheli sayılmaz). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır. Tramer bilgisi ilan sayfasında paylaşılmamış.",
+          "description": "'Temiz aile aracı' vurgusu var; ilan metninde çelişkili bilgi yok, takas seçeneği açık, ilan yeni (04 Temmuz).",
+          "expertise": null,
+          "photos": "12 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Ağustos 2024.",
+          "sellability": "●●●●● Egea, Türkiye'nin en çok satan modellerinden — ikinci el talebi ve parça bulunurluğu çok yüksek · beyaz renk kolay satılır · piyasa yoğunluğu yüksek ama bu fiyat seviyesinde rekabet az.",
+          "redFlags": [],
+          "questions": [
+            "Boya/değişen tablosu neden paylaşılmamış, aracı yerinde görmek mümkün mü?",
+            "Bakım kayıtları yetkili serviste mi tutulmuş?",
+            "Fiyat neden piyasa ortalamasının belirgin altında, acil satış durumu mu var?",
+            "Takas teklif edilen araçlar için ek ücret bekleniyor mu?"
+          ],
+          "negotiation": "475.000 TL'ye teklif et, 490.000 TL'ye kadar çıkılabilir, 500.000 TL zaten piyasa altı, üzerine çıkmaya gerek yok.",
+          "verdictReason": "Piyasa ortalamasının belirgin altında fiyat, düşük km, genç yaş ve güvenilir/basit motor kombinasyonu güçlü bir AL kararı oluşturuyor; sadece boya/hasar detayının teyit edilmesi gerekiyor.",
+          "comment": "Fiyat/performans açısından öne çıkan bir ilan; aile kullanımı için ideal, ama düşük fiyat nedeniyle yerinde inceleme ve ekspertiz şart."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-renault-yc-motors-dan-renault-symbol-1.2-joy-dusuk-km-benzinli-1327611976/detay": {
+      "id": "1327611976",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-yc-motors-dan-renault-symbol-1.2-joy-dusuk-km-benzinli-1327611976/detay",
+      "source": "sahibinden",
+      "title": "YC Motors'dan Renault Symbol 1.2 Joy Düşük KM/Benzinli",
+      "year": 2015,
+      "km": 90000,
+      "price": 599750,
+      "color": "Beyaz",
+      "fuel": "Benzinli",
+      "seller": "YC Motors (Galeri)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        599750
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "AL",
+        "score": 83,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2015 model Symbol'ler ortalama 100-150bin km bandında piyasada bulunur; bu araç 90bin km ile belirgin düşük km'de olup 599.750 TL fiyatı bu km seviyesi için makul/uygun.",
+          "engine": "1.2 16V (K7M/D4F ailesi) atmosferik benzin motor, basit ve düşük arızalı. Motor değişmemiş.",
+          "chronicProblems": "Renault Symbol'de bilinen: ön cam suyu fıskiyesi/elektrik küçük arızalar, bazı örneklerde debriyaj erken aşınması — ağır motor sorunu bildirilmemiş.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Galeri satışı, garanti seçeneği 'Evet' işaretli, takas mümkün — bu düşük km için ciddi bir avantaj.",
+          "expertise": null,
+          "photos": "31 fotoğraf, ilan klibi ve sanal tur mevcut — galeri satışı için tipik kapsamlı sunum.",
+          "sellerType": "Galeri — YC Motors (Skywell yetkili bayii, 4 yıllık, belge no 260031).",
+          "sellability": "●●●●● Symbol talebi yüksek, düşük km örnekleri az bulunur · beyaz renk kolay satılır · galeri garantisi ek güven sağlıyor.",
+          "redFlags": [],
+          "questions": [
+            "Galeri garantisi kapsamı ve süresi nedir?",
+            "90bin km gerçekten orijinal mi, servis kayıtları var mı?",
+            "Takas değerlemesi nasıl yapılıyor?"
+          ],
+          "negotiation": "580.000 TL'ye teklif et, 595.000 TL'ye kadar çıkılabilir, 599.750 TL üzerine değmez.",
+          "verdictReason": "Düşük km, galeri garantisi ve makul fiyat kombinasyonu güçlü bir AL kararı destekliyor.",
+          "comment": "Düşük km ve galeri güvencesi arayan, ilk araç alıcıları için uygun; ekonomik ve bakımı ucuz bir seçenek."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-toyota-mb-motors-dan-dusuk-km-yaris-1327436635/detay": {
+      "id": "1327436635",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-toyota-mb-motors-dan-dusuk-km-yaris-1327436635/detay",
+      "source": "sahibinden",
+      "title": "MB Motors'dan Düşük KM Yaris",
+      "year": 2012,
+      "km": 117000,
+      "price": 565000,
+      "color": "Beyaz",
+      "fuel": "Benzinli",
+      "seller": "MB Motors (Galeri)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        565000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "AL",
+        "score": 80,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2012 model Yaris'ler Toyota marka primi nedeniyle piyasada yaşıtlarına göre daha yüksek fiyatlanır; 565bin TL bu segment için makul, aşırı pahalı değil.",
+          "engine": "1.0 (1KR-FE) atmosferik benzin motor — Toyota'nın en güvenilir motorlarından biri, düşük arıza geçmişine sahip. Motor değişmemiş.",
+          "chronicProblems": "Toyota Yaris'te ciddi kronik sorun neredeyse bildirilmiyor; küçük plastik aksam gıcırtıları ve bazı örneklerde klima kompresörü aşınması dışında dikkat çeken bir sorun yok.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Galeri satışı, düşük km vurgusu başlıkta yapılmış, takas mümkün.",
+          "expertise": null,
+          "photos": "Sadece 5 fotoğraf mevcut — diğer ilanlara göre daha az; yerinde görülmesi önerilir.",
+          "sellerType": "Galeri — MB Motors Eskişehir (3 yıllık, belge no 2600331, Mehmet Berber).",
+          "sellability": "●●●●● Toyota Yaris talebi çok yüksek, ikinci el değeri güçlü tutuluyor · beyaz renk kolay satılır · parça bulunurluğu çok iyi (pahalı ama bulunur).",
+          "redFlags": [],
+          "questions": [
+            "Fotoğraf sayısı az, ek fotoğraf/video paylaşılabilir mi?",
+            "117bin km gerçek mi, servis kayıtları mevcut mu?",
+            "Triger kayışı/su pompası bakımı yapıldı mı?"
+          ],
+          "negotiation": "545.000 TL'ye teklif et, 558.000 TL'ye kadar çıkılabilir, 565.000 TL üzerine değmez.",
+          "verdictReason": "Toyota güvenilirliği, düşük km ve makul fiyat AL kararını destekliyor; tek eksi ilandaki fotoğraf sayısının azlığı.",
+          "comment": "Uzun vadeli, bakımı düşük araç arayanlar için ideal; Toyota'nın güçlü ikinci el değeri ileride satışta da avantaj sağlar."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-ford-sahibinden-ford-fiesta-1327457814/detay": {
+      "id": "1327457814",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-ford-sahibinden-ford-fiesta-1327457814/detay",
+      "source": "sahibinden",
+      "title": "Sahibinden Ford Fiesta",
+      "year": 2011,
+      "km": 158000,
+      "price": 505000,
+      "color": "Kırmızı",
+      "fuel": "Benzin & LPG",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        505000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 73,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2011 model Fiesta'lar bu km bandında piyasada 480-560bin TL arasında; 505bin TL makul/uygun bir fiyat.",
+          "engine": "1.25 Duratec atmosferik benzin (82hp), LPG dönüşümlü. Motor değişmemiş. LPG dönüşümünün kalitesi ve supap/enjektör aşınması yerinde kontrol edilmeli.",
+          "chronicProblems": "Ford Fiesta'da bilinen: ön alt salıncak burçları, bazı örneklerde elektrik kontak/şalter arızaları; LPG'li araçlarda uzun vadede supap oturma yüzeyi aşınması riski.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Başlık ve açıklama minimal ('Sahibinden Ford Fiesta') — detaylı bilgi paylaşılmamış, bu biraz dikkat gerektirir.",
+          "expertise": null,
+          "photos": "11 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Nisan 2024.",
+          "sellability": "●●●●○ Fiesta talebi orta-yüksek · parça bulunurluğu iyi · kırmızı renk satılabilirlik açısından orta zorlukta (beyaz/gri kadar kolay değil).",
+          "redFlags": [],
+          "questions": [
+            "LPG sistemi ruhsatlı mı, ne zaman takıldı?",
+            "Neden takas kabul edilmiyor?",
+            "Boya/değişen durumu nedir, fotoğraflarda net görülmüyor?",
+            "158bin km ile ilgili servis kaydı var mı?"
+          ],
+          "negotiation": "485.000 TL'ye teklif et, 498.000 TL'ye kadar çıkılabilir, 505.000 TL üzerine değmez.",
+          "verdictReason": "Fiyat makul ve marka güvenilir ama ilan açıklamasının çok kısa olması ve kırmızı rengin satılabilirliği sınırlaması nedeniyle BAKILABİLİR.",
+          "comment": "Bütçe dostu bir seçenek arayanlar için uygun olabilir; ilan detayının azlığı nedeniyle yerinde inceleme şart."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-hyundai-zirve-otomotiv-den-2014-hyundai-i20-1.2-d-cvvt-degisensiz-c.jant-1327489251/detay": {
+      "id": "1327489251",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-hyundai-zirve-otomotiv-den-2014-hyundai-i20-1.2-d-cvvt-degisensiz-c.jant-1327489251/detay",
+      "source": "sahibinden",
+      "title": "Zirve Otomotiv'den 2014 Hyundai İ20 1.2 D-CVVT Değişensiz Ç.Jant",
+      "year": 2014,
+      "km": 158000,
+      "price": 624750,
+      "color": "Siyah",
+      "fuel": "Benzinli",
+      "seller": "Zirve Otomotiv (Galeri)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        624750
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 68,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2014 model i20'ler bu km bandında piyasada 550-620bin TL arasında; 624.750 TL piyasanın hafif üzerinde.",
+          "engine": "1.2 D-CVVT atmosferik benzin (85hp). Motor değişmemiş. Bu motor ailesinde yüksek km'de zincir gerdirici sesi bildirilen vakalar var; somut arıza belirtisi yok, genel motor notu olarak düşülüyor.",
+          "chronicProblems": "Hyundai i20'de bilinen: D-CVVT motorlarda zincir gerdirici sesi, bazı örneklerde elektrik camı/merkezi kilit arızaları.",
+          "paint": "Başlıkta 'değişensiz' iddiası var ama sayfa içinde detaylı boya/değişen tablosu görülmedi — teyit edilmeli.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Başlıkta 'değişensiz-çelik jant' vurgusu var, galeri satışı, takas mümkün.",
+          "expertise": null,
+          "photos": "34 fotoğraf, ilan klibi ve sanal tur mevcut — kapsamlı galeri sunumu.",
+          "sellerType": "Galeri — Zirve Otomotiv (2 yıllık, belge no mevcut).",
+          "sellability": "●●●●○ i20 talebi yüksek · parça bulunurluğu iyi · siyah renk kolay satılır.",
+          "redFlags": [],
+          "questions": [
+            "'Değişensiz' iddiası ekspertiz raporuyla doğrulanabilir mi?",
+            "Zincir gerdirici sesi var mı, kontrol edildi mi?",
+            "Galeri garantisi sunuluyor mu?"
+          ],
+          "negotiation": "600.000 TL'ye teklif et, 615.000 TL'ye kadar çıkılabilir, 624.750 TL üzerine değmez.",
+          "verdictReason": "Fiyat piyasanın hafif üzerinde ve 'değişensiz' iddiası teyit edilmemiş; bu yüzden BAKILABİLİR.",
+          "comment": "Kapsamlı galeri sunumu güven verici; fiyat pazarlıkla düşürülebilirse iyi bir seçenek olabilir."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-bakimlari-yapilmis-masrafsiz-arac-1327472936/detay": {
+      "id": "1327472936",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-bakimlari-yapilmis-masrafsiz-arac-1327472936/detay",
+      "source": "sahibinden",
+      "title": "Bakımları Yapılmış, Masrafsız Araç - Fiat Linea 1.4 Fire Pop",
+      "year": 2017,
+      "km": 179000,
+      "price": 610000,
+      "color": "Beyaz",
+      "fuel": "Benzin & LPG",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        610000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 65,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "Linea üretimi 2018'de sonlandırıldığı için ikinci el talebi Egea'ya kaydı; 2017 model bu km'de piyasada 520-600bin TL bandında beklenir, 610bin TL hafif pahalı.",
+          "engine": "1.4 Fire (8v atmosferik benzin, 77hp), LPG dönüşümlü. Motor değişmemiş, basit ve düşük arızalı bir motor ailesi.",
+          "chronicProblems": "Fiat Linea'da bilinen: elektrik kontak şikayetleri, bazı örneklerde ön cam suyu fıskiyesi arızası; ciddi motor/şanzıman sorunu yaygın değil.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "'Bakımları yapılmış, masrafsız araç' vurgusu var; detaylı açıklama sınırlı.",
+          "expertise": null,
+          "photos": "15 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Eylül 2009 (uzun süreli üye).",
+          "sellability": "●●●○○ Linea üretimi durduğu için talep Egea'ya kaymış durumda, orta seviye · beyaz renk kolay satılır · parça bulunurluğu Egea ile paylaşımlı olduğu için iyi.",
+          "redFlags": [],
+          "questions": [
+            "LPG sistemi ruhsatlı mı, bakım kayıtları var mı?",
+            "'Masrafsız' ifadesi hangi bakım kalemlerini kapsıyor?",
+            "Takas neden kabul edilmiyor?"
+          ],
+          "negotiation": "580.000 TL'ye teklif et, 598.000 TL'ye kadar çıkılabilir, 610.000 TL üzerine değmez.",
+          "verdictReason": "Üretimi durmuş bir model olması ve fiyatın piyasanın hafif üzerinde olması nedeniyle BAKILABİLİR.",
+          "comment": "Uzun süreli güvenilir satıcıdan alınan, bakımlı bir araç; fiyat pazarlıkla düşürülebilirse değerlendirilebilir."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-peugeot-2015-temiz-masrafsiz-1326791552/detay": {
+      "id": "1326791552",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-peugeot-2015-temiz-masrafsiz-1326791552/detay",
+      "source": "sahibinden",
+      "title": "2015 Temiz Masrafsız - Peugeot 301 1.6 HDi Active",
+      "year": 2015,
+      "km": 193000,
+      "price": 650000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        650000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 59,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2015 model 301 HDi bu km bandında (193bin km oldukça yüksek) piyasada 550-620bin TL beklenir; 650bin TL fiyat üst sınırda ve km'ye göre pahalı.",
+          "engine": "1.6 HDi (DV6, 92hp) turbo dizel. Motor değişmemiş. Bu motor ailesinde yüksek km'de enjektör, turbo ve DPF tıkanması riskleri bilinir; 193bin km bu risklerin gerçekleşme olasılığını artırıyor.",
+          "chronicProblems": "Peugeot/Citroën HDi motorlarda yaygın: DPF tıkanması (özellikle şehir içi kullanımda), enjektör arızaları, turbo aşınması, EGR valfi kirlenmesi.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "'2015 temiz masrafsız' başlığı var ama 193bin km için bu iddia dikkatle değerlendirilmeli; detaylı açıklama sınırlı.",
+          "expertise": null,
+          "photos": "11 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Eylül 2024.",
+          "sellability": "●●●○○ 301 talebi orta · beyaz renk kolay satılır · dizel motor parçaları nispeten pahalı ama bulunur · piyasa yoğunluğu orta.",
+          "redFlags": [],
+          "questions": [
+            "DPF ile ilgili uyarı lambası yandı mı, temizlik yapıldı mı?",
+            "193bin km'de triger kayışı/su pompası değişti mi?",
+            "Turbo ile ilgili herhangi bir ses/performans şikayeti var mı?"
+          ],
+          "negotiation": "600.000 TL'ye teklif et, 625.000 TL'ye kadar çıkılabilir, 650.000 TL üzerine değmez — km yüksekliği nedeniyle daha fazlasına değmez.",
+          "verdictReason": "Yüksek km (193bin) ve dizel motorun bu km'de artan bakım riski, fiyatın üst sınırda olmasıyla birleşince PAS GEÇ kararını destekliyor.",
+          "comment": "Yüksek km'li dizel motor riskleri nedeniyle dikkatli olunmalı; ekspertiz olmadan alınmaması önerilir, fiyat pazarlıkla önemli ölçüde düşürülemezse geçilebilir."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-volkswagen-sahibinden-temiz-polo-boyasiz-degisensiz-1257310216/detay": {
+      "id": "1257310216",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-volkswagen-sahibinden-temiz-polo-boyasiz-degisensiz-1257310216/detay",
+      "source": "sahibinden",
+      "title": "Sahibinden Temiz Polo (Boyasız-Değişensiz)",
+      "year": 2014,
+      "km": 183000,
+      "price": 650000,
+      "color": "Beyaz",
+      "fuel": "Dizel",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Tepebaşı",
+      "statusBadge": "new",
+      "priceHistory": [
+        650000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 67,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2014 model Polo dizel bu km'de piyasada 600-680bin TL bandında; VW marka değeri yüksek tutulduğu için 650bin TL fiyat üst sınırda ama makul kabul edilebilir.",
+          "engine": "1.2 TDI (3 silindirli, 75hp) turbo dizel. Motor değişmemiş. 3 silindirli küçük dizel motorlarda enjektör pompası ve turbo bakımı önemli; yüksek km (183bin) bu riskleri artırıyor.",
+          "chronicProblems": "VW Polo 1.2 TDI'de bilinen: enjektör pompası arızaları, turbo aşınması, bazı örneklerde şanzıman senkronizasyon sorunları, timing kayışı/zincir bakım takibi önemli.",
+          "paint": "Başlıkta 'boyasız-değişensiz' iddiası var ama detaylı tablo görülmedi — teyit edilmeli.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Başlık dışında detaylı açıklama sınırlı; 'temiz' vurgusu tekrarlanıyor.",
+          "expertise": null,
+          "photos": "9 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Ocak 2025.",
+          "sellability": "●●●●○ VW marka değeri yüksek, Polo talebi güçlü · beyaz renk kolay satılır · parça bulunurluğu iyi ama VW parçaları nispeten pahalı.",
+          "redFlags": [],
+          "questions": [
+            "'Boyasız-değişensiz' iddiası ekspertiz raporuyla doğrulanabilir mi?",
+            "183bin km'de enjektör pompası/turbo bakımı yapıldı mı?",
+            "Timing kayışı/zincir son ne zaman değiştirildi?"
+          ],
+          "negotiation": "615.000 TL'ye teklif et, 635.000 TL'ye kadar çıkılabilir, 650.000 TL üzerine değmez.",
+          "verdictReason": "VW marka güveni ve iddia edilen temiz kayıt olumlu ama yüksek km ve teyit edilmemiş boya/değişen iddiası nedeniyle BAKILABİLİR.",
+          "comment": "VW kalitesini uygun fiyata arayanlar için ilgi çekici olabilir; yüksek km nedeniyle mutlaka ekspertiz yaptırılmalı."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-sahibinden-hesapli-degisensiz-sw-1327200339/detay": {
+      "id": "1327200339",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-sahibinden-hesapli-degisensiz-sw-1327200339/detay",
+      "source": "sahibinden",
+      "title": "Sahibinden Hesaplı Değişensiz SW - Opel Astra 1.6 Sport",
+      "year": 2011,
+      "km": 172000,
+      "price": 614000,
+      "color": "Siyah",
+      "fuel": "Benzin & LPG",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Sivrihisar",
+      "statusBadge": "new",
+      "priceHistory": [
+        614000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 63,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2011 model Astra Station Wagon (SW) gövdesi az bulunur bir varyant; bu km'de piyasada 550-600bin TL beklenir, 614bin TL hafif pahalı.",
+          "engine": "1.6 (Family1, 115hp) benzin/LPG. Motor değişmemiş. Bazı 1.6 Family1 motorlarda yüksek km'de zincir gerdirici sesi bildiriliyor; somut arıza belirtisi yok.",
+          "chronicProblems": "Opel Astra H'de bilinen: ön amortisör/salıncak burçları, elektrik kontak aksaklıkları, LPG'li versiyonlarda enjektör/supap aşınması.",
+          "paint": "Başlıkta 'değişensiz' iddiası var ama detaylı tablo görülmedi.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "'Hesaplı, değişensiz SW' vurgusu var; Sivrihisar'da kayıtlı (Eskişehir merkez dışı ama il sınırları içinde, filtre kriterine uyuyor).",
+          "expertise": null,
+          "photos": "12 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Haziran 2009 (uzun süreli üye).",
+          "sellability": "●●●○○ SW (station wagon) gövde tipi Türkiye'de sedan/hatchback'e göre daha az talep görüyor · siyah renk kolay satılır · parça bulunurluğu iyi.",
+          "redFlags": [],
+          "questions": [
+            "'Değişensiz' iddiası teyit edilebilir mi?",
+            "LPG sistemi ruhsatlı mı?",
+            "SW gövdesinin bagaj/kargo kapasitesi ihtiyaca uygun mu?"
+          ],
+          "negotiation": "590.000 TL'ye teklif et, 605.000 TL'ye kadar çıkılabilir, 614.000 TL üzerine değmez.",
+          "verdictReason": "SW gövdesinin düşük talebi ve fiyatın piyasanın hafif üzerinde olması nedeniyle BAKILABİLİR.",
+          "comment": "Geniş bagaj hacmi arayan aileler için ilgi çekici olabilir; SW gövdesi nedeniyle ileride satış süresi daha uzun olabilir."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-opel-netcar-dan-2014-model-opel-corsa-1.3-cdti-active-1327659103/detay": {
+      "id": "1327659103",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-opel-netcar-dan-2014-model-opel-corsa-1.3-cdti-active-1327659103/detay",
+      "source": "sahibinden",
+      "title": "Netcar'dan 2014 Model Opel Corsa 1.3 CDTİ Active",
+      "year": 2014,
+      "km": 150000,
+      "price": 635000,
+      "color": "Mavi",
+      "fuel": "Dizel",
+      "seller": "Netcar (Galeri)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        635000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 66,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2014 model Corsa dizel bu km'de piyasada 550-620bin TL bandında; 635bin TL hafif pahalı.",
+          "engine": "1.3 CDTI (Multijet ortak platform, 95hp) turbo dizel. Motor değişmemiş. Bu motor ailesinde yüksek km'de enjektör/turbo bakımı önemli; genel motor notu olarak düşülüyor.",
+          "chronicProblems": "Opel Corsa D/E dizel versiyonlarında bilinen: enjektör arızaları, DPF tıkanması, turbo aşınması (Fiat Multijet ile paylaşımlı motor).",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Galeri satışı, takas mümkün, detaylı açıklama sınırlı.",
+          "expertise": null,
+          "photos": "13 fotoğraf, ilan klibi ve sanal tur mevcut.",
+          "sellerType": "Galeri — Netcar (7 yıllık, belge no 2600254, Tekin).",
+          "sellability": "●●●●○ Corsa talebi yüksek · parça bulunurluğu iyi · mavi renk orta zorlukta satılır.",
+          "redFlags": [],
+          "questions": [
+            "DPF/turbo ile ilgili bakım kaydı var mı?",
+            "Galeri garantisi sunuluyor mu?",
+            "150bin km'de triger seti değişti mi?"
+          ],
+          "negotiation": "605.000 TL'ye teklif et, 622.000 TL'ye kadar çıkılabilir, 635.000 TL üzerine değmez.",
+          "verdictReason": "Deneyimli galeriden alım güven verse de fiyat piyasanın hafif üzerinde; bu yüzden BAKILABİLİR.",
+          "comment": "Galeri güvencesiyle almak isteyenler için makul bir seçenek; fiyat pazarlıkla düşürülebilirse değerlendirilebilir."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-chevrolet-degisensiz-boyasiz-ilk-sahip-otomatik-1327184526/detay": {
+      "id": "1327184526",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-chevrolet-degisensiz-boyasiz-ilk-sahip-otomatik-1327184526/detay",
+      "source": "sahibinden",
+      "title": "Değişensiz-Boyasız-İlk Sahip-Otomatik - Chevrolet Cruze 1.6 LT",
+      "year": 2011,
+      "km": 190000,
+      "price": 605000,
+      "color": "Gri",
+      "fuel": "Benzin & LPG",
+      "seller": "Keskiner Otomotiv (Galeri)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        605000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "PAS GEÇ",
+        "score": 59,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2011 model Cruze otomatik bu km'de (190bin km yüksek) piyasada 550-620bin TL bandında; 605bin TL makul ama yüksek km ile birlikte değerlendirilmeli.",
+          "engine": "1.6 (F16D3, 124hp) benzin/LPG, otomatik şanzıman. Motor değişmemiş. Otomatik şanzımanlı LPG'li araçlarda şanzıman yağı bakım periyoduna dikkat edilmeli; 190bin km yüksek kilometre riski taşıyor.",
+          "chronicProblems": "Chevrolet Cruze'da bilinen: otomatik şanzıman bakım ihmali durumunda erken aşınma, LPG dönüşümünde supap/enjektör aşınması; ayrıca marka Türkiye'den 2020'de çekildiği için parça tedariki zorlaşıyor.",
+          "paint": "Başlıkta 'değişensiz-boyasız' iddiası var ama detaylı tablo görülmedi.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "Galeri satışı, 'ilk sahip' vurgusu var, takas mümkün.",
+          "expertise": null,
+          "photos": "29 fotoğraf, ilan klibi ve sanal tur mevcut.",
+          "sellerType": "Galeri — Keskiner Otomotiv (4 yıllık, belge no 2600283).",
+          "sellability": "●●○○○ Chevrolet Türkiye'den çekildiği için ikinci el talebi ve parça bulunurluğu zayıf · gri renk kolay satılır ama marka desteği yok.",
+          "redFlags": [],
+          "questions": [
+            "Otomatik şanzıman bakım kayıtları var mı?",
+            "'İlk sahip' iddiası ruhsatla teyit edilebilir mi?",
+            "Chevrolet yetkili servis kapandıktan sonra bakım nereden yapılıyor?"
+          ],
+          "negotiation": "575.000 TL'ye teklif et, 592.000 TL'ye kadar çıkılabilir, 605.000 TL üzerine değmez.",
+          "verdictReason": "Yüksek km (190bin), otomatik şanzıman bakım riski ve markanın Türkiye'den çekilmiş olması nedeniyle parça/servis riski yüksek; PAS GEÇ.",
+          "comment": "Otomatik şanzımanlı ve ilk sahipten geldiği iddia edilen bir araç olsa da, marka desteğinin zayıflığı ve yüksek km nedeniyle temkinli yaklaşılmalı."
+        }
+      }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-ekstrali-linea-1327609653/detay": {
+      "id": "1327609653",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-ekstrali-linea-1327609653/detay",
+      "source": "sahibinden",
+      "title": "Ekstralı Linea - Fiat Linea 1.3 Multijet Active Plus",
+      "year": 2012,
+      "km": 187000,
+      "price": 599000,
+      "color": "Gri",
+      "fuel": "Dizel",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Eskişehir / Odunpazarı",
+      "statusBadge": "new",
+      "priceHistory": [
+        599000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 64,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2012 model Linea dizel bu km'de (187bin km) piyasada 520-600bin TL bandında; 599.000 TL üst sınırda ama makul.",
+          "engine": "1.3 Multijet (95hp) turbo dizel. Motor değişmemiş. Bu motor ailesinde yüksek km'de enjektör ve turbo bakımı önemli; 187bin km bu riskleri artırıyor.",
+          "chronicProblems": "Fiat Linea/Multijet dizel motorlarda bilinen: enjektör arızaları, turbo aşınması, DPF tıkanması (varsa), elektrik kontak şikayetleri.",
+          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
+          "accident": "Ağır hasar kaydı: Hayır.",
+          "description": "'Ekstralı linea' başlığı var, detaylı açıklama sınırlı, takas kabul edilmiyor.",
+          "expertise": null,
+          "photos": "6 fotoğraf mevcut — sınırlı sayıda.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Haziran 2019.",
+          "sellability": "●●●○○ Linea üretimi durduğu için talep sınırlı-orta, Egea ile parça paylaşımı avantaj sağlıyor · gri renk orta zorlukta satılır.",
+          "redFlags": [],
+          "questions": [
+            "'Ekstralı' ifadesi hangi donanımları kapsıyor?",
+            "187bin km'de enjektör/turbo bakımı yapıldı mı?",
+            "Fotoğraf sayısı az, ek görsel paylaşılabilir mi?"
+          ],
+          "negotiation": "570.000 TL'ye teklif et, 588.000 TL'ye kadar çıkılabilir, 599.000 TL üzerine değmez.",
+          "verdictReason": "Yüksek km ve sınırlı ilan detayı nedeniyle BAKILABİLİR; fiyat kendi başına aşırı değil.",
+          "comment": "Bütçe dostu bir dizel seçenek arayanlar için değerlendirilebilir; yüksek km nedeniyle enjektör/turbo kontrolü öncelikli olmalı."
         }
       }
     }
