@@ -7383,7 +7383,7 @@
       "seller": "Belirtilmemiş",
       "city": "Eskişehir",
       "statusBadge": "new",
-      "status": "removed",
+      "status": "active",
       "priceHistory": [
         725000
       ],
@@ -9968,31 +9968,33 @@
         680000
       ],
       "firstSeen": "2026-07-03",
-      "lastSeen": "2026-07-11",
+      "lastSeen": "2026-07-03",
       "analysis": {
         "verdict": "AL",
-        "score": 75,
-        "analyzedAt": "2026-07-11",
+        "score": 84,
+        "analyzedAt": "2026-07-03",
+        "auto": true,
         "sections": {
-          "marketPrice": "2018 model C-Elysée'ler bu km bandında (85.000 km, düşük) piyasada 550-650bin TL beklenir; 680.000 TL hafif pahalı ama iddia edilen boyasız-değişensiz kayıt ve düşük km bu farkı kısmen açıklıyor.",
-          "engine": "1.2 PureTech/VTi (82hp) atmosferik benzin. Motor değişmemiş. Basit ve düşük arızalı bir motor ailesi, ciddi bilinen motor riski yok.",
-          "chronicProblems": "Citroën C-Elysée (Peugeot 301 platformu) modelinde bilinen: iç trim/plastik kalite şikayetleri, bazı örneklerde elektrik kontak arızaları; motor/şanzıman tarafında ciddi kronik sorun bildirilmiyor.",
-          "paint": "Başlıkta 'boyasız-değişensiz' iddiası var ama sayfada detaylı boya/değişen tablosu görülmedi — ekspertizle teyit edilmeli.",
-          "accident": "Ağır hasar kaydı: Hayır. Tramer bilgisi paylaşılmamış (platform varsayılanı, şüpheli sayılmaz).",
-          "description": "Galeri satışı, düşük km ve temiz kayıt vurgusu başlıkta yapılmış, takas mümkün.",
+          "marketPrice": "Emsal: 3 adet aynı model (±2 yıl/±45 bin km) — medyan 769.000 TL. Bu ilan 680.000 TL → medyanın %12 ALTINDA.",
+          "engine": "Peugeot 301 ikizi: HDi dizeller sağlam; 1.2 PureTech benzinlide kayış kuralı kritik (60 bin/6 yıl).",
+          "chronicProblems": "PureTech kayışı · Volan (dizel) · İç plastik",
+          "paint": "İlan başlığı hatasız/boyasız/değişensiz türü iddia taşıyor — TEYİTSİZ; ekspertiz şart.",
+          "accident": "Tramer bilgisi liste verisinde yok — sorgulanmalı.",
+          "description": "Citroen C-Elysée 1.2 Live - GTY Auto, boyasız-değişensiz iddialı",
+          "photos": "🤖 Otomatik ön analiz — fotoğraf ve ilan detay sayfası henüz incelenmedi; sıradaki günlük çalıştırmalarda öncelik sırasına göre derin analizle güncellenecek.",
           "expertise": null,
-          "photos": "40 fotoğraf, ilan klibi ve sanal tur mevcut — kapsamlı galeri sunumu.",
-          "sellerType": "Galeri — GTY Auto (7 yıllık, belge no mevcut).",
-          "sellability": "●●●●○ C-Elysée bütçe segmentte talep görüyor · beyaz renk kolay satılır · parça bulunurluğu Peugeot 301 ile paylaşımlı olduğu için iyi.",
+          "sellerType": "Galeri",
+          "sellability": "Talep ●●●●○ · parça ●●●●○ · renk: belirtilmemiş · pazarda 9 aynı model ilan.",
           "redFlags": [],
           "questions": [
-            "'Boyasız-değişensiz' iddiası ekspertiz raporuyla teyit edilebilir mi?",
-            "85.000 km gerçek mi, servis kayıtları var mı?",
-            "Galeri garantisi sunuluyor mu?"
+            "PureTech ise kayış değişti mi?",
+            "Tramer kaydı ve boya/değişen durumu nedir?",
+            "Periyodik bakım kayıtları mevcut mu?",
+            "Km belgelenebilir mi (muayene/servis geçmişi)?"
           ],
-          "negotiation": "645.000 TL'ye teklif et, 665.000 TL'ye kadar çıkılabilir, 680.000 TL üzerine değmez.",
-          "verdictReason": "Düşük km, temiz iddia edilen kayıt ve galeriden satış AL kararını destekliyor; fiyat piyasanın hafif üzerinde olduğu için tam puan değil.",
-          "comment": "Düşük km'li, bütçe dostu bir sedan arayanlar için iyi bir seçenek; boya/değişen iddiasının ekspertizle doğrulanması önerilir."
+          "negotiation": "639.200 TL teklif et, 669.800 TL’ye kadar çık; üzeri bu ön analizle savunulamaz.",
+          "verdictReason": "🤖 Ön analiz skoru 84/100: fiyat-emsal konumu (25/25), km+yaş (16/20), model güvenilirliği (13/15) temelinde. Derin analizde güncellenebilir.",
+          "comment": "Ön analize göre öne çıkan aday — derin analiz ve ekspertizle teyit edilmeden alım kararı verilmemeli."
         }
       }
     },
@@ -10344,7 +10346,7 @@
       "seller": "Galeri",
       "city": "Eskişehir",
       "statusBadge": "new",
-      "status": "removed",
+      "status": "active",
       "priceHistory": [
         705000
       ],
@@ -11486,43 +11488,44 @@
       "title": "Fiat Linea 1.4 Fire Pop - 118.000 km",
       "year": 2017,
       "km": 118000,
-      "price": 585000,
+      "price": 595000,
       "color": "",
       "fuel": "",
       "seller": "Belirtilmemiş",
       "city": "Eskişehir",
-      "statusBadge": "updated",
+      "statusBadge": "new",
       "status": "active",
       "priceHistory": [
-        595000,
-        585000
+        595000
       ],
       "firstSeen": "2026-07-03",
-      "lastSeen": "2026-07-11",
+      "lastSeen": "2026-07-07",
       "analysis": {
-        "verdict": "BAKILABİLİR",
-        "score": 73,
-        "analyzedAt": "2026-07-11",
+        "verdict": "AL",
+        "score": 82,
+        "analyzedAt": "2026-07-03",
+        "auto": true,
         "sections": {
-          "marketPrice": "Linea üretimi durduğu için ikinci el talebi Egea'ya kaymış durumda; 2017 model bu km'de (118.000 km) piyasada 520-600bin TL bandında beklenir. Fiyat 595.000 TL'den 585.000 TL'ye düşürülmüş — piyasa ortalamasına yakın, makul.",
-          "engine": "1.4 Fire (77hp) atmosferik benzin. Motor değişmemiş, basit ve düşük arızalı.",
-          "chronicProblems": "Fiat Linea'da bilinen: elektrik kontak şikayetleri, bazı örneklerde ön cam suyu fıskiyesi arızası.",
-          "paint": "Belirtilmemiş (detay tablo görülmedi). Ağır hasar kaydı: Hayır.",
-          "accident": "Ağır hasar kaydı: Hayır.",
-          "description": "Galeri satışı, takas mümkün, fiyat son güncellemede düşürülmüş (fiyat geçmişine eklendi).",
+          "marketPrice": "Emsal: 8 adet aynı model (±2 yıl/±45 bin km) — medyan 675.000 TL. Bu ilan 595.000 TL → medyanın %12 ALTINDA.",
+          "engine": "1.3 Multijet sağlam ve ekonomik; volan-debriyaj ve DPF dizellerde ana masraf kalemleri. 1.4 Fire benzinli sade ve dertsiz.",
+          "chronicProblems": "Volan-debriyaj (dizel) · Ön takım sesleri · Kapı fitilleri/rüzgar sesi",
+          "paint": "Liste verisinde boya/değişen bilgisi yok (platform varsayılanı — şüpheli sayılmaz). Ekspertizle netleşir.",
+          "accident": "Tramer bilgisi liste verisinde yok — sorgulanmalı.",
+          "description": "Fiat Linea 1.4 Fire Pop - 118.000 km",
+          "photos": "🤖 Otomatik ön analiz — fotoğraf ve ilan detay sayfası henüz incelenmedi; sıradaki günlük çalıştırmalarda öncelik sırasına göre derin analizle güncellenecek.",
           "expertise": null,
-          "photos": "21 fotoğraf, ilan klibi ve sanal tur mevcut.",
-          "sellerType": "Galeri — Ali Keskin Otomotiv (7 yıllık, belge no 2600153).",
-          "sellability": "●●●○○ Linea üretimi durduğu için talep orta, Egea ile parça paylaşımı avantaj sağlıyor · beyaz renk kolay satılır.",
+          "sellerType": "Belirtilmemiş",
+          "sellability": "Talep ●●●●○ · parça ●●●●● · renk: belirtilmemiş · pazarda 29 aynı model ilan.",
           "redFlags": [],
           "questions": [
-            "Fiyat neden düşürüldü, acil satış durumu var mı?",
-            "118.000 km'de triger/bakım kayıtları var mı?",
-            "Galeri garantisi sunuluyor mu?"
+            "Volan-debriyaj yapıldı mı?",
+            "Tramer kaydı ve boya/değişen durumu nedir?",
+            "Periyodik bakım kayıtları mevcut mu?",
+            "Km belgelenebilir mi (muayene/servis geçmişi)?"
           ],
-          "negotiation": "560.000 TL'ye teklif et, 578.000 TL'ye kadar çıkılabilir, 585.000 TL üzerine değmez.",
-          "verdictReason": "Fiyat düşüşüyle piyasa ortalamasına yaklaşmış olması olumlu ama üretimi durmuş bir model olması nedeniyle BAKILABİLİR.",
-          "comment": "Fiyatı yeni düşürülmüş bakımlı bir Linea arayanlar için değerlendirilebilir; pazarlık payı olabilir."
+          "negotiation": "559.300 TL teklif et, 586.075 TL’ye kadar çık; üzeri bu ön analizle savunulamaz.",
+          "verdictReason": "🤖 Ön analiz skoru 82/100: fiyat-emsal konumu (25/25), km+yaş (14/20), model güvenilirliği (13/15) temelinde. Derin analizde güncellenebilir.",
+          "comment": "Ön analize göre öne çıkan aday — derin analiz ve ekspertizle teyit edilmeden alım kararı verilmemeli."
         }
       }
     },
@@ -12359,31 +12362,33 @@
         665000
       ],
       "firstSeen": "2026-07-03",
-      "lastSeen": "2026-07-11",
+      "lastSeen": "2026-07-03",
       "analysis": {
-        "verdict": "BAKILABİLİR",
-        "score": 74,
-        "analyzedAt": "2026-07-11",
+        "verdict": "AL",
+        "score": 83,
+        "analyzedAt": "2026-07-03",
+        "auto": true,
         "sections": {
-          "marketPrice": "2014 model Corsa'lar bu km bandında (80.000 km, düşük) piyasada 550-620bin TL beklenir; 665.000 TL düşük km'ye rağmen piyasanın belirgin üzerinde.",
-          "engine": "1.2 Twinport (85hp) atmosferik benzin. Motor değişmemiş, basit ve düşük arızalı bir motor ailesi.",
-          "chronicProblems": "Opel Corsa D'de bilinen: elektrikli cam motoru arızaları, bazı örneklerde termostat/soğutma sistemi sorunları.",
-          "paint": "Başlıkta 'hatasız' iddiası var ama detaylı boya/değişen tablosu görülmedi.",
-          "accident": "Ağır hasar kaydı: Hayır.",
-          "description": "Galeri satışı, düşük km vurgusu başlıkta yapılmış, takas mümkün.",
+          "marketPrice": "Emsal: 4 adet aynı model (±2 yıl/±45 bin km) — medyan 755.000 TL. Bu ilan 665.000 TL → medyanın %12 ALTINDA.",
+          "engine": "1.2-1.4 Twinport benzinliler basit ve dayanıklı; \"otomatik\" ilanların çoğu Easytronic yarı otomatik — beyin/debriyaj bakımı sorulmalı; 1.3 CDTI dizelde DPF.",
+          "chronicProblems": "Easytronic beyni (yarı otomatiklerde) · Debriyaj rulmanı · Kontak/elektrik küçük kalemler",
+          "paint": "Liste verisinde boya/değişen bilgisi yok (platform varsayılanı — şüpheli sayılmaz). Ekspertizle netleşir.",
+          "accident": "Tramer bilgisi liste verisinde yok — sorgulanmalı.",
+          "description": "Opel Corsa 1.2 Twinport Active - Ascar, 80 bin km",
+          "photos": "🤖 Otomatik ön analiz — fotoğraf ve ilan detay sayfası henüz incelenmedi; sıradaki günlük çalıştırmalarda öncelik sırasına göre derin analizle güncellenecek.",
           "expertise": null,
-          "photos": "30 fotoğraf, ilan klibi ve sanal tur mevcut.",
-          "sellerType": "Galeri — Ascar Eskişehir (2 yıllık).",
-          "sellability": "●●●●○ Corsa talebi yüksek · parça bulunurluğu iyi · beyaz renk kolay satılır.",
+          "sellerType": "Galeri",
+          "sellability": "Talep ●●●●● · parça ●●●●● · renk: belirtilmemiş · pazarda 24 aynı model ilan.",
           "redFlags": [],
           "questions": [
-            "'Hatasız' iddiası ekspertizle teyit edilebilir mi?",
-            "80.000 km neden bu yaş için bu kadar düşük, tek elden mi kullanılmış?",
-            "Galeri garantisi var mı?"
+            "Vites tam otomatik mi Easytronic mi?",
+            "Tramer kaydı ve boya/değişen durumu nedir?",
+            "Periyodik bakım kayıtları mevcut mu?",
+            "Km belgelenebilir mi (muayene/servis geçmişi)?"
           ],
-          "negotiation": "630.000 TL'ye teklif et, 650.000 TL'ye kadar çıkılabilir, 665.000 TL üzerine değmez.",
-          "verdictReason": "Düşük km olumlu ama fiyat piyasanın belirgin üzerinde; BAKILABİLİR.",
-          "comment": "Düşük km'li bir Corsa arayanlar için ilgi çekici olabilir ama fiyat pazarlıkla düşürülmeden alınması önerilmez."
+          "negotiation": "625.100 TL teklif et, 655.025 TL’ye kadar çık; üzeri bu ön analizle savunulamaz.",
+          "verdictReason": "🤖 Ön analiz skoru 83/100: fiyat-emsal konumu (25/25), km+yaş (14/20), model güvenilirliği (13/15) temelinde. Derin analizde güncellenebilir.",
+          "comment": "Ön analize göre öne çıkan aday — derin analiz ve ekspertizle teyit edilmeden alım kararı verilmemeli."
         }
       }
     },
@@ -27686,27 +27691,31 @@
       "title": "2016 RENAULT CLİO SW BENZİN LPG HATASIZ AYARINDA",
       "year": 2016,
       "km": 115000,
-      "price": 690000,
+      "price": 675000,
       "color": "Beyaz",
       "fuel": "LPG & Benzin",
       "seller": "Galeriden",
       "city": "Kocaeli",
-      "statusBadge": "new",
+      "statusBadge": "updated",
       "priceHistory": [
         {
           "price": 690000,
           "date": "2026-07-07"
+        },
+        {
+          "price": 675000,
+          "date": "2026-07-11"
         }
       ],
       "firstSeen": "2026-07-07",
-      "lastSeen": "2026-07-07",
+      "lastSeen": "2026-07-11",
       "status": "active",
       "analysis": {
         "verdict": "BAKILABİLİR",
         "score": 63,
-        "analyzedAt": "2026-07-07",
+        "analyzedAt": "2026-07-11",
         "sections": {
-          "marketPrice": "690.000 TL, Kocaeli galerisinden LPG'li 2016 Clio SW için piyasa ortalamasına yakın, hafif yüksek olabilir.",
+          "marketPrice": "Fiyat 690.000 TL'den 675.000 TL'ye düşürülmüş. Kocaeli galerisinden LPG'li 2016 Clio SW için bu fiyat artık piyasa ortalamasına daha yakın, makul sayılabilir.",
           "engine": "1.2 SportTourer 51-75 HP, LPG+Benzin. Motor 10/10, şanzıman kusursuz beyan edilmiş.",
           "chronicProblems": "Clio SportTourer: LPG dönüşüm kalitesine bağlı güç kaybı, düşük hızda tıkırtı, elektrik aksamı arızaları, arka amortisör sesleri.",
           "paint": "Motor kaputu değişmiş (1 parça); gövdede orijinal, boyalı yok.",
