@@ -30096,6 +30096,53 @@
           "comment": "Bütçe dostu bir dizel seçenek arayanlar için değerlendirilebilir; yüksek km nedeniyle enjektör/turbo kontrolü öncelikli olmalı."
         }
       }
+    },
+    "https://www.sahibinden.com/ilan/vasita-otomobil-renault-ikinci-sahibinden-temiz-clio-4-1326428020/detay": {
+      "id": "1326428020",
+      "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-ikinci-sahibinden-temiz-clio-4-1326428020/detay",
+      "source": "adem",
+      "title": "İkinci Sahibinden Temiz Clio 4",
+      "year": 2015,
+      "km": 172200,
+      "price": 649000,
+      "color": "Kırmızı",
+      "fuel": "Benzin & LPG",
+      "seller": "Sahibinden (Bireysel)",
+      "city": "Ankara / Yenimahalle",
+      "statusBadge": "new",
+      "priceHistory": [
+        649000
+      ],
+      "firstSeen": "2026-07-11",
+      "lastSeen": "2026-07-11",
+      "status": "active",
+      "analysis": {
+        "verdict": "BAKILABİLİR",
+        "score": 71,
+        "analyzedAt": "2026-07-11",
+        "sections": {
+          "marketPrice": "2015 model Clio 4 1.2 Icon'lar bu km bandında (172.200 km, oldukça yüksek) piyasada 550-630bin TL aralığında; 649.000 TL fiyatı, tamamen orijinal/tertemiz kaydı sayesinde kısmen savunulabilir olsa da km'ye göre piyasanın üst sınırında.",
+          "engine": "1.2 16V (D4F/H4B ailesi) atmosferik benzin, 75hp, LPG dönüşümlü. Motor değişmemiş. Basit ve genel olarak güvenilir bir motor ailesi; asıl risk faktörü LPG dönüşümünün kalitesi (supap oturma yüzeyi aşınması, enjektör senkronizasyonu).",
+          "chronicProblems": "Renault Clio 4'te bilinen: R-Link multimedya sistemi donmaları/yavaşlığı, ön cam suyu fıskiyesi arızaları, bazı örneklerde debriyaj erken aşınması ve elektrik camı motoru arızaları.",
+          "paint": "0/0 Tertemiz — ilan sayfasında açıkça belirtilmiş: 'Aracın tüm parçaları orijinaldir. Değişen ve boyalı parçası bulunmamaktadır.'",
+          "accident": "Ağır hasar kaydı: Hayır. Tramer tutarı sayfada paylaşılmamış (ücretli sorgu gerektiriyor) — bu durum şüpheli sayılmıyor, platform standardı.",
+          "description": "Ayrı bir serbest metin açıklama yok, yalnızca başlık ve donanım/özellik listesi mevcut. Çelişkili bilgi yok, takas kabul edilmiyor.",
+          "expertise": null,
+          "photos": "14 fotoğraf mevcut.",
+          "sellerType": "Bireysel (sahibinden), hesap açılış tarihi Haziran 2019 — 7 yıllık üyelik güven verici.",
+          "sellability": "●●●●○ Clio 4 talebi çok yüksek, parça bulunurluğu mükemmel · kırmızı renk orta zorlukta satılır · konum Ankara olduğu için Eskişehir'e nakliye/muayene devri ek maliyet getirir.",
+          "redFlags": [],
+          "questions": [
+            "LPG sistemi ruhsatlı mı, ne zaman takıldı?",
+            "172.200 km'de triger/supap bakımı ve LPG enjektör senkronizasyonu yapıldı mı?",
+            "İkinci elden alındığı belirtiliyor — ilk sahiple ilgili bilgi (kullanım şekli, hasar geçmişi) var mı?",
+            "Ankara'dan Eskişehir'e teslimat/nakliye satıcı tarafından mı organize ediliyor?"
+          ],
+          "negotiation": "615.000 TL'ye teklif et, 635.000 TL'ye kadar çıkılabilir, 649.000 TL üzerine değmez.",
+          "verdictReason": "Tamamen orijinal/tertemiz kayıt güçlü bir artı ama yüksek km ve piyasanın üst sınırındaki fiyat, ayrıca Ankara konumu nedeniyle BAKILABİLİR.",
+          "comment": "Temiz kayıtlı bir Clio arayan ve şehirlerarası nakliyeyi göze alabilecek alıcılar için değerlendirilebilir; LPG'li olması yakıt ekonomisi sağlıyor ama yüksek km nedeniyle ekspertiz önerilir."
+        }
+      }
     }
   }
 }
